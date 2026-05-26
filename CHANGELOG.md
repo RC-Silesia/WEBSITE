@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.3.2-nav-breakpoint-final-fix
+- skorygowano główny breakpoint nawigacji z 980px do 1200px,
+- usunięto ryzyko horizontal overflow w zakresie tablet/mały laptop,
+- nie zmieniono modułów biznesowych ani treści strony.
+
 ## v1.3.1-staging-hardening
 - ustawiono stagingowe robots.txt na noindex przez Disallow: /,
 - dodano meta robots noindex, nofollow dla wersji stagingowej,

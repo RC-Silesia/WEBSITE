@@ -174,6 +174,12 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - dezaktywowano oznaczone placeholderowe linki social/media także w trybie fallback bez `site.json`,
 - ograniczono atrybut `allow` iframe YouTube do niezbędnych uprawnień.
 
+## Sprint v1.3.2 - nav breakpoint final fix
+
+- skorygowano breakpoint nawigacji z 980px do 1200px,
+- usunięto martwą strefę overflow dla tabletów i małych laptopów,
+- bez zmian w modułach biznesowych.
+
 ## Sprint 1.1 - pilotaż warstwy danych JSON
 
 Dodano pilotażową warstwę danych w pliku `assets/data/site.json`. To nie jest pełna internacjonalizacja i18n i nie zastępuje kluczowych treści strony.
