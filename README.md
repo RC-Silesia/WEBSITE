@@ -174,10 +174,11 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - dezaktywowano oznaczone placeholderowe linki social/media także w trybie fallback bez `site.json`,
 - ograniczono atrybut `allow` iframe YouTube do niezbędnych uprawnień.
 
-## Sprint v1.3.2 - nav breakpoint final fix
+## Sprint v1.3.3 - nav stable
 
-- skorygowano breakpoint nawigacji z 980px do 1200px,
-- usunięto martwą strefę overflow dla tabletów i małych laptopów,
+- przywrócono breakpoint nawigacji do `980px`,
+- zachowano stabilny układ `flex-wrap` w nawigacji desktopowej,
+- wyeliminowano horizontal overflow w zakresie tabletowym `981-1252px`,
 - bez zmian w modułach biznesowych.
 
 ## Sprint v1.4 - privacy & SEO candidate
