@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1-data-layer-pilot
+- dodano pilotażową warstwę danych assets/data/site.json,
+- przygotowano renderowanie wybranych modułów z JSON,
+- zachowano kluczowe treści strony w HTML dla SEO i odporności strony,
+- dodano fallback na wypadek braku pliku JSON,
+- nie wdrożono jeszcze pełnej internacjonalizacji i18n.
+
 ## v0.9-image-pipeline
 - dodano pipeline optymalizacji zdjęć oparty o Node.js i sharp,
 - dodano folder src/img na zdjęcia źródłowe,

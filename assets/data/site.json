@@ -1,0 +1,89 @@
+{
+  "version": "v1-data-pilot",
+  "social": {
+    "facebook": "#",
+    "instagram": "#",
+    "youtube": "#",
+    "linkedin": "#",
+    "x": "#",
+    "media": "#",
+    "email": "mailto:silesia@rotary.org.pl"
+  },
+  "documents": [
+    {
+      "title": "Statut RC Silesia",
+      "status": "dokument podstawowy",
+      "format": "DOCX",
+      "href": "assets/docs/RC_Silesia_Statut_Final.docx",
+      "note": "Docelowo rekomendowany także PDF."
+    },
+    {
+      "title": "Projekt porozumienia ROTARY for PLANET",
+      "status": "projekt roboczy / do uzgodnienia",
+      "format": "DOCX",
+      "href": "assets/docs/Projekt_Porozumienia_z_dokumentami_D1-D14.docx",
+      "note": "Nie publikować jako finalnego dokumentu bez zatwierdzenia Stron."
+    }
+  ],
+  "payment": {
+    "methods": [
+      "BLIK",
+      "szybki przelew",
+      "karta płatnicza",
+      "Apple Pay",
+      "Google Pay",
+      "przelew tradycyjny"
+    ],
+    "preferredOperators": [
+      "Wpłacam.ngo.pl",
+      "Autopay / FaniPay",
+      "PayU",
+      "Przelewy24",
+      "Tpay"
+    ],
+    "reserveOperator": "Stripe - wyłącznie wariant techniczny lub rezerwowy"
+  },
+  "plantingsDemo": [
+    {
+      "status": "Planowane",
+      "location": "Mikołów / lokalizacja pilotażowa",
+      "species": "do potwierdzenia przez ŚOB ZS",
+      "count": "do ustalenia",
+      "caretaker": "do wskazania",
+      "inspection": "12/24 mies."
+    },
+    {
+      "status": "W uzgodnieniu",
+      "location": "teren partnera",
+      "species": "dobór po ocenie siedliska",
+      "count": "do ustalenia",
+      "caretaker": "wymagany",
+      "inspection": "po I i II sezonie"
+    },
+    {
+      "status": "Gotowe do oceny",
+      "location": "zgłoszenie przez formularz",
+      "species": "dobór ekspercki",
+      "count": "zależnie od lokalizacji",
+      "caretaker": "właściciel / partner",
+      "inspection": "protokół D3"
+    }
+  ],
+  "mediaDemo": [
+    {
+      "type": "Materiał wideo",
+      "title": "Materiał medialny - do uzupełnienia",
+      "href": "#"
+    },
+    {
+      "type": "Wywiad",
+      "title": "Wywiad - do uzupełnienia",
+      "href": "#"
+    },
+    {
+      "type": "Informacja prasowa",
+      "title": "Informacja prasowa - do uzupełnienia",
+      "href": "#"
+    }
+  ]
+}

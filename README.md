@@ -131,6 +131,24 @@ assets/img/sadzenie-drzew-thumb.webp
 
 Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku dzieci i młodzieży.
 
+## Sprint 1.1 - pilotaż warstwy danych JSON
+
+Dodano pilotażową warstwę danych w pliku `assets/data/site.json`. To nie jest pełna internacjonalizacja i18n i nie zastępuje kluczowych treści strony.
+
+- `assets/data/site.json` przechowuje wybrane dane zmienne: linki social media, dokumenty, demonstracyjny rejestr nasadzeń, metody płatności, preferowanych operatorów płatności oraz placeholdery mediów.
+- Kluczowe treści strony pozostają w HTML, aby strona była czytelna, indeksowalna i odporna na błąd ładowania JSON.
+- Loader w `assets/js/script.js` renderuje tylko wybrane moduły, jeśli istnieją odpowiednie kontenery `data-render`.
+- Jeżeli `assets/data/site.json` się nie załaduje, strona używa statycznego fallbacku HTML.
+- Test modułów JSON najlepiej wykonywać przez lokalny serwer:
+
+```bash
+python -m http.server 8000
+```
+
+Następnie wejść na `http://localhost:8000`.
+
+Pełna internacjonalizacja i18n nie jest jeszcze wdrożona.
+
 ## Do uzupełnienia w kolejnych sprintach
 
 - oficjalne logo RC Silesia,

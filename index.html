@@ -14,13 +14,13 @@
       <span>RC Silesia | Mikołów | Rotary District 2231</span>
       <a class="top-support" href="#wsparcie">Wesprzyj</a>
       <nav class="top-social" aria-label="Social media">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">X</a>
-        <a href="#">YouTube</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">JazzTV / Media</a>
-        <a href="mailto:silesia@rotary.org.pl">silesia@rotary.org.pl</a>
+        <a href="#" data-social-link="facebook">Facebook</a>
+        <a href="#" data-social-link="instagram">Instagram</a>
+        <a href="#" data-social-link="x">X</a>
+        <a href="#" data-social-link="youtube">YouTube</a>
+        <a href="#" data-social-link="linkedin">LinkedIn</a>
+        <a href="#" data-social-link="media">JazzTV / Media</a>
+        <a href="mailto:silesia@rotary.org.pl" data-social-link="email">silesia@rotary.org.pl</a>
       </nav>
     </div>
   </div>
@@ -52,13 +52,13 @@
       <div class="mobile-social" aria-label="Social media">
         <strong>Obserwuj nas</strong>
         <div>
-          <a href="#">Facebook</a>
-          <a href="#">Instagram</a>
-          <a href="#">X</a>
-          <a href="#">YouTube</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">JazzTV / Media</a>
-          <a href="mailto:silesia@rotary.org.pl">Mail</a>
+          <a href="#" data-social-link="facebook">Facebook</a>
+          <a href="#" data-social-link="instagram">Instagram</a>
+          <a href="#" data-social-link="x">X</a>
+          <a href="#" data-social-link="youtube">YouTube</a>
+          <a href="#" data-social-link="linkedin">LinkedIn</a>
+          <a href="#" data-social-link="media">JazzTV / Media</a>
+          <a href="mailto:silesia@rotary.org.pl" data-social-link="email">Mail</a>
         </div>
       </div>
     </nav>
@@ -229,7 +229,7 @@
         <div class="table-wrap" tabindex="0" aria-label="Demonstracyjna tabela rejestru nasadzeń">
           <table>
             <thead><tr><th>Status</th><th>Lokalizacja</th><th>Gatunki</th><th>Liczba</th><th>Opiekun</th><th>Kontrola</th></tr></thead>
-            <tbody>
+            <tbody data-render="plantings-demo">
               <tr><td><span class="status-badge status-planned">Planowane</span></td><td>Mikołów / lokalizacja pilotażowa</td><td>do potwierdzenia przez ŚOB ZS</td><td>do ustalenia</td><td>do wskazania</td><td>12/24 mies.</td></tr>
               <tr><td><span class="status-badge status-review">W uzgodnieniu</span></td><td>teren partnera</td><td>dobór po ocenie siedliska</td><td>do ustalenia</td><td>wymagany</td><td>po I i II sezonie</td></tr>
               <tr><td><span class="status-badge status-ready">Gotowe do oceny</span></td><td>zgłoszenie przez formularz</td><td>dobór ekspercki</td><td>zależnie od lokalizacji</td><td>właściciel / partner</td><td>protokół D3</td></tr>
@@ -466,7 +466,7 @@
         <h2>Dokumenty do pobrania</h2>
         <p>Wersje DOCX służą do pracy roboczej. Na stronie produkcyjnej preferowane będą dokumenty PDF zatwierdzone do publikacji.</p>
       </div>
-      <div class="documents-grid">
+      <div class="documents-grid" data-render="documents">
         <article class="document-card">
           <span class="document-status">dokument podstawowy</span>
           <h3>Statut RC Silesia</h3>
@@ -610,7 +610,7 @@
         <article class="formal-card">
           <h3>Preferowani operatorzy płatności</h3>
           <p>Zgodnie z przyjętą zasadą RC Silesia korzysta w pierwszej kolejności z polskich lub europejskich operatorów. Po decyzji Zarządu moduł zostanie podłączony do jednego z nich:</p>
-          <ul class="support-ops">
+          <ul class="support-ops" data-render="payment-operators">
             <li><strong>Wpłacam.ngo.pl</strong> — narzędzie dla stowarzyszeń (darowizny, składki, opłaty), szybki start.</li>
             <li><strong>Autopay / FaniPay</strong> — rozwiązanie dla organizacji społecznych, BLIK i pay-by-link.</li>
             <li><strong>PayU</strong> — oferta dla NGO, BLIK, karty, płatności cykliczne.</li>
@@ -618,6 +618,15 @@
             <li><strong>Tpay</strong> — mocny wariant techniczny, BLIK on-site.</li>
           </ul>
           <p class="field-note">Stripe nie jest preferowanym operatorem; może być rozważony wyłącznie jako wariant techniczny lub rezerwowy.</p>
+          <h4>Docelowe metody płatności</h4>
+          <ul class="support-ops" data-render="payment-methods">
+            <li>BLIK</li>
+            <li>szybki przelew</li>
+            <li>karta płatnicza</li>
+            <li>Apple Pay</li>
+            <li>Google Pay</li>
+            <li>przelew tradycyjny</li>
+          </ul>
         </article>
 
         <article class="formal-card">

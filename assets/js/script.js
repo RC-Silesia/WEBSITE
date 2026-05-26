@@ -238,6 +238,145 @@
 })();
 
 
+/* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
+(function () {
+  function safeText(element, value) {
+    if (!element || value === undefined || value === null) return;
+    element.textContent = String(value);
+  }
+
+  function safeHref(element, value) {
+    if (!element || typeof value !== "string") return;
+    if (value === "#" || value.indexOf("mailto:") === 0 || value.indexOf("assets/") === 0 || value.indexOf("https://") === 0 || value.indexOf("http://") === 0) {
+      element.setAttribute("href", value);
+    }
+  }
+
+  function clearElement(element) {
+    while (element.firstChild) element.removeChild(element.firstChild);
+  }
+
+  function appendTextElement(parent, tagName, className, text) {
+    var element = document.createElement(tagName);
+    if (className) element.className = className;
+    safeText(element, text);
+    parent.appendChild(element);
+    return element;
+  }
+
+  function renderSocialLinks(social) {
+    if (!social) return;
+    Array.prototype.slice.call(document.querySelectorAll("[data-social-link]")).forEach(function (link) {
+      var key = link.getAttribute("data-social-link");
+      safeHref(link, social[key]);
+    });
+  }
+
+  function renderDocuments(documents) {
+    var container = document.querySelector('[data-render="documents"]');
+    if (!container || !Array.isArray(documents) || !documents.length) return;
+
+    clearElement(container);
+    documents.forEach(function (documentItem) {
+      var card = document.createElement("article");
+      card.className = "document-card";
+
+      var status = appendTextElement(card, "span", "document-status", documentItem.status);
+      if (String(documentItem.status || "").toLowerCase().indexOf("projekt") !== -1) {
+        status.classList.add("is-draft");
+      }
+
+      appendTextElement(card, "h3", "", documentItem.title);
+      appendTextElement(card, "p", "", "Format: " + (documentItem.format || "plik"));
+      appendTextElement(card, "p", "", documentItem.note);
+
+      var link = appendTextElement(card, "a", "button secondary document-button", "Pobierz " + (documentItem.title || "dokument") + " " + (documentItem.format || ""));
+      safeHref(link, documentItem.href);
+
+      container.appendChild(card);
+    });
+  }
+
+  function statusClass(status) {
+    var normalized = String(status || "").toLowerCase();
+    if (normalized.indexOf("planowane") !== -1) return "status-planned";
+    if (normalized.indexOf("uzgodnieniu") !== -1) return "status-review";
+    if (normalized.indexOf("gotowe") !== -1) return "status-ready";
+    if (normalized.indexOf("posadzone") !== -1) return "status-planted";
+    if (normalized.indexOf("monitoringu") !== -1) return "status-monitoring";
+    return "status-action";
+  }
+
+  function appendTableCell(row, text) {
+    var cell = document.createElement("td");
+    safeText(cell, text);
+    row.appendChild(cell);
+    return cell;
+  }
+
+  function renderPlantings(rows) {
+    var tbody = document.querySelector('[data-render="plantings-demo"]');
+    if (!tbody || !Array.isArray(rows) || !rows.length) return;
+
+    clearElement(tbody);
+    rows.forEach(function (item) {
+      var row = document.createElement("tr");
+      var statusCell = document.createElement("td");
+      var badge = appendTextElement(statusCell, "span", "status-badge " + statusClass(item.status), item.status);
+      badge.setAttribute("aria-label", "Status: " + (item.status || ""));
+      row.appendChild(statusCell);
+      appendTableCell(row, item.location);
+      appendTableCell(row, item.species);
+      appendTableCell(row, item.count);
+      appendTableCell(row, item.caretaker);
+      appendTableCell(row, item.inspection);
+      tbody.appendChild(row);
+    });
+  }
+
+  function renderList(selector, items) {
+    var list = document.querySelector(selector);
+    if (!list || !Array.isArray(items) || !items.length) return;
+
+    clearElement(list);
+    items.forEach(function (item) {
+      appendTextElement(list, "li", "", item);
+    });
+  }
+
+  function renderSiteData(data) {
+    renderSocialLinks(data.social);
+    renderDocuments(data.documents);
+    renderPlantings(data.plantingsDemo);
+    if (data.payment) {
+      renderList('[data-render="payment-methods"]', data.payment.methods);
+      renderList('[data-render="payment-operators"]', data.payment.preferredOperators);
+    }
+  }
+
+  function loadSiteData() {
+    if (!window.fetch) return Promise.resolve(null);
+
+    return fetch("assets/data/site.json")
+      .then(function (response) {
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        return response.json();
+      })
+      .then(function (data) {
+        renderSiteData(data);
+        return data;
+      })
+      .catch(function (error) {
+        console.warn("Nie załadowano assets/data/site.json. Używam statycznego fallbacku HTML.", error);
+        return null;
+      });
+  }
+
+  window.loadSiteData = loadSiteData;
+  loadSiteData();
+})();
+
+
 /* ===== Sprint 5.5 — moduł "Wpłaty i wsparcie" (makieta, bez realnej bramki) ===== */
 (function () {
   var tabs = Array.prototype.slice.call(document.querySelectorAll("[data-support-tab]"));
