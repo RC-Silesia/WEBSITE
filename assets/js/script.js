@@ -238,6 +238,74 @@
 })();
 
 
+/* ===== Sprint v1.0 — social hub z lazy-load embedów ===== */
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll("[data-social-tab]"));
+  var panels = Array.prototype.slice.call(document.querySelectorAll("[data-social-panel]"));
+
+  if (tabs.length && panels.length) {
+    function activateSocialPanel(name, focus) {
+      tabs.forEach(function (tab) {
+        var active = tab.getAttribute("data-social-tab") === name;
+        tab.classList.toggle("is-active", active);
+        tab.setAttribute("aria-selected", String(active));
+        tab.tabIndex = active ? 0 : -1;
+        if (active && focus) tab.focus();
+      });
+
+      panels.forEach(function (panel) {
+        panel.hidden = panel.getAttribute("data-social-panel") !== name;
+      });
+    }
+
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener("click", function () {
+        activateSocialPanel(tab.getAttribute("data-social-tab"), false);
+      });
+
+      tab.addEventListener("keydown", function (event) {
+        var direction = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
+        if (!direction) return;
+        event.preventDefault();
+        var next = (index + direction + tabs.length) % tabs.length;
+        activateSocialPanel(tabs[next].getAttribute("data-social-tab"), true);
+      });
+    });
+  }
+
+  var messages = {
+    facebook: "Facebook Page Plugin zostanie podłączony po podaniu oficjalnego URL profilu RC Silesia.",
+    instagram: "Automatyczny feed Instagram wymaga oficjalnego konta i integracji przez Meta/Instagram API albo zatwierdzony widget zewnętrzny.",
+    linkedin: "LinkedIn pozwala osadzać wybrane posty. Pełny automatyczny feed może wymagać narzędzia zewnętrznego lub integracji API.",
+    x: "Feed X zostanie podłączony po decyzji o oficjalnym profilu i sposobie integracji."
+  };
+
+  Array.prototype.slice.call(document.querySelectorAll("[data-social-load]")).forEach(function (button) {
+    button.addEventListener("click", function () {
+      var channel = button.getAttribute("data-social-load");
+      var target = document.getElementById(button.getAttribute("aria-controls"));
+      if (!target) return;
+
+      if (channel === "youtube") {
+        var iframe = target.querySelector("iframe[data-src]");
+        if (iframe && !iframe.getAttribute("src")) {
+          iframe.setAttribute("src", iframe.getAttribute("data-src"));
+        }
+        target.classList.add("is-loaded");
+        button.textContent = "YouTube załadowany";
+        button.disabled = true;
+        return;
+      }
+
+      target.classList.add("is-loaded");
+      target.textContent = messages[channel] || "Ten kanał zostanie podłączony po podaniu oficjalnego linku lub wyborze widgetu.";
+      button.textContent = "Kanał oznaczony do podłączenia";
+      button.disabled = true;
+    });
+  });
+})();
+
+
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
   function safeText(element, value) {
@@ -344,10 +412,30 @@
     });
   }
 
+  function renderMediaDemo(items) {
+    var container = document.querySelector('[data-render="media-demo"]');
+    if (!container || !Array.isArray(items) || !items.length) return;
+
+    clearElement(container);
+    items.forEach(function (item) {
+      var card = document.createElement("article");
+      card.className = "media-card";
+
+      appendTextElement(card, "span", "", item.type);
+      appendTextElement(card, "h4", "", item.title);
+
+      var link = appendTextElement(card, "a", "button secondary", "Otwórz materiał");
+      safeHref(link, item.href);
+
+      container.appendChild(card);
+    });
+  }
+
   function renderSiteData(data) {
     renderSocialLinks(data.social);
     renderDocuments(data.documents);
     renderPlantings(data.plantingsDemo);
+    renderMediaDemo(data.mediaDemo);
     if (data.payment) {
       renderList('[data-render="payment-methods"]', data.payment.methods);
       renderList('[data-render="payment-operators"]', data.payment.preferredOperators);

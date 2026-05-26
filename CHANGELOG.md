@@ -1,5 +1,25 @@
 # Changelog
 
+## v1.2-social-hub-media-render
+- dodano sekcję Co słychać w RC Silesia,
+- dodano zakładki Facebook, Instagram, YouTube, LinkedIn, X i Media,
+- dodano lazy-load zewnętrznych embedów,
+- dodano fallback linki do kanałów,
+- dodano komunikaty prywatności,
+- dodano renderowanie mediaDemo z danych strony,
+- przyjęto zasadę automatyzacji wyłącznie oficjalnych kanałów RC Silesia,
+- bez tokenów API, backendu i zewnętrznych bibliotek.
+
+## v1.0-social-hub
+- dodano sekcję Co słychać w RC Silesia,
+- dodano zakładki Facebook, Instagram, YouTube, LinkedIn, X i Media,
+- dodano lazy-load zewnętrznych embedów,
+- dodano fallback linki do kanałów,
+- dodano komunikaty prywatności,
+- przyjęto zasadę automatyzacji wyłącznie oficjalnych kanałów RC Silesia,
+- nie dodano tokenów API ani zewnętrznych bibliotek,
+- zachowano bez zmian hero, top bar, dane formalne, moduł wpłat, image pipeline i ROTARY for PLANET.
+
 ## v1.1-data-layer-pilot
 - dodano pilotażową warstwę danych assets/data/site.json,
 - przygotowano renderowanie wybranych modułów z JSON,

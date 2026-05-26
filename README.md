@@ -131,6 +131,26 @@ assets/img/sadzenie-drzew-thumb.webp
 
 Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku dzieci i młodzieży.
 
+## Sprint v1.0 - social hub
+
+- dodano sekcję "Co słychać w RC Silesia?",
+- dodano zakładki Facebook, Instagram, YouTube, LinkedIn, X i Media,
+- zastosowano lazy-load treści zewnętrznych,
+- przyjęto zasadę: tylko oficjalne kanały RC Silesia,
+- nie pobieramy hashtagów, komentarzy ani wzmianek,
+- linki i embed-y są placeholderami do podmiany po podaniu oficjalnych URL-i,
+- YouTube używa docelowo `youtube-nocookie.com`.
+
+## Sprint v1.2 - social hub i media render
+
+- dodano sekcję Co słychać w RC Silesia,
+- dodano zakładki Facebook, Instagram, YouTube, LinkedIn, X, Media,
+- dodano lazy-load embedów,
+- dodano renderowanie mediaDemo z site.json,
+- przyjęto zasadę: tylko oficjalne kanały,
+- brak hashtagów, komentarzy i wzmianek,
+- linki social są placeholderami do podmiany.
+
 ## Sprint 1.1 - pilotaż warstwy danych JSON
 
 Dodano pilotażową warstwę danych w pliku `assets/data/site.json`. To nie jest pełna internacjonalizacja i18n i nie zastępuje kluczowych treści strony.
