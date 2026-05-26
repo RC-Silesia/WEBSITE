@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.4-privacy-seo-candidate
+- dodano roboczą politykę prywatności privacy.html,
+- dodano demonstracyjny panel cookies/privacy notice z localStorage,
+- dodano meta SEO, Open Graph i Twitter/X Cards,
+- dodano JSON-LD Organization,
+- dodano privacy.html do sitemap.xml,
+- pozostawiono staging jako noindex/nofollow,
+- dodano checklistę prywatności i publikacji,
+- uzupełniono oficjalny URL profilu Facebook RC Silesia,
+- sprawdzono lazy-load zewnętrznych embedów,
+- nie dodano nowych funkcji biznesowych.
+
 ## v1.3.2-nav-breakpoint-final-fix
 - skorygowano główny breakpoint nawigacji z 980px do 1200px,
 - usunięto ryzyko horizontal overflow w zakresie tablet/mały laptop,

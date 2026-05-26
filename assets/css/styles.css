@@ -1280,6 +1280,108 @@ textarea {
   font-size: 12px;
 }
 
+.legal-page {
+  background: #f7f9fc;
+}
+
+.legal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px clamp(18px, 5vw, 72px);
+  background: var(--blue-dark);
+}
+
+.legal-content {
+  max-width: 980px;
+}
+
+.legal-content section {
+  margin-top: 26px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.legal-content h1 {
+  margin-bottom: 12px;
+  color: var(--blue-dark);
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.06;
+}
+
+.legal-content h2 {
+  margin: 0 0 12px;
+  color: var(--blue-dark);
+}
+
+.legal-content ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.legal-content a {
+  color: var(--blue);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-status {
+  max-width: none;
+  color: var(--muted);
+}
+
+.legal-footer {
+  margin-top: 40px;
+}
+
+.legal-back-link {
+  min-width: auto;
+}
+
+.privacy-notice {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1200;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  width: min(920px, calc(100vw - 36px));
+  padding: 16px;
+  border: 1px solid rgba(247, 168, 27, .54);
+  border-radius: 8px;
+  color: var(--white);
+  background: rgba(8, 35, 79, .96);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .22);
+}
+
+.privacy-notice__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+}
+
+.privacy-notice[hidden] {
+  display: none;
+}
+
+.privacy-notice__text {
+  margin: 0;
+  color: rgba(255, 255, 255, .88);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.privacy-notice__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 @media (max-width: 1200px) {
   .top-bar {
     display: none;
@@ -1421,11 +1523,16 @@ textarea {
   }
 
   .hero-actions,
+  .legal-header,
+  .privacy-notice,
+  .privacy-notice__inner,
+  .privacy-notice__actions,
   .document-links {
     flex-direction: column;
   }
 
   .button,
+  .privacy-notice__actions .button,
   .document-links a {
     width: 100%;
   }
@@ -1858,6 +1965,12 @@ textarea {
   }
   .support-tab {
     white-space: nowrap;
+  }
+  .privacy-notice {
+    right: 12px;
+    bottom: 12px;
+    width: calc(100vw - 24px);
+    padding: 14px;
   }
 }
 .support-form {

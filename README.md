@@ -180,6 +180,19 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - usunięto martwą strefę overflow dla tabletów i małych laptopów,
 - bez zmian w modułach biznesowych.
 
+## Sprint v1.4 - privacy & SEO candidate
+
+- dodano `privacy.html`,
+- dodano demonstracyjny panel cookies/privacy notice,
+- dodano meta SEO, Open Graph i Twitter/X Cards,
+- dodano JSON-LD Organization,
+- zaktualizowano `sitemap.xml` o `privacy.html`,
+- pozostawiono staging jako `noindex, nofollow`,
+- dodano `PRIVACY_RELEASE_CHECKLIST.md`,
+- nie dodano nowych funkcji biznesowych.
+
+Uwaga: domena `https://rcsilesia.pl/` pozostaje placeholderem produkcyjnym do potwierdzenia przed publikacją.
+
 ## Sprint 1.1 - pilotaż warstwy danych JSON
 
 Dodano pilotażową warstwę danych w pliku `assets/data/site.json`. To nie jest pełna internacjonalizacja i18n i nie zastępuje kluczowych treści strony.

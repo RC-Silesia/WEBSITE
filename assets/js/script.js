@@ -605,3 +605,42 @@
     });
   });
 })();
+
+/* ===== Sprint v1.4 — privacy notice ===== */
+(function () {
+  var notice = document.querySelector("[data-privacy-notice]");
+  var accept = document.querySelector("[data-privacy-accept]");
+  var storageKey = "rcSilesiaPrivacyNoticeAccepted";
+  var maxAge = 30 * 24 * 60 * 60 * 1000;
+  if (!notice || !accept) return;
+
+  function readState() {
+    try {
+      var raw = window.localStorage.getItem(storageKey);
+      return raw ? JSON.parse(raw) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function isAccepted(state) {
+    return state && typeof state.expiresAt === "number" && state.expiresAt > Date.now();
+  }
+
+  if (isAccepted(readState())) {
+    notice.hidden = true;
+    return;
+  }
+
+  accept.addEventListener("click", function () {
+    try {
+      window.localStorage.setItem(storageKey, JSON.stringify({
+        acceptedAt: new Date().toISOString(),
+        expiresAt: Date.now() + maxAge
+      }));
+    } catch (error) {
+      // Brak localStorage nie blokuje zamknięcia panelu.
+    }
+    notice.hidden = true;
+  });
+})();
