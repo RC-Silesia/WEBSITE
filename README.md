@@ -151,6 +151,13 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - brak hashtagów, komentarzy i wzmianek,
 - linki social są placeholderami do podmiany.
 
+## Sprint v1.2.1 - stabilizacja social hubu
+
+- dodano guard blokujący ładowanie YouTube przy placeholderowym `PLAYLIST_ID`,
+- utwardzono iframe YouTube przez usunięcie `autoplay` z `allow` i dodanie `referrerpolicy`,
+- dezaktywowano martwe linki social i media, gdy w `site.json` wartością jest `#`,
+- skrócono link w głównym menu do `Media`, aby ograniczyć ryzyko overflow na desktopie.
+
 ## Sprint 1.1 - pilotaż warstwy danych JSON
 
 Dodano pilotażową warstwę danych w pliku `assets/data/site.json`. To nie jest pełna internacjonalizacja i18n i nie zastępuje kluczowych treści strony.

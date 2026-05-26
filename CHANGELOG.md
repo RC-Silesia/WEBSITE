@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.2.1-social-hub-hardening
+- dodano guard YouTube, który nie ładuje iframe przy placeholderowym PLAYLIST_ID,
+- utwardzono iframe YouTube przez usunięcie autoplay i dodanie referrerpolicy,
+- dezaktywowano martwe linki social/media, gdy ich href w danych wynosi #,
+- ograniczono ryzyko overflow w menu przez skrócenie linku Obserwuj nas do Media,
+- zachowano bez zmian architekturę social hubu i data layer.
+
 ## v1.2-social-hub-media-render
 - dodano sekcję Co słychać w RC Silesia,
 - dodano zakładki Facebook, Instagram, YouTube, LinkedIn, X i Media,

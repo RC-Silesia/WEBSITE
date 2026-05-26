@@ -288,8 +288,17 @@
 
       if (channel === "youtube") {
         var iframe = target.querySelector("iframe[data-src]");
-        if (iframe && !iframe.getAttribute("src")) {
-          iframe.setAttribute("src", iframe.getAttribute("data-src"));
+        var src = iframe ? iframe.getAttribute("data-src") || "" : "";
+        var message = target.querySelector("p");
+        if (!iframe || src.indexOf("PLAYLIST_ID") !== -1) {
+          if (message) message.textContent = "Playlista zostanie podłączona po podaniu oficjalnego ID kanału lub playlisty RC Silesia.";
+          target.classList.remove("is-loaded");
+          button.textContent = "Playlista do podłączenia";
+          button.disabled = true;
+          return;
+        }
+        if (!iframe.getAttribute("src")) {
+          iframe.setAttribute("src", src);
         }
         target.classList.add("is-loaded");
         button.textContent = "YouTube załadowany";
@@ -315,8 +324,20 @@
 
   function safeHref(element, value) {
     if (!element || typeof value !== "string") return;
-    if (value === "#" || value.indexOf("mailto:") === 0 || value.indexOf("assets/") === 0 || value.indexOf("https://") === 0 || value.indexOf("http://") === 0) {
+    if (value === "#") {
+      element.removeAttribute("href");
+      element.removeAttribute("target");
+      element.setAttribute("aria-disabled", "true");
+      element.classList.add("is-disabled");
+      if (element.textContent.indexOf("Otwórz") === 0) {
+        element.textContent = "Kanał wkrótce";
+      }
+      return;
+    }
+    if (value.indexOf("mailto:") === 0 || value.indexOf("assets/") === 0 || value.indexOf("https://") === 0 || value.indexOf("http://") === 0) {
       element.setAttribute("href", value);
+      element.removeAttribute("aria-disabled");
+      element.classList.remove("is-disabled");
     }
   }
 
