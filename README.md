@@ -170,7 +170,7 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 
 - ustawiono stagingowe `robots.txt` na `Disallow: /`,
 - dodano `meta robots` z `noindex, nofollow`,
-- podniesiono breakpoint menu mobilnego do 1200px, aby usunąć overflow w zakresie tablet/mały laptop,
+- dodano zawijanie menu desktopowego, aby usunąć overflow w zakresie tablet/mały laptop bez ruszania breakpointów,
 - dezaktywowano oznaczone placeholderowe linki social/media także w trybie fallback bez `site.json`,
 - ograniczono atrybut `allow` iframe YouTube do niezbędnych uprawnień.
 
