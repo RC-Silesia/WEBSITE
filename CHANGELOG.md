@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.3-staging-readiness
+- dodano dokumentację stagingową,
+- dodano instrukcję deploymentu dla GitHub Pages, Cloudflare Pages i Netlify,
+- dodano release notes dla wersji demonstracyjnej,
+- dodano robots.txt i sitemap.xml w wariancie stagingowym,
+- sprawdzono ścieżki, dane JSON, fallback i lazy-load embedów,
+- nie dodano nowych funkcji biznesowych.
+
 ## v1.2.1-social-hub-hardening
 - dodano guard YouTube, który nie ładuje iframe przy placeholderowym PLAYLIST_ID,
 - utwardzono iframe YouTube przez usunięcie autoplay i dodanie referrerpolicy,

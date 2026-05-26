@@ -158,6 +158,14 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - dezaktywowano martwe linki social i media, gdy w `site.json` wartością jest `#`,
 - skrócono link w głównym menu do `Media`, aby ograniczyć ryzyko overflow na desktopie.
 
+## Sprint v1.3 - staging deployment readiness
+
+- przygotowano pliki `STAGING_CHECKLIST.md`, `DEPLOYMENT.md` i `RELEASE_NOTES_v1.3.md`,
+- projekt jest gotowy do publikacji testowej jako statyczna strona,
+- dodano stagingowe `robots.txt` i `sitemap.xml`,
+- domena `https://example.com/` jest placeholderem i wymaga podmiany przed produkcją,
+- przed wersją produkcyjną wymagane są decyzje dotyczące domeny, dokumentów, polityki prywatności, operatora płatności i oficjalnych social URL-i.
+
 ## Sprint 1.1 - pilotaż warstwy danych JSON
 
 Dodano pilotażową warstwę danych w pliku `assets/data/site.json`. To nie jest pełna internacjonalizacja i18n i nie zastępuje kluczowych treści strony.

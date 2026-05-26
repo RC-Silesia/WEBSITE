@@ -1,0 +1,5 @@
+# Staging/demo version. Update before production if needed.
+User-agent: *
+Disallow:
+
+Sitemap: https://example.com/sitemap.xml
