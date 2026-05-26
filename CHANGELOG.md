@@ -1,0 +1,83 @@
+# Changelog
+
+## v0.9-image-pipeline
+- dodano pipeline optymalizacji zdjęć oparty o Node.js i sharp,
+- dodano folder src/img na zdjęcia źródłowe,
+- dodano generowanie wariantów WebP: hero, card, thumb,
+- dodano czyszczenie wygenerowanych obrazów przez npm run optimize:clean,
+- dodano dokumentację użycia w README,
+- zachowano bez zmian wygląd i treść strony z v0.8.1.
+
+## v0.8.1-wsparcie-stabilized
+- doprecyzowano status modułu wpłat jako makiety bez transakcji,
+- zmieniono teksty przycisków w sekcji wpłat, aby nie sugerowały uruchomionej bramki,
+- dodano statusy makieta bez transakcji,
+- uporządkowano wejścia do sekcji Wpłaty i wsparcie,
+- potwierdzono preferencję polskich i europejskich operatorów płatności,
+- bez zmian w danych formalnych, formularzu kontaktowym, hero i module ROTARY for PLANET.
+
+## v0.8-wsparcie-mockup (Sprint 5.5)
+- dodano moduł "Wpłaty i wsparcie" jako makietę (bez realnej bramki płatniczej),
+- trzy rozdzielone zakładki: darowizna, składka członkowska, wydarzenie / partnerstwo,
+- darowizna: kafelki kwot (50/100/250/500/inna) + cel wpłaty + dane darczyńcy + zgody RODO i regulaminu,
+- składka: generator sugerowanego tytułu przelewu (rodzaj — imię i nazwisko — okres) z kopiowaniem,
+- karta przelewu tradycyjnego z kopiowaniem numeru konta i sugerowanymi tytułami,
+- lista preferowanych operatorów (Wpłacam.ngo.pl, Autopay/FaniPay, PayU, Przelewy24, Tpay; Stripe tylko rezerwowo),
+- checklista warunków przed uruchomieniem płatności (regulamin, RODO, procedura zwrotów, rozdzielenie wpłat, potwierdzenia e-mail, eksport dla Skarbnika, wybór operatora, zgoda Zarządu),
+- przyciski płatności wyświetlają komunikat demonstracyjny i nie wykonują żadnej transakcji,
+- dodano wejścia: "Wesprzyj" w top barze, "Wsparcie" w menu, "Wesprzyj nasadzenia" w sekcji PLANET, linki w stopce,
+- bez przelicznika "kwota = liczba drzew" do czasu ustalenia rzeczywistego kosztu (antygreenwashing),
+- bez zmian w istniejących modułach (kontakt, dane formalne, PLANET, władze).
+
+## v0.7-planet-module
+- rozbudowano sekcję ROTARY for PLANET jako moduł operacyjny,
+- dodano standard odpowiedzialnego nasadzenia,
+- dodano demonstracyjny rejestr nasadzeń ze statusami,
+- dodano placeholder mapy nasadzeń,
+- dodano blok zasad komunikacji antygreenwashingowej,
+- powiązano przyciski programu z routingiem formularza kontaktowego,
+- zachowano strukturę strony i interfejs komunikacyjny z v0.6.
+
+## v0.6-contact-routing
+- przebudowano sekcję Kontakt jako centrum kontaktu,
+- dodano ścieżki: spotkanie, członkostwo, członek wspierający, partnerstwo/sponsoring, ROTARY for PLANET, media, kontakt ogólny,
+- dodano dynamiczne pola formularza zależne od tematu,
+- dodano ukrytą kategorię zgłoszenia,
+- doprecyzowano zgody przy formularzu,
+- dodano fallback mailowy,
+- przygotowano formularz pod późniejszą integrację produkcyjną.
+
+## v0.5-formal-transparency
+- rozdzielono organy statutowe i osoby funkcyjne,
+- dodano karty osób funkcyjnych,
+- rozbudowano sekcję danych formalnych,
+- dodano kartę konta bankowego z funkcją kopiowania,
+- dodano moduł dokumentów do pobrania,
+- dodano statusy dokumentów i noty publikacyjne,
+- zachowano strukturę merytoryczną i wizualną strony z v0.4.
+
+## v0.4-hero-navigation
+- dodano dostępny link Przejdź do treści,
+- dodano górny pasek informacyjny z social media i adresem e-mail,
+- dodano social media do menu mobilnego,
+- dopracowano zachowanie pierwszego ekranu na mobile,
+- dodano dyskretne oznaczenie wersji demonstracyjnej,
+- zachowano dotychczasową strukturę merytoryczną strony.
+
+## v0.3-recovered-baseline
+- naprawiono krytyczny problem mojibake w polskich znakach,
+- zapisano pliki tekstowe jako UTF-8 bez BOM,
+- przywrócono aktualny hero z dwuliniowym nagłówkiem RC Silesia / działamy lokalnie, łączymy globalnie,
+- przywrócono lead o Górnym Śląsku i siedzibie w Mikołowie,
+- zachowano czystą strukturę katalogów z v0.2,
+- przygotowano projekt do Sprintu 1.
+
+## v0.2-clean-structure
+- rozdzielono strukturę projektu na HTML, CSS i JavaScript,
+- dodano katalogi assets/css, assets/js, assets/img, assets/docs, assets/data,
+- dodano README.md,
+- dodano CHANGELOG.md,
+- zachowano dotychczasowy wygląd i zachowanie prototypu.
+
+## v0.1-demo
+- pierwotna jednoplikowa wersja demonstracyjna strony głównej RC Silesia.

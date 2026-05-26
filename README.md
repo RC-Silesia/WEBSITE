@@ -1,0 +1,142 @@
+# RC Silesia - prototyp strony głównej
+
+Statyczny prototyp strony głównej Rotary Klub Silesia.
+
+## Uruchomienie lokalne
+
+1. Otworzyć `index.html` w przeglądarce.
+2. Albo uruchomić lokalny serwer:
+
+```bash
+python -m http.server 8000
+```
+
+Następnie wejść na `http://localhost:8000`.
+
+## Struktura katalogów
+
+```text
+rc-silesia-site/
+  index.html
+  assets/
+    css/
+      styles.css
+    js/
+      script.js
+    img/
+    docs/
+    data/
+  README.md
+  CHANGELOG.md
+```
+
+## Sprint 0.5 - recovery / clean baseline
+
+- naprawiono kodowanie polskich znaków,
+- zapisano pliki jako UTF-8 bez BOM,
+- przywrócono aktualny hero,
+- zachowano strukturę katalogów v0.2,
+- przygotowano bazę do Sprintu 1.
+
+## Sprint 1 - top bar, social media i hero
+
+- dodano top bar,
+- dodano social media jako placeholdery,
+- dodano skip link,
+- dodano social media w menu mobilnym,
+- dopracowano zachowanie pierwszego ekranu na mobile,
+- dodano oznaczenie wersji demonstracyjnej.
+
+## Sprint 2 - dane formalne, władze i dokumenty
+
+- dodano osoby funkcyjne,
+- rozdzielono organy statutowe od osób funkcyjnych,
+- rozbudowano dane formalne,
+- dodano kartę konta bankowego,
+- dodano kopiowanie numeru konta,
+- dodano moduł dokumentów do pobrania,
+- dodano noty o statusie dokumentów roboczych.
+
+## Sprint 3 - formularze i routing kontaktu
+
+- rozbudowano formularz kontaktowy,
+- dodano ścieżki kontaktu,
+- dodano dynamiczne pola zależne od tematu,
+- dodano kategorię zgłoszenia,
+- dodano warstwę RODO przy formularzu,
+- dodano fallback mailowy,
+- przygotowano formularz pod późniejszą migrację do systemu produkcyjnego.
+
+## Sprint 4 - moduł ROTARY for PLANET
+
+- rozbudowano sekcję ROTARY for PLANET,
+- dodano standard odpowiedzialnego nasadzenia,
+- dodano demonstracyjny rejestr nasadzeń,
+- dodano statusy nasadzeń,
+- dodano placeholder mapy,
+- dodano blok komunikacji antygreenwashingowej,
+- powiązano CTA z formularzem kontaktowym.
+
+## Sprint 5.5 - moduł wpłat i wsparcia (makieta)
+- sekcja "Wpłaty i wsparcie" (#wsparcie) z trzema zakładkami: darowizna, składka członkowska, wydarzenie / partnerstwo,
+- makieta bez realnej bramki - przyciski płatności pokazują komunikat demonstracyjny, nie wykonują transakcji,
+- karta przelewu tradycyjnego (numer konta + kopiowanie) i lista preferowanych operatorów polskich/europejskich,
+- checklista wymagań przed uruchomieniem płatności online (regulamin, RODO, zwroty, rozdzielenie wpłat, potwierdzenia e-mail, eksport, operator, zgoda Zarządu),
+- realne płatności to osobny etap produkcyjny po decyzji Zarządu i księgowości.
+
+## Sprint 0.8.1 - stabilizacja modułu wpłat
+- doprecyzowano, że moduł wpłat jest makietą,
+- zmieniono teksty przycisków tak, aby nie sugerowały realnej transakcji,
+- dodano status makieta bez transakcji,
+- uporządkowano linki wejściowe do sekcji wsparcia,
+- potwierdzono preferencję operatorów polskich/europejskich.
+
+## Sprint 0.9 - optymalizacja zdjęć
+
+Pipeline zdjęć przygotowuje przyszłe fotografie z wydarzeń, spotkań i akcji RC Silesia do publikacji na stronie.
+
+- `src/img/` służy do wrzucania surowych zdjęć z aparatu lub telefonu, np. JPG, JPEG, PNG albo WebP.
+- `assets/img/` jest folderem docelowym dla zoptymalizowanych plików WebP.
+- Instalacja zależności:
+
+```bash
+npm install
+```
+
+- Uruchomienie optymalizacji:
+
+```bash
+npm run optimize
+```
+
+- Wyczyszczenie wygenerowanych WebP i ponowne wygenerowanie:
+
+```bash
+npm run optimize:clean
+```
+
+Warianty generowane automatycznie:
+- `hero` - maksymalna szerokość 1920 px,
+- `card` - maksymalna szerokość 960 px,
+- `thumb` - maksymalna szerokość 480 px.
+
+Przykład:
+
+```text
+src/img/sadzenie-drzew.jpg
+assets/img/sadzenie-drzew-hero.webp
+assets/img/sadzenie-drzew-card.webp
+assets/img/sadzenie-drzew-thumb.webp
+```
+
+Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku dzieci i młodzieży.
+
+## Do uzupełnienia w kolejnych sprintach
+
+- oficjalne logo RC Silesia,
+- finalne linki social media,
+- polityka prywatności,
+- aktualności,
+- rejestr nasadzeń,
+- mapa nasadzeń,
+- SEO i dostępność.
