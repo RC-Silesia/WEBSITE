@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.3.1-staging-hardening
+- ustawiono stagingowe robots.txt na noindex przez Disallow: /,
+- dodano meta robots noindex, nofollow dla wersji stagingowej,
+- podniesiono breakpoint menu mobilnego do 1200px, aby usunąć overflow w zakresie tablet/mały laptop,
+- dezaktywowano oznaczone placeholderowe linki social/media także w trybie fallback bez site.json,
+- ograniczono allow iframe YouTube do niezbędnych uprawnień.
+- zaktualizowano package.json do wersji 1.3.1.
+
 ## v1.4.1-facebook-url
 - uzupełniono oficjalny link Facebook RC Silesia w assets/data/site.json.
 

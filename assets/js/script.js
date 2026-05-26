@@ -324,18 +324,28 @@
 
   function safeHref(element, value) {
     if (!element || typeof value !== "string") return;
-    if (value === "#") {
+    var normalizedValue = value.trim();
+    if (!normalizedValue || normalizedValue === "#" || normalizedValue.replace(/#$/, "") === "") {
       element.removeAttribute("href");
       element.removeAttribute("target");
+      element.removeAttribute("rel");
       element.setAttribute("aria-disabled", "true");
       element.classList.add("is-disabled");
+      if (!element.dataset.placeholderClickGuard) {
+        element.addEventListener("click", function (event) {
+          if (element.getAttribute("aria-disabled") === "true") {
+            event.preventDefault();
+          }
+        });
+        element.dataset.placeholderClickGuard = "true";
+      }
       if (element.textContent.indexOf("Otwórz") === 0) {
-        element.textContent = "Kanał wkrótce";
+        element.textContent = element.getAttribute("data-placeholder-link") === "media" ? "Materiał wkrótce" : "Kanał wkrótce";
       }
       return;
     }
-    if (value.indexOf("mailto:") === 0 || value.indexOf("assets/") === 0 || value.indexOf("https://") === 0 || value.indexOf("http://") === 0) {
-      element.setAttribute("href", value);
+    if (normalizedValue.indexOf("mailto:") === 0 || normalizedValue.indexOf("assets/") === 0 || normalizedValue.indexOf("https://") === 0 || normalizedValue.indexOf("http://") === 0) {
+      element.setAttribute("href", normalizedValue);
       element.removeAttribute("aria-disabled");
       element.classList.remove("is-disabled");
     }
@@ -358,6 +368,12 @@
     Array.prototype.slice.call(document.querySelectorAll("[data-social-link]")).forEach(function (link) {
       var key = link.getAttribute("data-social-link");
       safeHref(link, social[key]);
+    });
+  }
+
+  function hardenStaticPlaceholderLinks() {
+    Array.prototype.slice.call(document.querySelectorAll('[data-placeholder-link][href="#"], [data-placeholder-link]:not([href])')).forEach(function (link) {
+      safeHref(link, "#");
     });
   }
 
@@ -446,6 +462,7 @@
       appendTextElement(card, "h4", "", item.title);
 
       var link = appendTextElement(card, "a", "button secondary", "Otwórz materiał");
+      link.setAttribute("data-placeholder-link", "media");
       safeHref(link, item.href);
 
       container.appendChild(card);
@@ -477,11 +494,13 @@
       })
       .catch(function (error) {
         console.warn("Nie załadowano assets/data/site.json. Używam statycznego fallbacku HTML.", error);
+        hardenStaticPlaceholderLinks();
         return null;
       });
   }
 
   window.loadSiteData = loadSiteData;
+  hardenStaticPlaceholderLinks();
   loadSiteData();
 })();
 

@@ -166,6 +166,14 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - domena `https://example.com/` jest placeholderem i wymaga podmiany przed produkcją,
 - przed wersją produkcyjną wymagane są decyzje dotyczące domeny, dokumentów, polityki prywatności, operatora płatności i oficjalnych social URL-i.
 
+## Sprint v1.3.1 - staging hardening
+
+- ustawiono stagingowe `robots.txt` na `Disallow: /`,
+- dodano `meta robots` z `noindex, nofollow`,
+- podniesiono breakpoint menu mobilnego do 1200px, aby usunąć overflow w zakresie tablet/mały laptop,
+- dezaktywowano oznaczone placeholderowe linki social/media także w trybie fallback bez `site.json`,
+- ograniczono atrybut `allow` iframe YouTube do niezbędnych uprawnień.
+
 ## Sprint 1.1 - pilotaż warstwy danych JSON
 
 Dodano pilotażową warstwę danych w pliku `assets/data/site.json`. To nie jest pełna internacjonalizacja i18n i nie zastępuje kluczowych treści strony.

@@ -1,5 +1,6 @@
-# Staging/demo version. Update before production if needed.
 User-agent: *
-Disallow:
+Disallow: /
 
-Sitemap: https://example.com/sitemap.xml
+# Public demo/staging version. Marked visibly as demonstrational.
+# Switch to allow indexing only after production approval.
+Sitemap: https://rcsilesia.pl/sitemap.xml
