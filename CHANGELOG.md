@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.4.1-facebook-url
+- uzupełniono oficjalny link Facebook RC Silesia w assets/data/site.json.
+
 ## v1.3-staging-readiness
 - dodano dokumentację stagingową,
 - dodano instrukcję deploymentu dla GitHub Pages, Cloudflare Pages i Netlify,
