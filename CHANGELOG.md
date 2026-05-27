@@ -1,7 +1,8 @@
 # Changelog
 
 ## v1.5.5-rotary-logo
-- dodano dostarczony lockup Rotary Klub Silesia / Dystrykt 2231 jako zoptymalizowany plik WebP,
+- dodano dostarczony lockup Rotary Klub Silesia / Dystrykt 2231 jako zoptymalizowane pliki WebP i PNG,
+- dodano wariant mobilny logo przez strukturę `<picture>`,
 - zastąpiono tekstowy placeholder `RCS` w nagłówku strony głównej, polityce prywatności i podglądzie newslettera,
 - zachowano istniejący layout, staging `noindex` i brak zmian w modułach biznesowych.
 

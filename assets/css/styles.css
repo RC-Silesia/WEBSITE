@@ -132,18 +132,24 @@ textarea:focus-visible,
 }
 
 .brand-logo {
-  display: block;
-  width: 172px;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
   max-width: 42vw;
-  height: auto;
-  max-height: 58px;
+}
+
+.brand-logo__image {
+  display: block;
+  width: auto;
+  height: 56px;
+  max-width: 240px;
   object-fit: contain;
   border-radius: 4px;
 }
 
-.legal-back-link .brand-logo {
-  width: 190px;
-  max-height: 72px;
+.legal-back-link .brand-logo__image {
+  height: 64px;
+  max-width: 240px;
 }
 
 .brand strong,
@@ -1863,14 +1869,21 @@ textarea {
   }
 
   .brand-logo {
-    width: 132px;
     max-width: 48vw;
-    max-height: 54px;
+  }
+
+  .brand-logo__image {
+    height: 44px;
+    max-width: 180px;
   }
 
   .legal-back-link .brand-logo {
-    width: 160px;
     max-width: 72vw;
+  }
+
+  .legal-back-link .brand-logo__image {
+    height: 52px;
+    max-width: 190px;
   }
 
   .brand small {
