@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.7-docs-link
+- dodano plik `assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx`,
+- przepięto linki do porozumienia w rejestrze nasadzeń, sekcji Dane formalne i sekcji Dokumenty,
+- zaktualizowano opis karty dokumentu, aby wskazywał statuty obu Stron i analizę porównawczą celów statutowych,
+- starszy plik `Projekt_Porozumienia_z_dokumentami_D1-D14.docx` pozostawiono w repo jako archiwum,
+- bez zmian w OG image, logo, motcie, social hubie, panelu wpłat i pozostałych modułach biznesowych.
+
 ## v1.5.6-og-image
 - wdrożono Open Graph image w `assets/img/og-rc-silesia.jpg` (1200x630, oficjalne logo klubu wycentrowane na białym tle),
 - dodano wariant WebP `og-rc-silesia.webp` jako bonus dla platform z obsługą WebP; meta tag wskazuje na JPG dla maksymalnej kompatybilności,
