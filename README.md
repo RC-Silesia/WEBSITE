@@ -208,6 +208,13 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - publikacja zdjęć wymaga zgód na wizerunek,
 - dodano link do galerii w stopce strony głównej.
 
+## Sprint v1.4.2 - Back to top
+
+- dodano dostępny przycisk Wróć na górę,
+- przycisk pojawia się po przewinięciu strony,
+- respektuje prefers-reduced-motion,
+- nie dodano zewnętrznych bibliotek.
+
 Uwaga: domena `https://rcsilesia.pl/` pozostaje placeholderem produkcyjnym do potwierdzenia przed publikacją.
 
 ## Sprint 1.1 - pilotaż warstwy danych JSON

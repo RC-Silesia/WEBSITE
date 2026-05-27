@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.4.2-back-to-top
+- dodano dostępny przycisk Wróć na górę prowadzący do sekcji Hero / #start,
+- przycisk pojawia się dopiero po przewinięciu strony,
+- dodano obsługę prefers-reduced-motion,
+- bez zmian w modułach biznesowych, privacy, SEO, social hub, ROTARY for PLANET i image pipeline.
+
 ## v1.4.2-gallery-section
 - dodano sekcję Galeria działań RC Silesia,
 - dodano demonstracyjne karty albumów,

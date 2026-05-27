@@ -123,6 +123,58 @@
     });
   }
 
+  const backToTopButton = document.querySelector("[data-back-to-top]");
+  if (backToTopButton instanceof HTMLButtonElement) {
+    const threshold = 600;
+    let backToTopVisible = false;
+    let backToTopTicking = false;
+    let backToTopHideTimer = 0;
+
+    function setBackToTopVisible(visible) {
+      if (visible === backToTopVisible) return;
+      backToTopVisible = visible;
+      window.clearTimeout(backToTopHideTimer);
+
+      if (visible) {
+        backToTopButton.hidden = false;
+        backToTopButton.setAttribute("aria-hidden", "false");
+        window.requestAnimationFrame(function () {
+          backToTopButton.classList.add("is-visible");
+        });
+        return;
+      }
+
+      backToTopButton.classList.remove("is-visible");
+      backToTopButton.setAttribute("aria-hidden", "true");
+      backToTopHideTimer = window.setTimeout(function () {
+        if (!backToTopVisible) backToTopButton.hidden = true;
+      }, 220);
+    }
+
+    function updateBackToTop() {
+      backToTopTicking = false;
+      setBackToTopVisible(window.scrollY > threshold);
+    }
+
+    function requestBackToTopUpdate() {
+      if (backToTopTicking) return;
+      backToTopTicking = true;
+      window.requestAnimationFrame(updateBackToTop);
+    }
+
+    backToTopButton.addEventListener("click", function () {
+      const target = document.getElementById("start") || document.body;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      target.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "start"
+      });
+    });
+
+    window.addEventListener("scroll", requestBackToTopUpdate, { passive: true });
+    updateBackToTop();
+  }
+
   const canvas = document.getElementById("hero-canvas");
   if (!(canvas instanceof HTMLCanvasElement)) return;
 
