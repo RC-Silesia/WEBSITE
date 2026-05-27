@@ -127,19 +127,23 @@ textarea:focus-visible,
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  min-width: 210px;
+  min-width: 172px;
+  flex: 0 0 auto;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  color: var(--blue-dark);
-  background: var(--gold);
-  font-weight: 800;
-  letter-spacing: 0;
+.brand-logo {
+  display: block;
+  width: 172px;
+  max-width: 42vw;
+  height: auto;
+  max-height: 58px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.legal-back-link .brand-logo {
+  width: 190px;
+  max-height: 72px;
 }
 
 .brand strong,
@@ -1856,6 +1860,17 @@ textarea {
 
   .brand {
     min-width: auto;
+  }
+
+  .brand-logo {
+    width: 132px;
+    max-width: 48vw;
+    max-height: 54px;
+  }
+
+  .legal-back-link .brand-logo {
+    width: 160px;
+    max-width: 72vw;
   }
 
   .brand small {

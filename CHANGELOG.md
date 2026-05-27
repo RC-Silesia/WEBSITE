@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.5-rotary-logo
+- dodano dostarczony lockup Rotary Klub Silesia / Dystrykt 2231 jako zoptymalizowany plik WebP,
+- zastąpiono tekstowy placeholder `RCS` w nagłówku strony głównej, polityce prywatności i podglądzie newslettera,
+- zachowano istniejący layout, staging `noindex` i brak zmian w modułach biznesowych.
+
 ## v1.5.4-motto-terminology-fix
 - ujednolicono polskie brzmienie motta Rotary na `Służba ponad własny interes`,
 - poprawiono wystąpienia motta w sekcji O klubie, Zasady Rotary i Dane formalne,
