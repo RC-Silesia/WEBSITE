@@ -192,7 +192,7 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - dodano `PRIVACY_RELEASE_CHECKLIST.md`,
 - nie dodano nowych funkcji biznesowych.
 
-## Sprint v1.4.1 - Rotary Principles Section
+## Sprint v1.4.2 - Rotary Principles Section
 
 - dodano sekcję Zasady Rotary,
 - dodano Test Czterech Pytań,
@@ -200,7 +200,7 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - dodano obszary działania Rotary,
 - dodano lokalne zastosowanie zasad w RC Silesia.
 
-## Sprint v1.4.2 - gallery section
+## Sprint v1.4.3 - gallery section
 
 - dodano demonstracyjną sekcję galerii,
 - galeria nie publikuje jeszcze prawdziwych zdjęć,
@@ -208,7 +208,7 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - publikacja zdjęć wymaga zgód na wizerunek,
 - dodano link do galerii w stopce strony głównej.
 
-## Sprint v1.4.2 - Back to top
+## Sprint v1.4.4 - Back to top
 
 - dodano dostępny przycisk Wróć na górę,
 - przycisk pojawia się po przewinięciu strony,

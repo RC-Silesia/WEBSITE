@@ -1,12 +1,12 @@
 # Changelog
 
-## v1.4.2-back-to-top
+## v1.4.4-back-to-top
 - dodano dostępny przycisk Wróć na górę prowadzący do sekcji Hero / #start,
 - przycisk pojawia się dopiero po przewinięciu strony,
 - dodano obsługę prefers-reduced-motion,
 - bez zmian w modułach biznesowych, privacy, SEO, social hub, ROTARY for PLANET i image pipeline.
 
-## v1.4.2-gallery-section
+## v1.4.3-gallery-section
 - dodano sekcję Galeria działań RC Silesia,
 - dodano demonstracyjne karty albumów,
 - dodano notę o zgodach i statusie demonstracyjnym,
@@ -14,7 +14,7 @@
 - dodano link do galerii w stopce strony głównej,
 - bez zmian w modułach biznesowych, privacy, SEO, social hub i płatnościach.
 
-## v1.4.1-rotary-principles
+## v1.4.2-rotary-principles
 - dodano sekcję Zasady Rotary,
 - dodano Test Czterech Pytań,
 - dodano dewizę Service Above Self - Służba ponad własny interes,
