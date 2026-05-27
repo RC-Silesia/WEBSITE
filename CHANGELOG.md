@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.9-hero-moe
+- zastąpiono ręcznie rysowany znak w hero oficjalnym Mark of Excellence z pliku `RotaryMoE-R_REV.eps`,
+- dodano webowe warianty `assets/img/rotary-moe-r-rev.png` i `assets/img/rotary-moe-r-rev.webp` wygenerowane z osadzonego podglądu TIFF pliku EPS,
+- zachowano nazwę hero `Rotary Klub Silesia` zgodnie z wpisem do KRS,
+- bez zmian w danych formalnych, motcie, dokumentach, OG image, logo w nagłówku i pozostałych modułach.
+
 ## v1.5.8-hero-krs-name
 - zmieniono nazwę w hero z `RC Silesia` na pełną nazwę `Rotary Klub Silesia` zgodnie z wpisem do KRS,
 - uzupełniono hero emblem o napis `ROTARY CLUB` w otoku koła,

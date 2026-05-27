@@ -262,17 +262,15 @@ textarea:focus-visible,
   margin: 0 auto 20px;
 }
 
-.hero-emblem .rotary-wheel {
+.hero-emblem picture {
+  display: block;
+}
+
+.hero-emblem__image {
+  display: block;
   width: 100%;
   height: auto;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, .4));
-}
-
-.rotary-wheel-text {
-  font-size: 8px;
-  font-weight: 900;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
 }
 
 .hero-actions .button {
