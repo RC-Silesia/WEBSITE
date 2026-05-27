@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.4-motto-terminology-fix
+- ujednolicono polskie brzmienie motta Rotary na `Służba ponad własny interes`,
+- poprawiono wystąpienia motta w sekcji O klubie, Zasady Rotary i Dane formalne,
+- bez zmian w modułach technicznych, newsletterze, privacy, social hub i płatnościach.
+
 ## v1.5.3-back-to-top-a11y-fix
 - usunięto `aria-hidden` z przycisku Wróć na górę,
 - poprawiono przenoszenie fokusu przed ukryciem przycisku,
