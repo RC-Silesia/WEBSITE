@@ -89,6 +89,19 @@ textarea:focus-visible,
   color: rgba(255, 255, 255, .82);
 }
 
+.top-newsletter {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--blue-dark);
+  background: var(--gold);
+  font-weight: 800;
+}
+
+.top-newsletter:hover {
+  background: #ffd37a;
+}
+
 .top-social a:hover {
   color: var(--white);
   background: rgba(255, 255, 255, .1);
