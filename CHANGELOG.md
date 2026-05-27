@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.5.12-documents-download-fix
+- podpięto dokumenty w sekcji Dokumenty do pobrania i w danych formalnych,
+- dodano notę: Wersje DOCX służą do pracy roboczej. Na stronie produkcyjnej preferowane będą dokumenty PDF zatwierdzone do publikacji.,
+- dodano i utrzymano link do statutu RC Silesia DOCX,
+- podmieniono plik porozumienia ramowego ROTARY for PLANET na najnowszą zredagowaną wersję DOCX,
+- zaktualizowano `assets/data/site.json`, aby dynamiczny renderer dokumentów nie przywracał starego linku,
+- pozostawiono starszy plik porozumienia jako archiwum bez linkowania w publicznym UI,
+- bez zmian w modułach biznesowych, logo, social hub, newsletterze, privacy/SEO i image pipeline.
+
 ## v1.5.11-production-rotary-polska-url
 - ustawiono produkcyjny adres kanoniczny klubu na `https://rotary.org.pl/kluby/rc-silesia/`,
 - zaktualizowano `canonical`, `og:url` i JSON-LD `url` w `index.html`,

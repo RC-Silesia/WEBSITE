@@ -12,17 +12,17 @@
   "documents": [
     {
       "title": "Statut RC Silesia",
-      "status": "dokument podstawowy",
+      "status": "dokument roboczy / do weryfikacji przed publikacją produkcyjną",
       "format": "DOCX",
       "href": "assets/docs/RC_Silesia_Statut_Final.docx",
-      "note": "Docelowo rekomendowany także PDF."
+      "note": "Wersja DOCX przeznaczona do pracy roboczej i weryfikacji. W wersji produkcyjnej rekomendowana jest publikacja zatwierdzonego PDF."
     },
     {
-      "title": "Projekt porozumienia ROTARY for PLANET",
-      "status": "projekt roboczy / do uzgodnienia",
+      "title": "Porozumienie ramowe ROTARY for PLANET",
+      "status": "projekt roboczy / do uzgodnienia ze Stronami",
       "format": "DOCX",
-      "href": "assets/docs/Projekt_Porozumienia_z_dokumentami_D1-D14.docx",
-      "note": "Nie publikować jako finalnego dokumentu bez zatwierdzenia Stron."
+      "href": "assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx",
+      "note": "Wersja DOCX zawierająca dokumenty D1-D14, statuty Stron oraz analizę porównawczą celów statutowych. Dokument nie jest wersją finalną i wymaga zatwierdzenia przed publikacją produkcyjną."
     }
   ],
   "payment": {

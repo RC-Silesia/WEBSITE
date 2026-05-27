@@ -57,6 +57,13 @@ rc-silesia-site/
 - dodano moduł dokumentów do pobrania,
 - dodano noty o statusie dokumentów roboczych.
 
+## Sprint v1.5.12 - documents download fix
+
+- podpięto dokumenty w sekcji Dokumenty do pobrania,
+- oznaczono wersje DOCX jako robocze,
+- użyto najnowszej zredagowanej wersji porozumienia ramowego ROTARY for PLANET,
+- dodano informację, że w wersji produkcyjnej preferowane będą zatwierdzone PDF-y.
+
 ## Sprint 3 - formularze i routing kontaktu
 
 - rozbudowano formularz kontaktowy,

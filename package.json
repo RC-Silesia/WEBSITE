@@ -1,6 +1,6 @@
 {
   "name": "rc-silesia-site",
-  "version": "1.5.11",
+  "version": "1.5.12",
   "private": true,
   "description": "Statyczny prototyp strony RC Silesia",
   "scripts": {
