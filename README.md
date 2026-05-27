@@ -192,6 +192,14 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - dodano `PRIVACY_RELEASE_CHECKLIST.md`,
 - nie dodano nowych funkcji biznesowych.
 
+## Sprint v1.4.1 - Rotary Principles Section
+
+- dodano sekcję Zasady Rotary,
+- dodano Test Czterech Pytań,
+- dodano dewizę Rotary,
+- dodano obszary działania Rotary,
+- dodano lokalne zastosowanie zasad w RC Silesia.
+
 Uwaga: domena `https://rcsilesia.pl/` pozostaje placeholderem produkcyjnym do potwierdzenia przed publikacją.
 
 ## Sprint 1.1 - pilotaż warstwy danych JSON

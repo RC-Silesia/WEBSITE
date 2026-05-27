@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.4.1-rotary-principles
+- dodano sekcję Zasady Rotary,
+- dodano Test Czterech Pytań,
+- dodano dewizę Service Above Self - Służba ponad własny interes,
+- dodano karty obszarów działania Rotary,
+- dodano lokalne zastosowanie zasad Rotary w RC Silesia,
+- bez zmian w modułach biznesowych, privacy, SEO, social hub, płatnościach i image pipeline.
+
 ## v1.4-privacy-seo-candidate
 - dodano roboczą politykę prywatności privacy.html,
 - dodano demonstracyjny panel cookies/privacy notice z localStorage,
