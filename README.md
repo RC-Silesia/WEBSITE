@@ -200,6 +200,13 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - dodano obszary działania Rotary,
 - dodano lokalne zastosowanie zasad w RC Silesia.
 
+## Sprint v1.4.2 - gallery section
+
+- dodano demonstracyjną sekcję galerii,
+- galeria nie publikuje jeszcze prawdziwych zdjęć,
+- zdjęcia powinny przechodzić przez image pipeline,
+- publikacja zdjęć wymaga zgód na wizerunek.
+
 Uwaga: domena `https://rcsilesia.pl/` pozostaje placeholderem produkcyjnym do potwierdzenia przed publikacją.
 
 ## Sprint 1.1 - pilotaż warstwy danych JSON

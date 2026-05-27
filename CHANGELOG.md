@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.4.2-gallery-section
+- dodano sekcję Galeria działań RC Silesia,
+- dodano demonstracyjne karty albumów,
+- dodano notę o zgodach i statusie demonstracyjnym,
+- przygotowano miejsce pod przyszłe zdjęcia WebP z image pipeline,
+- bez zmian w modułach biznesowych, privacy, SEO, social hub i płatnościach.
+
 ## v1.4.1-rotary-principles
 - dodano sekcję Zasady Rotary,
 - dodano Test Czterech Pytań,

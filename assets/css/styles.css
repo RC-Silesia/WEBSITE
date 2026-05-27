@@ -819,6 +819,117 @@ a.is-disabled {
   min-width: 190px;
 }
 
+.gallery-section {
+  background:
+    linear-gradient(180deg, rgba(247, 168, 27, .12), rgba(247, 168, 27, 0) 34%),
+    var(--white);
+}
+
+.gallery-note {
+  max-width: 900px;
+  margin: -10px auto 28px;
+  padding: 16px 18px;
+  border-left: 5px solid var(--gold);
+  color: var(--blue-dark);
+  background: #fff7e6;
+  font-weight: 700;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.gallery-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 12px 28px rgba(16, 37, 64, .08);
+}
+
+.gallery-card__media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  min-height: 170px;
+  padding: 18px;
+  color: var(--blue-dark);
+  background:
+    linear-gradient(135deg, rgba(23, 69, 143, .18), rgba(247, 168, 27, .28)),
+    #f3f6fa;
+  border-bottom: 4px solid var(--gold);
+}
+
+.gallery-card__placeholder {
+  display: grid;
+  place-items: center;
+  width: min(100%, 190px);
+  min-height: 64px;
+  padding: 10px 14px;
+  border: 2px solid rgba(13, 43, 95, .32);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .68);
+  color: var(--blue-dark);
+  font-weight: 900;
+  text-align: center;
+}
+
+.gallery-card__body {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 20px;
+}
+
+.gallery-card__body h3 {
+  margin: 0;
+  color: var(--blue-dark);
+}
+
+.gallery-card__body p {
+  margin: 0;
+}
+
+.gallery-card__body dl {
+  margin: 0;
+}
+
+.gallery-card__body dt {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.gallery-card__body dd {
+  margin: 2px 0 0;
+  color: var(--blue-dark);
+  font-weight: 800;
+}
+
+.gallery-card__status {
+  justify-self: start;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: var(--blue-dark);
+  background: rgba(247, 168, 27, .22);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.gallery-card .button:disabled {
+  justify-self: start;
+  cursor: not-allowed;
+  opacity: .72;
+}
+
 .process {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-bottom: 34px;
@@ -1572,6 +1683,7 @@ textarea {
   .areas-grid,
   .four-way-grid,
   .principles-grid,
+  .gallery-grid,
   .formal-card-grid,
   .documents-grid,
   .planting-standard-grid,
@@ -1618,7 +1730,8 @@ textarea {
   }
 
   .four-way-grid,
-  .principles-grid {
+  .principles-grid,
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
 
