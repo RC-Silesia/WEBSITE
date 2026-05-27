@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.2-newsletter-social-hub-link
+- dodano wejście do podglądu newslettera tygodniowego z panelu Media w sekcji Co słychać w RC Silesia?,
+- newsletter-preview.html pozostaje podglądem demonstracyjnym bez wysyłki e-mail,
+- nie dodano integracji z dostawcą mailingowym ani backendu.
+
 ## v1.5.1-newsletter-html-export
 - dodano możliwość pobrania szkicu newslettera jako pliku HTML z poziomu newsletter-preview.html,
 - rozszerzono scripts/generate-newsletter.js o eksport HTML,

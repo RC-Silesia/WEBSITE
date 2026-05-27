@@ -225,6 +225,8 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - `newsletter-preview.html` pokazuje szkic newslettera,
 - przycisk `Pobierz newsletter jako HTML` pobiera samodzielny plik HTML,
 - `npm run newsletter` generuje Markdown i HTML do `exports/newsletter`,
+- newsletter jest dostępny z panelu Media w sekcji Co słychać w RC Silesia?,
+- link prowadzi do `newsletter-preview.html`,
 - eksport nie wysyła e-maili,
 - wysyłka wymaga osobnego procesu zatwierdzenia i integracji mailingowej.
 
