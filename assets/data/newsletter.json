@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-05-27",
+  "period": {
+    "from": "2026-05-20",
+    "to": "2026-05-27",
+    "label": "20-27 maja 2026"
+  },
+  "status": "draft",
+  "editorialNote": "To jest demonstracyjny szkic newslettera RC Silesia. Przed wysyłką wymaga weryfikacji redakcyjnej, potwierdzenia danych oraz zatwierdzenia przez osoby odpowiedzialne.",
+  "title": "Newsletter tygodniowy RC Silesia",
+  "intro": "Podsumowanie działań, projektów i materiałów do dalszej redakcji. Newsletter nie jest wysyłany automatycznie.",
+  "sections": [
+    {
+      "title": "Najważniejsze tematy tygodnia",
+      "items": [
+        {
+          "title": "Rozwój strony RC Silesia",
+          "text": "Uzupełniono warstwę informacyjną strony o zasady Rotary, demonstracyjną galerię działań oraz mechanizmy nawigacji powrotnej.",
+          "status": "draft"
+        },
+        {
+          "title": "ROTARY for PLANET",
+          "text": "Moduł programu pozostaje gotowy do dalszego uzupełniania po zatwierdzeniu lokalizacji, partnerów i dokumentacji działań.",
+          "status": "draft"
+        }
+      ]
+    },
+    {
+      "title": "Do sprawdzenia przed publikacją",
+      "items": [
+        {
+          "title": "Zdjęcia i zgody",
+          "text": "Materiały fotograficzne powinny zostać dodane dopiero po potwierdzeniu praw autorskich, zgód na wizerunek i statusu publikacji.",
+          "status": "review"
+        },
+        {
+          "title": "Privacy i publikacja produkcyjna",
+          "text": "Przed przełączeniem na produkcję należy zatwierdzić politykę prywatności, domenę, dokumenty oraz status indeksacji.",
+          "status": "review"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "label": "Przejdź do strony RC Silesia",
+    "href": "index.html#start"
+  },
+  "footer": "To jest szkic newslettera RC Silesia. Przed wysyłką wymaga zatwierdzenia."
+}

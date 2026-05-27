@@ -1,9 +1,10 @@
 {
   "name": "rc-silesia-site",
-  "version": "1.4.4",
+  "version": "1.5.1",
   "private": true,
   "description": "Statyczny prototyp strony RC Silesia",
   "scripts": {
+    "newsletter": "node scripts/generate-newsletter.js",
     "optimize": "node scripts/optimize.js",
     "optimize:clean": "node scripts/optimize.js --clean"
   },

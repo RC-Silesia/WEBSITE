@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.1-newsletter-html-export
+- dodano możliwość pobrania szkicu newslettera jako pliku HTML z poziomu newsletter-preview.html,
+- rozszerzono scripts/generate-newsletter.js o eksport HTML,
+- npm run newsletter generuje teraz Markdown i HTML,
+- dodano escapowanie danych newslettera w eksporcie HTML,
+- nie dodano wysyłki e-mail ani integracji z dostawcą mailingowym.
+
 ## v1.4.5-return-navigation
 - rozdzielono funkcję Wróć na górę od powrotu z podstron,
 - dodano zapamiętywanie ostatniej aktywnej sekcji strony,

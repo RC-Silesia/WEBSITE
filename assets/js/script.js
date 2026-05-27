@@ -195,6 +195,209 @@
     link.setAttribute("href", "index.html" + returnTo);
   });
 
+  let currentNewsletterData = null;
+  const newsletterContainer = document.querySelector('[data-render="newsletter"]');
+  const newsletterStatus = document.querySelector("[data-newsletter-status]");
+  const newsletterDownloadButton = document.querySelector("[data-download-newsletter-html]");
+
+  function setNewsletterStatus(message, isError) {
+    if (!newsletterStatus) return;
+    newsletterStatus.textContent = message || "";
+    newsletterStatus.classList.toggle("is-error", Boolean(isError));
+  }
+
+  function escapeHtml(value) {
+    return String(value === undefined || value === null ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function clearNode(element) {
+    while (element.firstChild) element.removeChild(element.firstChild);
+  }
+
+  function appendNewsletterText(parent, tagName, text, className) {
+    const element = document.createElement(tagName);
+    if (className) element.className = className;
+    element.textContent = text || "";
+    parent.appendChild(element);
+    return element;
+  }
+
+  function normalizeNewsletterSections(data) {
+    return data && Array.isArray(data.sections) ? data.sections : [];
+  }
+
+  function renderNewsletter(data) {
+    if (!newsletterContainer || !data) return;
+    clearNode(newsletterContainer);
+    currentNewsletterData = data;
+
+    appendNewsletterText(newsletterContainer, "p", "Okres raportu", "eyebrow");
+    appendNewsletterText(newsletterContainer, "h2", data.period && data.period.label ? data.period.label : "do uzupełnienia");
+    appendNewsletterText(newsletterContainer, "p", "Status: " + (data.status || "draft"), "newsletter-draft-badge");
+    appendNewsletterText(newsletterContainer, "p", data.editorialNote || "Szkic newslettera wymaga zatwierdzenia przed wysyłką.");
+    if (data.intro) appendNewsletterText(newsletterContainer, "p", data.intro);
+
+    normalizeNewsletterSections(data).forEach(function (section) {
+      const sectionElement = document.createElement("section");
+      appendNewsletterText(sectionElement, "h3", section.title || "Sekcja");
+      const list = document.createElement("ul");
+      (Array.isArray(section.items) ? section.items : []).forEach(function (item) {
+        const listItem = document.createElement("li");
+        appendNewsletterText(listItem, "strong", item.title || "Temat");
+        appendNewsletterText(listItem, "span", "Status: " + (item.status || "draft"), "newsletter-item-status");
+        appendNewsletterText(listItem, "p", item.text || "");
+        list.appendChild(listItem);
+      });
+      sectionElement.appendChild(list);
+      newsletterContainer.appendChild(sectionElement);
+    });
+
+    if (data.cta && data.cta.label) {
+      const cta = document.createElement("a");
+      cta.className = "button primary";
+      cta.textContent = data.cta.label;
+      cta.setAttribute("href", data.cta.href || "index.html#start");
+      newsletterContainer.appendChild(cta);
+    }
+  }
+
+  function readNewsletterFallback() {
+    const fallback = document.getElementById("newsletter-fallback-data");
+    if (!fallback) return null;
+    try {
+      return JSON.parse(fallback.textContent || "");
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function buildNewsletterHtml(data) {
+    const title = data.title || "Newsletter tygodniowy RC Silesia";
+    const period = data.period && data.period.label ? data.period.label : "do uzupełnienia";
+    const status = data.status || "draft";
+    const sections = normalizeNewsletterSections(data).map(function (section) {
+      const items = (Array.isArray(section.items) ? section.items : []).map(function (item) {
+        return [
+          "        <li>",
+          "          <strong>" + escapeHtml(item.title || "Temat") + "</strong>",
+          "          <span class=\"status\">" + escapeHtml(item.status || "draft") + "</span>",
+          "          <p>" + escapeHtml(item.text || "") + "</p>",
+          "        </li>"
+        ].join("\n");
+      }).join("\n");
+      return [
+        "      <section>",
+        "        <h2>" + escapeHtml(section.title || "Sekcja") + "</h2>",
+        "        <ul>",
+        items,
+        "        </ul>",
+        "      </section>"
+      ].join("\n");
+    }).join("\n");
+    const cta = data.cta && data.cta.label
+      ? "      <p class=\"cta\"><a href=\"" + escapeHtml(data.cta.href || "index.html#start") + "\">" + escapeHtml(data.cta.label) + "</a></p>\n"
+      : "";
+
+    return [
+      "<!doctype html>",
+      "<html lang=\"pl\">",
+      "<head>",
+      "  <meta charset=\"utf-8\">",
+      "  <title>" + escapeHtml(title) + "</title>",
+      "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+      "  <style>",
+      "    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #263238; background: #f5f7fa; line-height: 1.55; }",
+      "    .wrap { max-width: 760px; margin: 0 auto; padding: 32px 18px; }",
+      "    header, section, footer { margin-bottom: 18px; padding: 22px; border: 1px solid #dfe5ea; border-radius: 8px; background: #ffffff; }",
+      "    h1, h2 { color: #0d2b5f; }",
+      "    h1 { margin: 0 0 10px; }",
+      "    h2 { margin-top: 0; }",
+      "    .meta, .note, footer { color: #64707a; }",
+      "    .status { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; color: #0d2b5f; background: #fff7e6; font-size: 12px; font-weight: 700; }",
+      "    li { margin-bottom: 14px; }",
+      "    li p { margin: 6px 0 0; }",
+      "    .cta a { display: inline-block; padding: 10px 14px; border-radius: 6px; color: #0d2b5f; background: #f7a81b; font-weight: 700; text-decoration: none; }",
+      "  </style>",
+      "</head>",
+      "<body>",
+      "  <div class=\"wrap\">",
+      "    <header>",
+      "      <p class=\"meta\">RC Silesia</p>",
+      "      <h1>" + escapeHtml(title) + "</h1>",
+      "      <p>Okres raportu: <strong>" + escapeHtml(period) + "</strong></p>",
+      "      <p>Status: <strong>" + escapeHtml(status) + "</strong></p>",
+      "      <p class=\"note\">" + escapeHtml(data.editorialNote || "Szkic newslettera wymaga zatwierdzenia przed wysyłką.") + "</p>",
+      "      <p>" + escapeHtml(data.intro || "") + "</p>",
+      "    </header>",
+      sections,
+      cta + "    <footer>" + escapeHtml(data.footer || "To jest szkic newslettera RC Silesia. Przed wysyłką wymaga zatwierdzenia.") + "</footer>",
+      "  </div>",
+      "</body>",
+      "</html>",
+      ""
+    ].join("\n");
+  }
+
+  function newsletterFileDate(data) {
+    const raw = data && data.period && data.period.to ? data.period.to : data && data.generatedAt ? data.generatedAt : new Date().toISOString().slice(0, 10);
+    return String(raw).replace(/[^0-9-]/g, "") || "draft";
+  }
+
+  function downloadNewsletterHtml(data) {
+    const html = buildNewsletterHtml(data);
+    const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "rc-silesia-newsletter-" + newsletterFileDate(data) + ".html";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(function () {
+      URL.revokeObjectURL(url);
+    }, 0);
+  }
+
+  if (newsletterContainer || newsletterDownloadButton) {
+    const fallbackData = readNewsletterFallback();
+    if (fallbackData) {
+      currentNewsletterData = fallbackData;
+      renderNewsletter(fallbackData);
+    }
+    fetch("assets/data/newsletter.json")
+      .then(function (response) {
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        return response.json();
+      })
+      .then(function (data) {
+        currentNewsletterData = data;
+        renderNewsletter(data);
+        setNewsletterStatus("");
+      })
+      .catch(function () {
+        if (!currentNewsletterData) {
+          setNewsletterStatus("Eksport HTML wymaga załadowania danych newslettera.", true);
+          if (newsletterDownloadButton instanceof HTMLButtonElement) newsletterDownloadButton.disabled = true;
+        }
+      });
+  }
+
+  if (newsletterDownloadButton instanceof HTMLButtonElement) {
+    newsletterDownloadButton.addEventListener("click", function () {
+      if (!currentNewsletterData) {
+        setNewsletterStatus("Eksport HTML wymaga załadowania danych newslettera.", true);
+        return;
+      }
+      downloadNewsletterHtml(currentNewsletterData);
+      setNewsletterStatus("Plik HTML newslettera został przygotowany do pobrania.", false);
+    });
+  }
+
   const backToTopButton = document.querySelector("[data-back-to-top]");
   if (backToTopButton instanceof HTMLButtonElement) {
     const threshold = 600;

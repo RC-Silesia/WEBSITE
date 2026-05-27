@@ -220,6 +220,14 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - back-to-top działa na stronie głównej i przewija do sekcji Hero,
 - privacy.html ma powrót do poprzedniej sekcji strony głównej, jeżeli jest znana.
 
+## Sprint v1.5.1 - newsletter HTML export
+
+- `newsletter-preview.html` pokazuje szkic newslettera,
+- przycisk `Pobierz newsletter jako HTML` pobiera samodzielny plik HTML,
+- `npm run newsletter` generuje Markdown i HTML do `exports/newsletter`,
+- eksport nie wysyła e-maili,
+- wysyłka wymaga osobnego procesu zatwierdzenia i integracji mailingowej.
+
 Uwaga: domena `https://rcsilesia.pl/` pozostaje placeholderem produkcyjnym do potwierdzenia przed publikacją.
 
 ## Sprint 1.1 - pilotaż warstwy danych JSON
