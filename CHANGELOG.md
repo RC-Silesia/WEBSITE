@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.3-back-to-top-a11y-fix
+- usunięto `aria-hidden` z przycisku Wróć na górę,
+- poprawiono przenoszenie fokusu przed ukryciem przycisku,
+- zachowano przewijanie do sekcji Hero / `#start` i obsługę `prefers-reduced-motion`.
+
 ## v1.5.2-newsletter-social-hub-link
 - dodano wejście do podglądu newslettera tygodniowego z panelu Media w sekcji Co słychać w RC Silesia?,
 - przeniesiono kartę newslettera na początek panelu Media i dodano link w stopce,

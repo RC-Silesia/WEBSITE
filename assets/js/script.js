@@ -404,6 +404,27 @@
     let backToTopVisible = false;
     let backToTopTicking = false;
     let backToTopHideTimer = 0;
+    backToTopButton.tabIndex = -1;
+
+    function moveBackToTopFocus() {
+      const target = document.getElementById("start");
+      if (target instanceof HTMLElement) {
+        const hadTabindex = target.hasAttribute("tabindex");
+        const previousTabindex = target.getAttribute("tabindex");
+        target.setAttribute("tabindex", "-1");
+        target.focus({ preventScroll: true });
+        if (hadTabindex) {
+          target.setAttribute("tabindex", previousTabindex || "");
+        } else {
+          target.removeAttribute("tabindex");
+        }
+        return;
+      }
+
+      document.body.setAttribute("tabindex", "-1");
+      document.body.focus({ preventScroll: true });
+      document.body.removeAttribute("tabindex");
+    }
 
     function setBackToTopVisible(visible) {
       if (visible === backToTopVisible) return;
@@ -412,17 +433,22 @@
 
       if (visible) {
         backToTopButton.hidden = false;
-        backToTopButton.setAttribute("aria-hidden", "false");
+        backToTopButton.tabIndex = 0;
         window.requestAnimationFrame(function () {
           backToTopButton.classList.add("is-visible");
         });
         return;
       }
 
+      if (document.activeElement === backToTopButton) {
+        moveBackToTopFocus();
+      }
       backToTopButton.classList.remove("is-visible");
-      backToTopButton.setAttribute("aria-hidden", "true");
+      backToTopButton.tabIndex = -1;
       backToTopHideTimer = window.setTimeout(function () {
-        if (!backToTopVisible) backToTopButton.hidden = true;
+        if (!backToTopVisible && !backToTopButton.classList.contains("is-visible")) {
+          backToTopButton.hidden = true;
+        }
       }, 220);
     }
 
