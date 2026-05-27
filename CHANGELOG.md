@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.8-hero-krs-name
+- zmieniono nazwę w hero z `RC Silesia` na pełną nazwę `Rotary Klub Silesia` zgodnie z wpisem do KRS,
+- uzupełniono hero emblem o napis `ROTARY CLUB` w otoku koła,
+- bez zmian w danych formalnych, motcie, dokumentach, OG image, logo w nagłówku i pozostałych modułach.
+
 ## v1.5.7-docs-link
 - dodano plik `assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx`,
 - przepięto linki do porozumienia w rejestrze nasadzeń, sekcji Dane formalne i sekcji Dokumenty,
