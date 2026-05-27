@@ -123,6 +123,78 @@
     });
   }
 
+  const returnStorageKey = "rcSilesiaLastSection";
+  const safeHashPattern = /^#[A-Za-z0-9_-]+$/;
+
+  function safeReturnHash(value) {
+    if (typeof value !== "string") return "";
+    const trimmed = value.trim();
+    return safeHashPattern.test(trimmed) ? trimmed : "";
+  }
+
+  function readStoredReturnHash() {
+    try {
+      return safeReturnHash(window.sessionStorage.getItem(returnStorageKey) || "");
+    } catch (error) {
+      return "";
+    }
+  }
+
+  function writeStoredReturnHash(hash) {
+    const safeHash = safeReturnHash(hash);
+    if (!safeHash) return;
+    try {
+      window.sessionStorage.setItem(returnStorageKey, safeHash);
+    } catch (error) {
+      // Brak sessionStorage nie blokuje nawigacji.
+    }
+  }
+
+  const observedSections = Array.prototype.slice.call(document.querySelectorAll("main section[id], main[id]"))
+    .filter(function (section) {
+      return safeReturnHash("#" + section.id);
+    });
+
+  if (observedSections.length) {
+    writeStoredReturnHash(window.location.hash || "#start");
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            writeStoredReturnHash("#" + entry.target.id);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: "-35% 0px -45% 0px",
+        threshold: 0
+      });
+      observedSections.forEach(function (section) {
+        sectionObserver.observe(section);
+      });
+    } else {
+      writeStoredReturnHash("#start");
+    }
+  }
+
+  Array.prototype.slice.call(document.querySelectorAll("[data-privacy-link]")).forEach(function (link) {
+    function updatePrivacyHref() {
+      const returnTo = readStoredReturnHash() || safeReturnHash(window.location.hash) || "#start";
+      link.setAttribute("href", "privacy.html?returnTo=" + encodeURIComponent(returnTo));
+    }
+    updatePrivacyHref();
+    link.addEventListener("focus", updatePrivacyHref);
+    link.addEventListener("pointerenter", updatePrivacyHref);
+    link.addEventListener("click", updatePrivacyHref);
+  });
+
+  Array.prototype.slice.call(document.querySelectorAll("[data-return-link]")).forEach(function (link) {
+    const params = new URLSearchParams(window.location.search);
+    const returnTo = safeReturnHash(params.get("returnTo") || "") || readStoredReturnHash() || "#start";
+    link.setAttribute("href", "index.html" + returnTo);
+  });
+
   const backToTopButton = document.querySelector("[data-back-to-top]");
   if (backToTopButton instanceof HTMLButtonElement) {
     const threshold = 600;

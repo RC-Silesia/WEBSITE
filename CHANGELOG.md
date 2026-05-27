@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.4.5-return-navigation
+- rozdzielono funkcję Wróć na górę od powrotu z podstron,
+- dodano zapamiętywanie ostatniej aktywnej sekcji strony,
+- link do polityki prywatności może zawierać parametr returnTo,
+- privacy.html kieruje użytkownika z powrotem do poprzedniej sekcji albo do #start,
+- bez zmian w modułach biznesowych, social hub, płatnościach i privacy/SEO.
+
 ## v1.4.4-back-to-top
 - dodano dostępny przycisk Wróć na górę prowadzący do sekcji Hero / #start,
 - przycisk pojawia się dopiero po przewinięciu strony,

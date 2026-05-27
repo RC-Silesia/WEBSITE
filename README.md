@@ -215,6 +215,11 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - respektuje prefers-reduced-motion,
 - nie dodano zewnętrznych bibliotek.
 
+## Sprint v1.4.5 - return navigation
+
+- back-to-top działa na stronie głównej i przewija do sekcji Hero,
+- privacy.html ma powrót do poprzedniej sekcji strony głównej, jeżeli jest znana.
+
 Uwaga: domena `https://rcsilesia.pl/` pozostaje placeholderem produkcyjnym do potwierdzenia przed publikacją.
 
 ## Sprint 1.1 - pilotaż warstwy danych JSON
