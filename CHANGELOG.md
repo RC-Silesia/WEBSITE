@@ -2,6 +2,8 @@
 
 ## v1.5.2-newsletter-social-hub-link
 - dodano wejście do podglądu newslettera tygodniowego z panelu Media w sekcji Co słychać w RC Silesia?,
+- przeniesiono kartę newslettera na początek panelu Media i dodano link w stopce,
+- dodano widoczne wejście do newslettera nad zakładkami social hubu,
 - newsletter-preview.html pozostaje podglądem demonstracyjnym bez wysyłki e-mail,
 - nie dodano integracji z dostawcą mailingowym ani backendu.
 
