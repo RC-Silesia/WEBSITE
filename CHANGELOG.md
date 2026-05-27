@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.5.11-production-rotary-polska-url
+- ustawiono produkcyjny adres kanoniczny klubu na `https://rotary.org.pl/kluby/rc-silesia/`,
+- zaktualizowano `canonical`, `og:url` i JSON-LD `url` w `index.html`,
+- zaktualizowano `sitemap.xml` oraz linię `Sitemap` w `robots.txt` na adresy w domenie `rotary.org.pl`,
+- pozostawiono `og:image` i `twitter:image` na działającym pliku z GitHub Pages, ponieważ obraz nie jest hostowany w serwisie Rotary Polska,
+- pozostawiono `noindex, nofollow` i `Disallow: /` do czasu decyzji o otwarciu indeksacji,
+- bez zmian w social placeholderach, YouTube, danych formalnych, motcie, dokumentach i modułach biznesowych.
+
 ## v1.5.10-staging-url-cleanup
 - ujednolicono tymczasowe URL-e stagingowe na działający adres `https://rc-silesia.github.io/WEBSITE/`,
 - zaktualizowano `canonical`, `og:url` i JSON-LD `url` w `index.html`,
