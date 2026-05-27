@@ -3,4 +3,4 @@ Disallow: /
 
 # Public demo/staging version. Marked visibly as demonstrational.
 # Switch to allow indexing only after production approval.
-Sitemap: https://rcsilesia.pl/sitemap.xml
+Sitemap: https://rc-silesia.github.io/WEBSITE/sitemap.xml

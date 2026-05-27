@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.10-staging-url-cleanup
+- ujednolicono tymczasowe URL-e stagingowe na działający adres `https://rc-silesia.github.io/WEBSITE/`,
+- zaktualizowano `canonical`, `og:url` i JSON-LD `url` w `index.html`,
+- zaktualizowano `sitemap.xml` oraz linię `Sitemap` w `robots.txt`,
+- pozostawiono `noindex, nofollow` i `Disallow: /` do czasu decyzji produkcyjnej,
+- bez zmian w social placeholderach, YouTube, danych formalnych, motcie, dokumentach i modułach biznesowych.
+
 ## v1.5.9-hero-moe
 - zastąpiono ręcznie rysowany znak w hero oficjalnym Mark of Excellence z pliku `RotaryMoE-R_REV.eps`,
 - dodano webowe warianty `assets/img/rotary-moe-r-rev.png` i `assets/img/rotary-moe-r-rev.webp` wygenerowane z osadzonego podglądu TIFF pliku EPS,
