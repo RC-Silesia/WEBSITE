@@ -4,6 +4,10 @@
 - dodano dostępny przycisk Wróć na górę prowadzący do sekcji Hero / #start,
 - przycisk pojawia się dopiero po przewinięciu strony,
 - dodano obsługę prefers-reduced-motion,
+- ustawiono wersję package.json i package-lock.json na 1.4.4,
+- dodano link Zasady w głównej nawigacji,
+- ukryto privacy notice do czasu inicjalizacji JS, aby uniknąć FOUC,
+- ujednolicono polskie brzmienie motta Rotary,
 - bez zmian w modułach biznesowych, privacy, SEO, social hub, ROTARY for PLANET i image pipeline.
 
 ## v1.4.3-gallery-section
@@ -17,7 +21,7 @@
 ## v1.4.2-rotary-principles
 - dodano sekcję Zasady Rotary,
 - dodano Test Czterech Pytań,
-- dodano dewizę Service Above Self - Służba ponad własny interes,
+- dodano dewizę Service Above Self - Uczynność innym ponad korzyść własną,
 - dodano karty obszarów działania Rotary,
 - dodano lokalne zastosowanie zasad Rotary w RC Silesia,
 - bez zmian w modułach biznesowych, privacy, SEO, social hub, płatnościach i image pipeline.

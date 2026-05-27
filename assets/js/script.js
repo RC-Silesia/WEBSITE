@@ -684,6 +684,8 @@
     return;
   }
 
+  notice.hidden = false;
+
   accept.addEventListener("click", function () {
     try {
       window.localStorage.setItem(storageKey, JSON.stringify({
