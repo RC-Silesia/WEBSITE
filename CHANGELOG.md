@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.5.6-og-image
+- wdrożono Open Graph image w `assets/img/og-rc-silesia.jpg` (1200x630, oficjalne logo klubu wycentrowane na białym tle),
+- dodano wariant WebP `og-rc-silesia.webp` jako bonus dla platform z obsługą WebP; meta tag wskazuje na JPG dla maksymalnej kompatybilności,
+- zaktualizowano `meta property="og:image"` z placeholderowego URL-a `https://rcsilesia.pl/...` na działający `https://rc-silesia.github.io/WEBSITE/assets/img/og-rc-silesia.jpg`,
+- dodano `og:image:type=image/jpeg`, `og:image:width=1200`, `og:image:height=630` zgodne ze specyfikacją Open Graph,
+- zaktualizowano `meta name="twitter:image"` analogicznie,
+- usunięto komentarz TODO o OG image z `index.html`,
+- po decyzji o domenie produkcyjnej należy zmienić URL `og:image` i `twitter:image` z `rc-silesia.github.io/WEBSITE` na ostateczną domenę,
+- bez zmian w headerze, motcie, danych formalnych, logo i pozostałych modułach.
+
 ## v1.5.5-rotary-logo
 - dodano dostarczony lockup Rotary Klub Silesia / Dystrykt 2231 jako zoptymalizowane pliki WebP i PNG,
 - dodano wariant mobilny logo przez strukturę `<picture>`,
