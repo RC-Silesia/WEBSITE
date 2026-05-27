@@ -205,7 +205,8 @@ Nie należy publikować zdjęć bez zgód na wizerunek, zwłaszcza w przypadku d
 - dodano demonstracyjną sekcję galerii,
 - galeria nie publikuje jeszcze prawdziwych zdjęć,
 - zdjęcia powinny przechodzić przez image pipeline,
-- publikacja zdjęć wymaga zgód na wizerunek.
+- publikacja zdjęć wymaga zgód na wizerunek,
+- dodano link do galerii w stopce strony głównej.
 
 Uwaga: domena `https://rcsilesia.pl/` pozostaje placeholderem produkcyjnym do potwierdzenia przed publikacją.
 

@@ -5,6 +5,7 @@
 - dodano demonstracyjne karty albumów,
 - dodano notę o zgodach i statusie demonstracyjnym,
 - przygotowano miejsce pod przyszłe zdjęcia WebP z image pipeline,
+- dodano link do galerii w stopce strony głównej,
 - bez zmian w modułach biznesowych, privacy, SEO, social hub i płatnościach.
 
 ## v1.4.1-rotary-principles
