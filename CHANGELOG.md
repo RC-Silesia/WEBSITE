@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.13-doc-downloads-and-area-tiles
+- dodano wymuszenie pobierania dla linków do dokumentów z `assets/docs/`, także po dynamicznym renderze z `site.json`,
+- dodano `download` do statycznych linków dokumentów w `index.html`,
+- wzmocniono interakcję kafli Obszary działania o `pointerdown`, Enter i Spację,
+- dodano stan `aria-pressed` dla aktywnego kafla,
+- bez zmian w dokumentach źródłowych, danych formalnych, motcie, logo, social hub, newsletterze, privacy/SEO i image pipeline.
+
 ## v1.5.12-documents-download-fix
 - podpięto dokumenty w sekcji Dokumenty do pobrania i w danych formalnych,
 - dodano notę: Wersje DOCX służą do pracy roboczej. Na stronie produkcyjnej preferowane będą dokumenty PDF zatwierdzone do publikacji.,

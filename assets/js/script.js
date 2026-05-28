@@ -573,17 +573,30 @@
     textEl.textContent = t.dataset.localText;
     srcEl.textContent = "Obszar: " + t.querySelector("h3").textContent;
     local.style.order = String((i + 1) * 10 + 5);
-    tiles.forEach(function (x) { x.classList.remove("is-source"); });
+    tiles.forEach(function (x) {
+      x.classList.remove("is-source");
+      x.setAttribute("aria-pressed", "false");
+    });
     t.classList.add("is-source");
+    t.setAttribute("aria-pressed", "true");
     local.classList.remove("flash");
     void local.offsetWidth;
     local.classList.add("flash");
   }
 
   tiles.forEach(function (t, i) {
+    t.setAttribute("role", "button");
+    t.setAttribute("aria-pressed", "false");
     t.addEventListener("mouseenter", function () { apply(i); });
+    t.addEventListener("pointerdown", function () { apply(i); });
     t.addEventListener("focusin", function () { apply(i); });
     t.addEventListener("click", function () { apply(i); });
+    t.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        apply(i);
+      }
+    });
   });
   grid.addEventListener("mouseleave", function () { apply(def); });
 
@@ -708,6 +721,19 @@
     while (element.firstChild) element.removeChild(element.firstChild);
   }
 
+  function enhanceDocumentDownloadLink(link) {
+    if (!link) return;
+    var href = link.getAttribute("href") || "";
+    if (href.indexOf("assets/docs/") !== 0) return;
+    var fileName = href.split("/").pop();
+    link.setAttribute("download", fileName || "");
+  }
+
+  function enhanceDocumentDownloads(scope) {
+    var root = scope || document;
+    Array.prototype.slice.call(root.querySelectorAll('a[href^="assets/docs/"]')).forEach(enhanceDocumentDownloadLink);
+  }
+
   function appendTextElement(parent, tagName, className, text) {
     var element = document.createElement(tagName);
     if (className) element.className = className;
@@ -750,6 +776,7 @@
 
       var link = appendTextElement(card, "a", "button secondary document-button", "Pobierz " + (documentItem.title || "dokument") + " " + (documentItem.format || ""));
       safeHref(link, documentItem.href);
+      enhanceDocumentDownloadLink(link);
 
       container.appendChild(card);
     });
@@ -843,17 +870,20 @@
       })
       .then(function (data) {
         renderSiteData(data);
+        enhanceDocumentDownloads(document);
         return data;
       })
       .catch(function (error) {
         console.warn("Nie załadowano assets/data/site.json. Używam statycznego fallbacku HTML.", error);
         hardenStaticPlaceholderLinks();
+        enhanceDocumentDownloads(document);
         return null;
       });
   }
 
   window.loadSiteData = loadSiteData;
   hardenStaticPlaceholderLinks();
+  enhanceDocumentDownloads(document);
   loadSiteData();
 })();
 
