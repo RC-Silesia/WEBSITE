@@ -64,6 +64,13 @@ rc-silesia-site/
 - użyto najnowszej zredagowanej wersji porozumienia ramowego ROTARY for PLANET,
 - dodano informację, że w wersji produkcyjnej preferowane będą zatwierdzone PDF-y.
 
+## Sprint v1.5.14 - WP matrix and RODO gap fix
+
+- dodano raport `RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf` do dokumentów,
+- podpięto raport do sekcji Dokumenty do pobrania, danych formalnych i stopki,
+- dodano pełniejszą klauzulę informacyjną RODO przy formularzu kontaktowym,
+- zastąpiono placeholder klauzuli RODO w makiecie wpłat informacją o niewysyłaniu danych i wymaganiu zatwierdzonej klauzuli przed produkcją.
+
 ## Sprint 3 - formularze i routing kontaktu
 
 - rozbudowano formularz kontaktowy,

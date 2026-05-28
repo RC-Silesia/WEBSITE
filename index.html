@@ -620,6 +620,7 @@
           <dl>
             <div><dt>Statut</dt><dd><a href="assets/docs/RC_Silesia_Statut_Final.docx" download>Statut RC Silesia DOCX</a></dd></div>
             <div><dt>Porozumienie</dt><dd><a href="assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx" download>Porozumienie ramowe ROTARY for PLANET DOCX</a></dd></div>
+            <div><dt>Macierz WP</dt><dd><a href="assets/docs/RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf" download>Raport braków WordPress PDF</a></dd></div>
           </dl>
           <p class="status-note">Wersje DOCX służą do pracy roboczej. Na stronie produkcyjnej preferowane będą dokumenty PDF zatwierdzone do publikacji.</p>
         </article>
@@ -644,6 +645,12 @@
           <h3>Porozumienie ramowe ROTARY for PLANET</h3>
           <p>Wersja DOCX zawierająca dokumenty D1-D14, statuty Stron oraz analizę porównawczą celów statutowych. Dokument nie jest wersją finalną i wymaga zatwierdzenia przed publikacją produkcyjną.</p>
           <a class="button secondary document-button" href="assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx" download>Pobierz porozumienie ramowe DOCX</a>
+        </article>
+        <article class="document-card">
+          <span class="document-status is-draft">projekt roboczy do konsultacji Zarządu</span>
+          <h3>Macierz WordPress RC Silesia - raport braków</h3>
+          <p>Raport wskazuje 20 obszarów do uzupełnienia przed wdrożeniem docelowej platformy WordPress/ngOs, w tym priorytety RODO, role statutowe i workflow administracyjne.</p>
+          <a class="button secondary document-button" href="assets/docs/RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf" download>Pobierz raport PDF</a>
         </article>
       </div>
     </section>
@@ -695,7 +702,7 @@
             <label>Imię i nazwisko lub firma<input type="text" autocomplete="name"></label>
             <label>Adres e-mail<input type="email" autocomplete="email"></label>
             <label>Adres (opcjonalnie)<input type="text" autocomplete="street-address"></label>
-            <label class="checkbox"><input type="checkbox"> Wyrażam zgodę na przetwarzanie danych w celu obsługi darowizny (klauzula RODO zostanie dołączona przed uruchomieniem płatności).</label>
+            <p class="privacy-note">Dane wpisane w tej makiecie nie są wysyłane. Po uruchomieniu płatności online administrator danych, cel, podstawa prawna, odbiorcy, okres przechowywania i prawa osoby wpłacającej będą opisane w zatwierdzonej klauzuli RODO przed przyciskiem płatności.</p>
             <label class="checkbox"><input type="checkbox"> Akceptuję regulamin płatności (zostanie opublikowany przed uruchomieniem płatności online).</label>
             <button class="button primary support-pay" type="button" data-support-status="status-darowizna">Pokaż instrukcję wpłaty</button>
             <p class="support-status" id="status-darowizna" role="status" aria-live="polite"></p>
@@ -1040,7 +1047,16 @@
         <label>Wiadomość<textarea name="Wiadomość" rows="5" required></textarea></label>
         <label class="checkbox"><input type="checkbox" name="Zgoda RODO" value="tak" required> Wyrażam zgodę na kontakt zwrotny w sprawie przesłanego zgłoszenia i przyjmuję do wiadomości, że dane zostaną wykorzystane wyłącznie do obsługi tej sprawy.</label>
         <label class="checkbox"><input type="checkbox" name="Informacje o wydarzeniach i projektach" value="tak"> Chcę otrzymywać informacje o wydarzeniach i projektach RC Silesia.</label>
-        <p class="privacy-note">Zapoznaj się z roboczą <a href="privacy.html" data-privacy-link>polityką prywatności</a>. Pełna wersja dokumentu wymaga zatwierdzenia przed publikacją produkcyjną.</p>
+        <details class="privacy-note">
+          <summary>Klauzula informacyjna RODO dla formularza</summary>
+          <p>Administratorem danych jest Rotary Klub Silesia z siedzibą w Mikołowie. Kontakt: <a href="mailto:silesia@rotary.org.pl">silesia@rotary.org.pl</a>.</p>
+          <p>Dane z formularza przetwarzamy w celu obsługi zgłoszenia, kontaktu zwrotnego, przygotowania odpowiedzi oraz - jeżeli wybierzesz odpowiedni temat - obsługi spraw członkowskich, partnerskich, medialnych lub programu ROTARY for PLANET.</p>
+          <p>Podstawą prawną jest uzasadniony interes administratora polegający na obsłudze korespondencji i prowadzeniu działalności statutowej, a przy dobrowolnej zgodzie na informacje o wydarzeniach - zgoda, którą można wycofać w dowolnym momencie.</p>
+          <p>Dane mogą być technicznie obsługiwane przez dostawców hostingu, poczty i formularzy. Nie stosujemy profilowania ani zautomatyzowanego podejmowania decyzji.</p>
+          <p>Dane z korespondencji będą przechowywane przez okres potrzebny do obsługi sprawy, a następnie zgodnie z roboczą polityką retencji: zasadniczo do 12 miesięcy, chyba że dłuższe przechowywanie wynika z obowiązków prawnych, rozliczeniowych lub obrony roszczeń.</p>
+          <p>Masz prawo dostępu do danych, sprostowania, usunięcia, ograniczenia przetwarzania, przeniesienia danych, sprzeciwu, wycofania zgody oraz wniesienia skargi do Prezesa UODO.</p>
+          <p>Podanie danych jest dobrowolne, ale bez danych kontaktowych nie będziemy mogli odpowiedzieć na zgłoszenie. Pełna robocza wersja zasad znajduje się w <a href="privacy.html" data-privacy-link>polityce prywatności</a>.</p>
+        </details>
         <button class="button primary" type="submit">Wyślij wiadomość</button>
         <p class="fallback-note">Jeśli formularz nie działa, napisz bezpośrednio na <a href="mailto:silesia@rotary.org.pl">silesia@rotary.org.pl</a>.</p>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
@@ -1070,6 +1086,7 @@
       <a href="#wsparcie" data-support-link="darowizna">Darowizna</a>
       <a href="#wsparcie" data-support-link="skladka">Składka członkowska</a>
       <a href="assets/docs/RC_Silesia_Statut_Final.docx" download>Statut RC Silesia - pobierz DOCX</a>
+      <a href="assets/docs/RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf" download>Macierz WordPress - raport braków PDF</a>
       <a href="privacy.html" data-privacy-link>Polityka prywatności - wersja robocza</a>
     </div>
     <div>

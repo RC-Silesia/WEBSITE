@@ -525,6 +525,21 @@ a.is-disabled {
   background: #fff7e6;
 }
 
+.privacy-note[open] {
+  display: grid;
+  gap: 8px;
+}
+
+.privacy-note summary {
+  color: var(--blue);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.privacy-note p {
+  margin: 0;
+}
+
 .fallback-note a {
   color: var(--blue);
   font-weight: 800;

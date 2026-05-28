@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.5.14-wp-matrix-and-rodo-gap-fix
+- dodano `assets/docs/RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf`,
+- podpięto raport braków Macierzy WordPress do sekcji Dokumenty do pobrania, danych formalnych i stopki,
+- dodano wpis raportu do `assets/data/site.json`, aby dynamiczny renderer dokumentów zachował link po załadowaniu danych,
+- uzupełniono formularz kontaktowy o rozwijaną klauzulę informacyjną RODO z elementami art. 13,
+- zastąpiono placeholder klauzuli RODO w makiecie wpłat informacją, że dane nie są wysyłane i że przed produkcją wymagana jest zatwierdzona klauzula,
+- bez zmian w social hub, newsletterze, hero, logo, dokumentach źródłowych porozumienia i image pipeline.
+
 ## v1.5.13-doc-downloads-and-area-tiles
 - dodano wymuszenie pobierania dla linków do dokumentów z `assets/docs/`, także po dynamicznym renderze z `site.json`,
 - dodano `download` do statycznych linków dokumentów w `index.html`,
