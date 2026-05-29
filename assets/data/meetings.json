@@ -1,0 +1,55 @@
+{
+  "version": "meetings-demo-v0.1",
+  "status": "draft",
+  "editorialNotice": "Rejestr spotkań przygotowany roboczo na podstawie publicznych źródeł i materiałów klubowych. Wpisy wymagają zatwierdzenia przed publikacją produkcyjną.",
+  "items": [
+    {
+      "type": "milestone",
+      "status": "review",
+      "date": "2024-11-23",
+      "title": "Charter RC Silesia",
+      "speaker": "",
+      "location": "do potwierdzenia",
+      "summary": "Uroczystość charteru RC Silesia i przyjęcia członków charterowych.",
+      "sourceName": "Rotary Polska / Facebook",
+      "sourceUrl": "https://rotary.org.pl/charter-rc-silesia/",
+      "imageConsentStatus": "do potwierdzenia"
+    },
+    {
+      "type": "meeting",
+      "status": "draft",
+      "date": "",
+      "title": "Spotkanie RC Silesia: Bali - inwestowanie, kultura i historia",
+      "speaker": "Sebastian - do potwierdzenia",
+      "location": "Golf Park Mikołów",
+      "summary": "Spotkanie poświęcone Bali, inwestowaniu, zmianie myślenia, historii, kulturze i wierzeniom wyspy.",
+      "sourceName": "Facebook RC Silesia",
+      "sourceUrl": "https://www.facebook.com/p/Rotary-Club-Silesia-61569752879280/",
+      "imageConsentStatus": "do potwierdzenia"
+    },
+    {
+      "type": "meeting",
+      "status": "draft",
+      "date": "2026-04-28",
+      "title": "Spotkanie RC Silesia: podróż po Azji i Bliskim Wschodzie",
+      "speaker": "do uzupełnienia",
+      "location": "Golf Park Mikołów",
+      "summary": "Zapowiedź spotkania poświęconego Azji i Bliskiemu Wschodowi.",
+      "sourceName": "Rotary Polska / Facebook",
+      "sourceUrl": "https://www.facebook.com/RotaryPolska/posts/1421666296671675/",
+      "imageConsentStatus": "nie dotyczy / do potwierdzenia"
+    },
+    {
+      "type": "event",
+      "status": "review",
+      "date": "2025-12-10",
+      "title": "Koncert Charytatywny RC Silesia",
+      "speaker": "",
+      "location": "Teatr Mały w Tychach",
+      "summary": "Wydarzenie charytatywne na rzecz wsparcia uzdolnionej młodzieży śląskiej.",
+      "sourceName": "Rotary Polska",
+      "sourceUrl": "https://rotary.org.pl/wydarzenia/koncert-charytatywny-rc-silesia/",
+      "imageConsentStatus": "do potwierdzenia"
+    }
+  ]
+}

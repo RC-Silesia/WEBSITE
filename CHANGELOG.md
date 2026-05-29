@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.5.19-meetings-register
+- dodano `assets/data/meetings.json`,
+- dodano demonstracyjną sekcję Spotkania RC Silesia,
+- dodano ręcznie opracowane wpisy na podstawie publicznych źródeł,
+- dodano bezpieczny renderer spotkań z fallbackiem HTML,
+- nie dodano scrapingu Facebooka ani automatycznego pobierania danych,
+- wpisy wymagają zatwierdzenia przed publikacją produkcyjną.
+
 ## v1.5.18-rotary-for-planet-source-docs
 - doprecyzowano opis ROTARY for PLANET jako globalnej inicjatywy społeczności Rotary opisanej na stronie Rotary Polska,
 - dodano blok Materiały źródłowe Rotary Polska,

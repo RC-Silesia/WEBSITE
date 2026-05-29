@@ -868,6 +868,81 @@
     }
   }
 
+  function meetingTypeLabel(type) {
+    var normalized = String(type || "").toLowerCase();
+    if (normalized === "event") return "wydarzenie";
+    if (normalized === "milestone") return "kamień milowy";
+    return "spotkanie";
+  }
+
+  function meetingStatusClass(status) {
+    var normalized = String(status || "").toLowerCase();
+    if (normalized === "draft") return "is-draft";
+    if (normalized === "review") return "is-review";
+    if (normalized === "approved" || normalized === "published") return "is-approved";
+    return "is-draft";
+  }
+
+  function appendMeetingDate(card, date) {
+    if (date) {
+      var time = document.createElement("time");
+      time.setAttribute("datetime", date);
+      safeText(time, date);
+      card.appendChild(time);
+      return;
+    }
+    appendTextElement(card, "span", "meeting-date", "Data do potwierdzenia");
+  }
+
+  function renderMeetings(data) {
+    var container = document.querySelector('[data-render="meetings"]');
+    if (!container || !data || !Array.isArray(data.items) || !data.items.length) return;
+
+    clearElement(container);
+    data.items.forEach(function (item) {
+      var card = document.createElement("article");
+      card.className = "meeting-card";
+
+      var meta = document.createElement("div");
+      meta.className = "meeting-meta";
+      appendTextElement(meta, "span", "meeting-type", meetingTypeLabel(item.type));
+      appendTextElement(meta, "span", "meeting-status " + meetingStatusClass(item.status), item.status || "draft");
+      card.appendChild(meta);
+
+      appendMeetingDate(card, item.date);
+      appendTextElement(card, "h3", "", item.title);
+      appendTextElement(card, "p", "meeting-location", item.location || "Miejsce do potwierdzenia");
+      appendTextElement(card, "p", "", item.summary);
+
+      if (item.sourceUrl) {
+        var source = appendTextElement(card, "a", "meeting-source", item.sourceName || "Źródło");
+        source.setAttribute("href", item.sourceUrl);
+        source.setAttribute("target", "_blank");
+        source.setAttribute("rel", "noopener noreferrer");
+      }
+
+      container.appendChild(card);
+    });
+  }
+
+  function loadMeetingsData() {
+    if (!window.fetch) return Promise.resolve(null);
+
+    return fetch("assets/data/meetings.json")
+      .then(function (response) {
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        return response.json();
+      })
+      .then(function (data) {
+        renderMeetings(data);
+        return data;
+      })
+      .catch(function (error) {
+        console.warn("Nie załadowano assets/data/meetings.json. Używam statycznego fallbacku HTML.", error);
+        return null;
+      });
+  }
+
   function renderSiteData(data) {
     renderSocialLinks(data.social);
     renderRotaryForPlanet(data.rotaryForPlanet);
@@ -902,9 +977,11 @@
   }
 
   window.loadSiteData = loadSiteData;
+  window.loadMeetingsData = loadMeetingsData;
   hardenStaticPlaceholderLinks();
   enhanceDocumentDownloads(document);
   loadSiteData();
+  loadMeetingsData();
 })();
 
 

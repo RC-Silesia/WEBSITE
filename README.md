@@ -77,6 +77,13 @@ rc-silesia-site/
 - dodano blok Materiały źródłowe Rotary Polska,
 - rozdzielono materiały źródłowe od lokalnych dokumentów wdrożeniowych RC Silesia.
 
+## Sprint v1.5.19 - meetings register
+
+- dodano demonstracyjny rejestr spotkań,
+- dane pochodzą z publicznych źródeł i wymagają zatwierdzenia,
+- nie pobieramy automatycznie danych z Facebooka,
+- zdjęcia wymagają osobnych zgód.
+
 ## Sprint 3 - formularze i routing kontaktu
 
 - rozbudowano formularz kontaktowy,

@@ -603,6 +603,7 @@ a.is-disabled {
 .people-grid,
 .formal-card-grid,
 .documents-grid,
+.meetings-grid,
 .planting-standard-grid,
 .planet-ops-grid {
   display: grid;
@@ -624,6 +625,7 @@ a.is-disabled {
 .person-card,
 .formal-card,
 .document-card,
+.meeting-card,
 .planting-standard-grid article,
 .map-placeholder,
 .impact-rules {
@@ -1522,6 +1524,75 @@ th {
   background: #f1f5fb;
 }
 
+.meetings-section {
+  background: var(--white);
+}
+
+.meetings-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.meeting-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.meeting-card h3,
+.meeting-card p {
+  margin: 0;
+}
+
+.meeting-card time,
+.meeting-date {
+  color: var(--blue-dark);
+  font-weight: 800;
+}
+
+.meeting-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meeting-type,
+.meeting-status {
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.meeting-type {
+  color: var(--blue-dark);
+  background: #f1f5fb;
+}
+
+.meeting-status.is-draft,
+.meeting-status.is-review {
+  color: #775100;
+  background: rgba(247, 168, 27, .2);
+}
+
+.meeting-status.is-approved {
+  color: #1d6b38;
+  background: rgba(45, 125, 70, .14);
+}
+
+.meeting-location {
+  color: var(--blue-dark);
+  font-weight: 800;
+}
+
+.meeting-source {
+  justify-self: start;
+  color: var(--blue);
+  font-weight: 800;
+}
+
 .cta-band {
   display: flex;
   align-items: center;
@@ -1980,6 +2051,7 @@ textarea {
   .gallery-grid,
   .formal-card-grid,
   .documents-grid,
+  .meetings-grid,
   .planet-facts,
   .source-materials-grid,
   .planting-standard-grid,
@@ -2139,6 +2211,7 @@ textarea {
   .areas-grid,
   .formal-card-grid,
   .documents-grid,
+  .meetings-grid,
   .planet-facts,
   .source-materials-grid,
   .planting-standard-grid,
