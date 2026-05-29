@@ -849,8 +849,28 @@
     });
   }
 
+  function renderRotaryForPlanet(program) {
+    if (!program) return;
+
+    var summary = document.querySelector('[data-render="rotary-for-planet-summary"]');
+    safeText(summary, program.summary);
+
+    var cardsContainer = document.querySelector('[data-render="rotary-for-planet-cards"]');
+    if (cardsContainer && Array.isArray(program.cards) && program.cards.length) {
+      clearElement(cardsContainer);
+      program.cards.forEach(function (item) {
+        var card = document.createElement("article");
+        appendTextElement(card, "span", "", item.title);
+        appendTextElement(card, "strong", "", item.value);
+        appendTextElement(card, "p", "", item.body);
+        cardsContainer.appendChild(card);
+      });
+    }
+  }
+
   function renderSiteData(data) {
     renderSocialLinks(data.social);
+    renderRotaryForPlanet(data.rotaryForPlanet);
     renderDocuments(data.documents);
     renderPlantings(data.plantingsDemo);
     renderMediaDemo(data.mediaDemo);

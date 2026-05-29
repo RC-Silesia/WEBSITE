@@ -9,6 +9,82 @@
     "media": "#",
     "email": "mailto:silesia@rotary.org.pl"
   },
+  "rotaryForPlanet": {
+    "id": "rotary-for-planet",
+    "title": "ROTARY for PLANET",
+    "eyebrow": "Globalny program Rotary",
+    "tagline": "1,2 miliona drzew",
+    "summary": "ROTARY for PLANET to globalny program Rotary International, którego ideą jest prosta zasada: jeden Rotarianin to jedno nowe drzewo. Pomysłodawczynią programu jest Małgorzata Szymczyk, Prezydent RC Katowice w kadencjach 2020/2021 i 2021/2022, dziś Prezydent RC Silesia. Klub uczestniczy w programie od pierwszej edycji i współtworzy jego lokalny wymiar na Śląsku.",
+    "attribution": {
+      "owner": "Rotary International",
+      "scope": "global",
+      "originator": {
+        "name": "Małgorzata Szymczyk",
+        "roleAtOrigin": "Prezydent RC Katowice (kadencje 2020/2021 i 2021/2022)",
+        "roleToday": "Prezydent RC Silesia"
+      },
+      "hostRole": {
+        "club": "RC Silesia",
+        "role": "współtwórca i uczestnik programu od pierwszej edycji"
+      },
+      "patronage": "Gubernatorzy Dystryktu 2231"
+    },
+    "facts": {
+      "co2PerTreeKgYear": 48,
+      "rotaryMembersWorldwide": 1200000,
+      "rotaractMembersWorldwide": 200000,
+      "targetTrees": 1200000,
+      "firstEditionDate": "2021-11-06",
+      "firstEditionCountries": ["Polska", "Ukraina", "Czechy", "Turcja", "Cypr"],
+      "annualSummitLocation": "Golf Park Mikołów",
+      "annualSummitTiming": "pierwsza sobota listopada po Wszystkich Świętych"
+    },
+    "cards": [
+      {
+        "title": "Cel globalny",
+        "value": "1,2 miliona drzew",
+        "body": "Rotary liczy około 1,2 miliona członków. Program przekłada tę skalę na konkretne, odpowiedzialne nasadzenia."
+      },
+      {
+        "title": "Pierwsza edycja",
+        "value": "6 listopada 2021",
+        "body": "Wystartowała z udziałem klubów z Polski, Ukrainy, Czech, Turcji i Cypru."
+      },
+      {
+        "title": "Coroczne podsumowanie",
+        "value": "Golf Park Mikołów",
+        "body": "W pierwszą sobotę listopada po Wszystkich Świętych odbywa się międzynarodowe spotkanie programu."
+      },
+      {
+        "title": "Standard ekologiczny",
+        "value": "Rodzime gatunki",
+        "body": "Liczy się dobór miejsca, gatunku, pielęgnacja i monitoring, nie sama liczba posadzonych drzew."
+      }
+    ],
+    "links": {
+      "officialPage": {
+        "label": "Dowiedz się więcej o programie",
+        "url": "https://rotary.org.pl/akcje/rotary-for-planet-12-miliona-drzew/"
+      },
+      "video": {
+        "label": "Obejrzyj film o programie",
+        "url": "https://www.youtube.com/watch?v=XxNCYESL1L8",
+        "status": "TODO: włączyć po uruchomieniu modułu YouTube"
+      }
+    },
+    "microcopy": {
+      "footerMention": "Współtworzymy globalny program Rotary for PLANET - 1,2 miliona drzew.",
+      "newsletterSignature": "RC Silesia - współtwórca programu Rotary for PLANET",
+      "socialShareDefault": "RC Silesia uczestniczy w globalnym programie Rotary for PLANET. Każdy Rotarianin sadzi jedno drzewo - cel: 1,2 miliona drzew na świecie."
+    },
+    "doNotSay": [
+      "nasz autorski projekt",
+      "projekt klubu",
+      "projekt RC Silesia",
+      "prowadzimy program",
+      "ROTARY for PLANET Silesia"
+    ]
+  },
   "documents": [
     {
       "title": "Statut RC Silesia",

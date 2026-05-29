@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.5.17-regional-and-attribution
+- doprecyzowano regionalny charakter RC Silesia w meta tagach, hero, top barze, sekcji o klubie i stopce,
+- rozdzielono w komunikacji obszar działania na Górnym Śląsku od siedziby w Mikołowie,
+- dodano `areaServed` w JSON-LD bez zmiany formalnego adresu siedziby,
+- uzupełniono sekcję ROTARY for PLANET o atrybucję globalnego programu Rotary International, pomysłodawczynię Małgorzatę Szymczyk i coroczne podsumowanie w Golf Park Mikołów,
+- dodano strukturalne dane `rotaryForPlanet` w `assets/data/site.json` oraz renderer kart faktów z fallbackiem statycznym,
+- commit odtwarza pracę z osobistego repo jako następny sprint po `v1.5.16-canonical-fix`,
+- bez zmian w danych formalnych KRS/NIP/REGON, numerze konta, adresie siedziby, motcie Rotary i dokumentach źródłowych.
+
 ## v1.5.16-canonical-fix
 - odkręcono regresję z `v1.5.11`: canonical, `og:url`, JSON-LD `url`, `sitemap.xml` i `robots.txt` wskazują ponownie na staging `https://rc-silesia.github.io/WEBSITE/`,
 - pozostawiono `noindex, nofollow` i `Disallow: /`, ponieważ strona nadal jest stagingiem,

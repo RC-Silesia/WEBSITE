@@ -892,6 +892,45 @@ a.is-disabled {
   color: var(--blue-dark);
 }
 
+.planet-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 1180px;
+  margin: 0 auto 28px;
+}
+
+.planet-facts article {
+  border: 1px solid rgba(45, 125, 70, .2);
+  border-top: 4px solid var(--green);
+  border-radius: 8px;
+  background: var(--white);
+  padding: 18px;
+}
+
+.planet-facts span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.planet-facts strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--blue-dark);
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.planet-facts p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
 .planet-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1896,6 +1935,7 @@ textarea {
   .gallery-grid,
   .formal-card-grid,
   .documents-grid,
+  .planet-facts,
   .planting-standard-grid,
   .planet-ops-grid,
   .contact-paths,
@@ -2053,6 +2093,7 @@ textarea {
   .areas-grid,
   .formal-card-grid,
   .documents-grid,
+  .planet-facts,
   .planting-standard-grid,
   .planet-ops-grid,
   .contact-paths,
