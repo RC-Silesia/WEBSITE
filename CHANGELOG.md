@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.5.24-cache-bust-statutory-bodies
+- dodano cache-busting dla `styles.css`, `script.js`, `site.json` i `meetings.json`,
+- ułatwiono wymuszenie aktualnego renderu rozwijanych kafli organów statutowych na GitHub Pages.
+
 ## v1.5.23-statutory-bodies
 - dodano dane `statutoryBodies` na podstawie Artykułu VII Statutu RC Silesia,
 - zastąpiono proste kafle organów statutowych rozwijanym akordeonem dla Walnego Zgromadzenia, Zarządu i Komisji Rewizyjnej,

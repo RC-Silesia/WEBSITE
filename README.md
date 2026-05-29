@@ -104,6 +104,11 @@ rc-silesia-site/
 - sekcja osób funkcyjnych Zarządu korzysta z tego samego źródła danych,
 - pozostawiono pola `[DO UZUPEŁNIENIA]` tam, gdzie statut wymaga danych z uchwał lub potwierdzenia Klubu.
 
+## Sprint v1.5.24 - cache bust statutory bodies
+
+- dodano wersjonowanie query string dla `styles.css`, `script.js`, `site.json` i `meetings.json`,
+- wymuszono pobranie aktualnych assetów po wdrożeniu rozwijanych kafli organów statutowych.
+
 ## Sprint 3 - formularze i routing kontaktu
 
 - rozbudowano formularz kontaktowy,

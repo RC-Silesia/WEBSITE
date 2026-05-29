@@ -1,4 +1,5 @@
 (function () {
+  const DATA_VERSION = "1.5.24";
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
 
@@ -1085,7 +1086,7 @@
   function loadMeetingsData() {
     if (!window.fetch) return Promise.resolve(null);
 
-    return fetch("assets/data/meetings.json")
+    return fetch("assets/data/meetings.json?v=" + DATA_VERSION)
       .then(function (response) {
         if (!response.ok) throw new Error("HTTP " + response.status);
         return response.json();
@@ -1117,7 +1118,7 @@
   function loadSiteData() {
     if (!window.fetch) return Promise.resolve(null);
 
-    return fetch("assets/data/site.json")
+    return fetch("assets/data/site.json?v=" + DATA_VERSION)
       .then(function (response) {
         if (!response.ok) throw new Error("HTTP " + response.status);
         return response.json();
