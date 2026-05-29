@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.5.31-live-content-sync
+- zsynchronizowano opis ROTARY for PLANET z ustalonym brzmieniem redakcyjnym,
+- usunięto zbyt mocne sformułowanie globalny program Rotary International,
+- doprecyzowano zapisy antygreenwashingowe dotyczące kompensacji emisji,
+- potwierdzono pojedyncze miejsce prezentacji materiałów źródłowych Rotary Polska,
+- utrzymano dokumenty lokalne RC Silesia jako osobny blok,
+- bez zmian w module wpłat, social hubu, newsletterze, kalendarium i privacy/SEO.
+
 ## v1.5.29-source-materials-deduplication
 - usunięto duplikację bloku Materiały źródłowe Rotary Polska,
 - pełny blok materiałów źródłowych pozostawiono wyłącznie w sekcji ROTARY for PLANET,

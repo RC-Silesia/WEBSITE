@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.29";
+  var DATA_VERSION = "1.5.31";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
