@@ -76,6 +76,7 @@ rc-silesia-site/
 - doprecyzowano status programu względem oficjalnych materiałów Rotary Polska,
 - dodano blok Materiały źródłowe Rotary Polska,
 - rozdzielono materiały źródłowe od lokalnych dokumentów wdrożeniowych RC Silesia.
+- link do filmu został oznaczony jako wymagający aktualizacji, ponieważ obecny adres YouTube nie działa.
 
 ## Sprint v1.5.19 - meetings register
 
@@ -83,6 +84,12 @@ rc-silesia-site/
 - dane pochodzą z publicznych źródeł i wymagają zatwierdzenia,
 - nie pobieramy automatycznie danych z Facebooka,
 - zdjęcia wymagają osobnych zgód.
+
+## Sprint v1.5.21 - download bar
+
+- zastąpiono pełnowymiarowy przycisk pobierania w kartach dokumentów dyskretnym dolnym paskiem,
+- pasek pozostaje w pełni klikalny i ma opisowe `aria-label`,
+- zachowano dotychczasowe linki do plików dokumentów.
 
 ## Sprint 3 - formularze i routing kontaktu
 

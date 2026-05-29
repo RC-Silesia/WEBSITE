@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.5.21-download-bar
+- zastąpiono pełnowymiarowe przyciski pobierania w kartach dokumentów subtelnym dolnym paskiem,
+- dodano opisowe `aria-label` dla linków pobierania dokumentów,
+- zachowano dotychczasowe pliki docelowe dokumentów.
+
+## v1.5.20-rotary-for-planet-video-link-fix
+- oznaczono film źródłowy ROTARY for PLANET jako link do aktualizacji, ponieważ obecny link YouTube wskazany na stronie Rotary Polska jest nieaktywny.
+- usunięto aktywny link YouTube z publicznego UI oraz `assets/data/site.json`.
+
 ## v1.5.19-meetings-register
 - dodano `assets/data/meetings.json`,
 - dodano demonstracyjną sekcję Spotkania RC Silesia,

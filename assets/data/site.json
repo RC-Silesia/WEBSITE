@@ -71,9 +71,10 @@
         "url": "https://rotary.org.pl/wp-content/uploads/2023/03/rotary-club-prezentacja-projektu-12-mln-trees-opracowanie-moco-deco_01.pdf"
       },
       "video": {
-        "label": "Obejrzyj film o programie",
-        "url": "https://www.youtube.com/watch?v=XxNCYESL1L8&t=3s",
-        "status": "link zewnętrzny, bez osadzania iframe"
+        "label": "Film o akcji - link do aktualizacji",
+        "description": "Strona Rotary Polska wskazuje film jako materiał źródłowy programu, jednak obecny link YouTube wymaga weryfikacji.",
+        "url": "",
+        "status": "link nieaktywny / do aktualizacji"
       }
     },
     "microcopy": {

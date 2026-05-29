@@ -970,6 +970,17 @@ a.is-disabled {
   color: var(--muted);
 }
 
+.source-material-unavailable {
+  justify-self: start;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  background: #f1f5fb;
+  font-size: 14px;
+  font-weight: 800;
+}
+
 .planet-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1492,13 +1503,28 @@ th {
 }
 
 .document-card {
-  display: grid;
-  align-content: start;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.document-card h3 {
+  margin: 12px 22px 0;
 }
 
 .document-card p {
-  margin: 0;
+  margin: 10px 22px 0;
+}
+
+.document-card p:last-of-type {
+  flex: 1;
+}
+
+.document-card .document-status {
+  margin: 22px 22px 0;
 }
 
 .document-status {
@@ -1516,12 +1542,29 @@ th {
   background: rgba(247, 168, 27, .2);
 }
 
-.document-button {
-  justify-self: start;
-  margin-top: 4px;
-  color: var(--blue-dark);
-  border-color: var(--line);
+.document-download-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  min-height: 46px;
+  margin-top: 18px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--line);
+  color: var(--blue);
   background: #f1f5fb;
+  font-weight: 900;
+}
+
+.document-download-bar:hover {
+  color: var(--blue-dark);
+  background: #e8eef6;
+}
+
+.document-download-bar:focus-visible {
+  outline: 3px solid rgba(247, 168, 27, .75);
+  outline-offset: -3px;
 }
 
 .meetings-section {

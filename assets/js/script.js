@@ -774,9 +774,15 @@
       appendTextElement(card, "p", "", "Format: " + (documentItem.format || "plik"));
       appendTextElement(card, "p", "", documentItem.note);
 
-      var link = appendTextElement(card, "a", "button secondary document-button", "Pobierz " + (documentItem.title || "dokument") + " " + (documentItem.format || ""));
+      var link = document.createElement("a");
+      link.className = "document-download-bar";
+      link.setAttribute("aria-label", "Pobierz " + (documentItem.title || "dokument") + " " + (documentItem.format || ""));
+      appendTextElement(link, "span", "", "Pobierz");
+      var icon = appendTextElement(link, "span", "", "↓");
+      icon.setAttribute("aria-hidden", "true");
       safeHref(link, documentItem.href);
       enhanceDocumentDownloadLink(link);
+      card.appendChild(link);
 
       container.appendChild(card);
     });
