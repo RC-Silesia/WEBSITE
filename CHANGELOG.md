@@ -1,10 +1,5 @@
 # Changelog
 
-## v1.5.30-content-gaps-status-board
-- dodano roboczy status board braków treści i decyzji przed publikacją produkcyjną,
-- dokument ma charakter wewnętrzny i nie zmienia publicznej strony,
-- bez zmian w publicznym HTML, CSS, JS i danych produkcyjnych.
-
 ## v1.5.29-source-materials-deduplication
 - usunięto duplikację bloku Materiały źródłowe Rotary Polska,
 - pełny blok materiałów źródłowych pozostawiono wyłącznie w sekcji ROTARY for PLANET,

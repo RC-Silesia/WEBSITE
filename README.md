@@ -126,10 +126,6 @@ rc-silesia-site/
 - wpisy wymagają zatwierdzenia,
 - brakujące spotkania można zgłaszać przez formularz.
 
-## Dokumenty statusowe
-
-- `CONTENT_GAPS_STATUS_BOARD_v1_0.md` - roboczy status board braków treści i decyzji przed publikacją produkcyjną.
-
 ## Sprint 3 - formularze i routing kontaktu
 
 - rozbudowano formularz kontaktowy,
