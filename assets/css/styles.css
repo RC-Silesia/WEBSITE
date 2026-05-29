@@ -970,6 +970,24 @@ a.is-disabled {
   color: var(--muted);
 }
 
+.source-material-card .button.secondary {
+  justify-self: start;
+  color: var(--blue);
+  border-color: var(--line);
+  background: #f1f5fb;
+}
+
+.source-material-card .button.secondary:hover {
+  color: var(--blue-dark);
+  border-color: rgba(0, 93, 170, .3);
+  background: #e8eef6;
+}
+
+.source-material-card .button.secondary:focus-visible {
+  outline: 3px solid rgba(247, 168, 27, .75);
+  outline-offset: 2px;
+}
+
 .source-material-unavailable {
   justify-self: start;
   padding: 10px 14px;
@@ -1592,6 +1610,26 @@ th {
 
 .documents-source-materials {
   margin-bottom: 34px;
+}
+
+.document-source-note {
+  max-width: 940px;
+  margin: 0 auto 28px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--blue);
+  color: var(--blue-dark);
+  background: #f1f5fb;
+  font-weight: 700;
+}
+
+.document-source-note a {
+  color: var(--blue);
+  font-weight: 900;
+}
+
+.document-source-note a:focus-visible {
+  outline: 3px solid rgba(247, 168, 27, .75);
+  outline-offset: 3px;
 }
 
 .local-documents-heading {

@@ -1,5 +1,23 @@
 # Changelog
 
+## v1.5.30-content-gaps-status-board
+- dodano roboczy status board braków treści i decyzji przed publikacją produkcyjną,
+- dokument ma charakter wewnętrzny i nie zmienia publicznej strony,
+- bez zmian w publicznym HTML, CSS, JS i danych produkcyjnych.
+
+## v1.5.29-source-materials-deduplication
+- usunięto duplikację bloku Materiały źródłowe Rotary Polska,
+- pełny blok materiałów źródłowych pozostawiono wyłącznie w sekcji ROTARY for PLANET,
+- w sekcji Dokumenty do pobrania dodano krótki odsyłacz do sekcji ROTARY for PLANET,
+- zachowano lokalne dokumenty RC Silesia w sekcji dokumentów,
+- bez zmian w module wpłat, social hub, newsletterze, kalendarium, privacy/SEO i image pipeline.
+
+## v1.5.28-source-materials-actions
+- poprawiono widoczność przycisków akcji w kartach Materiały źródłowe Rotary Polska,
+- odróżniono akcję przejścia do strony Rotary Polska od pobrania prezentacji PDF,
+- pozostawiono film jako nieaktywny link do aktualizacji,
+- bez zmian w strukturze sekcji i bez nowych funkcji.
+
 ## v1.5.27-live-polish
 - wykonano drobne korekty redakcyjne i porządkowe publicznego stagingu,
 - sprawdzono widoczność komunikatu demonstracyjnego,
