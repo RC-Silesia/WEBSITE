@@ -113,6 +113,91 @@
       "note": "Raport wskazuje 20 obszarów do uzupełnienia przed wdrożeniem docelowej platformy WordPress/ngOs, w tym priorytety RODO, role statutowe i workflow administracyjne."
     }
   ],
+  "statutoryBodies": {
+    "termLength": "2 lata rotariańskie",
+    "termNote": "Kadencja Zarządu i Komisji Rewizyjnej trwa 2 lata rotariańskie. Rok rotariański trwa od 1 lipca do 30 czerwca.",
+    "statuteReference": "Artykuł VII Statutu RC Silesia (paragrafy 17-20)",
+    "bodies": [
+      {
+        "id": "walne-zgromadzenie",
+        "name": "Walne Zgromadzenie Członków",
+        "shortDescription": "Najwyższa władza Klubu. Uchwały Walnego Zgromadzenia są ostateczne i wiążące dla pozostałych organów Klubu.",
+        "statutoryReference": "Paragraf 18 Statutu RC Silesia",
+        "statutoryTasks": [
+          "Wybór i odwołanie Prezydenta oraz członków Zarządu Klubu",
+          "Wybór i odwołanie członków Komisji Rewizyjnej",
+          "Zatwierdzenie sprawozdania z działalności Zarządu i sprawozdania finansowego",
+          "Udzielenie absolutorium poszczególnym członkom Zarządu Klubu",
+          "Uchwalenie statutu Klubu",
+          "Uchwalenie obowiązkowej składki członkowskiej i opłaty wpisowej",
+          "Rozpatrywanie odwołań w sprawach członkowskich",
+          "Określenie wysokości zobowiązań, jakie Zarząd ma prawo zaciągać w imieniu Klubu",
+          "Podjęcie uchwały w sprawie uzyskania statusu organizacji pożytku publicznego",
+          "Podjęcie uchwały w sprawie przystąpienia do zewnętrznych organizacji społecznych",
+          "Podjęcie uchwały w sprawie łączenia się klubów Rotary albo likwidacji Klubu"
+        ],
+        "additionalInfo": [
+          "Zwyczajne Walne Sprawozdawcze odbywa się do 30 lipca każdego roku",
+          "Zwyczajne Wyborcze Walne odbywa się do 30 grudnia i co 2 lata wybiera Zarząd",
+          "Nadzwyczajne Walne zwołuje Zarząd, Komisja Rewizyjna lub 1/3 członków",
+          "Uchwały zapadają zwykłą większością głosów; zmiana statutu wymaga bezwzględnej większości przy obecności 2/3 członków"
+        ],
+        "membersCount": {
+          "regular": "[DO UZUPEŁNIENIA - aktualna liczba członków zwyczajnych]",
+          "asOfDate": "[DO UZUPEŁNIENIA - data ustalenia stanu, YYYY-MM-DD]"
+        },
+        "showMembersList": false
+      },
+      {
+        "id": "zarzad",
+        "name": "Zarząd",
+        "shortDescription": "Organ prowadzący sprawy Klubu i reprezentujący Klub na zewnątrz. Prezesem Zarządu jest Prezydent Klubu.",
+        "statutoryReference": "Paragraf 19 Statutu RC Silesia",
+        "composition": "Od 3 do 7 członków: Prezydent (Prezes Zarządu), Wiceprezydent, Sekretarz, Skarbnik oraz inni czynni członkowie Klubu.",
+        "statutoryTasks": [
+          "Przyjmowanie członków oraz nadawanie członkostwa honorowego",
+          "Skreślanie członków oraz czasowe zawieszanie ich praw",
+          "Organizowanie regularnych zebrań i Walnych Zgromadzeń",
+          "Powoływanie komitetów wspierających działalność Klubu",
+          "Opracowywanie planu działalności oraz budżetu Klubu",
+          "Ustalanie wysokości składki i opłaty wpisowej corocznie",
+          "Składanie wniosków o odznaczenia rotariańskie i inne",
+          "Wykonywanie obowiązków wynikających z przepisów prawa, Statutu i uchwał Walnego Zgromadzenia"
+        ],
+        "representationRule": "Do składania oświadczeń woli uprawnieni są: Prezes Zarządu wraz z Członkiem Zarządu lub dwóch Członków Zarządu łącznie. Dla zobowiązań powyżej 5 000 zł: Prezes Zarządu lub Członek Zarządu wraz ze Skarbnikiem.",
+        "termCurrent": "[DO UZUPEŁNIENIA - kadencja Zarządu]",
+        "members": [
+          { "name": "Małgorzata Szymczyk", "role": "Prezydent (Prezes Zarządu)" },
+          { "name": "Marian Januszkiewicz", "role": "Sekretarz" },
+          { "name": "Ilona Piwkowska", "role": "Skarbnik" },
+          { "name": "Roman Szyja", "role": "Członek Zarządu" }
+        ],
+        "membersNote": "[DO POTWIERDZENIA - czy Zarząd ma także osobę pełniącą funkcję Wiceprezydenta. Statut przewiduje tę funkcję, ale aktualny skład może jej nie obejmować.]",
+        "showMembersList": true
+      },
+      {
+        "id": "komisja-rewizyjna",
+        "name": "Komisja Rewizyjna",
+        "shortDescription": "Organ kontroli wewnętrznej Klubu. Kontroluje całokształt działalności statutowej, organizacyjnej i finansowej Klubu.",
+        "statutoryReference": "Paragraf 20 Statutu RC Silesia",
+        "composition": "Składa się z 3 członków.",
+        "statutoryTasks": [
+          "Przeprowadzenie corocznej kontroli kasy, rachunkowości i działalności Zarządu Klubu",
+          "Złożenie sprawozdania z kontroli na Zwyczajnym Walnym Zgromadzeniu wraz z oceną działalności Zarządu",
+          "Składanie wniosków w sprawie absolutorium dla poszczególnych członków Zarządu",
+          "Występowanie z wnioskiem o zwołanie Walnego Zgromadzenia"
+        ],
+        "termCurrent": "[DO UZUPEŁNIENIA - kadencja Komisji Rewizyjnej]",
+        "members": [
+          { "name": "[DO UZUPEŁNIENIA]", "role": "Członek Komisji Rewizyjnej" },
+          { "name": "[DO UZUPEŁNIENIA]", "role": "Członek Komisji Rewizyjnej" },
+          { "name": "[DO UZUPEŁNIENIA]", "role": "Członek Komisji Rewizyjnej" }
+        ],
+        "membersNote": "[DO UZUPEŁNIENIA - czy statut lub regulamin Komisji wyznacza Przewodniczącego z grona 3 członków, czy są równorzędni]",
+        "showMembersList": true
+      }
+    ]
+  },
   "payment": {
     "methods": [
       "BLIK",

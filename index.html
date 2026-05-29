@@ -381,7 +381,7 @@
             <h3>Rejestr nasadzeń - wersja demonstracyjna</h3>
             <p>Dane w tabeli są demonstracyjne. Publiczny rejestr będzie prowadzony po zatwierdzeniu programu i pierwszych lokalizacji.</p>
           </div>
-          <a class="document-inline-link" href="assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx">Porozumienie ramowe ROTARY for PLANET (z dokumentami D1-D14 i statutami)</a>
+          <a class="document-download-bar registry-download-bar" href="assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx" download aria-label="Pobierz Porozumienie ramowe ROTARY for PLANET z dokumentami D1-D14 i statutami"><span>Pobierz</span><span aria-hidden="true">↓</span></a>
         </div>
         <div class="table-wrap" tabindex="0" aria-label="Demonstracyjna tabela rejestru nasadzeń">
           <table>
@@ -540,18 +540,87 @@
       </div>
       <div class="subsection-heading">
         <h3>Organy statutowe RC Silesia</h3>
-        <p>Kadencja Zarządu i Komisji Rewizyjnej trwa 2 lata rotariańskie.</p>
+        <p data-render="statutory-term-note">Kadencja Zarządu i Komisji Rewizyjnej trwa 2 lata rotariańskie. Rok rotariański trwa od 1 lipca do 30 czerwca.</p>
       </div>
-      <div class="governance-grid">
-        <article><h3>Walne Zgromadzenie Członków</h3><p>Najwyższy organ Klubu, właściwy dla decyzji przewidzianych statutem.</p></article>
-        <article><h3>Zarząd</h3><p>Organ prowadzący sprawy Klubu i reprezentujący Klub zgodnie ze statutem.</p></article>
-        <article><h3>Komisja Rewizyjna</h3><p>Organ kontroli wewnętrznej działający na zasadach określonych w statucie.</p></article>
+      <div class="statutory-accordion" data-render="statutory-bodies">
+        <article class="statutory-body-card">
+          <button class="statutory-body-toggle" type="button" id="statutory-toggle-walne-zgromadzenie" aria-expanded="true" aria-controls="statutory-panel-walne-zgromadzenie">
+            <span><strong>Walne Zgromadzenie Członków</strong><small>Najwyższa władza Klubu. Uchwały Walnego Zgromadzenia są ostateczne i wiążące dla pozostałych organów Klubu.</small></span>
+            <span class="statutory-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="statutory-body-panel" id="statutory-panel-walne-zgromadzenie" role="region" aria-labelledby="statutory-toggle-walne-zgromadzenie">
+            <p class="statutory-reference">Paragraf 18 Statutu RC Silesia</p>
+            <h4>Zadania statutowe</h4>
+            <ul>
+              <li>Wybór i odwołanie Prezydenta oraz członków Zarządu Klubu</li>
+              <li>Wybór i odwołanie członków Komisji Rewizyjnej</li>
+              <li>Zatwierdzenie sprawozdania z działalności Zarządu i sprawozdania finansowego</li>
+              <li>Uchwalenie statutu Klubu oraz obowiązkowej składki członkowskiej i opłaty wpisowej</li>
+            </ul>
+            <h4>Terminy i zasady</h4>
+            <ul>
+              <li>Zwyczajne Walne Sprawozdawcze odbywa się do 30 lipca każdego roku</li>
+              <li>Zwyczajne Wyborcze Walne odbywa się do 30 grudnia i co 2 lata wybiera Zarząd</li>
+              <li>Nadzwyczajne Walne zwołuje Zarząd, Komisja Rewizyjna lub 1/3 członków</li>
+            </ul>
+            <p class="status-note">Liczba członków zwyczajnych: [DO UZUPEŁNIENIA - aktualny stan i data].</p>
+          </div>
+        </article>
+        <article class="statutory-body-card">
+          <button class="statutory-body-toggle" type="button" id="statutory-toggle-zarzad" aria-expanded="true" aria-controls="statutory-panel-zarzad">
+            <span><strong>Zarząd</strong><small>Organ prowadzący sprawy Klubu i reprezentujący Klub na zewnątrz. Prezesem Zarządu jest Prezydent Klubu.</small></span>
+            <span class="statutory-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="statutory-body-panel" id="statutory-panel-zarzad" role="region" aria-labelledby="statutory-toggle-zarzad">
+            <p class="statutory-reference">Paragraf 19 Statutu RC Silesia</p>
+            <p>Od 3 do 7 członków: Prezydent (Prezes Zarządu), Wiceprezydent, Sekretarz, Skarbnik oraz inni czynni członkowie Klubu.</p>
+            <h4>Zadania statutowe</h4>
+            <ul>
+              <li>Przyjmowanie członków oraz nadawanie członkostwa honorowego</li>
+              <li>Skreślanie członków oraz czasowe zawieszanie ich praw</li>
+              <li>Organizowanie regularnych zebrań i Walnych Zgromadzeń</li>
+              <li>Powoływanie komitetów wspierających działalność Klubu</li>
+              <li>Opracowywanie planu działalności oraz budżetu Klubu</li>
+            </ul>
+            <h4>Skład Zarządu</h4>
+            <ul>
+              <li>Małgorzata Szymczyk - Prezydent (Prezes Zarządu)</li>
+              <li>Marian Januszkiewicz - Sekretarz</li>
+              <li>Ilona Piwkowska - Skarbnik</li>
+              <li>Roman Szyja - Członek Zarządu</li>
+            </ul>
+            <p class="status-note">[DO POTWIERDZENIA - czy Zarząd ma także osobę pełniącą funkcję Wiceprezydenta.]</p>
+          </div>
+        </article>
+        <article class="statutory-body-card">
+          <button class="statutory-body-toggle" type="button" id="statutory-toggle-komisja-rewizyjna" aria-expanded="true" aria-controls="statutory-panel-komisja-rewizyjna">
+            <span><strong>Komisja Rewizyjna</strong><small>Organ kontroli wewnętrznej Klubu. Kontroluje całokształt działalności statutowej, organizacyjnej i finansowej Klubu.</small></span>
+            <span class="statutory-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="statutory-body-panel" id="statutory-panel-komisja-rewizyjna" role="region" aria-labelledby="statutory-toggle-komisja-rewizyjna">
+            <p class="statutory-reference">Paragraf 20 Statutu RC Silesia</p>
+            <p>Komisja Rewizyjna składa się z 3 członków.</p>
+            <h4>Zadania statutowe</h4>
+            <ul>
+              <li>Przeprowadzenie corocznej kontroli kasy, rachunkowości i działalności Zarządu Klubu</li>
+              <li>Złożenie sprawozdania z kontroli na Zwyczajnym Walnym Zgromadzeniu wraz z oceną działalności Zarządu</li>
+              <li>Składanie wniosków w sprawie absolutorium dla poszczególnych członków Zarządu</li>
+              <li>Występowanie z wnioskiem o zwołanie Walnego Zgromadzenia</li>
+            </ul>
+            <h4>Skład</h4>
+            <ul>
+              <li>[DO UZUPEŁNIENIA] - Członek Komisji Rewizyjnej</li>
+              <li>[DO UZUPEŁNIENIA] - Członek Komisji Rewizyjnej</li>
+              <li>[DO UZUPEŁNIENIA] - Członek Komisji Rewizyjnej</li>
+            </ul>
+          </div>
+        </article>
       </div>
       <div class="subsection-heading">
         <h3>Osoby funkcyjne</h3>
         <p>Lista robocza do potwierdzenia przed publikacją produkcyjną.</p>
       </div>
-      <div class="people-grid">
+      <div class="people-grid" data-render="board-members">
         <article class="person-card">
           <span class="avatar-placeholder" aria-hidden="true">MS</span>
           <div>
@@ -724,11 +793,11 @@
         </article>
         <article class="formal-card">
           <h3>Dokumenty</h3>
-          <dl>
-            <div><dt>Statut</dt><dd><a href="assets/docs/RC_Silesia_Statut_Final.docx" download>Statut RC Silesia DOCX</a></dd></div>
-            <div><dt>Porozumienie</dt><dd><a href="assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx" download>Porozumienie ramowe ROTARY for PLANET DOCX</a></dd></div>
-            <div><dt>Macierz WP</dt><dd><a href="assets/docs/RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf" download>Raport braków WordPress PDF</a></dd></div>
-          </dl>
+          <div class="formal-document-bars" aria-label="Dokumenty do pobrania">
+            <a class="document-download-bar" href="assets/docs/RC_Silesia_Statut_Final.docx" download aria-label="Pobierz Statut RC Silesia DOCX"><span>Pobierz</span><span aria-hidden="true">↓</span></a>
+            <a class="document-download-bar" href="assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx" download aria-label="Pobierz Porozumienie ramowe ROTARY for PLANET DOCX"><span>Pobierz</span><span aria-hidden="true">↓</span></a>
+            <a class="document-download-bar" href="assets/docs/RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf" download aria-label="Pobierz Raport braków WordPress PDF"><span>Pobierz</span><span aria-hidden="true">↓</span></a>
+          </div>
           <p class="status-note">Wersje DOCX służą do pracy roboczej. Na stronie produkcyjnej preferowane będą dokumenty PDF zatwierdzone do publikacji.</p>
         </article>
       </div>

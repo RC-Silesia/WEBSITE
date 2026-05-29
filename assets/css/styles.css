@@ -1166,15 +1166,11 @@ a.is-disabled {
   margin: 0;
 }
 
-.document-inline-link {
-  flex: 0 0 auto;
+.registry-download-bar {
+  flex: 0 0 260px;
   max-width: 300px;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  color: var(--blue-dark);
+  margin-top: 0;
   background: var(--white);
-  font-weight: 800;
 }
 
 .table-wrap {
@@ -1339,6 +1335,106 @@ th {
 
 .governance-section {
   background: #fbfcfe;
+}
+
+.statutory-accordion {
+  display: grid;
+  gap: 14px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.statutory-body-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.statutory-body-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  padding: 20px 22px;
+  border: 0;
+  color: var(--blue-dark);
+  background: var(--white);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.statutory-body-toggle:hover {
+  background: #f1f5fb;
+}
+
+.statutory-body-toggle strong,
+.statutory-body-toggle small {
+  display: block;
+}
+
+.statutory-body-toggle strong {
+  margin-bottom: 6px;
+  font-size: 19px;
+}
+
+.statutory-body-toggle small {
+  max-width: 760px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.statutory-chevron {
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  transform: rotate(45deg);
+  transition: transform .18s ease;
+}
+
+.statutory-body-toggle[aria-expanded="true"] .statutory-chevron {
+  transform: rotate(225deg);
+}
+
+.statutory-body-panel {
+  display: grid;
+  gap: 12px;
+  padding: 0 22px 22px;
+}
+
+.statutory-body-panel[hidden] {
+  display: none;
+}
+
+.statutory-body-panel h4 {
+  margin: 8px 0 0;
+  color: var(--blue-dark);
+}
+
+.statutory-body-panel p,
+.statutory-body-panel ul {
+  margin: 0;
+}
+
+.statutory-body-panel ul {
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.statutory-reference,
+.statutory-representation {
+  color: var(--blue-dark);
+  font-weight: 800;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statutory-chevron {
+    transition: none;
+  }
 }
 
 .subsection-heading {
@@ -1565,6 +1661,18 @@ th {
 .document-download-bar:focus-visible {
   outline: 3px solid rgba(247, 168, 27, .75);
   outline-offset: -3px;
+}
+
+.formal-document-bars {
+  display: grid;
+  gap: 10px;
+}
+
+.formal-document-bars .document-download-bar {
+  min-height: 42px;
+  margin-top: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
 }
 
 .meetings-section {
@@ -2116,7 +2224,7 @@ textarea {
     display: grid;
   }
 
-  .document-inline-link {
+  .registry-download-bar {
     max-width: none;
   }
 }

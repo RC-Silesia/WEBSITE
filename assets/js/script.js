@@ -874,6 +874,157 @@
     }
   }
 
+  function appendTextList(parent, items) {
+    if (!Array.isArray(items) || !items.length) return null;
+    var list = document.createElement("ul");
+    items.forEach(function (item) {
+      appendTextElement(list, "li", "", item);
+    });
+    parent.appendChild(list);
+    return list;
+  }
+
+  function initials(name) {
+    return String(name || "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map(function (part) { return part.charAt(0).toUpperCase(); })
+      .join("") || "RC";
+  }
+
+  function findBody(data, id) {
+    if (!data || !Array.isArray(data.bodies)) return null;
+    return data.bodies.find(function (body) { return body.id === id; }) || null;
+  }
+
+  function appendMembers(parent, members) {
+    if (!Array.isArray(members) || !members.length) return;
+    var list = document.createElement("ul");
+    members.forEach(function (member) {
+      appendTextElement(list, "li", "", (member.name || "") + " - " + (member.role || ""));
+    });
+    parent.appendChild(list);
+  }
+
+  function renderStatutoryBody(container, body) {
+    var card = document.createElement("article");
+    card.className = "statutory-body-card";
+
+    var buttonId = "statutory-toggle-" + body.id;
+    var panelId = "statutory-panel-" + body.id;
+
+    var button = document.createElement("button");
+    button.className = "statutory-body-toggle";
+    button.type = "button";
+    button.id = buttonId;
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", panelId);
+
+    var text = document.createElement("span");
+    appendTextElement(text, "strong", "", body.name);
+    appendTextElement(text, "small", "", body.shortDescription);
+    button.appendChild(text);
+
+    var chevron = document.createElement("span");
+    chevron.className = "statutory-chevron";
+    chevron.setAttribute("aria-hidden", "true");
+    button.appendChild(chevron);
+    card.appendChild(button);
+
+    var panel = document.createElement("div");
+    panel.className = "statutory-body-panel";
+    panel.id = panelId;
+    panel.setAttribute("role", "region");
+    panel.setAttribute("aria-labelledby", buttonId);
+    panel.hidden = true;
+
+    appendTextElement(panel, "p", "statutory-reference", body.statutoryReference);
+    if (body.composition) appendTextElement(panel, "p", "", body.composition);
+    appendTextElement(panel, "h4", "", "Zadania statutowe");
+    appendTextList(panel, body.statutoryTasks);
+
+    if (Array.isArray(body.members) && body.showMembersList) {
+      appendTextElement(panel, "h4", "", body.id === "zarzad" ? "Skład Zarządu" : "Skład");
+      appendMembers(panel, body.members);
+    }
+
+    if (body.membersCount) {
+      appendTextElement(panel, "h4", "", "Liczba członków zwyczajnych");
+      appendTextElement(panel, "p", "", (body.membersCount.regular || "") + " " + (body.membersCount.asOfDate || ""));
+    }
+
+    if (Array.isArray(body.additionalInfo) && body.additionalInfo.length) {
+      appendTextElement(panel, "h4", "", "Terminy i zasady");
+      appendTextList(panel, body.additionalInfo);
+    }
+
+    if (body.termCurrent) appendTextElement(panel, "p", "status-note", body.termCurrent);
+    if (body.representationRule) appendTextElement(panel, "p", "statutory-representation", body.representationRule);
+    if (body.membersNote) appendTextElement(panel, "p", "status-note", body.membersNote);
+
+    card.appendChild(panel);
+    container.appendChild(card);
+  }
+
+  function renderStatutoryBodies(statutoryBodies) {
+    if (!statutoryBodies) return;
+
+    safeText(document.querySelector('[data-render="statutory-term-note"]'), statutoryBodies.termNote);
+
+    var container = document.querySelector('[data-render="statutory-bodies"]');
+    if (!container || !Array.isArray(statutoryBodies.bodies) || !statutoryBodies.bodies.length) return;
+    clearElement(container);
+    statutoryBodies.bodies.forEach(function (body) {
+      renderStatutoryBody(container, body);
+    });
+    initStatutoryAccordions(container);
+  }
+
+  function renderBoardMembers(statutoryBodies) {
+    var zarzad = findBody(statutoryBodies, "zarzad");
+    var container = document.querySelector('[data-render="board-members"]');
+    if (!container || !zarzad || !Array.isArray(zarzad.members) || !zarzad.members.length) return;
+
+    clearElement(container);
+    zarzad.members.forEach(function (member) {
+      var card = document.createElement("article");
+      card.className = "person-card";
+      appendTextElement(card, "span", "avatar-placeholder", initials(member.name)).setAttribute("aria-hidden", "true");
+      var body = document.createElement("div");
+      appendTextElement(body, "h3", "", member.name);
+      appendTextElement(body, "p", "person-role", member.role);
+      appendTextElement(body, "p", "", member.description || "Funkcja statutowa do potwierdzenia przed publikacją produkcyjną.");
+      card.appendChild(body);
+      container.appendChild(card);
+    });
+  }
+
+  function toggleStatutoryButton(button, expanded) {
+    var panel = document.getElementById(button.getAttribute("aria-controls"));
+    if (!panel) return;
+    button.setAttribute("aria-expanded", String(expanded));
+    panel.hidden = !expanded;
+  }
+
+  function initStatutoryAccordions(scope) {
+    var root = scope || document;
+    Array.prototype.slice.call(root.querySelectorAll(".statutory-body-toggle")).forEach(function (button) {
+      if (button.getAttribute("data-accordion-ready") === "true") return;
+      button.setAttribute("data-accordion-ready", "true");
+      button.addEventListener("click", function () {
+        toggleStatutoryButton(button, button.getAttribute("aria-expanded") !== "true");
+      });
+      button.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          toggleStatutoryButton(button, false);
+          button.focus();
+        }
+      });
+    });
+  }
+
   function meetingTypeLabel(type) {
     var normalized = String(type || "").toLowerCase();
     if (normalized === "event") return "wydarzenie";
@@ -952,6 +1103,8 @@
   function renderSiteData(data) {
     renderSocialLinks(data.social);
     renderRotaryForPlanet(data.rotaryForPlanet);
+    renderStatutoryBodies(data.statutoryBodies);
+    renderBoardMembers(data.statutoryBodies);
     renderDocuments(data.documents);
     renderPlantings(data.plantingsDemo);
     renderMediaDemo(data.mediaDemo);
@@ -986,6 +1139,7 @@
   window.loadMeetingsData = loadMeetingsData;
   hardenStaticPlaceholderLinks();
   enhanceDocumentDownloads(document);
+  initStatutoryAccordions(document);
   loadSiteData();
   loadMeetingsData();
 })();

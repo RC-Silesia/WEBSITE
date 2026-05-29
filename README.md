@@ -91,6 +91,19 @@ rc-silesia-site/
 - pasek pozostaje w pełni klikalny i ma opisowe `aria-label`,
 - zachowano dotychczasowe linki do plików dokumentów.
 
+## Sprint v1.5.22 - unified download bars
+
+- zastosowano dyskretny pasek pobierania także w pozostałych kartowych miejscach z dokumentami,
+- ujednolicono link do porozumienia w module rejestru nasadzeń,
+- ujednolicono linki dokumentów w kaflu Dane formalne.
+
+## Sprint v1.5.23 - statutory bodies
+
+- rozbudowano sekcję organów statutowych o rozwijane kafle Walnego Zgromadzenia, Zarządu i Komisji Rewizyjnej,
+- dodano źródłowy obiekt `statutoryBodies` w `assets/data/site.json`,
+- sekcja osób funkcyjnych Zarządu korzysta z tego samego źródła danych,
+- pozostawiono pola `[DO UZUPEŁNIENIA]` tam, gdzie statut wymaga danych z uchwał lub potwierdzenia Klubu.
+
 ## Sprint 3 - formularze i routing kontaktu
 
 - rozbudowano formularz kontaktowy,

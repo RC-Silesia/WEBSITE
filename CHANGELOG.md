@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.5.23-statutory-bodies
+- dodano dane `statutoryBodies` na podstawie Artykułu VII Statutu RC Silesia,
+- zastąpiono proste kafle organów statutowych rozwijanym akordeonem dla Walnego Zgromadzenia, Zarządu i Komisji Rewizyjnej,
+- dodano renderer akordeonu z `button`, `aria-expanded`, `aria-controls`, `role="region"` i obsługą Escape,
+- zsynchronizowano listę osób funkcyjnych Zarządu z obiektem `statutoryBodies`,
+- nie rozstrzygano kwestii dewizy statutowej względem motta Rotary.
+
+## v1.5.22-unified-download-bars
+- zastosowano dyskretny pasek pobierania także w module rejestru nasadzeń oraz kaflu dokumentów w danych formalnych,
+- zachowano dotychczasowe pliki docelowe i atrybuty `download`,
+- linki w stopce pozostawiono jako zwykłe linki nawigacyjne.
+
 ## v1.5.21-download-bar
 - zastąpiono pełnowymiarowe przyciski pobierania w kartach dokumentów subtelnym dolnym paskiem,
 - dodano opisowe `aria-label` dla linków pobierania dokumentów,
