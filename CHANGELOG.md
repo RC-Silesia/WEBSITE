@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.5.16-canonical-fix
+- odkręcono regresję z `v1.5.11`: canonical, `og:url`, JSON-LD `url`, `sitemap.xml` i `robots.txt` wskazują ponownie na staging `https://rc-silesia.github.io/WEBSITE/`,
+- pozostawiono `noindex, nofollow` i `Disallow: /`, ponieważ strona nadal jest stagingiem,
+- poprawiono wpis sitemap dla polityki prywatności na `privacy.html`,
+- adres `https://rotary.org.pl/kluby/rc-silesia/` traktujemy jako zewnętrzną wizytówkę Rotary Polska, nie kanoniczny adres tej strony,
+- po decyzji domenowej Zarządu URL-e kanoniczne wymagają ponownej rewizji i zmiany na docelową domenę,
+- bez zmian w treści stron, danych formalnych, RODO, dokumentach, motcie Rotary i sekcji ROTARY for PLANET.
+
 ## v1.5.14-wp-matrix-and-rodo-gap-fix
 - dodano `assets/docs/RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf`,
 - podpięto raport braków Macierzy WordPress do sekcji Dokumenty do pobrania, danych formalnych i stopki,
