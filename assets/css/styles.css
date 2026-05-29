@@ -1679,10 +1679,44 @@ th {
   background: var(--white);
 }
 
+.meetings-location-card,
+.meetings-cta {
+  max-width: 940px;
+  margin: 0 auto 22px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+  background: #f1f5fb;
+}
+
+.meetings-location-card h3,
+.meetings-location-card p,
+.meetings-cta h3,
+.meetings-cta p {
+  margin: 0;
+}
+
+.meetings-location-card h3,
+.meetings-cta h3 {
+  margin-bottom: 8px;
+  color: var(--blue-dark);
+}
+
+.meetings-editorial-note {
+  max-width: 940px;
+  margin: 0 auto 24px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--gold);
+  color: var(--blue-dark);
+  background: #fff7e6;
+  font-weight: 700;
+}
+
 .meetings-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: 1180px;
-  margin: 0 auto;
+  margin: 0 auto 28px;
 }
 
 .meeting-card {
@@ -1703,12 +1737,15 @@ th {
   font-weight: 800;
 }
 
+.meeting-card__meta,
 .meeting-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
+.meeting-card__type,
+.meeting-card__status,
 .meeting-type,
 .meeting-status {
   padding: 4px 9px;
@@ -1717,31 +1754,52 @@ th {
   font-weight: 800;
 }
 
+.meeting-card__type,
 .meeting-type {
   color: var(--blue-dark);
   background: #f1f5fb;
 }
 
+.meeting-card__status.is-draft,
+.meeting-card__status.is-review,
 .meeting-status.is-draft,
 .meeting-status.is-review {
   color: #775100;
   background: rgba(247, 168, 27, .2);
 }
 
+.meeting-card__status.is-approved,
 .meeting-status.is-approved {
   color: #1d6b38;
   background: rgba(45, 125, 70, .14);
 }
 
-.meeting-location {
+.meeting-location,
+.meeting-speaker,
+.meeting-card__consent {
   color: var(--blue-dark);
   font-weight: 800;
 }
 
+.meeting-card__consent {
+  font-size: 13px;
+}
+
+.meeting-card__source,
 .meeting-source {
   justify-self: start;
   color: var(--blue);
   font-weight: 800;
+}
+
+.meetings-cta {
+  display: grid;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.meetings-cta .button {
+  justify-self: start;
 }
 
 .cta-band {

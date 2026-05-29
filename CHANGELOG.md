@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.5.25-meetings-and-events-register
+- zaktualizowano `assets/data/meetings.json` do wersji `meetings-demo-v0.2`,
+- rozbudowano sekcję Spotkania i wydarzenia RC Silesia,
+- dodano roboczy, kuratorski rejestr spotkań, wydarzeń, prelekcji i kamieni milowych,
+- dodano wpisy odtworzone na podstawie publicznych źródeł Facebook RC Silesia, Rotary Polska i materiałów klubowych,
+- rozszerzono bezpieczny renderer spotkań z fallbackiem HTML,
+- dodano CTA Zaproponuj temat spotkania,
+- nie dodano scrapingu Facebooka ani automatycznego pobierania danych,
+- wpisy wymagają zatwierdzenia przed publikacją produkcyjną.
+
 ## v1.5.24-cache-bust-statutory-bodies
 - dodano cache-busting dla `styles.css`, `script.js`, `site.json` i `meetings.json`,
 - ułatwiono wymuszenie aktualnego renderu rozwijanych kafli organów statutowych na GitHub Pages.

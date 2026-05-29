@@ -109,6 +109,14 @@ rc-silesia-site/
 - dodano wersjonowanie query string dla `styles.css`, `script.js`, `site.json` i `meetings.json`,
 - wymuszono pobranie aktualnych assetów po wdrożeniu rozwijanych kafli organów statutowych.
 
+## Sprint v1.5.25 - meetings and events register
+
+- rozbudowano roboczy rejestr spotkań i wydarzeń,
+- dane pochodzą z publicznych źródeł i materiałów klubowych,
+- wpisy wymagają zatwierdzenia przez RC Silesia,
+- nie pobieramy automatycznie danych z Facebooka,
+- zdjęcia wymagają osobnych zgód.
+
 ## Sprint 3 - formularze i routing kontaktu
 
 - rozbudowano formularz kontaktowy,

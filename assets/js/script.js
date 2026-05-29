@@ -1,5 +1,4 @@
 (function () {
-  const DATA_VERSION = "1.5.24";
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
 
@@ -28,6 +27,7 @@
     const topicButtons = Array.prototype.slice.call(document.querySelectorAll("[data-topic]"));
     const topicLabels = {
       "meeting": "Chcę przyjść na spotkanie",
+      "meeting-topic": "Chcę zaproponować temat spotkania",
       "active-member": "Chcę zostać członkiem czynnym",
       "supporting-member": "Chcę zostać członkiem wspierającym",
       "partnership": "Partnerstwo lub sponsoring",
@@ -684,6 +684,8 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
+  var DATA_VERSION = "1.5.25";
+
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
     element.textContent = String(value);
@@ -1041,15 +1043,36 @@
     return "is-draft";
   }
 
-  function appendMeetingDate(card, date) {
+  function meetingStatusLabel(status) {
+    var normalized = String(status || "").toLowerCase();
+    if (normalized === "approved") return "zatwierdzone";
+    if (normalized === "published") return "opublikowane";
+    return "do zatwierdzenia / robocze";
+  }
+
+  function appendMeetingDate(card, date, meetingTime) {
     if (date) {
-      var time = document.createElement("time");
-      time.setAttribute("datetime", date);
-      safeText(time, date);
-      card.appendChild(time);
+      var timeElement = document.createElement("time");
+      timeElement.setAttribute("datetime", date);
+      safeText(timeElement, date + (meetingTime ? ", " + meetingTime : ""));
+      card.appendChild(timeElement);
       return;
     }
     appendTextElement(card, "span", "meeting-date", "Data do potwierdzenia");
+  }
+
+  function isExternalUrl(url) {
+    return /^https?:\/\//i.test(String(url || ""));
+  }
+
+  function appendMeetingSource(card, item) {
+    if (!item.sourceUrl) return;
+    var source = appendTextElement(card, "a", "meeting-card__source", item.sourceName || "Źródło");
+    source.setAttribute("href", item.sourceUrl);
+    if (isExternalUrl(item.sourceUrl)) {
+      source.setAttribute("target", "_blank");
+      source.setAttribute("rel", "noopener noreferrer");
+    }
   }
 
   function renderMeetings(data) {
@@ -1062,22 +1085,21 @@
       card.className = "meeting-card";
 
       var meta = document.createElement("div");
-      meta.className = "meeting-meta";
-      appendTextElement(meta, "span", "meeting-type", meetingTypeLabel(item.type));
-      appendTextElement(meta, "span", "meeting-status " + meetingStatusClass(item.status), item.status || "draft");
+      meta.className = "meeting-card__meta";
+      appendTextElement(meta, "span", "meeting-card__type", meetingTypeLabel(item.type));
+      appendTextElement(meta, "span", "meeting-card__status " + meetingStatusClass(item.status), meetingStatusLabel(item.status));
       card.appendChild(meta);
 
-      appendMeetingDate(card, item.date);
+      appendMeetingDate(card, item.date, item.time);
       appendTextElement(card, "h3", "", item.title);
+      if (item.speaker) appendTextElement(card, "p", "meeting-speaker", "Prelegent: " + item.speaker);
       appendTextElement(card, "p", "meeting-location", item.location || "Miejsce do potwierdzenia");
       appendTextElement(card, "p", "", item.summary);
-
-      if (item.sourceUrl) {
-        var source = appendTextElement(card, "a", "meeting-source", item.sourceName || "Źródło");
-        source.setAttribute("href", item.sourceUrl);
-        source.setAttribute("target", "_blank");
-        source.setAttribute("rel", "noopener noreferrer");
+      if (item.imageConsentStatus) {
+        appendTextElement(card, "p", "meeting-card__consent", "Zgody zdjęciowe: " + item.imageConsentStatus);
       }
+
+      appendMeetingSource(card, item);
 
       container.appendChild(card);
     });
