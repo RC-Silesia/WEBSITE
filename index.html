@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Regionalny klub Rotary na Górnym Śląsku, z siedzibą w Mikołowie. Służba, partnerstwo, edukacja i ROTARY for PLANET.">
   <meta name="twitter:image" content="https://rc-silesia.github.io/WEBSITE/assets/img/og-rc-silesia.jpg">
   <meta name="twitter:image:alt" content="RC Silesia - Rotary Klub Silesia na Górnym Śląsku">
-  <link rel="stylesheet" href="assets/css/styles.css?v=1.5.25">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.5.26">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -684,15 +684,34 @@
     <section id="spotkania" class="section meetings-section">
       <div class="section-heading">
         <p class="eyebrow">Kalendarium klubu</p>
-        <h2>Spotkania i wydarzenia RC Silesia</h2>
-        <p>Rejestr spotkań, prelekcji, wydarzeń klubowych i kamieni milowych. Wersja demonstracyjna została przygotowana roboczo na podstawie publicznych źródeł i materiałów klubowych. Wpisy wymagają zatwierdzenia przez RC Silesia przed publikacją produkcyjną.</p>
+        <h2>Kalendarium spotkań i wydarzeń RC Silesia</h2>
+        <p>Chronologiczny rejestr spotkań, prelekcji, wydarzeń klubowych i kamieni milowych. Wersja demonstracyjna została odtworzona roboczo na podstawie publicznych źródeł i materiałów klubowych. Lista nie jest jeszcze pełnym archiwum i wymaga zatwierdzenia przez RC Silesia.</p>
       </div>
       <article class="meetings-location-card">
         <h3>Stałe miejsce spotkań</h3>
         <p>Golf Park Mikołów, ul. Golfowa 2, 43-190 Mikołów</p>
       </article>
-      <p class="meetings-editorial-note">Terminy, opisy, prelegenci i źródła wymagają potwierdzenia przez klub przed publikacją produkcyjną.</p>
+      <p class="meetings-editorial-note meetings-note">Kalendarium jest w trakcie uzupełniania. Brakujące spotkania zostaną dodane po weryfikacji wpisów Facebook, materiałów klubowych i informacji od członków.</p>
+      <div class="meetings-filter-bar" role="group" aria-label="Filtry kalendarium">
+        <button class="meetings-filter-button is-active" type="button" data-meetings-filter="all" aria-pressed="true">Wszystkie</button>
+        <button class="meetings-filter-button" type="button" data-meetings-filter="meeting" aria-pressed="false">Spotkania</button>
+        <button class="meetings-filter-button" type="button" data-meetings-filter="event" aria-pressed="false">Wydarzenia</button>
+        <button class="meetings-filter-button" type="button" data-meetings-filter="milestone" aria-pressed="false">Kamienie milowe</button>
+        <button class="meetings-filter-button" type="button" data-meetings-filter="proposal" aria-pressed="false">Do uzupełnienia</button>
+      </div>
       <div class="meetings-grid" data-render="meetings">
+        <article class="meeting-card">
+          <div class="meeting-card__meta">
+            <span class="meeting-card__type">wydarzenie</span>
+            <span class="meeting-card__status is-review">do zatwierdzenia / robocze</span>
+          </div>
+          <time datetime="2025-12-10">2025-12-10</time>
+          <h3>Koncert Charytatywny RC Silesia</h3>
+          <p class="meeting-location">Teatr Mały w Tychach</p>
+          <p>Wydarzenie charytatywne RC Silesia. Wpis powinien zostać ujęty jako wydarzenie klubowe, nie jako regularne spotkanie członkowskie.</p>
+          <p class="meeting-card__consent">Zgody zdjęciowe: do potwierdzenia</p>
+          <a class="meeting-card__source" href="https://rotary.org.pl/wydarzenia/koncert-charytatywny-rc-silesia/" target="_blank" rel="noopener noreferrer">Rotary Polska</a>
+        </article>
         <article class="meeting-card">
           <div class="meeting-card__meta">
             <span class="meeting-card__type">kamień milowy</span>
@@ -742,23 +761,22 @@
           <p class="meeting-card__consent">Zgody zdjęciowe: do potwierdzenia</p>
           <a class="meeting-card__source" href="https://www.facebook.com/RotaryPolska/posts/1421666296671675/" target="_blank" rel="noopener noreferrer">Rotary Polska / Facebook</a>
         </article>
-        <article class="meeting-card">
+        <article class="meeting-card meeting-card--missing">
           <div class="meeting-card__meta">
-            <span class="meeting-card__type">wydarzenie</span>
-            <span class="meeting-card__status is-review">do zatwierdzenia / robocze</span>
+            <span class="meeting-card__type">do uzupełnienia</span>
+            <span class="meeting-card__status is-open">do uzupełnienia</span>
           </div>
-          <time datetime="2025-12-10">2025-12-10</time>
-          <h3>Koncert Charytatywny RC Silesia</h3>
-          <p class="meeting-location">Teatr Mały w Tychach</p>
-          <p>Wydarzenie charytatywne RC Silesia. Wpis powinien zostać ujęty jako wydarzenie klubowe, nie jako regularne spotkanie członkowskie.</p>
-          <p class="meeting-card__consent">Zgody zdjęciowe: do potwierdzenia</p>
-          <a class="meeting-card__source" href="https://rotary.org.pl/wydarzenia/koncert-charytatywny-rc-silesia/" target="_blank" rel="noopener noreferrer">Rotary Polska</a>
+          <span class="meeting-date">Termin do ustalenia</span>
+          <h3>Brakujące spotkania do uzupełnienia</h3>
+          <p class="meeting-location">do ustalenia</p>
+          <p>Kalendarium nie obejmuje jeszcze wszystkich spotkań RC Silesia. Brakujące wpisy zostaną uzupełnione po ręcznej weryfikacji postów Facebook, materiałów klubowych i informacji od członków.</p>
+          <p class="meeting-card__consent">Zgody zdjęciowe: nie dotyczy</p>
         </article>
       </div>
       <div class="meetings-cta">
-        <h3>Zaproponuj temat spotkania</h3>
-        <p>Masz propozycję referatu, gościa lub tematu rozmowy klubowej? Przekaż ją przez formularz kontaktowy.</p>
-        <a class="button primary" href="#kontakt" data-topic="meeting-topic">Zgłoś temat spotkania</a>
+        <h3>Pomóż uzupełnić kalendarium</h3>
+        <p>Jeżeli pamiętasz spotkanie, referat, wydarzenie lub dysponujesz linkiem do wpisu z Facebooka RC Silesia, prześlij informację przez formularz kontaktowy.</p>
+        <a class="button primary" href="#kontakt" data-topic="meeting-topic">Zgłoś brakujące spotkanie</a>
       </div>
     </section>
 
@@ -820,12 +838,8 @@
         </article>
         <article class="formal-card">
           <h3>Dokumenty</h3>
-          <div class="formal-document-bars" aria-label="Dokumenty do pobrania">
-            <a class="document-download-bar" href="assets/docs/RC_Silesia_Statut_Final.docx" download aria-label="Pobierz Statut RC Silesia DOCX"><span>Pobierz</span><span aria-hidden="true">↓</span></a>
-            <a class="document-download-bar" href="assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx" download aria-label="Pobierz Porozumienie ramowe ROTARY for PLANET DOCX"><span>Pobierz</span><span aria-hidden="true">↓</span></a>
-            <a class="document-download-bar" href="assets/docs/RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf" download aria-label="Pobierz Raport braków WordPress PDF"><span>Pobierz</span><span aria-hidden="true">↓</span></a>
-          </div>
-          <p class="status-note">Wersje DOCX służą do pracy roboczej. Na stronie produkcyjnej preferowane będą dokumenty PDF zatwierdzone do publikacji.</p>
+          <p>Pełną listę dokumentów do pobrania znajdziesz w sekcji <a href="#dokumenty">Dokumenty do pobrania</a>.</p>
+          <p class="status-note">Sekcja dokumentów zawiera tytuły, opisy, statusy robocze i pliki źródłowe do pobrania.</p>
         </article>
       </div>
     </section>
@@ -1351,6 +1365,6 @@
   <button class="back-to-top" type="button" aria-label="Wróć na górę strony" data-back-to-top hidden>
     <span aria-hidden="true"></span>
   </button>
-  <script src="assets/js/script.js?v=1.5.25"></script>
+  <script src="assets/js/script.js?v=1.5.26"></script>
 </body>
 </html>

@@ -117,6 +117,15 @@ rc-silesia-site/
 - nie pobieramy automatycznie danych z Facebooka,
 - zdjęcia wymagają osobnych zgód.
 
+## Sprint v1.5.26 - calendar and meetings register
+
+- dodano kalendarium spotkań i wydarzeń,
+- nie jest to jeszcze pełne archiwum,
+- dane są odtwarzane kuratorsko z publicznych źródeł i materiałów klubowych,
+- brak automatycznego pobierania Facebooka,
+- wpisy wymagają zatwierdzenia,
+- brakujące spotkania można zgłaszać przez formularz.
+
 ## Sprint 3 - formularze i routing kontaktu
 
 - rozbudowano formularz kontaktowy,

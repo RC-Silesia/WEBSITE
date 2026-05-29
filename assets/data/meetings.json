@@ -1,8 +1,9 @@
 {
-  "version": "meetings-demo-v0.2",
+  "version": "meetings-calendar-v0.1",
   "status": "draft",
-  "editorialNotice": "Rejestr spotkań i wydarzeń przygotowany roboczo na podstawie publicznych źródeł: Facebook RC Silesia, Rotary Polska i materiały klubowe. Wpisy wymagają zatwierdzenia przez RC Silesia przed publikacją produkcyjną.",
+  "editorialNotice": "Kalendarium RC Silesia jest odtwarzane roboczo na podstawie publicznych źródeł: Facebook RC Silesia, Rotary Polska i materiałów klubowych. Wpisy wymagają zatwierdzenia przez RC Silesia przed publikacją produkcyjną.",
   "defaultLocation": "Golf Park Mikołów, ul. Golfowa 2, 43-190 Mikołów",
+  "completenessNotice": "Lista nie jest jeszcze pełnym archiwum spotkań klubu. Brakujące wpisy będą uzupełniane po weryfikacji materiałów źródłowych.",
   "items": [
     {
       "type": "milestone",
@@ -15,7 +16,10 @@
       "summary": "Uroczystość charteru RC Silesia, przekazania pinów członkom charterowym oraz oficjalnego rozpoczęcia działalności klubu. Wpis wymaga zatwierdzenia i ewentualnego uzupełnienia przez klub.",
       "sourceName": "Rotary Polska / materiały klubowe",
       "sourceUrl": "https://rotary.org.pl/charter-rc-silesia/",
-      "imageConsentStatus": "do potwierdzenia"
+      "visibility": "public",
+      "approvalStatus": "do zatwierdzenia",
+      "imageConsentStatus": "do potwierdzenia",
+      "calendarGroup": "archive"
     },
     {
       "type": "meeting",
@@ -28,7 +32,10 @@
       "summary": "Spotkanie klubowe zapowiedziane przez RC Silesia. Temat wymaga uzupełnienia o pełny opis i dane prelegenta przed publikacją produkcyjną.",
       "sourceName": "Facebook RC Silesia",
       "sourceUrl": "https://www.facebook.com/61569752879280/posts/03032026-o-1900-golf-park-miko%C5%82%C3%B3w-zn%C3%B3w-mamy-niezwykle-interesuj%C4%85cy-temat-mikrokr/122154737396658429/",
-      "imageConsentStatus": "do potwierdzenia"
+      "visibility": "public",
+      "approvalStatus": "do zatwierdzenia",
+      "imageConsentStatus": "do potwierdzenia",
+      "calendarGroup": "archive"
     },
     {
       "type": "meeting",
@@ -41,7 +48,10 @@
       "summary": "Spotkanie zapowiedziane jako wystąpienie dotyczące m.in. inwestowania, zmiany myślenia na Bali, piękna Bali, historii, kultury oraz wierzeń wyspy.",
       "sourceName": "Facebook RC Silesia / Rotary Polska",
       "sourceUrl": "https://www.facebook.com/61569752879280/photos/zapraszamy-14042026-g1900-golf-park-miko%C5%82%C3%B3wna-spotkanie-z-sebastianem-owczarskim/122157974408658429/",
-      "imageConsentStatus": "do potwierdzenia"
+      "visibility": "public",
+      "approvalStatus": "do zatwierdzenia",
+      "imageConsentStatus": "do potwierdzenia",
+      "calendarGroup": "archive"
     },
     {
       "type": "meeting",
@@ -54,7 +64,10 @@
       "summary": "Zapowiedź spotkania RC Silesia poświęconego Azji i Bliskiemu Wschodowi. Wpis wymaga uzupełnienia o pełną agendę, prelegenta i opis.",
       "sourceName": "Rotary Polska / Facebook",
       "sourceUrl": "https://www.facebook.com/RotaryPolska/posts/1421666296671675/",
-      "imageConsentStatus": "do potwierdzenia"
+      "visibility": "public",
+      "approvalStatus": "do zatwierdzenia",
+      "imageConsentStatus": "do potwierdzenia",
+      "calendarGroup": "archive"
     },
     {
       "type": "event",
@@ -67,7 +80,26 @@
       "summary": "Wydarzenie charytatywne RC Silesia. Wpis powinien zostać ujęty jako wydarzenie klubowe, nie jako regularne spotkanie członkowskie.",
       "sourceName": "Rotary Polska",
       "sourceUrl": "https://rotary.org.pl/wydarzenia/koncert-charytatywny-rc-silesia/",
-      "imageConsentStatus": "do potwierdzenia"
+      "visibility": "public",
+      "approvalStatus": "do zatwierdzenia",
+      "imageConsentStatus": "do potwierdzenia",
+      "calendarGroup": "upcoming"
+    },
+    {
+      "type": "proposal",
+      "status": "open",
+      "date": "",
+      "time": "",
+      "title": "Brakujące spotkania do uzupełnienia",
+      "speaker": "",
+      "location": "do ustalenia",
+      "summary": "Kalendarium nie obejmuje jeszcze wszystkich spotkań RC Silesia. Brakujące wpisy zostaną uzupełnione po ręcznej weryfikacji postów Facebook, materiałów klubowych i informacji od członków.",
+      "sourceName": "RC Silesia",
+      "sourceUrl": "",
+      "visibility": "internal-review",
+      "approvalStatus": "do uzupełnienia",
+      "imageConsentStatus": "nie dotyczy",
+      "calendarGroup": "missing"
     }
   ]
 }

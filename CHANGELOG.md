@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.5.26-calendar-and-meetings-register
+- rozszerzono sekcję spotkań do formy kalendarium spotkań i wydarzeń RC Silesia,
+- dodano informację, że kalendarium nie jest jeszcze pełnym archiwum,
+- dodano filtry: wszystkie, spotkania, wydarzenia, kamienie milowe, do uzupełnienia,
+- dodano kartę Brakujące spotkania do uzupełnienia,
+- dodano CTA Zgłoś brakujące spotkanie,
+- dane pozostają robocze i wymagają zatwierdzenia przez klub,
+- nie dodano scrapingu Facebooka, Meta API ani automatycznego pobierania danych.
+
 ## v1.5.25-meetings-and-events-register
 - zaktualizowano `assets/data/meetings.json` do wersji `meetings-demo-v0.2`,
 - rozbudowano sekcję Spotkania i wydarzenia RC Silesia,

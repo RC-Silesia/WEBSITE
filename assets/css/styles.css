@@ -1713,6 +1713,39 @@ th {
   font-weight: 700;
 }
 
+.meetings-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 940px;
+  margin: 0 auto 24px;
+}
+
+.meetings-filter-button {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--blue);
+  background: var(--white);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.meetings-filter-button:hover,
+.meetings-filter-button.is-active {
+  color: var(--white);
+  border-color: var(--blue);
+  background: var(--blue);
+}
+
+.meetings-filter-button:focus-visible {
+  outline: 3px solid rgba(247, 168, 27, .75);
+  outline-offset: 2px;
+}
+
 .meetings-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: 1180px;
@@ -1724,6 +1757,11 @@ th {
   align-content: start;
   gap: 12px;
   min-width: 0;
+}
+
+.meeting-card--missing {
+  border-style: dashed;
+  background: #f7f9fc;
 }
 
 .meeting-card h3,
@@ -1768,6 +1806,12 @@ th {
   background: rgba(247, 168, 27, .2);
 }
 
+.meeting-card__status.is-open,
+.meeting-status.is-open {
+  color: var(--blue-dark);
+  background: #e8eef6;
+}
+
 .meeting-card__status.is-approved,
 .meeting-status.is-approved {
   color: #1d6b38;
@@ -1800,6 +1844,18 @@ th {
 
 .meetings-cta .button {
   justify-self: start;
+}
+
+.meetings-empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--blue-dark);
+  background: #f7f9fc;
+  font-weight: 800;
+  text-align: center;
 }
 
 .cta-band {
