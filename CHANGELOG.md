@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.5.27-live-polish
+- wykonano drobne korekty redakcyjne i porządkowe publicznego stagingu,
+- sprawdzono widoczność komunikatu demonstracyjnego,
+- sprawdzono linki i dokumenty do pobrania,
+- sprawdzono kalendarium spotkań i wydarzeń,
+- zachowano staging jako noindex/nofollow i robots.txt Disallow: /,
+- bez nowych funkcji i bez zmian architektury strony.
+
 ## v1.5.26-calendar-and-meetings-register
 - rozszerzono sekcję spotkań do formy kalendarium spotkań i wydarzeń RC Silesia,
 - dodano informację, że kalendarium nie jest jeszcze pełnym archiwum,

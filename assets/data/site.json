@@ -12,7 +12,7 @@
   "rotaryForPlanet": {
     "id": "rotary-for-planet",
     "title": "ROTARY for PLANET",
-    "eyebrow": "Globalny program Rotary",
+    "eyebrow": "Globalna inicjatywa Rotary",
     "tagline": "1,2 miliona drzew",
     "summary": "ROTARY for PLANET to globalna inicjatywa sadzenia drzew rozwijana w społeczności Rotary, opisana na stronie Rotary Polska jako program angażujący członków Rotary, przyjaciół i sympatyków. Jej ideą jest prosta zasada: jeden Rotarianin - jedno nowe drzewo. Pomysłodawczynią programu jest Małgorzata Szymczyk, Prezydent RC Katowice w kadencjach 2020/2021 i 2021/2022, dziś Prezydent RC Silesia. Klub uczestniczy w programie od pierwszej edycji i współtworzy lokalną realizację na Górnym Śląsku.",
     "attribution": {
@@ -78,9 +78,9 @@
       }
     },
     "microcopy": {
-      "footerMention": "Współtworzymy globalny program Rotary for PLANET - 1,2 miliona drzew.",
+      "footerMention": "Współtworzymy lokalną realizację globalnej inicjatywy Rotary for PLANET - 1,2 miliona drzew.",
       "newsletterSignature": "RC Silesia - współtwórca programu Rotary for PLANET",
-      "socialShareDefault": "RC Silesia uczestniczy w globalnym programie Rotary for PLANET. Każdy Rotarianin sadzi jedno drzewo - cel: 1,2 miliona drzew na świecie."
+      "socialShareDefault": "RC Silesia uczestniczy w globalnej inicjatywie Rotary for PLANET. Każdy Rotarianin sadzi jedno drzewo - cel: 1,2 miliona drzew na świecie."
     },
     "doNotSay": [
       "nasz autorski projekt",
