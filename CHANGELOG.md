@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.5.18-rotary-for-planet-source-docs
+- doprecyzowano opis ROTARY for PLANET jako globalnej inicjatywy społeczności Rotary opisanej na stronie Rotary Polska,
+- dodano blok Materiały źródłowe Rotary Polska,
+- dodano link do oficjalnej strony programu na rotary.org.pl,
+- dodano link do prezentacji PDF pierwszej edycji,
+- dodano link do filmu o akcji,
+- dodano notę rozdzielającą materiały źródłowe Rotary Polska od lokalnych dokumentów wdrożeniowych RC Silesia,
+- bez zmian w module wpłat, social hub, newsletterze, privacy/SEO i image pipeline.
+
 ## v1.5.17-regional-and-attribution
 - doprecyzowano regionalny charakter RC Silesia w meta tagach, hero, top barze, sekcji o klubie i stopce,
 - rozdzielono w komunikacji obszar działania na Górnym Śląsku od siedziby w Mikołowie,

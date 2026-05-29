@@ -71,6 +71,12 @@ rc-silesia-site/
 - dodano pełniejszą klauzulę informacyjną RODO przy formularzu kontaktowym,
 - zastąpiono placeholder klauzuli RODO w makiecie wpłat informacją o niewysyłaniu danych i wymaganiu zatwierdzonej klauzuli przed produkcją.
 
+## Sprint v1.5.18 - ROTARY for PLANET source documents
+
+- doprecyzowano status programu względem oficjalnych materiałów Rotary Polska,
+- dodano blok Materiały źródłowe Rotary Polska,
+- rozdzielono materiały źródłowe od lokalnych dokumentów wdrożeniowych RC Silesia.
+
 ## Sprint 3 - formularze i routing kontaktu
 
 - rozbudowano formularz kontaktowy,

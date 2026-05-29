@@ -931,6 +931,43 @@ a.is-disabled {
   font-size: 15px;
 }
 
+.source-materials {
+  max-width: 1180px;
+  margin: 0 auto 28px;
+}
+
+.source-materials .subsection-heading {
+  margin-top: 0;
+}
+
+.source-materials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.source-material-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 22px;
+  border: 1px solid rgba(0, 93, 170, .18);
+  border-top: 4px solid var(--blue);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.source-material-card h4 {
+  margin: 0;
+  color: var(--blue-dark);
+  font-size: 18px;
+}
+
+.source-material-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .planet-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1444,6 +1481,14 @@ th {
   margin: 0 auto;
 }
 
+.documents-source-materials {
+  margin-bottom: 34px;
+}
+
+.local-documents-heading {
+  max-width: 940px;
+}
+
 .document-card {
   display: grid;
   align-content: start;
@@ -1936,6 +1981,7 @@ textarea {
   .formal-card-grid,
   .documents-grid,
   .planet-facts,
+  .source-materials-grid,
   .planting-standard-grid,
   .planet-ops-grid,
   .contact-paths,
@@ -2094,6 +2140,7 @@ textarea {
   .formal-card-grid,
   .documents-grid,
   .planet-facts,
+  .source-materials-grid,
   .planting-standard-grid,
   .planet-ops-grid,
   .contact-paths,

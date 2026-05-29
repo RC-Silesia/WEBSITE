@@ -14,7 +14,7 @@
     "title": "ROTARY for PLANET",
     "eyebrow": "Globalny program Rotary",
     "tagline": "1,2 miliona drzew",
-    "summary": "ROTARY for PLANET to globalny program Rotary International, którego ideą jest prosta zasada: jeden Rotarianin to jedno nowe drzewo. Pomysłodawczynią programu jest Małgorzata Szymczyk, Prezydent RC Katowice w kadencjach 2020/2021 i 2021/2022, dziś Prezydent RC Silesia. Klub uczestniczy w programie od pierwszej edycji i współtworzy jego lokalny wymiar na Śląsku.",
+    "summary": "ROTARY for PLANET to globalna inicjatywa sadzenia drzew rozwijana w społeczności Rotary, opisana na stronie Rotary Polska jako program angażujący członków Rotary, przyjaciół i sympatyków. Jej ideą jest prosta zasada: jeden Rotarianin - jedno nowe drzewo. Pomysłodawczynią programu jest Małgorzata Szymczyk, Prezydent RC Katowice w kadencjach 2020/2021 i 2021/2022, dziś Prezydent RC Silesia. Klub uczestniczy w programie od pierwszej edycji i współtworzy lokalną realizację na Górnym Śląsku.",
     "attribution": {
       "owner": "Rotary International",
       "scope": "global",
@@ -66,10 +66,14 @@
         "label": "Dowiedz się więcej o programie",
         "url": "https://rotary.org.pl/akcje/rotary-for-planet-12-miliona-drzew/"
       },
+      "presentation": {
+        "label": "Prezentacja programu - pierwsza edycja",
+        "url": "https://rotary.org.pl/wp-content/uploads/2023/03/rotary-club-prezentacja-projektu-12-mln-trees-opracowanie-moco-deco_01.pdf"
+      },
       "video": {
         "label": "Obejrzyj film o programie",
-        "url": "https://www.youtube.com/watch?v=XxNCYESL1L8",
-        "status": "TODO: włączyć po uruchomieniu modułu YouTube"
+        "url": "https://www.youtube.com/watch?v=XxNCYESL1L8&t=3s",
+        "status": "link zewnętrzny, bez osadzania iframe"
       }
     },
     "microcopy": {
@@ -91,14 +95,14 @@
       "status": "dokument roboczy / do weryfikacji przed publikacją produkcyjną",
       "format": "DOCX",
       "href": "assets/docs/RC_Silesia_Statut_Final.docx",
-      "note": "Wersja DOCX przeznaczona do pracy roboczej i weryfikacji. W wersji produkcyjnej rekomendowana jest publikacja zatwierdzonego PDF."
+      "note": "Lokalny dokument RC Silesia. Wersja DOCX przeznaczona do pracy roboczej i weryfikacji. W wersji produkcyjnej rekomendowana jest publikacja zatwierdzonego PDF."
     },
     {
       "title": "Porozumienie ramowe ROTARY for PLANET",
       "status": "projekt roboczy / do uzgodnienia ze Stronami",
       "format": "DOCX",
       "href": "assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx",
-      "note": "Wersja DOCX zawierająca dokumenty D1-D14, statuty Stron oraz analizę porównawczą celów statutowych. Dokument nie jest wersją finalną i wymaga zatwierdzenia przed publikacją produkcyjną."
+      "note": "Lokalny dokument wdrożeniowy RC Silesia / ŚOB ZS. Wersja DOCX zawierająca dokumenty D1-D14, statuty Stron oraz analizę porównawczą celów statutowych. Dokument nie jest wersją finalną i wymaga zatwierdzenia przed publikacją produkcyjną."
     },
     {
       "title": "Macierz WordPress RC Silesia - raport braków",
