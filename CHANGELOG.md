@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.5.36-zarzad-layout-uwagi
+- wdrożono uwagi Zarządu do sekcji startowej bez zmiany kanonicznej dewizy,
+- zmieniono zdanie wprowadzające na "śląskim klubem Rotary z siedzibą w Mikołowie",
+- usunięto wtrącenie o nazwach alternatywnych i dolny pasek informacyjny spod kafli,
+- powiększono linię dewizy, zachowując brzmienie "Służba ponad własny interes",
+- usunięto okrągłe badge literowe z kafli strony bez naruszania treści i akordeonów,
+- podbito cache-bust assetów do `v=1.5.36`.
+
 ## v1.5.35-private-report-cleanup
 - usunięto publiczny plik PDF raportu braków z katalogu `assets/docs`,
 - usunięto publiczne linki i wpis danych prowadzące do raportu braków,

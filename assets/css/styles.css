@@ -650,18 +650,6 @@ a.is-disabled {
   font-weight: 700;
 }
 
-.mini-icon {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  margin-bottom: 16px;
-  border-radius: 50%;
-  color: var(--blue-dark);
-  background: rgba(247, 168, 27, .26);
-  font-weight: 900;
-}
-
 .rotary-band {
   background: var(--soft);
 }
@@ -793,6 +781,16 @@ a.is-disabled {
   max-width: 830px;
   margin: 0 auto 34px;
   text-align: center;
+}
+
+.section-heading .motto-line {
+  color: var(--blue-dark);
+  font-size: clamp(20px, 2.3vw, 28px);
+  line-height: 1.35;
+}
+
+.section-heading .motto-line strong {
+  font-weight: 800;
 }
 
 .section-heading.align-left {
