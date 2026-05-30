@@ -1429,6 +1429,121 @@ th {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.member-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.member-card__header {
+  position: relative;
+  display: grid;
+  align-content: start;
+  min-height: 100%;
+  padding: 22px 52px 22px 22px;
+  color: var(--graphite);
+  cursor: pointer;
+}
+
+.member-card__header:hover {
+  background: #f7f9fc;
+}
+
+.member-card__header:focus-visible {
+  outline: 3px solid rgba(247, 168, 27, .75);
+  outline-offset: -3px;
+}
+
+.member-card__header h3 {
+  margin: 0 0 8px;
+  color: var(--blue-dark);
+}
+
+.member-card__header p {
+  margin: 0;
+}
+
+.member-card__chevron {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  transform: rotate(45deg);
+  transition: transform .22s ease-out;
+}
+
+.member-card[aria-expanded="true"] .member-card__chevron {
+  transform: rotate(225deg);
+}
+
+.member-card__panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .25s ease-out, opacity .2s ease-out;
+}
+
+.member-card[aria-expanded="true"] .member-card__panel {
+  max-height: 1800px;
+  opacity: 1;
+}
+
+.member-card__content {
+  display: grid;
+  gap: 0;
+  padding: 0 22px 22px;
+}
+
+.member-card__section {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.member-card__section h4 {
+  margin: 0 0 10px;
+  color: var(--blue-dark);
+  font-size: 14px;
+}
+
+.member-card__section p,
+.member-card__section ol,
+.member-card__section blockquote {
+  margin: 0;
+}
+
+.member-card__section blockquote {
+  display: grid;
+  gap: 10px;
+  padding: 0 0 0 16px;
+  border-left: 4px solid var(--gold);
+  color: var(--graphite);
+  font-style: italic;
+}
+
+.member-card__section blockquote p {
+  color: var(--graphite);
+}
+
+.letter-list {
+  list-style: lower-alpha;
+  padding-left: 22px;
+  color: var(--muted);
+}
+
+.letter-list li + li {
+  margin-top: 6px;
+}
+
+.member-card__link {
+  justify-self: start;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--blue);
+  font-weight: 900;
+}
+
 .governance-section {
   background: #fbfcfe;
 }
@@ -1530,7 +1645,9 @@ th {
 @media (prefers-reduced-motion: reduce) {
   .statutory-chevron,
   .gallery-card__chevron,
-  .gallery-card__panel {
+  .gallery-card__panel,
+  .member-card__chevron,
+  .member-card__panel {
     transition: none;
   }
 }
@@ -2468,7 +2585,8 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  .gallery-grid {
+  .gallery-grid,
+  .membership-grid {
     grid-template-columns: 1fr;
   }
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.32-members-tiles-expand
+- rozbudowano trzy kafle członkostwa do niezależnych akordeonów,
+- dodano definicje statutowe, prawa, obowiązki, ograniczenia i składki dla członkostwa czynnego, honorowego oraz wspierającego,
+- dodano cytaty statutowe w stylu blockquote oraz linki do sekcji Dokumenty do pobrania,
+- zaktualizowano cache-bust assetów do `1.5.32`.
+
 ## v1.5.31-gallery-level3
 - rozbudowano sekcję Galeria działań RC Silesia do czterech rozwijanych mini-stron tematycznych,
 - dodano niezależny akordeon dla kafli Spotkania klubu, ROTARY for PLANET, Partnerstwa lokalne oraz Media i wydarzenia,

@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.31";
+  var DATA_VERSION = "1.5.32";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -1060,6 +1060,38 @@
     });
   }
 
+  function toggleMemberCard(header, expanded) {
+    var card = header.closest(".member-card");
+    var panel = document.getElementById(header.getAttribute("aria-controls"));
+    if (!card || !panel) return;
+    card.setAttribute("aria-expanded", String(expanded));
+    header.setAttribute("aria-expanded", String(expanded));
+    panel.setAttribute("aria-hidden", String(!expanded));
+    if (expanded) {
+      panel.removeAttribute("inert");
+    } else {
+      panel.setAttribute("inert", "");
+    }
+  }
+
+  function initMemberAccordions(scope) {
+    var root = scope || document;
+    Array.prototype.slice.call(root.querySelectorAll(".member-card__header")).forEach(function (header) {
+      if (header.getAttribute("data-accordion-ready") === "true") return;
+      header.setAttribute("data-accordion-ready", "true");
+      toggleMemberCard(header, header.getAttribute("aria-expanded") === "true");
+      header.addEventListener("click", function () {
+        toggleMemberCard(header, header.getAttribute("aria-expanded") !== "true");
+      });
+      header.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " " || event.code === "Enter" || event.code === "Space" || event.keyCode === 13 || event.keyCode === 32) {
+          event.preventDefault();
+          toggleMemberCard(header, header.getAttribute("aria-expanded") !== "true");
+        }
+      });
+    });
+  }
+
   function meetingTypeLabel(type) {
     var normalized = String(type || "").toLowerCase();
     if (normalized === "event") return "wydarzenie";
@@ -1266,6 +1298,7 @@
   enhanceDocumentDownloads(document);
   initStatutoryAccordions(document);
   initGalleryAccordions(document);
+  initMemberAccordions(document);
   initMeetingsFilters();
   loadSiteData();
   loadMeetingsData();
