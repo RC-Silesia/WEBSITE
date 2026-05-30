@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.34-payment-operator-p24-decision
+- wskazano Przelewy24 jako rekomendowanego operatora zewnętrznego dla przyszłego wdrożenia płatności online,
+- doprecyzowano, że obecny moduł wpłat pozostaje wersją bez backendu i bez transakcji online,
+- dodano informację o raportach, eksporcie danych i przyszłej integracji REST API jako powodach wyboru,
+- dodano nieaktywne placeholdery przyszłych ścieżek płatności online,
+- bez dodawania tokenów, backendu, webhooków ani realnej integracji Przelewy24.
+
 ## v1.5.33-membership-card-height-fix
 - naprawiono nadmierne rozciąganie kafli w sekcji Trzy statutowe typy członkostwa,
 - odizolowano karty członkostwa od ogólnych reguł article/card,

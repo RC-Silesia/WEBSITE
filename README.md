@@ -152,6 +152,7 @@ rc-silesia-site/
 - karta przelewu tradycyjnego (numer konta + kopiowanie) i lista preferowanych operatorów polskich/europejskich,
 - checklista wymagań przed uruchomieniem płatności online (regulamin, RODO, zwroty, rozdzielenie wpłat, potwierdzenia e-mail, eksport, operator, zgoda Zarządu),
 - realne płatności to osobny etap produkcyjny po decyzji Zarządu i księgowości.
+- Rekomendowany operator do dalszego wdrożenia: Przelewy24. Obecny moduł pozostaje bezbackendowy i nie realizuje transakcji.
 
 ## Sprint 0.8.1 - stabilizacja modułu wpłat
 - doprecyzowano, że moduł wpłat jest makietą,

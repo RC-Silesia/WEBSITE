@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.33";
+  var DATA_VERSION = "1.5.34";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -1267,7 +1267,6 @@
     renderMediaDemo(data.mediaDemo);
     if (data.payment) {
       renderList('[data-render="payment-methods"]', data.payment.methods);
-      renderList('[data-render="payment-operators"]', data.payment.preferredOperators);
     }
   }
 
@@ -1363,7 +1362,7 @@
   });
   buildTitle();
 
-  var DEMO = "To makieta. Płatność online nie została uruchomiona. Skorzystaj z numeru konta lub poczekaj na wybór operatora płatności.";
+  var DEMO = "To makieta. Płatność online nie została uruchomiona. Moduł nie zapisuje danych i nie wysyła formularza. Skorzystaj z numeru konta lub poczekaj na konfigurację Przelewy24 po decyzji Zarządu.";
   Array.prototype.slice.call(document.querySelectorAll(".support-pay")).forEach(function (btn) {
     btn.addEventListener("click", function () {
       var st = document.getElementById(btn.getAttribute("data-support-status"));

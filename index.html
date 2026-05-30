@@ -22,7 +22,7 @@
   <meta name="twitter:image" content="https://rc-silesia.github.io/WEBSITE/assets/img/og-rc-silesia.jpg">
   <meta name="twitter:image:alt" content="RC Silesia - Rotary Klub Silesia na Górnym Śląsku">
   <link rel="icon" href="assets/img/rotary-moe-r-rev.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=1.5.33">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.5.34">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1046,7 +1046,7 @@
       </div>
 
       <div class="support-demo-banner" role="note">
-        <strong>To jest makieta modułu wpłat.</strong> Żaden formularz w tej sekcji nie wysyła danych i żaden przycisk nie uruchamia płatności. Realne płatności online zostaną uruchomione dopiero po wyborze operatora, zatwierdzeniu regulaminu, polityki prywatności, procedury zwrotów i decyzji Zarządu.
+        <strong>To jest makieta modułu wpłat.</strong> Obecna wersja modułu nie realizuje transakcji online, nie zapisuje danych i nie wysyła formularza. Przygotowuje jedynie dane do przelewu oraz tytuł wpłaty.
       </div>
       <p class="support-separation-note">Darowizna, składka członkowska i wpłata na wydarzenie są rozdzielone, ponieważ mają różny charakter organizacyjny i księgowy.</p>
 
@@ -1161,17 +1161,18 @@
           <p class="status-note">Numer konta i zasady przyjmowania wpłat wymagają finalnego potwierdzenia przed publikacją produkcyjną.</p>
         </article>
 
-        <article class="formal-card">
-          <h3>Preferowani operatorzy płatności</h3>
-          <p>Zgodnie z przyjętą zasadą RC Silesia korzysta w pierwszej kolejności z polskich lub europejskich operatorów. Po decyzji Zarządu moduł zostanie podłączony do jednego z nich:</p>
-          <ul class="support-ops" data-render="payment-operators">
-            <li><strong>Wpłacam.ngo.pl</strong> — narzędzie dla stowarzyszeń (darowizny, składki, opłaty), szybki start.</li>
-            <li><strong>Autopay / FaniPay</strong> — rozwiązanie dla organizacji społecznych, BLIK i pay-by-link.</li>
-            <li><strong>PayU</strong> — oferta dla NGO, BLIK, karty, płatności cykliczne.</li>
-            <li><strong>Przelewy24</strong> — szeroki zasięg, BLIK, przelewy, karty.</li>
-            <li><strong>Tpay</strong> — mocny wariant techniczny, BLIK on-site.</li>
+        <article class="formal-card support-operator-card">
+          <h3>Operator płatności rekomendowany do wdrożenia: Przelewy24</h3>
+          <p>RC Silesia przyjmuje Przelewy24 jako rekomendowanego operatora zewnętrznego do dalszego wdrożenia płatności online. Wybór wynika z dostępności raportów transakcji, eksportów dla skarbnika i księgowości oraz możliwości późniejszej integracji z panelem ngOs przez REST API.</p>
+          <p class="support-operator-status">Status: rekomendacja zaakceptowana koncepcyjnie. Płatności online zostaną uruchomione dopiero po założeniu konta Przelewy24, konfiguracji operatora i decyzji Zarządu.</p>
+          <h4>Dlaczego Przelewy24?</h4>
+          <ul class="support-ops">
+            <li>raporty transakcji, wypłat i zwrotów;</li>
+            <li>eksporty danych przydatne dla księgowości;</li>
+            <li>możliwość późniejszej integracji przez REST API;</li>
+            <li>obsługa BLIK, szybkich przelewów, kart i portfeli elektronicznych;</li>
+            <li>możliwość rozdzielenia typów wpłat w przyszłym panelu ngOs.</li>
           </ul>
-          <p class="field-note">Stripe nie jest preferowanym operatorem; może być rozważony wyłącznie jako wariant techniczny lub rezerwowy.</p>
           <h4>Docelowe metody płatności</h4>
           <ul class="support-ops" data-render="payment-methods">
             <li>BLIK</li>
@@ -1181,6 +1182,17 @@
             <li>Google Pay</li>
             <li>przelew tradycyjny</li>
           </ul>
+          <p class="field-note">Koszty według aktualnego cennika operatora - do weryfikacji przed zawarciem umowy.</p>
+        </article>
+
+        <article class="formal-card support-future-card">
+          <h3>Przyszła integracja</h3>
+          <p>Po konfiguracji konta Przelewy24 w tym miejscu mogą pojawić się osobne ścieżki płatności dla darowizn, składek członkowskich oraz wpłat wydarzeniowych.</p>
+          <div class="future-payment-list" aria-label="Przyszłe ścieżki płatności online">
+            <button class="button secondary" type="button" disabled>Darowizna online - w przygotowaniu</button>
+            <button class="button secondary" type="button" disabled>Składka członkowska online - w przygotowaniu</button>
+            <button class="button secondary" type="button" disabled>Wydarzenie / partnerstwo online - w przygotowaniu</button>
+          </div>
         </article>
 
         <article class="formal-card">
@@ -1193,7 +1205,7 @@
             <li>rozdzielenie wpłat: darowizna / składka / wydarzenie,</li>
             <li>procedura potwierdzeń e-mail (do ustalenia z księgowością: czy e-mail jest tylko potwierdzeniem technicznym, czy formalnym potwierdzeniem darowizny),</li>
             <li>eksport wpłat dla Skarbnika / księgowości,</li>
-            <li>wybór operatora płatności,</li>
+            <li>założenie i konfiguracja konta Przelewy24,</li>
             <li>zgoda Zarządu.</li>
           </ul>
         </article>
@@ -1500,6 +1512,6 @@
   <button class="back-to-top" type="button" aria-label="Wróć na górę strony" data-back-to-top hidden>
     <span aria-hidden="true"></span>
   </button>
-  <script src="assets/js/script.js?v=1.5.33"></script>
+  <script src="assets/js/script.js?v=1.5.34"></script>
 </body>
 </html>

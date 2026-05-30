@@ -2960,6 +2960,23 @@ textarea {
   max-width: 1180px;
   margin: 30px auto 0;
 }
+.support-operator-status {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 4px solid var(--gold);
+  color: var(--blue-dark);
+  background: #fff7e6;
+  font-weight: 800;
+}
+.future-payment-list {
+  display: grid;
+  gap: 10px;
+}
+.future-payment-list .button:disabled {
+  justify-content: flex-start;
+  cursor: not-allowed;
+  opacity: .72;
+}
 .support-titles-label {
   margin: 0;
   color: var(--blue-dark);
