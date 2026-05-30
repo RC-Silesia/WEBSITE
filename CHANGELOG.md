@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.42-zasady-naglowek
+- usunięto zdublowany nadtytuł `Zasady Rotary` w sekcji `#zasady-rotary`,
+- pozostawiono pojedynczy nagłówek `h2` w standardowej skali sekcji,
+- podbito cache-bust assetów i danych do `v=1.5.42`.
+
 ## v1.5.41-typografia-kart
 - podniesiono bazowy rozmiar tytułów kart `h3` do skali `clamp(22px, 2.2vw, 25px)`,
 - wyrównano mniejszy override tytułów w kartach galerii do nowej bazy,
