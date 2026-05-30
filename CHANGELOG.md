@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.43-obszary-hierarchia
+- podniesiono nagłówek `Obszary działania Rotary` w bloku zasad do skali nagłówka sekcji,
+- przestylowano intro `areas-intro-large` na lżejszy, niepogrubiony akapit podporządkowany nagłówkowi,
+- pozostawiono pozostałe podsekcje i układ kafli bez zmian,
+- podbito cache-bust assetów i danych do `v=1.5.43`.
+
 ## v1.5.42-zasady-naglowek
 - usunięto zdublowany nadtytuł `Zasady Rotary` w sekcji `#zasady-rotary`,
 - pozostawiono pojedynczy nagłówek `h2` w standardowej skali sekcji,

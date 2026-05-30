@@ -758,9 +758,10 @@ a.is-disabled {
 }
 
 .areas-intro-large {
-  font-size: clamp(18px, 2vw, 24px);
-  line-height: 1.45;
-  font-weight: 700;
+  font-size: clamp(17px, 1.6vw, 19px);
+  line-height: 1.55;
+  font-weight: 400;
+  color: var(--muted);
 }
 
 .motto-card {
@@ -1767,6 +1768,11 @@ th {
 .subsection-heading h3 {
   margin-bottom: 6px;
   font-size: 24px;
+}
+
+.subsection-heading--section-scale h3 {
+  font-size: clamp(30px, 4vw, 48px);
+  color: var(--blue-dark);
 }
 
 .subsection-heading p {
