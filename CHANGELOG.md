@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.33-membership-card-height-fix
+- naprawiono nadmierne rozciąganie kafli w sekcji Trzy statutowe typy członkostwa,
+- odizolowano karty członkostwa od ogólnych reguł article/card,
+- zwinięte kafle są kompaktowe, a rozwinięte mają wysokość wynikającą z treści,
+- zachowano dostępność akordeonu i brak horizontal overflow.
+
 ## v1.5.32-members-tiles-expand
 - rozbudowano trzy kafle członkostwa do niezależnych akordeonów,
 - dodano definicje statutowe, prawa, obowiązki, ograniczenia i składki dla członkostwa czynnego, honorowego oraz wspierającego,

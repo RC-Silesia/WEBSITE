@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.32";
+  var DATA_VERSION = "1.5.33";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -1065,6 +1065,7 @@
     var panel = document.getElementById(header.getAttribute("aria-controls"));
     if (!card || !panel) return;
     card.setAttribute("aria-expanded", String(expanded));
+    card.classList.toggle("is-open", Boolean(expanded));
     header.setAttribute("aria-expanded", String(expanded));
     panel.setAttribute("aria-hidden", String(!expanded));
     if (expanded) {
