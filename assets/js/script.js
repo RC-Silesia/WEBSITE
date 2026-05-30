@@ -1028,6 +1028,38 @@
     });
   }
 
+  function toggleGalleryCard(header, expanded) {
+    var card = header.closest(".gallery-card");
+    var panel = document.getElementById(header.getAttribute("aria-controls"));
+    if (!card || !panel) return;
+    card.setAttribute("aria-expanded", String(expanded));
+    header.setAttribute("aria-expanded", String(expanded));
+    panel.setAttribute("aria-hidden", String(!expanded));
+    if (expanded) {
+      panel.removeAttribute("inert");
+    } else {
+      panel.setAttribute("inert", "");
+    }
+  }
+
+  function initGalleryAccordions(scope) {
+    var root = scope || document;
+    Array.prototype.slice.call(root.querySelectorAll(".gallery-card__header")).forEach(function (header) {
+      if (header.getAttribute("data-accordion-ready") === "true") return;
+      header.setAttribute("data-accordion-ready", "true");
+      toggleGalleryCard(header, header.getAttribute("aria-expanded") === "true");
+      header.addEventListener("click", function () {
+        toggleGalleryCard(header, header.getAttribute("aria-expanded") !== "true");
+      });
+      header.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " " || event.code === "Enter" || event.code === "Space" || event.keyCode === 13 || event.keyCode === 32) {
+          event.preventDefault();
+          toggleGalleryCard(header, header.getAttribute("aria-expanded") !== "true");
+        }
+      });
+    });
+  }
+
   function meetingTypeLabel(type) {
     var normalized = String(type || "").toLowerCase();
     if (normalized === "event") return "wydarzenie";
@@ -1233,6 +1265,7 @@
   hardenStaticPlaceholderLinks();
   enhanceDocumentDownloads(document);
   initStatutoryAccordions(document);
+  initGalleryAccordions(document);
   initMeetingsFilters();
   loadSiteData();
   loadMeetingsData();

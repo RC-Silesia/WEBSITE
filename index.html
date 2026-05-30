@@ -447,54 +447,108 @@
       <p class="gallery-note">Wersja demonstracyjna galerii. Docelowe zdjęcia zostaną dodane po zatwierdzeniu materiałów i zgód na publikację.</p>
       <!-- Future gallery images should use optimized WebP files from assets/img generated via npm run optimize. -->
       <div class="gallery-grid" aria-label="Demonstracyjne albumy fotograficzne RC Silesia">
-        <article class="gallery-card">
-          <div class="gallery-card__media" role="img" aria-label="Placeholder albumu Spotkania klubu">
-            <span class="gallery-card__placeholder">Spotkania</span>
-          </div>
-          <div class="gallery-card__body">
-            <span class="gallery-card__status">Status: w przygotowaniu</span>
+        <article class="gallery-card" aria-expanded="false">
+          <div class="gallery-card__header" id="gallery-toggle-spotkania" role="button" tabindex="0" aria-expanded="false" aria-controls="gallery-panel-spotkania">
+            <span class="badge">Spotkania</span>
             <h3>Spotkania klubu</h3>
-            <p>Spotkania RC Silesia, rozmowy robocze, goście i wydarzenia klubowe.</p>
-            <dl>
-              <div><dt>Miejsce</dt><dd>Golf Park Mikołów</dd></div>
-            </dl>
-            <button class="button secondary" type="button" disabled>Album w przygotowaniu</button>
+            <span class="gallery-card__place">Golf Park Mikołów</span>
+            <span class="gallery-card__chevron" aria-hidden="true"></span>
+          </div>
+          <div class="gallery-card__panel" id="gallery-panel-spotkania" role="region" aria-labelledby="gallery-toggle-spotkania" aria-hidden="true" inert>
+            <div class="gallery-card__content">
+              <div class="gallery-card__photo-placeholder" role="img" aria-label="Miejsce na zdjęcie albumu Spotkania klubu">
+                <span class="gallery-card__camera" aria-hidden="true"></span>
+                <p>Tu pojawi się zdjęcie po zatwierdzeniu zgód wizerunkowych. Polityka publikacji wizerunku w przygotowaniu.</p>
+              </div>
+              <div class="gallery-card__details">
+                <h4>Co dokumentujemy</h4>
+                <p>Spotkania klubowe, rozmowy robocze, goście zaproszeni do Klubu, wydarzenia integracyjne i wewnętrzne uroczystości. Dokumentacja pomaga budować historię Klubu i wspierać komunikację z członkami.</p>
+                <h4>Dlaczego jeszcze nie publikujemy</h4>
+                <p>Spotkania klubu odbywają się w wąskim gronie. Publikacja zdjęć wymaga zgody wizerunkowej każdego widocznego członka - model zgody pisemnej, nie informacji przy wejściu.</p>
+                <h4>Kiedy planujemy publikację</h4>
+                <p>Po podjęciu przez Zarząd uchwały o polityce zgód wizerunkowych (planowo: czerwiec 2026) i pozyskaniu pierwszej puli zgód od członków Klubu.</p>
+              </div>
+              <a class="gallery-card__link" href="#spotkania">Zobacz spotkania w kalendarium</a>
+              <a class="gallery-card__policy" href="privacy.html#wizerunek">Polityka wizerunku i zgód</a>
+            </div>
           </div>
         </article>
-        <article class="gallery-card">
-          <div class="gallery-card__media" role="img" aria-label="Placeholder albumu ROTARY for PLANET">
-            <span class="gallery-card__placeholder">PLANET</span>
-          </div>
-          <div class="gallery-card__body">
-            <span class="gallery-card__status">Status: w przygotowaniu</span>
+        <article class="gallery-card" aria-expanded="false">
+          <div class="gallery-card__header" id="gallery-toggle-planet" role="button" tabindex="0" aria-expanded="false" aria-controls="gallery-panel-planet">
+            <span class="badge">PLANET</span>
             <h3>ROTARY for PLANET</h3>
-            <p>Dokumentacja odpowiedzialnych nasadzeń, edukacji ekologicznej i współpracy lokalnej.</p>
-            <dl>
-              <div><dt>Miejsce</dt><dd>Mikołów / Górny Śląsk</dd></div>
-            </dl>
-            <button class="button secondary" type="button" disabled>Album w przygotowaniu</button>
+            <span class="gallery-card__place">Mikołów / Górny Śląsk</span>
+            <span class="gallery-card__chevron" aria-hidden="true"></span>
+          </div>
+          <div class="gallery-card__panel" id="gallery-panel-planet" role="region" aria-labelledby="gallery-toggle-planet" aria-hidden="true" inert>
+            <div class="gallery-card__content">
+              <div class="gallery-card__photo-placeholder" role="img" aria-label="Miejsce na zdjęcie albumu ROTARY for PLANET">
+                <span class="gallery-card__camera" aria-hidden="true"></span>
+                <p>Tu pojawi się zdjęcie po zatwierdzeniu zgód wizerunkowych. Polityka publikacji wizerunku w przygotowaniu.</p>
+              </div>
+              <div class="gallery-card__details">
+                <h4>Co dokumentujemy</h4>
+                <p>Odpowiedzialne nasadzenia drzew na Górnym Śląsku, edukację ekologiczną, współpracę ze Śląskim Ogrodem Botanicznym, monitoring przeżywalności po 12 i 24 miesiącach. Zdjęcia dokumentują standard antygreenwashingowy programu.</p>
+                <h4>Dlaczego jeszcze nie publikujemy</h4>
+                <p>Program jest w fazie przygotowania pierwszych lokalizacji. Pierwsze akcje sadzenia planowane są na sezon jesień 2026. Publikacja zdjęć następuje po wykonaniu nasadzenia i wykonaniu dokumentacji standardu.</p>
+                <h4>Kiedy planujemy publikację</h4>
+                <p>Po pierwszej akcji sadzenia w sezonie jesień 2026, równolegle z aktualizacją rejestru nasadzeń i mapy lokalizacji.</p>
+              </div>
+              <a class="gallery-card__link" href="#planet">Zobacz program ROTARY for PLANET</a>
+              <a class="gallery-card__policy" href="privacy.html#wizerunek">Polityka wizerunku i zgód</a>
+            </div>
           </div>
         </article>
-        <article class="gallery-card">
-          <div class="gallery-card__media" role="img" aria-label="Placeholder albumu Partnerstwa lokalne">
-            <span class="gallery-card__placeholder">Partnerzy</span>
-          </div>
-          <div class="gallery-card__body">
-            <span class="gallery-card__status">Status: w przygotowaniu</span>
+        <article class="gallery-card" aria-expanded="false">
+          <div class="gallery-card__header" id="gallery-toggle-partnerzy" role="button" tabindex="0" aria-expanded="false" aria-controls="gallery-panel-partnerzy">
+            <span class="badge">Partnerzy</span>
             <h3>Partnerstwa lokalne</h3>
-            <p>Współpraca z instytucjami, szkołami, firmami, mediami i organizacjami społecznymi.</p>
-            <button class="button secondary" type="button" disabled>Album w przygotowaniu</button>
+            <span class="gallery-card__place">Górny Śląsk</span>
+            <span class="gallery-card__chevron" aria-hidden="true"></span>
+          </div>
+          <div class="gallery-card__panel" id="gallery-panel-partnerzy" role="region" aria-labelledby="gallery-toggle-partnerzy" aria-hidden="true" inert>
+            <div class="gallery-card__content">
+              <div class="gallery-card__photo-placeholder" role="img" aria-label="Miejsce na zdjęcie albumu Partnerstwa lokalne">
+                <span class="gallery-card__camera" aria-hidden="true"></span>
+                <p>Tu pojawi się zdjęcie po zatwierdzeniu zgód wizerunkowych. Polityka publikacji wizerunku w przygotowaniu.</p>
+              </div>
+              <div class="gallery-card__details">
+                <h4>Co dokumentujemy</h4>
+                <p>Współpracę z instytucjami, szkołami, firmami i organizacjami społecznymi. Spotkania robocze z partnerami, podpisanie porozumień, wspólne wydarzenia, wolontariat pracowniczy.</p>
+                <h4>Dlaczego jeszcze nie publikujemy</h4>
+                <p>Każda publikacja zdjęcia z partnerem wymaga jego zgody, w tym akceptacji formy prezentacji partnerstwa. Klub buduje pierwsze porozumienia, których publiczna dokumentacja wymaga koordynacji ze stronami.</p>
+                <h4>Kiedy planujemy publikację</h4>
+                <p>Wraz z formalizacją pierwszych partnerstw (Śląski Ogród Botaniczny, Golf Park Mikołów) i uzyskaniem zgód komunikacyjnych po obu stronach.</p>
+              </div>
+              <a class="gallery-card__link" href="#partnerstwa">Zobacz partnerów</a>
+              <a class="gallery-card__policy" href="privacy.html#wizerunek">Polityka wizerunku i zgód</a>
+            </div>
           </div>
         </article>
-        <article class="gallery-card">
-          <div class="gallery-card__media" role="img" aria-label="Placeholder albumu Media i wydarzenia">
-            <span class="gallery-card__placeholder">Media</span>
-          </div>
-          <div class="gallery-card__body">
-            <span class="gallery-card__status">Status: w przygotowaniu</span>
+        <article class="gallery-card" aria-expanded="false">
+          <div class="gallery-card__header" id="gallery-toggle-media" role="button" tabindex="0" aria-expanded="false" aria-controls="gallery-panel-media">
+            <span class="badge">Media</span>
             <h3>Media i wydarzenia</h3>
-            <p>Materiały fotograficzne z wydarzeń publicznych, nagrań, wywiadów i relacji.</p>
-            <button class="button secondary" type="button" disabled>Album w przygotowaniu</button>
+            <span class="gallery-card__place">Mikołów / region</span>
+            <span class="gallery-card__chevron" aria-hidden="true"></span>
+          </div>
+          <div class="gallery-card__panel" id="gallery-panel-media" role="region" aria-labelledby="gallery-toggle-media" aria-hidden="true" inert>
+            <div class="gallery-card__content">
+              <div class="gallery-card__photo-placeholder" role="img" aria-label="Miejsce na zdjęcie albumu Media i wydarzenia">
+                <span class="gallery-card__camera" aria-hidden="true"></span>
+                <p>Tu pojawi się zdjęcie po zatwierdzeniu zgód wizerunkowych. Polityka publikacji wizerunku w przygotowaniu.</p>
+              </div>
+              <div class="gallery-card__details">
+                <h4>Co dokumentujemy</h4>
+                <p>Wydarzenia publiczne RC Silesia (koncerty charytatywne, prelekcje, spotkania otwarte), materiały medialne (wywiady, nagrania, relacje prasowe), materiały do komunikacji w mediach społecznościowych.</p>
+                <h4>Dlaczego jeszcze nie publikujemy</h4>
+                <p>Wydarzenia publiczne dopuszczają model zgody "informacja przy wejściu", ale wymaga to wprowadzenia procedury klubowej, zatwierdzenia treści informacji i wprowadzenia jej w praktykę pierwszych wydarzeń.</p>
+                <h4>Kiedy planujemy publikację</h4>
+                <p>Po podjęciu uchwały Zarządu o polityce zgód wizerunkowych i pierwszym wydarzeniu publicznym z zastosowaniem procedury (najwcześniej: lato 2026).</p>
+              </div>
+              <a class="gallery-card__link" href="#social-hub">Zobacz kanały społecznościowe</a>
+              <a class="gallery-card__policy" href="privacy.html#wizerunek">Polityka wizerunku i zgód</a>
+            </div>
           </div>
         </article>
       </div>

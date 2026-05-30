@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.31-gallery-level3
+- rozbudowano sekcję Galeria działań RC Silesia do czterech rozwijanych mini-stron tematycznych,
+- dodano niezależny akordeon dla kafli Spotkania klubu, ROTARY for PLANET, Partnerstwa lokalne oraz Media i wydarzenia,
+- dodano treści wyjaśniające zakres dokumentacji, powód wstrzymania publikacji i planowany moment publikacji zdjęć,
+- dodano placeholder zdjęć oraz linki do odpowiednich sekcji strony i polityki wizerunku,
+- dodano placeholder sekcji Polityka wizerunku w `privacy.html#wizerunek`.
+
 ## v1.5.31-live-content-sync
 - zsynchronizowano opis ROTARY for PLANET z ustalonym brzmieniem redakcyjnym,
 - usunięto zbyt mocne sformułowanie globalny program Rotary International,
