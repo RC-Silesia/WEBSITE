@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.38-zarzad-layout-domkniecie
+- powiększono logo w górnym nagłówku i zawężono granatową ramkę wokół białego boksu logo,
+- uzupełniono funkcyjne opisy Skarbnika oraz Członka Zarządu w sekcji Władze,
+- uzupełniono dane JSON osób funkcyjnych, aby render dynamiczny nie przywracał opisów zastępczych,
+- podbito cache-bust assetów i danych do `v=1.5.38`.
+
 ## v1.5.37-zarzad-layout-skonsolidowany
 - skonsolidowano uwagi Zarządu po sprincie v1.5.36 i skorygowano komunikacyjne brzmienie motta Rotary na `Służba ponad własne interesy`,
 - zaktualizowano nadtytuł hero do `ŚLĄSK | ROTARY POLSKA | ROTARY INTERNATIONAL`,

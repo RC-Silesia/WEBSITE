@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.37";
+  var DATA_VERSION = "1.5.38";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -987,7 +987,7 @@
       var body = document.createElement("div");
       appendTextElement(body, "h3", "", member.name);
       appendTextElement(body, "p", "person-role", member.role);
-      appendTextElement(body, "p", "", member.description || "Funkcja statutowa do potwierdzenia przed publikacją produkcyjną.");
+      appendTextElement(body, "p", "", member.description || "Opis roli do potwierdzenia przed publikacją produkcyjną.");
       card.appendChild(body);
       container.appendChild(card);
     });

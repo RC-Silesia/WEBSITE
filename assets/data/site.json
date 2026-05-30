@@ -160,10 +160,26 @@
         "representationRule": "Do składania oświadczeń woli uprawnieni są: Prezes Zarządu wraz z Członkiem Zarządu lub dwóch Członków Zarządu łącznie. Dla zobowiązań powyżej 5 000 zł: Prezes Zarządu lub Członek Zarządu wraz ze Skarbnikiem.",
         "termCurrent": "[DO UZUPEŁNIENIA - kadencja Zarządu]",
         "members": [
-          { "name": "Małgorzata Szymczyk", "role": "Prezydent (Prezes Zarządu)" },
-          { "name": "Marian Januszkiewicz", "role": "Sekretarz" },
-          { "name": "Ilona Piwkowska", "role": "Skarbnik" },
-          { "name": "Roman Szyja", "role": "Członek Zarządu" }
+          {
+            "name": "Małgorzata Szymczyk",
+            "role": "Prezydent (Prezes Zarządu)",
+            "description": "Koordynuje pracę Klubu i reprezentuje go zgodnie z zasadami statutowymi."
+          },
+          {
+            "name": "Marian Januszkiewicz",
+            "role": "Sekretarz",
+            "description": "Wspiera obieg informacji, dokumentację i organizację pracy Klubu."
+          },
+          {
+            "name": "Ilona Piwkowska",
+            "role": "Skarbnik",
+            "description": "Prowadzi finanse Klubu, składki członkowskie i rozliczenia zgodnie z zasadami statutowymi."
+          },
+          {
+            "name": "Roman Szyja",
+            "role": "Członek Zarządu",
+            "description": "Współuczestniczy w pracach Zarządu i wspiera realizację zadań statutowych Klubu."
+          }
         ],
         "membersNote": "[DO POTWIERDZENIA - czy Zarząd ma także osobę pełniącą funkcję Wiceprezydenta. Statut przewiduje tę funkcję, ale aktualny skład może jej nie obejmować.]",
         "showMembersList": true
