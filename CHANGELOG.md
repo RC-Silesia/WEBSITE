@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.41-typografia-kart
+- podniesiono bazowy rozmiar tytułów kart `h3` do skali `clamp(22px, 2.2vw, 25px)`,
+- wyrównano mniejszy override tytułów w kartach galerii do nowej bazy,
+- pozostawiono bez zmian hierarchię `h1`, `h2` oraz większe tytuły schematu struktury Rotary,
+- podbito cache-bust assetów i danych do `v=1.5.41`.
+
 ## v1.5.40-partnerzy
 - przekształcono kafle Firmy oraz Szkoły i młodzież w dostępne akordeony z placeholderami list partnerów,
 - dodano akordeon Kluby rotariańskie, z którymi współpracujemy z placeholderem do czasu podpisania umów,
