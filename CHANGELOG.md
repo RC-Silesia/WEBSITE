@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.35-private-report-cleanup
+- usunięto publiczny plik PDF raportu braków z katalogu `assets/docs`,
+- usunięto publiczne linki i wpis danych prowadzące do raportu braków,
+- pozostawiono raport jako materiał prywatny poza publicznym repo,
+- podbito cache-bust do `v=1.5.35`, aby nie odtwarzać starego wpisu z cache danych.
+
 ## v1.5.34-payment-operator-p24-decision
 - wskazano Przelewy24 jako rekomendowanego operatora zewnętrznego dla przyszłego wdrożenia płatności online,
 - doprecyzowano, że obecny moduł wpłat pozostaje wersją bez backendu i bez transakcji online,
@@ -134,7 +140,7 @@
 - bez zmian w treści stron, danych formalnych, RODO, dokumentach, motcie Rotary i sekcji ROTARY for PLANET.
 
 ## v1.5.14-wp-matrix-and-rodo-gap-fix
-- dodano `assets/docs/RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf`,
+- dodano roboczy raport macierzy WordPress do dokumentów publicznej wersji demonstracyjnej,
 - podpięto raport braków Macierzy WordPress do sekcji Dokumenty do pobrania, danych formalnych i stopki,
 - dodano wpis raportu do `assets/data/site.json`, aby dynamiczny renderer dokumentów zachował link po załadowaniu danych,
 - uzupełniono formularz kontaktowy o rozwijaną klauzulę informacyjną RODO z elementami art. 13,

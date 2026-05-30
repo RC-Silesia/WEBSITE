@@ -104,13 +104,6 @@
       "format": "DOCX",
       "href": "assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx",
       "note": "Lokalny dokument wdrożeniowy RC Silesia / ŚOB ZS. Wersja DOCX zawierająca dokumenty D1-D14, statuty Stron oraz analizę porównawczą celów statutowych. Dokument nie jest wersją finalną i wymaga zatwierdzenia przed publikacją produkcyjną."
-    },
-    {
-      "title": "Macierz WordPress RC Silesia - raport braków",
-      "status": "projekt roboczy do konsultacji Zarządu",
-      "format": "PDF",
-      "href": "assets/docs/RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf",
-      "note": "Raport wskazuje 20 obszarów do uzupełnienia przed wdrożeniem docelowej platformy WordPress/ngOs, w tym priorytety RODO, role statutowe i workflow administracyjne."
     }
   ],
   "statutoryBodies": {

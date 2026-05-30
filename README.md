@@ -66,7 +66,7 @@ rc-silesia-site/
 
 ## Sprint v1.5.14 - WP matrix and RODO gap fix
 
-- dodano raport `RC_Silesia_WP_Matrix_Raport_brakow_v1.pdf` do dokumentów,
+- dodano roboczy raport macierzy WordPress do dokumentów,
 - podpięto raport do sekcji Dokumenty do pobrania, danych formalnych i stopki,
 - dodano pełniejszą klauzulę informacyjną RODO przy formularzu kontaktowym,
 - zastąpiono placeholder klauzuli RODO w makiecie wpłat informacją o niewysyłaniu danych i wymaganiu zatwierdzonej klauzuli przed produkcją.
