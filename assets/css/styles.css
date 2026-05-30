@@ -665,12 +665,39 @@ a.is-disabled {
   margin: 0 auto;
 }
 
-.rotary-district-note {
-  max-width: 1040px;
-  margin: 18px auto 0;
-  color: var(--blue-dark);
-  font-weight: 800;
+.rotary-structure-heading {
   text-align: center;
+}
+
+.rotary-structure {
+  display: grid;
+  gap: 16px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.rotary-structure-card {
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 12px 28px rgba(16, 37, 64, .08);
+  text-align: center;
+}
+
+.rotary-structure-card h3 {
+  margin: 0 0 10px;
+  color: var(--blue-dark);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.12;
+}
+
+.rotary-structure-card p {
+  max-width: none;
+  margin: 0;
+  color: var(--graphite);
+  font-size: clamp(17px, 1.8vw, 21px);
+  line-height: 1.45;
 }
 
 .section-link-row {

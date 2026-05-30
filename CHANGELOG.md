@@ -1,9 +1,11 @@
 # Changelog
 
-## v1.5.38-zarzad-layout-domkniecie
+## v1.5.38-zarzad-domkniecie
 - powiększono logo w górnym nagłówku i zawężono granatową ramkę wokół białego boksu logo,
 - uzupełniono funkcyjne opisy Skarbnika oraz Członka Zarządu w sekcji Władze,
 - uzupełniono dane JSON osób funkcyjnych, aby render dynamiczny nie przywracał opisów zastępczych,
+- przebudowano sekcję Rotary na wycentrowany schemat struktury: Rotary International, Dystrykt 2231, Rotary Klub Silesia,
+- usunięto podpisy pod nagłówkami sekcji Członkostwo i Obszary działania bez zmiany kafli,
 - podbito cache-bust assetów i danych do `v=1.5.38`.
 
 ## v1.5.37-zarzad-layout-skonsolidowany
