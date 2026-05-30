@@ -1456,6 +1456,68 @@ th {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.partner-accordion-card {
+  display: grid;
+  align-content: start;
+  padding: 0;
+  overflow: hidden;
+}
+
+.partner-accordion-card__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+  min-height: 100%;
+  padding: 22px;
+  cursor: pointer;
+}
+
+.partner-accordion-card__header:hover {
+  background: #f8fbff;
+}
+
+.partner-accordion-card__header:focus-visible {
+  outline: 3px solid rgba(247, 168, 27, .75);
+  outline-offset: -3px;
+}
+
+.partner-accordion-card__header p {
+  margin: 0;
+}
+
+.partner-accordion-card__chevron {
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-right: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
+  transform: rotate(45deg);
+  transition: transform .2s ease;
+}
+
+.partner-accordion-card[aria-expanded="true"] .partner-accordion-card__chevron {
+  transform: rotate(-135deg) translate(-4px, -4px);
+}
+
+.partner-accordion-card__panel {
+  padding: 0 22px 22px;
+}
+
+.partner-accordion-card__panel[aria-hidden="true"] {
+  display: none;
+}
+
+.partner-accordion-card__panel p {
+  margin: 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  color: var(--blue-dark);
+  background: #fff7e6;
+  font-weight: 700;
+}
+
 .membership-grid,
 .governance-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));

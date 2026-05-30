@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.40-partnerzy
+- przekształcono kafle Firmy oraz Szkoły i młodzież w dostępne akordeony z placeholderami list partnerów,
+- dodano akordeon Kluby rotariańskie, z którymi współpracujemy z placeholderem do czasu podpisania umów,
+- pozostawiono kafle nazwanych partnerów bez linków i bez zmian treści,
+- podbito cache-bust assetów i danych do `v=1.5.40`.
+
 ## v1.5.38-zarzad-domkniecie
 - powiększono logo w górnym nagłówku i zawężono granatową ramkę wokół białego boksu logo,
 - uzupełniono funkcyjne opisy Skarbnika oraz Członka Zarządu w sekcji Władze,

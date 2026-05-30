@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.38";
+  var DATA_VERSION = "1.5.40";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -1083,6 +1083,39 @@
     });
   }
 
+  function togglePartnerAccordion(header, expanded) {
+    var card = header.closest(".partner-accordion-card");
+    var panel = document.getElementById(header.getAttribute("aria-controls"));
+    if (!card || !panel) return;
+    card.setAttribute("aria-expanded", String(expanded));
+    card.classList.toggle("is-open", Boolean(expanded));
+    header.setAttribute("aria-expanded", String(expanded));
+    panel.setAttribute("aria-hidden", String(!expanded));
+    if (expanded) {
+      panel.removeAttribute("inert");
+    } else {
+      panel.setAttribute("inert", "");
+    }
+  }
+
+  function initPartnerAccordions(scope) {
+    var root = scope || document;
+    Array.prototype.slice.call(root.querySelectorAll(".partner-accordion-card__header")).forEach(function (header) {
+      if (header.getAttribute("data-accordion-ready") === "true") return;
+      header.setAttribute("data-accordion-ready", "true");
+      togglePartnerAccordion(header, header.getAttribute("aria-expanded") === "true");
+      header.addEventListener("click", function () {
+        togglePartnerAccordion(header, header.getAttribute("aria-expanded") !== "true");
+      });
+      header.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " " || event.code === "Enter" || event.code === "Space" || event.keyCode === 13 || event.keyCode === 32) {
+          event.preventDefault();
+          togglePartnerAccordion(header, header.getAttribute("aria-expanded") !== "true");
+        }
+      });
+    });
+  }
+
   function meetingTypeLabel(type) {
     var normalized = String(type || "").toLowerCase();
     if (normalized === "event") return "wydarzenie";
@@ -1289,6 +1322,7 @@
   initStatutoryAccordions(document);
   initGalleryAccordions(document);
   initMemberAccordions(document);
+  initPartnerAccordions(document);
   initMeetingsFilters();
   loadSiteData();
   loadMeetingsData();
