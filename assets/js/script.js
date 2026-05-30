@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.36";
+  var DATA_VERSION = "1.5.37";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -887,15 +887,6 @@
     return list;
   }
 
-  function initials(name) {
-    return String(name || "")
-      .split(/\s+/)
-      .filter(Boolean)
-      .slice(0, 2)
-      .map(function (part) { return part.charAt(0).toUpperCase(); })
-      .join("") || "RC";
-  }
-
   function findBody(data, id) {
     if (!data || !Array.isArray(data.bodies)) return null;
     return data.bodies.find(function (body) { return body.id === id; }) || null;
@@ -993,7 +984,6 @@
     zarzad.members.forEach(function (member) {
       var card = document.createElement("article");
       card.className = "person-card";
-      appendTextElement(card, "span", "avatar-placeholder", initials(member.name)).setAttribute("aria-hidden", "true");
       var body = document.createElement("div");
       appendTextElement(body, "h3", "", member.name);
       appendTextElement(body, "p", "person-role", member.role);

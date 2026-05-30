@@ -310,6 +310,11 @@ textarea:focus-visible,
   color: #3c9d5a;
 }
 
+.hero .hero-eyebrow {
+  font-size: clamp(15px, 1.6vw, 19px);
+  letter-spacing: .06em;
+}
+
 h1,
 h2,
 h3,
@@ -655,9 +660,17 @@ a.is-disabled {
 }
 
 .rotary-membership {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   max-width: 1040px;
   margin: 0 auto;
+}
+
+.rotary-district-note {
+  max-width: 1040px;
+  margin: 18px auto 0;
+  color: var(--blue-dark);
+  font-weight: 800;
+  text-align: center;
 }
 
 .section-link-row {
@@ -709,24 +722,18 @@ a.is-disabled {
   border-top: 4px solid var(--gold);
 }
 
-.four-way-card span {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  margin-bottom: 16px;
-  border-radius: 50%;
-  color: var(--blue-dark);
-  background: rgba(247, 168, 27, .28);
-  font-weight: 900;
-}
-
 .four-way-card p {
   margin: 0;
   color: var(--blue-dark);
   font-size: 18px;
   font-weight: 800;
   line-height: 1.35;
+}
+
+.areas-intro-large {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.45;
+  font-weight: 700;
 }
 
 .motto-card {
@@ -1685,20 +1692,9 @@ th {
 
 .person-card {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
   align-items: start;
-}
-
-.avatar-placeholder {
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  color: var(--blue-dark);
-  background: rgba(247, 168, 27, .28);
-  font-weight: 900;
 }
 
 .person-role {
@@ -2763,15 +2759,6 @@ textarea {
 
   .impact-lists {
     grid-template-columns: 1fr;
-  }
-
-  .person-card {
-    grid-template-columns: 44px minmax(0, 1fr);
-  }
-
-  .avatar-placeholder {
-    width: 44px;
-    height: 44px;
   }
 
   .formal-card dl div {

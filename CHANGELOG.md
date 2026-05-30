@@ -1,10 +1,18 @@
 # Changelog
 
+## v1.5.37-zarzad-layout-skonsolidowany
+- skonsolidowano uwagi Zarządu po sprincie v1.5.36 i skorygowano komunikacyjne brzmienie motta Rotary na `Służba ponad własne interesy`,
+- zaktualizowano nadtytuł hero do `ŚLĄSK | ROTARY POLSKA | ROTARY INTERNATIONAL`,
+- skrócono wskazane treści w sekcjach Rotary i Zasady Rotary oraz usunięto kartę opisową Dystryktu,
+- powiększono skrócone zdanie wprowadzające przy obszarach działania,
+- usunięto wizualne badge'e z numerami Testu Czterech Pytań oraz inicjałami członków Zarządu przy zachowaniu kolejności i treści,
+- podbito cache-bust assetów do `v=1.5.37`.
+
 ## v1.5.36-zarzad-layout-uwagi
 - wdrożono uwagi Zarządu do sekcji startowej bez zmiany kanonicznej dewizy,
 - zmieniono zdanie wprowadzające na "śląskim klubem Rotary z siedzibą w Mikołowie",
 - usunięto wtrącenie o nazwach alternatywnych i dolny pasek informacyjny spod kafli,
-- powiększono linię dewizy, zachowując brzmienie "Służba ponad własny interes",
+- powiększono linię dewizy; wpis zastąpiony przez skonsolidowaną korektę v1.5.37,
 - usunięto okrągłe badge literowe z kafli strony bez naruszania treści i akordeonów,
 - podbito cache-bust assetów do `v=1.5.36`.
 
@@ -221,7 +229,7 @@
 - zachowano istniejący layout, staging `noindex` i brak zmian w modułach biznesowych.
 
 ## v1.5.4-motto-terminology-fix
-- ujednolicono polskie brzmienie motta Rotary na `Służba ponad własny interes`,
+- ujednolicono polskie brzmienie motta Rotary; wpis zastąpiony przez korektę v1.5.37,
 - poprawiono wystąpienia motta w sekcji O klubie, Zasady Rotary i Dane formalne,
 - bez zmian w modułach technicznych, newsletterze, privacy, social hub i płatnościach.
 
