@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.71-fix-areas-icons
+- usunięto koło obszarów działania Rotary spod siatki `#zasady-rotary`;
+- powiększono oficjalne ikony w nagłówkach siedmiu kafli obszarów z 40 px do 60 px;
+- podbito cache-bust assetów i danych do `v=1.5.71`.
+
 ## v1.5.70-youth-exchange-rye-copy
 - zaktualizowano podstronę `mlodziez-wymiana.html` do pełnej treści RYE z akcentem na bezpieczeństwo, budowanie pokoju i rolę RC Silesia;
 - ujednolicono tytuł i nagłówek do `Wymiana młodzieży Rotary (RYE)`;
