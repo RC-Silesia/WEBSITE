@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.60-obszary-rotary-akordeony
+- przekształcono siedem kafli „Obszary działania Rotary” w sekcji `#zasady-rotary` w dostępne akordeony z wyjaśnieniami obszarów;
+- dodano obsługę kliknięcia, Enter/Spacji, `aria-expanded`, `aria-hidden` i `inert` dla kafli `.principle-card`;
+- uzupełniono style paneli, focusu i strzałek zgodnie z istniejącym wzorcem akordeonów;
+- podbito cache-bust assetów i danych do `v=1.5.60`.
+
 ## v1.5.59-youth-logos
 - dodano logotypy Rotary Youth Exchange Program i Rotaract Club Silesia nad tytułami kart w sekcji `#mlodziez`;
 - osadzono dostarczone przezroczyste pliki PNG w `assets/img/` bez zmian treści merytorycznej sekcji;

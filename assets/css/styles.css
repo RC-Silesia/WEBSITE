@@ -794,6 +794,7 @@ main[id] {
 
 .principles-grid {
   grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: start;
 }
 
 .four-way-card,
@@ -905,9 +906,25 @@ main[id] {
 
 .principle-card {
   min-height: 132px;
-  padding: 18px;
+  overflow: hidden;
+  padding: 0;
   border-top: 4px solid var(--blue);
   background: linear-gradient(180deg, rgba(23, 69, 143, .06), var(--white));
+}
+
+.principle-card__header {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  min-height: 128px;
+  padding: 18px;
+  cursor: pointer;
+}
+
+.principle-card__header:focus-visible {
+  outline: 3px solid rgba(247, 168, 27, .75);
+  outline-offset: -3px;
 }
 
 .principle-card h4 {
@@ -915,6 +932,40 @@ main[id] {
   color: var(--blue-dark);
   font-size: 16px;
   line-height: 1.35;
+}
+
+.principle-card__chevron {
+  width: 12px;
+  height: 12px;
+  margin-top: 5px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: rotate(45deg);
+  transition: transform .22s ease-out, border-color .22s ease-out;
+}
+
+.principle-card[aria-expanded="true"] .principle-card__chevron {
+  border-color: var(--blue-dark);
+  transform: rotate(225deg);
+}
+
+.principle-card__panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .28s ease;
+}
+
+.principle-card__panel p {
+  margin: 0;
+  padding: 0 18px 18px;
+  color: var(--graphite);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.principle-card[aria-expanded="true"] .principle-card__panel {
+  max-height: 900px;
 }
 
 .local-principles-card {
@@ -1924,6 +1975,8 @@ th {
   .gallery-card__panel,
   .four-way-card__chevron,
   .four-way-card__panel,
+  .principle-card__chevron,
+  .principle-card__panel,
   .person-card__chevron,
   .person-card__panel,
   .member-card__chevron,
@@ -3091,19 +3144,22 @@ textarea {
   .motto-card,
   .local-principles-card {
     min-height: 0;
-    padding: 18px;
   }
 
   .four-way-card,
-  .four-way-card__header {
+  .four-way-card__header,
+  .principle-card,
+  .principle-card__header {
     min-height: 0;
   }
 
-  .four-way-card__header {
+  .four-way-card__header,
+  .principle-card__header {
     padding: 18px;
   }
 
-  .four-way-card__panel p {
+  .four-way-card__panel p,
+  .principle-card__panel p {
     padding: 0 18px 18px;
   }
 

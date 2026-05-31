@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.59";
+  var DATA_VERSION = "1.5.60";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -1139,6 +1139,38 @@
     });
   }
 
+  function togglePrincipleCard(header, expanded) {
+    var card = header.closest(".principle-card");
+    var panel = document.getElementById(header.getAttribute("aria-controls"));
+    if (!card || !panel) return;
+    card.setAttribute("aria-expanded", String(expanded));
+    header.setAttribute("aria-expanded", String(expanded));
+    panel.setAttribute("aria-hidden", String(!expanded));
+    if (expanded) {
+      panel.removeAttribute("inert");
+    } else {
+      panel.setAttribute("inert", "");
+    }
+  }
+
+  function initPrincipleAccordions(scope) {
+    var root = scope || document;
+    Array.prototype.slice.call(root.querySelectorAll(".principle-card__header")).forEach(function (header) {
+      if (header.getAttribute("data-accordion-ready") === "true") return;
+      header.setAttribute("data-accordion-ready", "true");
+      togglePrincipleCard(header, header.getAttribute("aria-expanded") === "true");
+      header.addEventListener("click", function () {
+        togglePrincipleCard(header, header.getAttribute("aria-expanded") !== "true");
+      });
+      header.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " " || event.code === "Enter" || event.code === "Space" || event.keyCode === 13 || event.keyCode === 32) {
+          event.preventDefault();
+          togglePrincipleCard(header, header.getAttribute("aria-expanded") !== "true");
+        }
+      });
+    });
+  }
+
   function togglePersonCard(header, expanded) {
     var card = header.closest(".person-card");
     var panel = document.getElementById(header.getAttribute("aria-controls"));
@@ -1469,6 +1501,7 @@
   initStatutoryAccordions(document);
   initGalleryAccordions(document);
   initFourWayAccordions(document);
+  initPrincipleAccordions(document);
   initPersonAccordions(document);
   initMemberAccordions(document);
   initPartnerAccordions(document);
