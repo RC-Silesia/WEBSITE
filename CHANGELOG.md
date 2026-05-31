@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.85-wcag-keyboard-interactive-audit
+- dodano raport A11Y-3 `docs/WCAG_KEYBOARD_INTERACTIVE_AUDIT_v0_1.md` dla klawiatury i komponentów interaktywnych;
+- wykonano headless smoke test Edge/CDP dla 6 stron i 5 viewportów bez nowych zależności;
+- nie wykryto nowych automatycznych barier P0/P1/P2/P3; `A11Y-INIT-001` pozostaje otwarte do pełnego audytu eksperckiego;
+- zmiana raportowa, bez zmian publicznego HTML/CSS/JS i bez cache-bustu.
+
 ## v1.5.84-public-policy-json-index
 - dodano `governance/public/public_policy_index.json` jako maszynowy indeks publicznego depozytu Polityki i standardy;
 - rozszerzono `scripts/governance-metadata-check.mjs` o walidację JSON oraz synchronizację JSON ↔ Markdown;
