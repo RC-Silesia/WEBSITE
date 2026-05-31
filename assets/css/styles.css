@@ -774,6 +774,7 @@ main[id] {
 
 .four-way-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
 }
 
 .principles-grid {
@@ -792,16 +793,64 @@ main[id] {
 
 .four-way-card {
   min-height: 156px;
-  padding: 20px;
   border-top: 4px solid var(--gold);
 }
 
-.four-way-card p {
+.four-way-card__header {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  min-height: 152px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.four-way-card__header:focus-visible {
+  outline: 3px solid rgba(247, 168, 27, .75);
+  outline-offset: 4px;
+}
+
+.four-way-card__header p {
   margin: 0;
   color: var(--blue-dark);
   font-size: 18px;
   font-weight: 800;
   line-height: 1.35;
+}
+
+.four-way-card__chevron {
+  width: 12px;
+  height: 12px;
+  margin-top: 7px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: rotate(45deg);
+  transition: transform .22s ease-out, border-color .22s ease-out;
+}
+
+.four-way-card[aria-expanded="true"] .four-way-card__chevron {
+  border-color: var(--blue-dark);
+  transform: rotate(225deg);
+}
+
+.four-way-card__panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .28s ease;
+}
+
+.four-way-card__panel p {
+  margin: 0;
+  padding: 0 20px 20px;
+  color: var(--graphite);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.four-way-card[aria-expanded="true"] .four-way-card__panel {
+  max-height: 900px;
 }
 
 .areas-intro-large {
@@ -1858,6 +1907,8 @@ th {
   .statutory-chevron,
   .gallery-card__chevron,
   .gallery-card__panel,
+  .four-way-card__chevron,
+  .four-way-card__panel,
   .member-card__chevron,
   .member-card__panel {
     transition: none;
@@ -2935,12 +2986,24 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .four-way-card,
   .principle-card,
   .motto-card,
   .local-principles-card {
     min-height: 0;
     padding: 18px;
+  }
+
+  .four-way-card,
+  .four-way-card__header {
+    min-height: 0;
+  }
+
+  .four-way-card__header {
+    padding: 18px;
+  }
+
+  .four-way-card__panel p {
+    padding: 0 18px 18px;
   }
 
   .hero {

@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.56";
+  var DATA_VERSION = "1.5.57";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -1050,6 +1050,38 @@
     });
   }
 
+  function toggleFourWayCard(header, expanded) {
+    var card = header.closest(".four-way-card");
+    var panel = document.getElementById(header.getAttribute("aria-controls"));
+    if (!card || !panel) return;
+    card.setAttribute("aria-expanded", String(expanded));
+    header.setAttribute("aria-expanded", String(expanded));
+    panel.setAttribute("aria-hidden", String(!expanded));
+    if (expanded) {
+      panel.removeAttribute("inert");
+    } else {
+      panel.setAttribute("inert", "");
+    }
+  }
+
+  function initFourWayAccordions(scope) {
+    var root = scope || document;
+    Array.prototype.slice.call(root.querySelectorAll(".four-way-card__header")).forEach(function (header) {
+      if (header.getAttribute("data-accordion-ready") === "true") return;
+      header.setAttribute("data-accordion-ready", "true");
+      toggleFourWayCard(header, header.getAttribute("aria-expanded") === "true");
+      header.addEventListener("click", function () {
+        toggleFourWayCard(header, header.getAttribute("aria-expanded") !== "true");
+      });
+      header.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " " || event.code === "Enter" || event.code === "Space" || event.keyCode === 13 || event.keyCode === 32) {
+          event.preventDefault();
+          toggleFourWayCard(header, header.getAttribute("aria-expanded") !== "true");
+        }
+      });
+    });
+  }
+
   function toggleMemberCard(header, expanded) {
     var card = header.closest(".member-card");
     var panel = document.getElementById(header.getAttribute("aria-controls"));
@@ -1347,6 +1379,7 @@
   enhanceDocumentDownloads(document);
   initStatutoryAccordions(document);
   initGalleryAccordions(document);
+  initFourWayAccordions(document);
   initMemberAccordions(document);
   initPartnerAccordions(document);
   initDisclosures(document);

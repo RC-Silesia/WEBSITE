@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.57-test-czterech-pytan-akordeony
+- przekształcono cztery kafle Testu Czterech Pytań w dostępne akordeony z wyjaśnieniami pojęć;
+- dodano obsługę kliknięcia, Enter/Spacji, `aria-expanded`, `aria-hidden` i `inert` dla nowych kafli;
+- uzupełniono style paneli, focusu i strzałek zgodnie z istniejącym wzorcem akordeonów;
+- podbito cache-bust assetów i danych do `v=1.5.57`.
+
 ## v1.5.56-hero-tytul-skala
 - zmniejszono skalę tytułu hero o około 20% i zwiększono odstęp między nazwą Klubu a hasłem;
 - usunięto ręczny `<br>` z tytułu hero i dodano kropkę kończącą zdanie;
