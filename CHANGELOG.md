@@ -1,9 +1,10 @@
 # Changelog
 
-## v1.5.63-hero-lockup-centrowanie
-- Rozbito tytuł hero na dwa blokowe wiersze `Rotary Klub` i `Silesia`, zachowując treść H1.
-- Doprecyzowano centrowanie wiersza nazwy i zębatki przez `width: fit-content` oraz `margin-inline: auto`.
-- Pozostawiono claim, lead, eyebrow i znak Rotary bez zmian.
+## v1.5.63-hero-obszary-jezyk-planet
+- hero-lockup-center: rozbito tytuł hero na dwa blokowe wiersze `Rotary Klub` i `Silesia` oraz wyśrodkowano cały wiersz tytułu ze znakiem Rotary.
+- obszary-4-3: zmieniono układ kafli `.principles-grid` na 4 + 3 z wyśrodkowanym dolnym rzędem i zachowaniem responsywności 2/1.
+- sprint-jezykowy-typografia: ujednolicono półpauzy, polskie cudzysłowy drukarskie i zakres `15–19` wyłącznie w widocznych węzłach tekstowych.
+- planet-buttons-green: zmieniono przyciski `.planet-actions` na zieleń `#eef7f1` zgodną z `.planet-principle`, z zielonym hoverem i bez szarych tokenów.
 - Podbito cache-bust assetów i danych do `v=1.5.63`.
 
 ## v1.5.62-planet-actions-gray

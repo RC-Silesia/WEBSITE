@@ -4,9 +4,9 @@
   --gold: #f7a81b;
   --cardinal: #e02927;
   --cardinal-text: #b3261e;
-  --gray: #d0cfcd;
-  --gray-strong: #b1b1b1;
   --green: #2d7d46;
+  --green-soft: #eef7f1;
+  --green-soft-strong: #e0efe8;
   --graphite: #263238;
   --muted: #64707a;
   --line: #dfe5ea;
@@ -827,8 +827,14 @@ main[id] {
 }
 
 .principles-grid {
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.principles-grid .principle-card {
+  flex: 0 1 calc(25% - 12px);
 }
 
 .four-way-card,
@@ -1109,7 +1115,7 @@ main[id] {
   padding: 20px 22px;
   border-left: 6px solid var(--green);
   color: var(--blue-dark);
-  background: #eef7f1;
+  background: var(--green-soft);
 }
 
 .planet-principle strong {
@@ -1285,11 +1291,11 @@ main[id] {
 .planet-actions .button.ghost {
   color: var(--blue-dark);
   border-color: var(--blue-dark);
-  background: var(--gray);
+  background: var(--green-soft);
 }
 
 .planet-actions .button:hover {
-  background: var(--gray-strong);
+  background: var(--green-soft-strong);
 }
 
 .planet-actions .button:focus-visible {
@@ -3090,7 +3096,6 @@ textarea {
   .people-grid,
   .areas-grid,
   .four-way-grid,
-  .principles-grid,
   .gallery-grid,
   .formal-card-grid,
   .documents-grid,
@@ -3112,6 +3117,10 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .principles-grid .principle-card {
+    flex-basis: calc(50% - 8px);
+  }
+
   .registry-heading {
     display: grid;
   }
@@ -3131,6 +3140,10 @@ textarea {
   .gallery-grid,
   .membership-grid {
     grid-template-columns: 1fr;
+  }
+
+  .principles-grid .principle-card {
+    flex-basis: 100%;
   }
 }
 
@@ -3187,7 +3200,6 @@ textarea {
   }
 
   .four-way-grid,
-  .principles-grid,
   .gallery-grid {
     grid-template-columns: 1fr;
   }
