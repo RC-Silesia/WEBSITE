@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.87-statute-json
+- dodano `governance/legal/statut.json` jako pierwszą maszynową warstwę statutu RC Silesia wygenerowaną z `assets/docs/RC_Silesia_Statut_Final.docx`;
+- wprowadzono stabilne odwołania `statut:...`, w tym jednostki paragrafów i bloków `par_X_ust_N`, jako podstawę dla przyszłego egzekwowania `statute_refs`;
+- zaktualizowano dokument koncepcyjny e-głosowania tak, aby wskazywał realne identyfikatory z `statut.json`, przy zachowaniu statusu `REVIEW_REQUIRED` / `LEGAL_REVIEW_REQUIRED`;
+- zmiana governance-only, bez publicznego HTML/CSS/JS i bez cache-bustu.
+
 ## v1.5.86-evoting-concept
 - dodano koncepcyjny dokument `governance/legal/EVOTING_CONCEPT_v0_1.md` dla przyszłego modułu e-głosowania RC Silesia / ngOs;
 - dodano schema-lite `governance/legal/EVOTING_SCHEMA_DRAFT_v0_1.json` jako projektowy model metadanych głosowania;

@@ -17,24 +17,26 @@ Ten sprint nie dodaje backendu, API, UI głosowania, formularza oddawania głosu
 
 ## 2. Źródła statutowe i status mapowania
 
-W repozytorium nie ma obecnie osobnego pliku `statut.json`. Dostępne źródła robocze to:
+Repozytorium zawiera maszynową warstwę statutu:
 
-- `assets/docs/RC_Silesia_Statut_Final.docx` - roboczy dokument statutu;
+- `governance/legal/statut.json` - pierwsza wersja statutu JSON wygenerowana z dokumentu DOCX, ze stabilnymi identyfikatorami `statut:...`;
+- `assets/docs/RC_Silesia_Statut_Final.docx` - źródłowy dokument statutu;
 - `assets/data/site.json` - publiczny skrót organów statutowych i reguł reprezentacji;
 - `index.html` - publiczna prezentacja wybranych informacji formalnych.
 
-Poniższe identyfikatory są docelowymi identyfikatorami projektowymi dla przyszłego `statut.json`. Muszą zostać potwierdzone po wygenerowaniu statutu JSON zgodnie z `governance/legal/STATUTE_JSON_REQUIREMENTS_v0_1.md`.
+Poniższe identyfikatory są teraz sprawdzalnymi odwołaniami do `governance/legal/statut.json`. Nadal mają status `REVIEW_REQUIRED`, ponieważ maszynowy JSON nie zastępuje interpretacji prawnej statutu ani weryfikacji przez właściwy organ.
 
-| Obszar | Docelowy identyfikator statutu JSON | Źródło obecne w repo | Co wynika z dostępnego źródła | Status |
+| Obszar | Identyfikator statutu JSON | Źródło obecne w repo | Co wynika z dostępnego źródła | Status |
 | --- | --- | --- | --- | --- |
-| Członkostwo czynne | `statut:par_9_ust_1` | `index.html`, sekcja członkostwa | Członek czynny ma status członka czynnego Rotary w RI w domenie Klubu. Prawo głosu wymaga potwierdzenia w pełnym statucie JSON i rejestrze członków. | `REVIEW_REQUIRED` |
-| Członkostwo honorowe | `statut:par_10` | `index.html`, sekcja członkostwa | Członkowie honorowi nie mają prawa głosowania i nie mogą być wybierani na funkcje w Klubie. | `REVIEW_REQUIRED` |
-| Walne Zgromadzenie | `statut:par_18` | `assets/data/site.json`, `statutoryBodies.bodies[walne-zgromadzenie]` | Walne Zgromadzenie jest najwyższą władzą Klubu; wybiera i odwołuje organy, zatwierdza sprawozdania, uchwala statut, składki i wybrane decyzje strategiczne. | `REVIEW_REQUIRED` |
-| Tryb uchwał i zmiana statutu | `statut:par_18_votes` | `assets/data/site.json`, informacja dodatkowa przy Walnym Zgromadzeniu | Uchwały zapadają zwykłą większością głosów; zmiana statutu wymaga bezwzględnej większości przy obecności 2/3 członków. | `REVIEW_REQUIRED` |
-| Zarząd | `statut:par_19` | `assets/data/site.json`, `statutoryBodies.bodies[zarzad]` | Zarząd prowadzi sprawy Klubu, reprezentuje Klub, organizuje zebrania i Walne Zgromadzenia oraz wykonuje obowiązki wynikające z prawa, statutu i uchwał Walnego Zgromadzenia. | `REVIEW_REQUIRED` |
-| Komisja Rewizyjna | `statut:par_20` | `assets/data/site.json`, `statutoryBodies.bodies[komisja-rewizyjna]` | Komisja Rewizyjna kontroluje działalność Klubu i może występować z wnioskiem o zwołanie Walnego Zgromadzenia. | `REVIEW_REQUIRED` |
-| Komunikacja elektroniczna | `statut:par_33` | `assets/docs/RC_Silesia_Statut_Final.docx`, Artykuł XV, §33; `index.html` skrót formalny | Zebrania Klubu, posiedzenia Zarządu, Komisji Rewizyjnej i komitetów mogą odbywać się przy wykorzystaniu środków komunikacji elektronicznej; dopuszcza się wykorzystywanie tych środków w głosowaniach na zebraniach i posiedzeniach władz statutowych Klubu. | `REVIEW_REQUIRED` |
-| Ballot-by-mailing | `statut:par_33_ballot_by_mailing` | `assets/docs/RC_Silesia_Statut_Final.docx`, Artykuł XV, §33 | W komunikacji elektronicznej mogą być wykorzystywane m.in. platforma on-line, mail, mailing i ballot-by-mailing, opisany jako tajne głosowanie mailem. | `LEGAL_REVIEW_REQUIRED` |
+| Członkostwo czynne | `statut:par_9_ust_1` | `governance/legal/statut.json`, `assets/docs/RC_Silesia_Statut_Final.docx` | Członek czynny ma status członka czynnego Rotary w RI w domenie Klubu. Prawo głosu wymaga potwierdzenia w rejestrze członków i procedurze głosowania. | `REVIEW_REQUIRED` |
+| Członkostwo honorowe | `statut:par_10` | `governance/legal/statut.json`, `assets/docs/RC_Silesia_Statut_Final.docx` | Członkowie honorowi nie mają prawa głosowania i nie mogą być wybierani na funkcje w Klubie. | `REVIEW_REQUIRED` |
+| Walne Zgromadzenie | `statut:par_18` | `governance/legal/statut.json`, `assets/data/site.json` | Walne Zgromadzenie jest najwyższą władzą Klubu; wybiera i odwołuje organy, zatwierdza sprawozdania, uchwala statut, składki i wybrane decyzje strategiczne. | `REVIEW_REQUIRED` |
+| Tryb uchwał | `statut:par_18_ust_19` | `governance/legal/statut.json` | Uchwały Walnego Zgromadzenia Członków zapadają zwykłą większością głosów członków uprawnionych do głosowania. | `REVIEW_REQUIRED` |
+| Zmiana statutu | `statut:par_18_ust_20` | `governance/legal/statut.json` | Zmiana Statutu wymaga bezwzględnej większości głosów, przy obecności 2/3 ogólnej liczby członków Klubu. | `LEGAL_REVIEW_REQUIRED` |
+| Zarząd | `statut:par_19` | `governance/legal/statut.json`, `assets/data/site.json` | Zarząd prowadzi sprawy Klubu, reprezentuje Klub, organizuje zebrania i Walne Zgromadzenia oraz wykonuje obowiązki wynikające z prawa, statutu i uchwał Walnego Zgromadzenia. | `REVIEW_REQUIRED` |
+| Komisja Rewizyjna | `statut:par_20` | `governance/legal/statut.json`, `assets/data/site.json` | Komisja Rewizyjna kontroluje działalność Klubu i może występować z wnioskiem o zwołanie Walnego Zgromadzenia. | `REVIEW_REQUIRED` |
+| Komunikacja elektroniczna | `statut:par_33` | `governance/legal/statut.json`, `assets/docs/RC_Silesia_Statut_Final.docx` | Zebrania Klubu, posiedzenia Zarządu, Komisji Rewizyjnej i komitetów mogą odbywać się przy wykorzystaniu środków komunikacji elektronicznej; dopuszcza się wykorzystywanie tych środków w głosowaniach na zebraniach i posiedzeniach władz statutowych Klubu. | `REVIEW_REQUIRED` |
+| Ballot-by-mailing | `statut:par_33_ballot_by_mailing` | `governance/legal/statut.json`, `assets/docs/RC_Silesia_Statut_Final.docx` | W komunikacji elektronicznej mogą być wykorzystywane m.in. platforma on-line, mail, mailing i ballot-by-mailing, opisany jako tajne głosowanie mailem. | `LEGAL_REVIEW_REQUIRED` |
 
 ## 3. Co statut już dopuszcza, a co wymaga potwierdzenia
 
@@ -114,11 +116,11 @@ Każde głosowanie musi wskazywać podstawę ustalenia:
 
 Znane odniesienia robocze:
 
-- `statut:par_18_votes`: zwykła większość dla uchwał Walnego Zgromadzenia według publicznego skrótu;
-- `statut:par_18_votes`: zmiana statutu wymaga bezwzględnej większości przy obecności 2/3 członków według publicznego skrótu;
+- `statut:par_18_ust_19`: zwykła większość dla uchwał Walnego Zgromadzenia;
+- `statut:par_18_ust_20`: zmiana statutu wymaga bezwzględnej większości przy obecności 2/3 członków;
 - `statut:par_33`: środki komunikacji elektronicznej mogą być używane w głosowaniach na zebraniach i posiedzeniach władz statutowych.
 
-Wszystkie reguły kworum i większości mają status `REVIEW_REQUIRED` do czasu pełnego `statut.json` i opinii prawnej.
+Wszystkie reguły kworum i większości mają status `REVIEW_REQUIRED` do czasu opinii prawnej i zatwierdzenia procedury głosowań.
 
 ## 7. Integralność i niezaprzeczalność
 
