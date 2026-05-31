@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.46-partnerzy-linki
+- dodano linki do stron internetowych nazwanych partnerów w sekcji `#partnerstwa`,
+- pozostawiono placeholdery list partnerów bez nazw i bez linków,
+- podbito cache-bust assetów i danych do `v=1.5.46`.
+
 ## v1.5.45-spojnosc-naglowkow
 - przywrócono nadtytuł `Fundament Rotary` w sekcji `#zasady-rotary`,
 - wycentrowano skalowany nagłówek `Obszary działania Rotary` oraz jego intro,

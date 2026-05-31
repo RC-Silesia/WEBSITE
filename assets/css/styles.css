@@ -1457,6 +1457,20 @@ th {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.partner-card-link {
+  margin-top: 14px;
+}
+
+.partner-card-link a {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.partner-card-link a:focus-visible {
+  outline: 3px solid rgba(247, 168, 27, .75);
+  outline-offset: 3px;
+}
+
 .partner-accordion-card {
   display: grid;
   align-content: start;
