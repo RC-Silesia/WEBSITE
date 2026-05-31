@@ -4416,5 +4416,7 @@
     ],
     "status": "requires_legal_verification",
     "notes": "Tryb rozwiązania organizacji wymaga weryfikacji z pełnym tekstem statutu."
-  }
+  },
+  "source_document_sha256": "87666b933611d6d15a7a02fd57835e7ca2dabb4a851a29acf9ac8959c91c914d",
+  "source_document_size_bytes": 50054
 }

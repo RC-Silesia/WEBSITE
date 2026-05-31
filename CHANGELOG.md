@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.88-statute-json-integrity-audit
+- dodano `scripts/statute-json-check.mjs` jako techniczny gate integralności `governance/legal/statut.json`;
+- dopisano hash SHA-256 i rozmiar źródłowego `assets/docs/RC_Silesia_Statut_Final.docx` do metadanych `statut.json`;
+- dodano raport `docs/STATUTE_JSON_INTEGRITY_AUDIT_v0_1.md` z wynikiem technicznym GOV-5.1;
+- podłączono `check:statute:json` do `npm run check:governance`; zmiana governance-only, bez publicznego HTML/CSS/JS i bez cache-bustu.
+
 ## v1.5.87-statute-json
 - dodano `governance/legal/statut.json` jako pierwszą maszynową warstwę statutu RC Silesia wygenerowaną z `assets/docs/RC_Silesia_Statut_Final.docx`;
 - wprowadzono stabilne odwołania `statut:...`, w tym jednostki paragrafów i bloków `par_X_ust_N`, jako podstawę dla przyszłego egzekwowania `statute_refs`;
