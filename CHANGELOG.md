@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.77-wcag-youth-pages-noindex-gate
+- rozszerzono statyczny gate WCAG o podstrony `mlodziez-wymiana.html` i `mlodziez-rotaract.html`;
+- gate sprawdza teraz `noindex,nofollow` również dla podstron YEP i Rotaract;
+- zmiana governance-only, bez cache-bustu HTML/CSS/JS.
+
 ## v1.5.76-sob-logo-scale-placement
 - zmniejszono prezentację logo Śląskiego Ogrodu Botanicznego o 50% do szerokości 110 px;
 - dodano dekoracyjne logo ŚOB przy głównych blokach, w których strona mówi o ŚOB i współpracy w ROTARY for PLANET;

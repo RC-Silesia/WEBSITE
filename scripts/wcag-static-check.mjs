@@ -6,6 +6,8 @@ const htmlFiles = [
   "rotary-for-planet.html",
   "privacy.html",
   "newsletter-preview.html",
+  "mlodziez-wymiana.html",
+  "mlodziez-rotaract.html",
 ];
 
 const failures = [];
