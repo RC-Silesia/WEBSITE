@@ -1,5 +1,5 @@
 {
-  "version": "1.5.66",
+  "version": "1.5.67",
   "autoRotate": false,
   "slides": [
     {
@@ -37,6 +37,7 @@
       "consent": {
         "status": "pending",
         "minorsPresent": true,
+        "guardianConsent": false,
         "basis": "pisemna zgoda opiekuna - do uzyskania"
       },
       "policyHref": "privacy.html#wizerunek"

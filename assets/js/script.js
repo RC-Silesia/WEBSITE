@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.66";
+  var DATA_VERSION = "1.5.67";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -793,11 +793,14 @@
   }
 
   function isApprovedPhotoSlide(slide) {
+    var consent = slide && slide.consent;
+    var minorsApproved = !consent || consent.minorsPresent !== true || consent.guardianConsent === true;
     return Boolean(
       slide &&
       slide.type === "photo" &&
-      slide.consent &&
-      slide.consent.status === "approved" &&
+      consent &&
+      consent.status === "approved" &&
+      minorsApproved &&
       slide.image &&
       typeof slide.image.src === "string" &&
       slide.image.src.trim()

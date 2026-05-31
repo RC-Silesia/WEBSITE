@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.67-carousel-guardian-consent
+- wzmocniono bramkę karuzeli: slajdy `photo` z `consent.minorsPresent === true` wymagają teraz także `consent.guardianConsent === true`, poza statusem `approved` i niepustym `image.src`.
+- dodano jawne `guardianConsent: false` w domyślnym slajdzie zdjęciowym `assets/data/carousel.json`, więc paczka nadal renderuje placeholder.
+- Podbito cache-bust assetów i danych do `v=1.5.67`.
+
 ## v1.5.66-youth-pages
 - aktywowano kafle w sekcji `#mlodziez` jako dostępne karty-linki prowadzące do osobnych podstron YEP i Rotaract.
 - dodano `mlodziez-wymiana.html` z opisem aktywnego programu wymiany młodzieży, rolą RC Silesia, ograniczonym zakresem danych oficera wymiany i notą o wizerunku małoletnich.
