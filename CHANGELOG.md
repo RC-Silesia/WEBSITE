@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.80-legal-statute-policy-gate-design
+- dodano projekt LegalStatutePolicy Consistency Gate dla spójności statutu, reprezentacji, uchwał, polityk, procedur i CI gates;
+- dodano legal corpus ledger, szablon kwartalnego raportu zgodności, wymagania statutu JSON oraz trzy schema-lite dla metadanych polityk, uchwał i warningów;
+- powiązano zasady publicznego depozytu polityk z przyszłym LegalStatutePolicy Gate, bez zmian w stronie publicznej i bez cache-bustu.
+
 ## v1.5.79-hero-title-break-fix
 - poprawiono wizualne łamanie tytułu w hero na `Rotary` / `Klub Silesia`, bez zmiany pełnej nazwy semantycznej i bez zmian w assetach marki.
 

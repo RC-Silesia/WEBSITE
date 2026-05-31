@@ -82,3 +82,11 @@ Przed uruchomieniem modułu AI minimalny pakiet powinien obejmować:
 ## 8. Zasada publikacji
 
 Na stronie publicznej publikujemy wyłącznie dokumenty przyjęte albo jawnie oznaczone jako projekty, wzorce docelowe lub dokumenty w przygotowaniu. Robocze uchwały nie mogą być przedstawiane jako dokumenty przyjęte. Każdy dokument publiczny powinien mieć status tekstowy, wersję, zakres, właściciela merytorycznego albo organ przyjmujący oraz plan przeglądu.
+
+## 9. Powiązanie z LegalStatutePolicy Gate
+
+Publiczny depozyt dokumentów przyjętych jest powiązany z LegalStatutePolicy Consistency Gate. Oznacza to, że dokument publiczny powinien mieć metadane kompatybilne z policy metadata schema, a dokument przyjęty powinien być powiązany z uchwałą albo inną podstawą przyjęcia.
+
+Docelowo zgodność dokumentów będzie sprawdzana względem statutu JSON oraz legal corpus ledger. Bramka ma wykrywać niespójności między statutem, reprezentacją, uchwałami, politykami, procedurami, testami CI i rejestrami barier lub wyjątków.
+
+Kwartalne raporty zgodności będą generowane jako draft do decyzji Zarządu. Raport może wskazywać warningi, propozycje zmian i projekty uchwał, ale nie zmienia automatycznie statutu, polityk ani regulaminów. Decyzję podejmuje właściwy organ organizacji.
