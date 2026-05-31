@@ -2,6 +2,8 @@
   --blue: #17458f;
   --blue-dark: #0d2b5f;
   --gold: #f7a81b;
+  --cardinal: #e02927;
+  --cardinal-text: #b3261e;
   --green: #2d7d46;
   --graphite: #263238;
   --muted: #64707a;
@@ -460,7 +462,7 @@ a.is-disabled {
   color: var(--green);
   font-weight: 700;
 }
-.form-status.is-error { color: #b3261e; }
+.form-status.is-error { color: var(--cardinal-text); }
 
 .contact-paths {
   display: grid;
@@ -1382,7 +1384,7 @@ th {
 .status-ready { color: #1d6b38; background: rgba(45, 125, 70, .18); }
 .status-planted { color: #ffffff; background: var(--green); }
 .status-monitoring { color: #0d2b5f; background: rgba(13, 43, 95, .16); }
-.status-action { color: #b3261e; background: rgba(179, 38, 30, .12); }
+.status-action { color: var(--cardinal-text); background: rgba(224, 41, 39, .12); }
 
 .planet-ops-grid {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1449,7 +1451,7 @@ th {
 
 .pin-planned { left: 14%; top: 24%; border-color: var(--blue); }
 .pin-planted { right: 16%; top: 46%; border-color: var(--green); }
-.pin-action { left: 38%; bottom: 18%; border-color: #b3261e; }
+.pin-action { left: 38%; bottom: 18%; border-color: var(--cardinal); }
 
 .map-legend {
   display: flex;
@@ -1474,7 +1476,7 @@ th {
 
 .legend-dot.planned { background: var(--blue); }
 .legend-dot.planted { background: var(--green); }
-.legend-dot.action { background: #b3261e; }
+.legend-dot.action { background: var(--cardinal); }
 
 .impact-lists {
   display: grid;
@@ -1960,7 +1962,7 @@ th {
 }
 
 .copy-status.is-error {
-  color: #b3261e;
+  color: var(--cardinal-text);
 }
 
 .documents-section {
@@ -2596,7 +2598,7 @@ textarea {
 }
 
 .newsletter-status-message.is-error {
-  color: #9b1c1c;
+  color: var(--cardinal-text);
 }
 
 .newsletter-document {

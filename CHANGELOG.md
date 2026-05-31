@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.53-kolory-cardinal
+- dodano tokeny `--cardinal` i `--cardinal-text` dla czerwieni stanów,
+- ujednolicono czerwienie błędów formularzy, statusów i wskaźników mapy do rodziny Rotary Cardinal,
+- zachowano ciemniejszy wariant `--cardinal-text` dla tekstu błędów z kontrastem AA,
+- podbito cache-bust assetów i danych do `v=1.5.53`.
+
 ## v1.5.51-planet-source-panel
 - przeniesiono blok `Materiały źródłowe Rotary Polska` do domyślnie zwiniętego panelu w sekcji `#planet`,
 - zmieniono akcję `Dowiedz się więcej o programie` na dostępny przycisk rozwijający panel źródeł,
