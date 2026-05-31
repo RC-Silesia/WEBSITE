@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.82-governance-metadata-gate
+- dodano pierwszy techniczny gate metadanych `scripts/governance-metadata-check.mjs` dla publicznego depozytu Polityki i standardy;
+- gate sprawdza obecność schema-lite, kolumn indeksu publicznego, podstawowe metadane dokumentów oraz zakaz publikacji prywatnych materiałów governance;
+- podłączono `check:governance:metadata` do `npm run check:governance`;
+- dodano dokumentację `governance/legal/GOVERNANCE_METADATA_GATE_v0_1.md`; zmiana governance-only, bez cache-bustu.
+
 ## v1.5.81-public-status-and-legal-draft-notes
 - przywrócono publiczny status Polityki Dostępności Cyfrowej jako przyjętej przez Zarząd z tokenami `[UCHWAŁA_NR]` i `[UCHWAŁA_DATA]`;
 - usunięto obietnicę pełnej zgodności WCAG i zastąpiono ją informacją, że zgodność nie została jeszcze potwierdzona pełnym audytem;
