@@ -1005,6 +1005,11 @@ a.is-disabled {
   margin: 0 auto 28px;
 }
 
+.planet-source-materials-panel {
+  margin-top: -6px;
+  padding-top: 4px;
+}
+
 .source-materials .subsection-heading {
   margin-top: 0;
 }

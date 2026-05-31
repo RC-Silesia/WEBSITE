@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.51-planet-source-panel
+- przeniesiono blok `Materiały źródłowe Rotary Polska` do domyślnie zwiniętego panelu w sekcji `#planet`,
+- zmieniono akcję `Dowiedz się więcej o programie` na dostępny przycisk rozwijający panel źródeł,
+- zmieniono etykietę `Zgłoś lokalizację` na `Zgłoś nasadzenia drzew`,
+- podbito cache-bust assetów i danych do `v=1.5.51`.
+
 ## v1.5.50-sob-link-facebook
 - zmieniono linki Śląskiego Ogrodu Botanicznego na profil Facebook z poprawnym certyfikatem,
 - zachowano `target="_blank"` i `rel="noopener noreferrer"` oraz doprecyzowano dostępne nazwy linków,

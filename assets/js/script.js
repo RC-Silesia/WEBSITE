@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.50";
+  var DATA_VERSION = "1.5.51";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -1116,6 +1116,32 @@
     });
   }
 
+  function toggleDisclosure(button, expanded) {
+    var panel = document.getElementById(button.getAttribute("aria-controls"));
+    if (!panel) return;
+    button.setAttribute("aria-expanded", String(expanded));
+    panel.hidden = !expanded;
+    panel.setAttribute("aria-hidden", String(!expanded));
+    if (expanded) {
+      panel.removeAttribute("inert");
+      panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    } else {
+      panel.setAttribute("inert", "");
+    }
+  }
+
+  function initDisclosures(scope) {
+    var root = scope || document;
+    Array.prototype.slice.call(root.querySelectorAll("[data-disclosure-toggle]")).forEach(function (button) {
+      if (button.getAttribute("data-disclosure-ready") === "true") return;
+      button.setAttribute("data-disclosure-ready", "true");
+      toggleDisclosure(button, button.getAttribute("aria-expanded") === "true");
+      button.addEventListener("click", function () {
+        toggleDisclosure(button, button.getAttribute("aria-expanded") !== "true");
+      });
+    });
+  }
+
   function meetingTypeLabel(type) {
     var normalized = String(type || "").toLowerCase();
     if (normalized === "event") return "wydarzenie";
@@ -1323,6 +1349,7 @@
   initGalleryAccordions(document);
   initMemberAccordions(document);
   initPartnerAccordions(document);
+  initDisclosures(document);
   initMeetingsFilters();
   loadSiteData();
   loadMeetingsData();
