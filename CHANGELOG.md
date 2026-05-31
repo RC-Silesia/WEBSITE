@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.76-sob-logo-scale-placement
+- zmniejszono prezentację logo Śląskiego Ogrodu Botanicznego o 50% do szerokości 110 px;
+- dodano dekoracyjne logo ŚOB przy głównych blokach, w których strona mówi o ŚOB i współpracy w ROTARY for PLANET;
+- podbito cache-bust assetów i danych do `v=1.5.76`.
+
 ## v1.5.75-a11y-honeypot-gate-refinement
 - doprecyzowano statyczny gate WCAG dla kontrolowanego honeypotu formularza kontaktowego;
 - rozszerzono kontrolę `noindex,nofollow` na wszystkie strony HTML objęte testem statycznym;

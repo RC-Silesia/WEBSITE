@@ -564,6 +564,7 @@
   const titleEl = document.getElementById("local-title");
   const textEl = document.getElementById("local-text");
   const srcEl = document.getElementById("local-source");
+  const sobLogoEl = local.querySelector(".sob-inline-logo");
   let def = tiles.findIndex(function (t) { return t.dataset.area === "srodowisko"; });
   if (def < 0) def = tiles.length - 1;
 
@@ -572,6 +573,9 @@
     if (!t) return;
     titleEl.textContent = t.dataset.localTitle;
     textEl.textContent = t.dataset.localText;
+    if (sobLogoEl) {
+      sobLogoEl.hidden = String(t.dataset.localText || "").indexOf("Śląskim Ogrodem") === -1;
+    }
     srcEl.textContent = "Obszar: " + t.querySelector("h3").textContent;
     local.style.order = String((i + 1) * 10 + 5);
     tiles.forEach(function (x) {
@@ -684,7 +688,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.74";
+  var DATA_VERSION = "1.5.76";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -782,11 +786,31 @@
     return link;
   }
 
+  function textMentionsSob(value) {
+    return /Śląski Ogród|Śląskim Ogrodem|ŚOB/.test(String(value || ""));
+  }
+
+  function appendSobLogo(parent, className) {
+    if (!parent) return null;
+    var logo = document.createElement("img");
+    logo.className = className || "sob-inline-logo";
+    logo.src = "assets/img/partners/slaski-ogrod-botaniczny-logo.png?v=" + DATA_VERSION;
+    logo.alt = "";
+    logo.setAttribute("aria-hidden", "true");
+    logo.width = 110;
+    logo.height = 66;
+    logo.loading = "lazy";
+    logo.decoding = "async";
+    parent.appendChild(logo);
+    return logo;
+  }
+
   function renderHeroCarouselContentSlide(slide) {
     var article = document.createElement("article");
     article.className = "hero-carousel__content-card";
     appendTextElement(article, "p", "eyebrow", slide.id === "planet" ? "ROTARY for PLANET" : "RC Silesia");
     appendTextElement(article, "h2", "", slide.title);
+    if (textMentionsSob(slide.text)) appendSobLogo(article);
     appendTextElement(article, "p", "", slide.text);
     appendCarouselLink(article, slide.link, "button secondary");
     return article;
@@ -1062,6 +1086,7 @@
 
       appendTextElement(card, "h3", "", documentItem.title);
       appendTextElement(card, "p", "", "Format: " + (documentItem.format || "plik"));
+      if (textMentionsSob(documentItem.note)) appendSobLogo(card);
       appendTextElement(card, "p", "", documentItem.note);
 
       var link = document.createElement("a");
@@ -1107,7 +1132,9 @@
       badge.setAttribute("aria-label", "Status: " + (item.status || ""));
       row.appendChild(statusCell);
       appendTableCell(row, item.location);
-      appendTableCell(row, item.species);
+      var speciesCell = appendTableCell(row, "");
+      if (textMentionsSob(item.species)) appendSobLogo(speciesCell, "sob-inline-logo sob-inline-logo--table");
+      speciesCell.appendChild(document.createTextNode(item.species || ""));
       appendTableCell(row, item.count);
       appendTableCell(row, item.caretaker);
       appendTableCell(row, item.inspection);
@@ -1157,6 +1184,7 @@
       program.cards.forEach(function (item) {
         var card = document.createElement("article");
         appendTextElement(card, "span", "", item.title);
+        if (textMentionsSob(item.value) || textMentionsSob(item.body)) appendSobLogo(card);
         appendTextElement(card, "strong", "", item.value);
         appendTextElement(card, "p", "", item.body);
         cardsContainer.appendChild(card);
