@@ -46,6 +46,29 @@ const REQUIRED_UNIT_KEYS = [
   "effective_from"
 ];
 
+const REQUIRED_ARTICLE_KEYS = [
+  "id",
+  "canonical_ref",
+  "label",
+  "title",
+  "source_order",
+  "paragraph_refs"
+];
+
+const REQUIRED_PARAGRAPH_KEYS = [
+  "id",
+  "canonical_ref",
+  "label",
+  "type",
+  "text",
+  "children",
+  "parent_id",
+  "article_id",
+  "paragraph_id",
+  "source_order",
+  "effective_from"
+];
+
 const REQUIRED_REFS = [
   "statut:par_9_ust_1",
   "statut:par_10",
@@ -126,6 +149,30 @@ function extractStatuteRefs(text) {
   return [...text.matchAll(/`(statut:[a-z0-9_:-]+)`/gi)].map((match) => match[1]);
 }
 
+function findDuplicates(values) {
+  const seen = new Set();
+  const duplicates = new Set();
+
+  for (const value of values) {
+    if (seen.has(value)) {
+      duplicates.add(value);
+    } else {
+      seen.add(value);
+    }
+  }
+
+  return [...duplicates];
+}
+
+function assertUnique(values, message, duplicateMessage) {
+  const duplicates = findDuplicates(values);
+  assert(duplicates.length === 0, message);
+
+  for (const duplicate of duplicates) {
+    fail(`${duplicateMessage}: ${duplicate}`);
+  }
+}
+
 assert(fs.existsSync(STATUTE_PATH), `${STATUTE_PATH}: exists`);
 assert(fs.existsSync(EVOTING_PATH), `${EVOTING_PATH}: exists`);
 assert(fs.existsSync(SOURCE_DOCX), `${SOURCE_DOCX}: exists`);
@@ -153,6 +200,34 @@ assert(statute.articles.length === 16, `${STATUTE_PATH}: contains 16 articles`);
 assert(statute.paragraphs.length === 33, `${STATUTE_PATH}: contains 33 paragraphs`);
 assert(statute.units.length >= 239, `${STATUTE_PATH}: contains at least 239 units`);
 
+assertUnique(
+  statute.articles.map((article) => article.id),
+  `${STATUTE_PATH}: article ids are unique`,
+  `${STATUTE_PATH}: duplicate article id`
+);
+assertUnique(
+  statute.articles.map((article) => article.canonical_ref),
+  `${STATUTE_PATH}: article canonical_refs are unique`,
+  `${STATUTE_PATH}: duplicate article canonical_ref`
+);
+assertUnique(
+  statute.paragraphs.map((paragraph) => paragraph.id),
+  `${STATUTE_PATH}: paragraph ids are unique`,
+  `${STATUTE_PATH}: duplicate paragraph id`
+);
+assertUnique(
+  statute.paragraphs.map((paragraph) => paragraph.canonical_ref),
+  `${STATUTE_PATH}: paragraph canonical_refs are unique`,
+  `${STATUTE_PATH}: duplicate paragraph canonical_ref`
+);
+
+const duplicateArticleLabels = findDuplicates(statute.articles.map((article) => article.label));
+if (duplicateArticleLabels.length) {
+  warning(`${STATUTE_PATH}: duplicate source article labels preserved from source: ${duplicateArticleLabels.join(", ")}`);
+} else {
+  pass(`${STATUTE_PATH}: article labels are unique`);
+}
+
 const allText = statuteFile.text;
 for (const pattern of MOJIBAKE_PATTERNS) {
   assert(!pattern.test(allText), `${STATUTE_PATH}: no mojibake pattern ${pattern}`);
@@ -177,7 +252,52 @@ for (const unit of statute.units) {
 }
 
 assert(duplicateIds.size === 0, `${STATUTE_PATH}: unit ids are unique`);
-assert(duplicateRefs.size === 0, `${STATUTE_PATH}: canonical_ref values are unique`);
+assert(duplicateRefs.size === 0, `${STATUTE_PATH}: unit canonical_refs are unique`);
+
+const articleIds = new Set(statute.articles.map((article) => article.id));
+const paragraphIds = new Set(statute.paragraphs.map((paragraph) => paragraph.id));
+
+let articleStructuralIssues = 0;
+for (const article of statute.articles) {
+  for (const key of REQUIRED_ARTICLE_KEYS) {
+    if (!hasOwn(article, key)) {
+      articleStructuralIssues += 1;
+      fail(`${article.id}: article key missing: ${key}`);
+    }
+  }
+  if (typeof article.canonical_ref !== "string" || !article.canonical_ref.startsWith(statute.reference_prefix)) {
+    articleStructuralIssues += 1;
+    fail(`${article.id}: article canonical_ref must start with ${statute.reference_prefix}`);
+  }
+  if (!Array.isArray(article.paragraph_refs)) {
+    articleStructuralIssues += 1;
+    fail(`${article.id}: paragraph_refs is not an array`);
+  }
+}
+assert(articleStructuralIssues === 0, `${STATUTE_PATH}: all ${statute.articles.length} articles have required structure`);
+
+let paragraphStructuralIssues = 0;
+for (const paragraph of statute.paragraphs) {
+  for (const key of REQUIRED_PARAGRAPH_KEYS) {
+    if (!hasOwn(paragraph, key)) {
+      paragraphStructuralIssues += 1;
+      fail(`${paragraph.id}: paragraph key missing: ${key}`);
+    }
+  }
+  if (typeof paragraph.canonical_ref !== "string" || !paragraph.canonical_ref.startsWith(statute.reference_prefix)) {
+    paragraphStructuralIssues += 1;
+    fail(`${paragraph.id}: paragraph canonical_ref must start with ${statute.reference_prefix}`);
+  }
+  if (!articleIds.has(paragraph.article_id)) {
+    paragraphStructuralIssues += 1;
+    fail(`${paragraph.id}: article_id does not point to existing article: ${paragraph.article_id}`);
+  }
+  if (!Array.isArray(paragraph.children)) {
+    paragraphStructuralIssues += 1;
+    fail(`${paragraph.id}: children is not an array`);
+  }
+}
+assert(paragraphStructuralIssues === 0, `${STATUTE_PATH}: all ${statute.paragraphs.length} paragraphs have required structure`);
 
 let unitStructuralIssues = 0;
 for (const unit of statute.units) {
@@ -190,6 +310,18 @@ for (const unit of statute.units) {
   if (unit.canonical_ref !== `${statute.reference_prefix}${unit.id}`) {
     unitStructuralIssues += 1;
     fail(`${unit.id}: canonical_ref does not match reference_prefix + id`);
+  }
+  if (typeof unit.canonical_ref !== "string" || !unit.canonical_ref.startsWith(statute.reference_prefix)) {
+    unitStructuralIssues += 1;
+    fail(`${unit.id}: unit canonical_ref must start with ${statute.reference_prefix}`);
+  }
+  if (!articleIds.has(unit.article_id)) {
+    unitStructuralIssues += 1;
+    fail(`${unit.id}: article_id does not point to existing article: ${unit.article_id}`);
+  }
+  if (!paragraphIds.has(unit.paragraph_id)) {
+    unitStructuralIssues += 1;
+    fail(`${unit.id}: paragraph_id does not point to existing paragraph: ${unit.paragraph_id}`);
   }
   if (!(typeof unit.text === "string" && unit.text.trim().length > 0)) {
     unitStructuralIssues += 1;
@@ -263,10 +395,15 @@ assert(Boolean(ballot), "statut:par_33_ballot_by_mailing: exists");
 if (ballot) {
   assert(ballot.parent_id === "par_33", "statut:par_33_ballot_by_mailing: parent is par_33");
   assert(ballot.text.includes("ballot-by-mailing"), "statut:par_33_ballot_by_mailing: text contains ballot-by-mailing");
+  assert(ballot.derived_from === "statut:par_33", "statut:par_33_ballot_by_mailing: derived_from points to par_33");
+  assert(ballot.not_formal_statute_unit === true, "statut:par_33_ballot_by_mailing: marked as not formal statute unit");
   if (ballot.type !== "derived_concept") {
     warning("statut:par_33_ballot_by_mailing is not marked as derived_concept");
   } else {
     pass("statut:par_33_ballot_by_mailing: marked as derived_concept");
+  }
+  if (ballot.text.includes("glosowanie") && !ballot.text.includes("głosowanie")) {
+    warning("statut:par_33_ballot_by_mailing keeps source spelling without Polish diacritic: glosowanie");
   }
 }
 

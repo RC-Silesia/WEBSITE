@@ -2,9 +2,11 @@
 
 Data: 2026-06-01
 
-Status: PASS as technical integrity audit / legal review still required.
+Status: PASS after GOV-5.2 structural fix / legal review still required.
 
 Commit źródłowy GOV-5: `1ed901e Add statute JSON governance source`.
+
+Commit naprawczy GOV-5.2 usuwa techniczny duplikat `statut:art_viii`: źródłowy DOCX zachowuje dwa nagłówki `Artykuł VIII`, więc drugi z nich otrzymał unikalny techniczny identyfikator `art_viii_b` i `statut:art_viii_b`, z zachowaniem źródłowej etykiety oraz ostrzeżeniem `source_numbering_warning`.
 
 ## 1. Zakres
 
@@ -38,9 +40,15 @@ Metadane źródła zostały dopisane do `governance/legal/statut.json` jako:
 - 33 paragrafy;
 - 239 jednostek w `units`;
 - stabilny prefiks referencji `statut:`;
-- unikalne `id`;
-- unikalne `canonical_ref`;
+- unikalne `article.id`;
+- unikalne `article.canonical_ref`;
+- unikalne `paragraph.id`;
+- unikalne `paragraph.canonical_ref`;
+- unikalne `unit.id`;
+- unikalne `unit.canonical_ref`;
 - strukturę artykuł -> paragraf -> jednostka potomna.
+
+Źródłowy dokument zawiera dwa nagłówki `Artykuł VIII`. W reprezentacji JSON jest to zachowane jako duplikat `label`, ale techniczne `id` i `canonical_ref` pozostają unikalne. Skrypt zgłasza ten stan jako `WARNING`, nie `FAIL`.
 
 Każda jednostka w `units` ma wymagane pola:
 
@@ -89,9 +97,11 @@ Wszystkie odwołania `statut:...` użyte w `EVOTING_CONCEPT_v0_1.md` istnieją w
 
 ## 6. Ballot-by-mailing
 
-`statut:par_33_ballot_by_mailing` istnieje jako jednostka typu `derived_concept`, z rodzicem `par_33`.
+`statut:par_33_ballot_by_mailing` istnieje jako jednostka typu `derived_concept`, z rodzicem `par_33`, polem `derived_from: "statut:par_33"` oraz `not_formal_statute_unit: true`.
 
 To oznacza, że jest technicznie sprawdzalnym pojęciem wyprowadzonym z treści §33, ale nie jest samodzielną jednostką formalną statutu. Interpretacja prawna pozostaje wymagana przed jakąkolwiek implementacją e-głosowania.
+
+Tekst źródłowy zawiera zapis `tajne glosowanie mailem` bez polskiego znaku `ł`. Skrypt nie poprawia tego automatycznie; zgłasza `WARNING`, aby odróżnić literalne brzmienie źródła od błędu technicznego.
 
 ## 7. Ograniczenia
 
@@ -110,6 +120,13 @@ W razie rozbieżności pierwszeństwo ma formalny dokument statutu przyjęty prz
 Status techniczny:
 
 `GOV-5 ACCEPTED_AS_MACHINE_STATUTE_SOURCE_FOR_GOVERNANCE_TESTING`
+
+Warunek techniczny GOV-5.2:
+
+- brak duplikatów `article.id` i `article.canonical_ref`;
+- brak duplikatów `paragraph.id` i `paragraph.canonical_ref`;
+- brak duplikatów `unit.id` i `unit.canonical_ref`;
+- odwołania w `EVOTING_CONCEPT_v0_1.md` nadal wskazują istniejące refy.
 
 Warunek dalszy:
 

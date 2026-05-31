@@ -100,17 +100,19 @@
       "title": "Komitety i oficerowie Klubu",
       "source_order": 185,
       "paragraph_refs": [
-        "statut:par_21",
-        "statut:par_22"
+        "statut:par_21"
       ]
     },
     {
-      "id": "art_viii",
-      "canonical_ref": "statut:art_viii",
+      "id": "art_viii_b",
+      "canonical_ref": "statut:art_viii_b",
       "label": "Artykuł VIII",
       "title": "Opłata wpisowa i składki",
+      "source_numbering_warning": "Duplicate source article label: Artykuł VIII",
       "source_order": 190,
-      "paragraph_refs": []
+      "paragraph_refs": [
+        "statut:par_22"
+      ]
     },
     {
       "id": "art_ix",
@@ -665,7 +667,7 @@
         "par_22_ust_1"
       ],
       "parent_id": null,
-      "article_id": "art_viii",
+      "article_id": "art_viii_b",
       "paragraph_id": "par_22",
       "source_order": 191,
       "effective_from": null
@@ -3431,7 +3433,7 @@
         "par_22_ust_1"
       ],
       "parent_id": null,
-      "article_id": "art_viii",
+      "article_id": "art_viii_b",
       "paragraph_id": "par_22",
       "source_order": 191,
       "effective_from": null
@@ -3444,7 +3446,7 @@
       "text": "Każdy czynny członek wnosi opłatę wpisową i składkę roczną w wysokości określonej przez Zarząd Klubu. Wysokość opłaty wpisowej i składki rocznej są ustalone corocznie uchwałą podejmowaną na posiedzeniu Zarządu Klubu.",
       "children": [],
       "parent_id": "par_22",
-      "article_id": "art_viii",
+      "article_id": "art_viii_b",
       "paragraph_id": "par_22",
       "source_order": 192,
       "effective_from": null
@@ -4231,6 +4233,8 @@
       "text": "W komunikacji elektronicznej mogą być wykorzystywane w szczególności platforma on-line, mail (poczta), mailing (przesyłanie poczty) i ballot-by-mailing (tajne glosowanie mailem).",
       "children": [],
       "parent_id": "par_33",
+      "derived_from": "statut:par_33",
+      "not_formal_statute_unit": true,
       "article_id": "art_xv",
       "paragraph_id": "par_33",
       "source_order": 9999,

@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.89-statute-json-integrity-fix
+- naprawiono techniczny duplikat `art_viii` / `statut:art_viii` w `governance/legal/statut.json`, zachowując źródłową etykietę `Artykuł VIII` jako ostrzeżenie numeracji źródła;
+- przypisano §22 do unikalnego technicznego artykułu `statut:art_viii_b`;
+- rozszerzono `scripts/statute-json-check.mjs` o unikalność i integralność `articles`, `paragraphs` oraz `units`;
+- oznaczono `statut:par_33_ballot_by_mailing` jako pojęcie wyprowadzone (`derived_from`, `not_formal_statute_unit`);
+- zaktualizowano raport integralności statutu; zmiana governance-only, bez publicznego HTML/CSS/JS i bez cache-bustu.
+
 ## v1.5.88-statute-json-integrity-audit
 - dodano `scripts/statute-json-check.mjs` jako techniczny gate integralności `governance/legal/statut.json`;
 - dopisano hash SHA-256 i rozmiar źródłowego `assets/docs/RC_Silesia_Statut_Final.docx` do metadanych `statut.json`;
