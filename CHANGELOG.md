@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.55-szybkie-poprawki-layout
+- poprawiono domyślny kontrast przycisku `.button.secondary` na jasnych tłach, z zachowaniem wariantu hero;
+- usunięto pasek KRS/NIP/REGON/adres z hero, dodano KRS/NIP/REGON do górnego paska oraz adres do sekcji Kontakt;
+- dodano `scroll-margin-top` dla kotwic sekcji i poprawiono dywiz w linku porozumienia RC Silesia-ŚOB;
+- podbito cache-bust assetów i danych do `v=1.5.55`.
+
 ## v1.5.54-porozumienie-link-wspolpraca
 - dodano link do porozumienia ramowego RC Silesia / ŚOB w panelu współpracy na podstronie ROTARY for PLANET;
 - pozostawiono link partnera i sekcję Rejestr nasadzeń bez zmian;
