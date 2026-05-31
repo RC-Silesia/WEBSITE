@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.48-planet-podstrona
+- dodano podstronę `rotary-for-planet.html` z rozwijanymi sekcjami o współpracy ze Śląskim Ogrodem Botanicznym, standardzie nasadzeń, procesie i rejestrze,
+- przebudowano `#planet` na przegląd programu z kaflem `Współpraca / Śląski Ogród Botaniczny` i przyciskiem do podstrony,
+- przeniesiono z `#planet` szczegóły standardu, procesu, rejestru, mapy demonstracyjnej i zasad komunikacji efektów,
+- usunięto z `#planet` panel SOB, którego treść jest teraz w kaflu i na podstronie,
+- podbito cache-bust assetów i danych do `v=1.5.48`.
+
 ## v1.5.47-sob-link-fix
 - poprawiono adres strony Śląskiego Ogrodu Botanicznego na wariant bez `www`: `https://obmikolow.robia.pl/`,
 - usunięto warianty wywołujące ostrzeżenie certyfikatu w linku partnera i panelu ROTARY for PLANET.
