@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.5.79-hero-title-break-fix
+- poprawiono wizualne łamanie tytułu w hero na `Rotary` / `Klub Silesia`, bez zmiany pełnej nazwy semantycznej i bez zmian w assetach marki.
+
 ## v1.5.79-policy-repository-section
 - dodano publiczną sekcję `#polityki-standardy` jako indeks polityk, standardów, uchwał i regulaminów organizacyjnych RC Silesia;
 - dodano publiczne dokumenty governance dla depozytu polityk oraz koncepcji ngOs Governance Pack;
