@@ -1,0 +1,86 @@
+{
+  "_status": "concept-draft - not an implemented mechanism, not a legal basis, not a legal opinion",
+  "schema_id": "EVOTING_SCHEMA_DRAFT_v0_1",
+  "title": "Electronic voting schema draft",
+  "status": "draft",
+  "description": "Schema-lite for conceptual metadata of future electronic voting in ngOs. This is not a validation schema, API contract or implemented voting mechanism.",
+  "required_fields": [
+    "vote_id",
+    "organization_id",
+    "resolution_id",
+    "mode",
+    "eligible_voter_ref",
+    "quorum_required",
+    "majority_type",
+    "opened_at",
+    "closed_at",
+    "result_status",
+    "audit_log_ref",
+    "statute_refs",
+    "legal_refs"
+  ],
+  "fields": {
+    "vote_id": {
+      "type": "string",
+      "description": "Stable voting process identifier."
+    },
+    "organization_id": {
+      "type": "string",
+      "description": "Organization identifier."
+    },
+    "resolution_id": {
+      "type": ["string", "null"],
+      "description": "Linked resolution or draft resolution identifier."
+    },
+    "mode": {
+      "type": "string",
+      "allowed_values": ["open", "secret", "consultation", "survey"],
+      "description": "Voting mode. Secret voting requires backend and legal/security review."
+    },
+    "eligible_voter_ref": {
+      "type": "string",
+      "description": "Reference to backend member registry snapshot used to establish eligible voters."
+    },
+    "quorum_required": {
+      "type": ["boolean", "string"],
+      "description": "Whether quorum is required, or a reference to the quorum rule."
+    },
+    "majority_type": {
+      "type": "string",
+      "allowed_values": ["simple", "absolute", "qualified", "statute_defined", "review_required"],
+      "description": "Majority rule applied to the vote."
+    },
+    "opened_at": {
+      "type": ["string", "null"],
+      "description": "Opening timestamp in ISO 8601 format, if implemented."
+    },
+    "closed_at": {
+      "type": ["string", "null"],
+      "description": "Closing timestamp in ISO 8601 format, if implemented."
+    },
+    "result_status": {
+      "type": "string",
+      "allowed_values": ["draft", "open", "closed", "invalidated", "approved", "rejected", "review_required"],
+      "description": "Lifecycle status of vote result."
+    },
+    "audit_log_ref": {
+      "type": ["string", "null"],
+      "description": "Reference to backend audit log. Public documents must not expose private logs."
+    },
+    "statute_refs": {
+      "type": "array",
+      "items": "string",
+      "description": "References to statute JSON identifiers, e.g. statut:par_33."
+    },
+    "legal_refs": {
+      "type": "array",
+      "items": "string",
+      "description": "References to legal corpus ledger entries."
+    }
+  },
+  "notes": [
+    "This schema-lite is conceptual only.",
+    "Secret voting cannot be implemented on a static frontend.",
+    "Binding voting requires backend identity, member registry, audit log and legal/security review."
+  ]
+}

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.86-evoting-concept
+- dodano koncepcyjny dokument `governance/legal/EVOTING_CONCEPT_v0_1.md` dla przyszłego modułu e-głosowania RC Silesia / ngOs;
+- dodano schema-lite `governance/legal/EVOTING_SCHEMA_DRAFT_v0_1.json` jako projektowy model metadanych głosowania;
+- wskazano robocze odniesienia statutowe, w tym `statut:par_33`, oraz twarde ograniczenie: brak backendu oznacza brak wiążącego głosowania;
+- zmiana governance-only, bez publicznego HTML/CSS/JS i bez cache-bustu.
+
 ## v1.5.85-wcag-keyboard-interactive-audit
 - dodano raport A11Y-3 `docs/WCAG_KEYBOARD_INTERACTIVE_AUDIT_v0_1.md` dla klawiatury i komponentów interaktywnych;
 - wykonano headless smoke test Edge/CDP dla 6 stron i 5 viewportów bez nowych zależności;
