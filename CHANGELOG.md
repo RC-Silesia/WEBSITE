@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.61-hero-lockup-rotary-gear
+- przebudowano główny nagłówek hero na lockup: `Rotary Klub Silesia` oraz biały znak Rotary po prawej stronie;
+- przeniesiono claim `działamy lokalnie, łączymy globalnie.` do osobnego bloku pod nazwą Klubu i znakiem;
+- pozostawiono oficjalny asset zębatki bez deformacji, obrotu i efektów dekoracyjnych;
+- podbito cache-bust assetów i danych do `v=1.5.61`.
+
 ## v1.5.60-obszary-rotary-akordeony
 - przekształcono siedem kafli „Obszary działania Rotary” w sekcji `#zasady-rotary` w dostępne akordeony z wyjaśnieniami obszarów;
 - dodano obsługę kliknięcia, Enter/Spacji, `aria-expanded`, `aria-hidden` i `inert` dla kafli `.principle-card`;
