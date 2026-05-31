@@ -1,0 +1,45 @@
+{
+  "version": "1.5.64",
+  "autoRotate": false,
+  "slides": [
+    {
+      "id": "intro",
+      "type": "content",
+      "title": "RC Silesia w działaniu",
+      "text": "Krótkie wprowadzenie do klubu i programu ROTARY for PLANET.",
+      "link": {
+        "href": "#o-klubie",
+        "label": "Poznaj klub"
+      }
+    },
+    {
+      "id": "planet",
+      "type": "content",
+      "title": "ROTARY for PLANET",
+      "text": "Odpowiedzialne nasadzenia drzew na Górnym Śląsku ze Śląskim Ogrodem Botanicznym ZS.",
+      "link": {
+        "href": "#planet",
+        "label": "Zobacz program"
+      }
+    },
+    {
+      "id": "youth-2026",
+      "type": "photo",
+      "title": "Wymiana młodzieży",
+      "caption": "Podpis pojawi się po zatwierdzeniu zdjęcia i zgód.",
+      "image": {
+        "src": "",
+        "fallback": "",
+        "alt": "",
+        "width": 1200,
+        "height": 675
+      },
+      "consent": {
+        "status": "pending",
+        "minorsPresent": true,
+        "basis": "pisemna zgoda opiekuna - do uzyskania"
+      },
+      "policyHref": "privacy.html#wizerunek"
+    }
+  ]
+}

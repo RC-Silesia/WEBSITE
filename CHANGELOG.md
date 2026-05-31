@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.64-hero-carousel
+- dodano dostępną karuzelę pod hero z trybem treściowym i zdjęciowym, statycznym fallbackiem HTML oraz sterowaniem klawiaturą.
+- dodano `assets/data/carousel.json` ładowany przez `fetch(...?v=DATA_VERSION)` z fallbackiem na statyczne slajdy.
+- wdrożono bramkę wizerunku: slajdy `photo` pokazują realny obraz wyłącznie przy `consent.status === "approved"` i niepustym `image.src`; domyślne dane mają status `pending` i renderują placeholder z linkiem do `privacy.html#wizerunek`.
+- Podbito cache-bust assetów i danych do `v=1.5.64`.
+
 ## v1.5.63-hero-obszary-jezyk-planet
 - hero-lockup-center: rozbito tytuł hero na dwa blokowe wiersze `Rotary Klub` i `Silesia` oraz wyśrodkowano cały wiersz tytułu ze znakiem Rotary.
 - obszary-4-3: zmieniono układ kafli `.principles-grid` na 4 + 3 z wyśrodkowanym dolnym rzędem i zachowaniem responsywności 2/1.
