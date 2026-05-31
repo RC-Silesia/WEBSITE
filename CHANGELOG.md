@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.50-sob-link-facebook
+- zmieniono linki Śląskiego Ogrodu Botanicznego na profil Facebook z poprawnym certyfikatem,
+- zachowano `target="_blank"` i `rel="noopener noreferrer"` oraz doprecyzowano dostępne nazwy linków,
+- wykonano audyt linków zewnętrznych i kotwic wewnętrznych,
+- podbito cache-bust assetów i danych do `v=1.5.50`.
+
 ## v1.5.49-chevron-kolor
 - ustawiono żółty kolor strzałek zwiniętych akordeonów treściowych i granatowy kolor po rozwinięciu,
 - dodano płynne przejście `border-color` bez zmiany obrotu, rozmiaru ani pozycji strzałek,
@@ -14,7 +20,7 @@
 - podbito cache-bust assetów i danych do `v=1.5.48`.
 
 ## v1.5.47-sob-link-fix
-- poprawiono adres strony Śląskiego Ogrodu Botanicznego na wariant bez `www`: `https://obmikolow.robia.pl/`,
+- poprawiono adres strony Śląskiego Ogrodu Botanicznego na wariant bez `www`,
 - usunięto warianty wywołujące ostrzeżenie certyfikatu w linku partnera i panelu ROTARY for PLANET.
 
 ## v1.5.47-planet-sob
