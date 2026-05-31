@@ -329,6 +329,8 @@ textarea:focus-visible,
   justify-content: center;
   gap: clamp(18px, 3.2vw, 34px);
   max-width: min(100%, 980px);
+  width: fit-content;
+  margin-inline: auto;
 }
 
 .hero-brand-title {
@@ -338,6 +340,10 @@ textarea:focus-visible,
   font-size: clamp(40px, 7vw, 76px);
   line-height: .96;
   text-align: right;
+}
+
+.hero-brand-title span {
+  display: block;
 }
 
 .hero-brand-gear {
@@ -3215,6 +3221,24 @@ textarea {
     padding: 44px 18px 172px;
   }
 
+  .hero-content,
+  .hero-brand-lockup,
+  .hero-brand-claim,
+  .lead {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero .hero-eyebrow,
+  .hero-brand-claim,
+  .lead {
+    inline-size: calc(100vw - 36px);
+    max-width: calc(100vw - 36px);
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
   h1 {
     font-size: 30px;
     line-height: 1.04;
@@ -3229,6 +3253,7 @@ textarea {
   }
 
   .hero-brand-row {
+    flex-direction: column;
     gap: 14px;
   }
 

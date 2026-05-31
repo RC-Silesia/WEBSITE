@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.63-hero-lockup-centrowanie
+- Rozbito tytuł hero na dwa blokowe wiersze `Rotary Klub` i `Silesia`, zachowując treść H1.
+- Doprecyzowano centrowanie wiersza nazwy i zębatki przez `width: fit-content` oraz `margin-inline: auto`.
+- Pozostawiono claim, lead, eyebrow i znak Rotary bez zmian.
+- Podbito cache-bust assetów i danych do `v=1.5.63`.
+
 ## v1.5.62-planet-actions-gray
 - dodano tokeny Rotary Silver i Smoke (`--gray`, `--gray-strong`) dla neutralnych przycisków programu;
 - ujednolicono wygląd wszystkich przycisków `.planet-actions` do granatowego tekstu i obwódki na szarym tle;
