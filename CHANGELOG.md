@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.5.47-sob-link-fix
+- poprawiono adres strony Śląskiego Ogrodu Botanicznego na wariant bez `www`: `https://obmikolow.robia.pl/`,
+- usunięto warianty wywołujące ostrzeżenie certyfikatu w linku partnera i panelu ROTARY for PLANET.
+
 ## v1.5.47-planet-sob
 - dodano rozwijany panel współpracy ze Śląskim Ogrodem Botanicznym w sekcji `#planet`,
 - dopisano lekkie odwołania do Ogrodu w kroku `Sadzenie i edukacja` oraz karcie `Dobór gatunku`,
