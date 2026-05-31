@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.81-public-status-and-legal-draft-notes
+- przywrócono publiczny status Polityki Dostępności Cyfrowej jako przyjętej przez Zarząd z tokenami `[UCHWAŁA_NR]` i `[UCHWAŁA_DATA]`;
+- usunięto obietnicę pełnej zgodności WCAG i zastąpiono ją informacją, że zgodność nie została jeszcze potwierdzona pełnym audytem;
+- oznaczono dokumenty `governance/legal/` jako szkice koncepcyjne, niewdrożony mechanizm i brak podstawy zgodności prawnej;
+- podbito cache-bust assetów i danych do `v=1.5.81`.
+
 ## v1.5.80-public-policy-status-correction
 - skorygowano status Polityki Dostępności Cyfrowej w publicznej sekcji i indeksie na `projekt / do przyjęcia uchwałą Zarządu`;
 - doprecyzowano, że przed audytem nie deklarujemy pełnej zgodności WCAG;

@@ -1,6 +1,8 @@
 # Minimalne wymagania dla statutu JSON
 
-Status: wymagania projektowe v0.1.
+**Status: szkic koncepcyjny (governance design).** To NIE jest wdrożony mechanizm kontroli zgodności ani podstawa zgodności prawnej. Dokument nie stanowi opinii prawnej. Wszelka interpretacja statutu i treść uchwał wymagają weryfikacji przez osobę uprawnioną / prawnika.
+
+Status techniczny: wymagania projektowe v0.1.
 
 Statut JSON ma umożliwić powiązanie dokumentów governance z kompetencjami organów, reprezentacją, uchwałami i jednostkami redakcyjnymi statutu. Dokument nie definiuje pełnego parsera statutu.
 

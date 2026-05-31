@@ -1,6 +1,8 @@
 # LegalStatutePolicy Consistency Gate
 
-Status: governance design / CI gate candidate v0.1.
+**Status: szkic koncepcyjny (governance design).** To NIE jest wdrożony mechanizm kontroli zgodności ani podstawa zgodności prawnej. Dokument nie stanowi opinii prawnej. Wszelka interpretacja statutu i treść uchwał wymagają weryfikacji przez osobę uprawnioną / prawnika.
+
+Status techniczny: governance design / CI gate candidate v0.1.
 
 Ten dokument opisuje projekt bramki governance dla publicznego depozytu Polityki i standardy oraz przyszłego modułu ngOs Governance Pack. Nie jest opinią prawną i nie zastępuje decyzji organów RC Silesia ani zewnętrznej konsultacji prawnej.
 

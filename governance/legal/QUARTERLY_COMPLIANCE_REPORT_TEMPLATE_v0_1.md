@@ -1,6 +1,8 @@
 # Kwartalny raport zgodności statutu, polityk i modułów ngOs
 
-Status: szablon raportu v0.1.
+**Status: szkic koncepcyjny (governance design).** To NIE jest wdrożony mechanizm kontroli zgodności ani podstawa zgodności prawnej. Dokument nie stanowi opinii prawnej. Wszelka interpretacja statutu i treść uchwał wymagają weryfikacji przez osobę uprawnioną / prawnika.
+
+Status techniczny: szablon raportu v0.1.
 
 Raport jest draftem governance dla Zarządu. Nie jest opinią prawną i nie zatwierdza automatycznie zmian w dokumentach.
 

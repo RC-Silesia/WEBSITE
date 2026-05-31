@@ -1,6 +1,8 @@
 # Legal Corpus Ledger
 
-Status: rejestr źródeł prawnych v0.1, bez automatycznego pobierania aktów.
+**Status: szkic koncepcyjny (governance design).** To NIE jest wdrożony mechanizm kontroli zgodności ani podstawa zgodności prawnej. Dokument nie stanowi opinii prawnej. Wszelka interpretacja statutu i treść uchwał wymagają weryfikacji przez osobę uprawnioną / prawnika.
+
+Status techniczny: rejestr źródeł prawnych v0.1, bez automatycznego pobierania aktów.
 
 Ledger wskazuje akty wyższego rzędu i obszary przeglądu dla dokumentów governance. Nie jest opinią prawną i nie zawiera automatycznej interpretacji prawa.
 
