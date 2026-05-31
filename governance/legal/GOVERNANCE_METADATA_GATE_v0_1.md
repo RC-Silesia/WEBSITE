@@ -13,10 +13,13 @@ Skrypt: `scripts/governance-metadata-check.mjs`.
 Skrypt sprawdza:
 
 - istnienie publicznego indeksu polityk i zasad depozytu;
+- istnienie maszynowego indeksu `governance/public/public_policy_index.json`;
 - istnienie trzech schema-lite z GOV-2;
+- poprawność parsowania JSON dla publicznego indeksu polityk;
 - poprawność parsowania JSON dla schema-lite;
 - obecność podstawowych pól `schema_id`, `title`, `status`, `description`, `required_fields`, `fields`;
 - obecność wymaganych kolumn tabeli w `PUBLIC_POLICY_INDEX.md`;
+- synchronizację `public_policy_index.json` z `PUBLIC_POLICY_INDEX.md` po `document_id`, `title`, `category` i `status`;
 - metadane wierszy dokumentów deklarujących przyjęcie (`przyjęt`, `adopted`, `published`);
 - regułę: dokument deklarujący przyjęcie musi mieć powiązaną uchwałę albo jawny placeholder `[UCHWAŁA_NR]` / `[UCHWAŁA_DATA]`;
 - lifecycle statusów dokumentów: `required_for_operation`, `draft`, `under_review`, `board_approval_required`, `adopted_pending_metadata`, `adopted`, `published`, `superseded`, `archived`;
@@ -52,10 +55,16 @@ Skrypt nie sprawdza jeszcze:
 - merytorycznej poprawności polityk;
 - kompletności prywatnych rejestrów governance.
 
-## 6. Relacja do LegalStatutePolicy Gate
+## 6. Rozszerzenie GOV-4: JSON index
+
+GOV-4 dodaje `governance/public/public_policy_index.json` jako maszynowy indeks dokumentów publicznego depozytu. Markdown pozostaje widokiem publicznym dla człowieka, a JSON staje się formatem przygotowanym pod przyszłe generatory ngOs.
+
+Gate sprawdza, czy JSON i Markdown zawierają ten sam zestaw `document_id`, oraz czy podstawowe pola identyfikacyjne (`title`, `category`, `status`) są zsynchronizowane. To nie jest jeszcze generator Markdown z JSON ani pełne źródło prawdy dla legal compliance, ale pierwszy krok w stronę danych maszynowych.
+
+## 7. Relacja do LegalStatutePolicy Gate
 
 Ten gate jest pierwszą techniczną warstwą projektu LegalStatutePolicy Consistency Gate. Obejmuje wyłącznie metadane publicznego indeksu i schema-lite. Docelowo kolejne poziomy będą mogły sprawdzać statut JSON, kompetencje organów, reprezentację, relacje uchwała-polityka-procedura oraz kwartalne raporty zgodności.
 
-## 7. Ograniczenia
+## 8. Ograniczenia
 
 Gate nie pobiera automatycznie prawa, nie korzysta z zewnętrznych API, nie tworzy opinii prawnej i nie zmienia dokumentów. Wynik `PASS` oznacza wyłącznie, że metadane publicznego depozytu spełniają aktualne techniczne reguły repozytorium.

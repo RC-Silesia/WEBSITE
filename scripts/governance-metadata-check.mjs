@@ -2,14 +2,31 @@ import fs from "node:fs";
 
 const REQUIRED_FILES = [
   "governance/public/PUBLIC_POLICY_INDEX.md",
+  "governance/public/public_policy_index.json",
   "governance/public/POLICY_REPOSITORY_RULES_v0_1.md",
   "governance/legal/POLICY_METADATA_SCHEMA_DRAFT_v0_1.json",
   "governance/legal/RESOLUTION_METADATA_SCHEMA_DRAFT_v0_1.json",
   "governance/legal/COMPLIANCE_FINDING_SCHEMA_DRAFT_v0_1.json"
 ];
 
-const SCHEMA_FILES = REQUIRED_FILES.filter((file) => file.endsWith(".json"));
+const PUBLIC_POLICY_JSON = "governance/public/public_policy_index.json";
+const SCHEMA_FILES = REQUIRED_FILES.filter((file) => file.endsWith(".json") && file !== PUBLIC_POLICY_JSON);
 const REQUIRED_SCHEMA_KEYS = ["schema_id", "title", "status", "description", "required_fields", "fields"];
+const REQUIRED_PUBLIC_INDEX_KEYS = ["index_id", "organization_id", "status", "version", "documents"];
+const REQUIRED_PUBLIC_DOCUMENT_KEYS = [
+  "document_id",
+  "title",
+  "category",
+  "type",
+  "status",
+  "version",
+  "adopted_by",
+  "resolution_ref",
+  "statute_refs",
+  "visibility",
+  "planned_review",
+  "notes"
+];
 const REQUIRED_INDEX_COLUMNS = [
   "ID dokumentu",
   "Tytuł",
@@ -167,6 +184,24 @@ function parseMarkdownTable(markdown, sourcePath) {
   return rows;
 }
 
+function normalizeMarkdownRow(row) {
+  return {
+    line: row.line,
+    document_id: row["ID dokumentu"],
+    title: row["Tytuł"],
+    category: row["Kategoria"],
+    type: row["Typ dokumentu"],
+    status: row["Status"],
+    version: row["Wersja"],
+    adopted_by: row["Organ przyjmujący"],
+    resolution_ref: row["Powiązana uchwała"],
+    statute_refs: row["Odwołania do statutu"] ? [row["Odwołania do statutu"]] : [],
+    visibility: row["Widoczność"],
+    planned_review: row["Planowany przegląd"],
+    notes: row["Uwagi"]
+  };
+}
+
 function checkRequiredFiles() {
   for (const file of REQUIRED_FILES) {
     if (exists(file)) {
@@ -175,6 +210,62 @@ function checkRequiredFiles() {
       fail(`${file}: missing required governance file`);
     }
   }
+}
+
+function checkPublicPolicyJson() {
+  if (!exists(PUBLIC_POLICY_JSON)) return { documents: [] };
+  let index;
+  try {
+    index = JSON.parse(readText(PUBLIC_POLICY_JSON));
+    pass(`${PUBLIC_POLICY_JSON}: JSON parses`);
+  } catch (error) {
+    fail(`${PUBLIC_POLICY_JSON}: invalid JSON: ${error.message}`);
+    return { documents: [] };
+  }
+
+  for (const key of REQUIRED_PUBLIC_INDEX_KEYS) {
+    if (Object.prototype.hasOwnProperty.call(index, key)) {
+      pass(`${PUBLIC_POLICY_JSON}: index key exists: ${key}`);
+    } else {
+      fail(`${PUBLIC_POLICY_JSON}: missing index key: ${key}`);
+    }
+  }
+
+  if (!Array.isArray(index.documents) || index.documents.length === 0) {
+    fail(`${PUBLIC_POLICY_JSON}: documents must be a non-empty array`);
+    return { documents: [] };
+  }
+
+  pass(`${PUBLIC_POLICY_JSON}: parsed ${index.documents.length} document records`);
+  const seen = new Set();
+  for (let i = 0; i < index.documents.length; i += 1) {
+    const document = index.documents[i];
+    const location = `${PUBLIC_POLICY_JSON}:documents[${i}]`;
+    if (!document || typeof document !== "object" || Array.isArray(document)) {
+      fail(`${location}: document must be an object`);
+      continue;
+    }
+    for (const key of REQUIRED_PUBLIC_DOCUMENT_KEYS) {
+      if (Object.prototype.hasOwnProperty.call(document, key)) {
+        pass(`${location}: document key exists: ${key}`);
+      } else {
+        fail(`${location}: missing document key: ${key}`);
+      }
+    }
+    if (isBlank(document.document_id)) {
+      fail(`${location}: missing document_id`);
+    } else if (seen.has(document.document_id)) {
+      fail(`${location}: duplicate document_id ${document.document_id}`);
+    } else {
+      seen.add(document.document_id);
+      pass(`${location}: document_id is unique`);
+    }
+    if (!Array.isArray(document.statute_refs)) {
+      fail(`${location}: statute_refs must be an array`);
+    }
+  }
+
+  return index;
 }
 
 function checkSchemas() {
@@ -247,9 +338,9 @@ function checkIndexConsistency(rows, sourcePath) {
   if (!exists("index.html")) return;
   const html = readText("index.html");
   for (const row of rows) {
-    const id = row["ID dokumentu"];
-    const title = row["Tytuł"];
-    const status = row["Status"];
+    const id = row.document_id;
+    const title = row.title;
+    const status = row.status;
     if (!id || !title || !declaresAdoption(status)) continue;
     if (html.includes(`<strong>${title}</strong>`)) {
       const titleIndex = html.indexOf(`<strong>${title}</strong>`);
@@ -263,13 +354,13 @@ function checkIndexConsistency(rows, sourcePath) {
 
 function checkRows(rows, sourcePath, environment) {
   for (const row of rows) {
-    const id = row["ID dokumentu"] || `line ${row.line}`;
-    const status = row["Status"];
-    const visibility = row["Widoczność"];
-    const version = row["Wersja"];
-    const adoptedBy = row["Organ przyjmujący"];
-    const resolution = row["Powiązana uchwała"];
-    const review = row["Planowany przegląd"];
+    const id = row.document_id || `line ${row.line}`;
+    const status = row.status;
+    const visibility = row.visibility;
+    const version = row.version;
+    const adoptedBy = row.adopted_by;
+    const resolution = row.resolution_ref;
+    const review = row.planned_review;
     const rowText = Object.values(row).join(" ");
 
     if (isBlank(status)) {
@@ -334,18 +425,52 @@ function checkRows(rows, sourcePath, environment) {
   }
 }
 
+function compareJsonAndMarkdown(jsonDocuments, markdownRows) {
+  const markdownById = new Map(markdownRows.map((row) => [row.document_id, row]));
+  const jsonById = new Map(jsonDocuments.map((document) => [document.document_id, document]));
+
+  for (const markdownRow of markdownRows) {
+    if (!jsonById.has(markdownRow.document_id)) {
+      fail(`${PUBLIC_POLICY_JSON}: missing document_id from Markdown: ${markdownRow.document_id}`);
+    } else {
+      pass(`${PUBLIC_POLICY_JSON}: contains Markdown document_id ${markdownRow.document_id}`);
+    }
+  }
+
+  for (const jsonDocument of jsonDocuments) {
+    if (!markdownById.has(jsonDocument.document_id)) {
+      fail(`governance/public/PUBLIC_POLICY_INDEX.md: missing JSON document_id ${jsonDocument.document_id}`);
+      continue;
+    }
+    const markdownRow = markdownById.get(jsonDocument.document_id);
+    for (const key of ["title", "category", "status"]) {
+      if (String(jsonDocument[key] || "") !== String(markdownRow[key] || "")) {
+        fail(`${jsonDocument.document_id}: ${key} differs between JSON and Markdown`);
+      } else {
+        pass(`${jsonDocument.document_id}: ${key} matches JSON and Markdown`);
+      }
+    }
+  }
+}
+
 function main() {
   const environment = detectEnvironment();
   info(`environment: ${environment}; set NGOS_ENV=production or create .ngos-production to enforce production gate`);
   checkLifecycleVocabulary();
   checkRequiredFiles();
+  const publicIndex = checkPublicPolicyJson();
   checkSchemas();
 
   const indexPath = "governance/public/PUBLIC_POLICY_INDEX.md";
   if (exists(indexPath)) {
     const markdown = readText(indexPath);
-    const rows = parseMarkdownTable(markdown, indexPath);
+    const rows = parseMarkdownTable(markdown, indexPath).map(normalizeMarkdownRow);
     checkPrivatePublicationText(markdown, indexPath);
+    if (publicIndex.documents.length > 0) {
+      checkPrivatePublicationText(JSON.stringify(publicIndex, null, 2), PUBLIC_POLICY_JSON);
+      compareJsonAndMarkdown(publicIndex.documents, rows);
+      checkRows(publicIndex.documents.map((document, index) => ({ ...document, line: `json:${index}` })), PUBLIC_POLICY_JSON, environment);
+    }
     checkRows(rows, indexPath, environment);
     checkIndexConsistency(rows, indexPath);
   }

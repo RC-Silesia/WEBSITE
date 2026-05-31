@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.84-public-policy-json-index
+- dodano `governance/public/public_policy_index.json` jako maszynowy indeks publicznego depozytu Polityki i standardy;
+- rozszerzono `scripts/governance-metadata-check.mjs` o walidację JSON oraz synchronizację JSON ↔ Markdown;
+- dodano zasady `governance/public/PUBLIC_POLICY_INDEX_JSON_RULES_v0_1.md`;
+- zmiana governance-only, bez zmian publicznego HTML/CSS/JS i bez cache-bustu.
+
 ## v1.5.83-governance-metadata-gate-lifecycle
 - doprecyzowano GOV-3 metadata gate o lifecycle statusów dokumentów oraz regułę staging/production;
 - dodano twardą walidację przypadku „dokument deklaruje przyjęcie, ale nie ma powiązanej uchwały ani placeholdera”;
