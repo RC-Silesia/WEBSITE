@@ -2017,12 +2017,6 @@ th {
   margin: 0 0 10px;
 }
 
-.sob-inline-logo--table {
-  display: inline-block;
-  margin: 0 8px 0 0;
-  vertical-align: middle;
-}
-
 .partner-card-link a {
   color: var(--blue);
   font-weight: 800;

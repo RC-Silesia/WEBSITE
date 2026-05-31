@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.77-fix-sob-logo-scope
+- cofnięto rozsiane użycie logo Śląskiego Ogrodu Botanicznego do zatwierdzonego zakresu: karta partnera, sekcja ROTARY for PLANET i dedykowana strona programu;
+- usunięto automatyczne wstawianie logo ŚOB przez JavaScript na podstawie treści;
+- podbito cache-bust assetów i danych do `v=1.5.77`.
+
 ## v1.5.78-wcag-baseline-audit
 - dodano techniczny baseline audit dostępności `docs/WCAG_BASELINE_AUDIT_v0_1.md`;
 - udokumentowano wyniki governance gate, headless overflow smoke i podstawowego testu klawiatury;
