@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.49-chevron-kolor
+- ustawiono żółty kolor strzałek zwiniętych akordeonów treściowych i granatowy kolor po rozwinięciu,
+- dodano płynne przejście `border-color` bez zmiany obrotu, rozmiaru ani pozycji strzałek,
+- pozostawiono hamburger menu bez zmian,
+- podbito cache-bust assetów i danych do `v=1.5.49`.
+
 ## v1.5.48-planet-podstrona
 - dodano podstronę `rotary-for-planet.html` z rozwijanymi sekcjami o współpracy ze Śląskim Ogrodem Botanicznym, standardzie nasadzeń, procesie i rejestrze,
 - przebudowano `#planet` na przegląd programu z kaflem `Współpraca / Śląski Ogród Botaniczny` i przyciskiem do podstrony,

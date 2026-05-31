@@ -1165,13 +1165,14 @@ a.is-disabled {
   width: 12px;
   height: 12px;
   margin-top: 7px;
-  border-right: 2px solid var(--blue);
-  border-bottom: 2px solid var(--blue);
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
   transform: rotate(45deg);
-  transition: transform .22s ease-out;
+  transition: transform .22s ease-out, border-color .22s ease-out;
 }
 
 .gallery-card[aria-expanded="true"] .gallery-card__chevron {
+  border-color: var(--blue-dark);
   transform: rotate(225deg);
 }
 
@@ -1542,10 +1543,11 @@ th {
   border-right: 3px solid var(--gold);
   border-bottom: 3px solid var(--gold);
   transform: rotate(45deg);
-  transition: transform .2s ease;
+  transition: transform .2s ease, border-color .2s ease;
 }
 
 .partner-accordion-card[aria-expanded="true"] .partner-accordion-card__chevron {
+  border-color: var(--blue-dark);
   transform: rotate(-135deg) translate(-4px, -4px);
 }
 
@@ -1622,13 +1624,14 @@ th {
   right: 24px;
   width: 12px;
   height: 12px;
-  border-right: 2px solid var(--blue);
-  border-bottom: 2px solid var(--blue);
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
   transform: rotate(45deg);
-  transition: transform .22s ease-out;
+  transition: transform .22s ease-out, border-color .22s ease-out;
 }
 
 .member-card[aria-expanded="true"] .member-card__chevron {
+  border-color: var(--blue-dark);
   transform: rotate(225deg);
 }
 
@@ -1757,13 +1760,14 @@ th {
   flex: 0 0 auto;
   width: 12px;
   height: 12px;
-  border-right: 2px solid var(--blue);
-  border-bottom: 2px solid var(--blue);
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
   transform: rotate(45deg);
-  transition: transform .18s ease;
+  transition: transform .18s ease, border-color .18s ease;
 }
 
 .statutory-body-toggle[aria-expanded="true"] .statutory-chevron {
+  border-color: var(--blue-dark);
   transform: rotate(225deg);
 }
 
