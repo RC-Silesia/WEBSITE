@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.80-public-policy-status-correction
+- skorygowano status Polityki Dostępności Cyfrowej w publicznej sekcji i indeksie na `projekt / do przyjęcia uchwałą Zarządu`;
+- doprecyzowano, że przed audytem nie deklarujemy pełnej zgodności WCAG;
+- podbito cache-bust assetów i danych do `v=1.5.80`.
+
 ## v1.5.80-legal-statute-policy-gate-design
 - dodano projekt LegalStatutePolicy Consistency Gate dla spójności statutu, reprezentacji, uchwał, polityk, procedur i CI gates;
 - dodano legal corpus ledger, szablon kwartalnego raportu zgodności, wymagania statutu JSON oraz trzy schema-lite dla metadanych polityk, uchwał i warningów;
