@@ -2001,9 +2001,25 @@ th {
   margin-top: 14px;
 }
 
+.partner-card__logo {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 12px;
+}
+
 .partner-card-link a {
   color: var(--blue);
   font-weight: 800;
+}
+
+.partner-card-link--secondary {
+  margin-top: 8px;
+}
+
+.partner-card-link--secondary a {
+  color: var(--muted);
 }
 
 .partner-card-link a:focus-visible {

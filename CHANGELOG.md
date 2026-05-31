@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.74-partner-sob-logo-link
+- dodano lokalne logo Śląskiego Ogrodu Botanicznego ZS w istniejącej karcie partnera;
+- poprawiono link karty ŚOB na stronę internetową Ogrodu i pozostawiono Facebook jako osobny link;
+- dodano tekstowy link do Śląskiego Ogrodu Botanicznego przy sekcji ROTARY for PLANET;
+- podbito cache-bust assetów i danych do `v=1.5.74`.
+
 ## v1.5.73-wcag-governance-ci-gates
 - dodano dokumenty governance dla polityki dostępności cyfrowej WCAG 2.2 AA i CI gates;
 - dodano statyczny test dostępności `scripts/wcag-static-check.mjs` bez zewnętrznych zależności;
