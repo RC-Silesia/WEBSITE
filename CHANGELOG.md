@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.62-planet-actions-gray
+- dodano tokeny Rotary Silver i Smoke (`--gray`, `--gray-strong`) dla neutralnych przycisków programu;
+- ujednolicono wygląd wszystkich przycisków `.planet-actions` do granatowego tekstu i obwódki na szarym tle;
+- dodano `font: inherit` do bazowej reguły `.button`, aby przyciski `<button>` miały tę samą typografię co linki;
+- podbito cache-bust assetów i danych do `v=1.5.62`.
+
 ## v1.5.61-hero-lockup-rotary-gear
 - przebudowano główny nagłówek hero na lockup: `Rotary Klub Silesia` oraz biały znak Rotary po prawej stronie;
 - przeniesiono claim `działamy lokalnie, łączymy globalnie.` do osobnego bloku pod nazwą Klubu i znakiem;

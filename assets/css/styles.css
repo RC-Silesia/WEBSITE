@@ -4,6 +4,8 @@
   --gold: #f7a81b;
   --cardinal: #e02927;
   --cardinal-text: #b3261e;
+  --gray: #d0cfcd;
+  --gray-strong: #b1b1b1;
   --green: #2d7d46;
   --graphite: #263238;
   --muted: #64707a;
@@ -413,6 +415,7 @@ h3 {
   padding: 12px 18px;
   border: 1px solid transparent;
   border-radius: 6px;
+  font: inherit;
   font-weight: 800;
   cursor: pointer;
 }
@@ -1268,6 +1271,24 @@ main[id] {
 
 .planet-actions .button {
   min-width: 190px;
+}
+
+.planet-actions .button,
+.planet-actions .button.primary,
+.planet-actions .button.secondary,
+.planet-actions .button.ghost {
+  color: var(--blue-dark);
+  border-color: var(--blue-dark);
+  background: var(--gray);
+}
+
+.planet-actions .button:hover {
+  background: var(--gray-strong);
+}
+
+.planet-actions .button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
 }
 
 .gallery-section {
