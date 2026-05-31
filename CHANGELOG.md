@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.79-policy-repository-section
+- dodano publiczną sekcję `#polityki-standardy` jako indeks polityk, standardów, uchwał i regulaminów organizacyjnych RC Silesia;
+- dodano publiczne dokumenty governance dla depozytu polityk oraz koncepcji ngOs Governance Pack;
+- podbito cache-bust assetów i danych do `v=1.5.79`.
+
 ## v1.5.77-fix-sob-logo-scope
 - cofnięto rozsiane użycie logo Śląskiego Ogrodu Botanicznego do zatwierdzonego zakresu: karta partnera, sekcja ROTARY for PLANET i dedykowana strona programu;
 - usunięto automatyczne wstawianie logo ŚOB przez JavaScript na podstawie treści;

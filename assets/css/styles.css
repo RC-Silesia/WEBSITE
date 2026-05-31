@@ -2035,6 +2035,57 @@ th {
   outline-offset: 3px;
 }
 
+.policy-repository-section {
+  background: var(--soft);
+}
+
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.policy-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.policy-card h3 {
+  margin-bottom: 8px;
+}
+
+.policy-card > p {
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.policy-list {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.policy-list li {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.policy-list strong,
+.policy-list span {
+  display: block;
+}
+
+.policy-list span {
+  color: var(--muted);
+  font-size: .94rem;
+  margin-top: 3px;
+}
+
 .partner-accordion-card {
   display: grid;
   align-content: start;
@@ -3442,6 +3493,10 @@ textarea {
 }
 
 @media (max-width: 768px) {
+  .policy-grid {
+    grid-template-columns: 1fr;
+  }
+
   .gallery-grid,
   .membership-grid {
     grid-template-columns: 1fr;
