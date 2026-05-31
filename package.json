@@ -4,6 +4,10 @@
   "private": true,
   "description": "Statyczny prototyp strony RC Silesia",
   "scripts": {
+    "check:js": "node --check assets/js/script.js",
+    "check:wcag:static": "node scripts/wcag-static-check.mjs",
+    "check:governance": "npm run check:js && npm run check:wcag:static",
+    "ci:gates": "npm run check:governance",
     "newsletter": "node scripts/generate-newsletter.js",
     "optimize": "node scripts/optimize.js",
     "optimize:clean": "node scripts/optimize.js --clean"

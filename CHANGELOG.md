@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.73-wcag-governance-ci-gates
+- dodano dokumenty governance dla polityki dostępności cyfrowej WCAG 2.2 AA i CI gates;
+- dodano statyczny test dostępności `scripts/wcag-static-check.mjs` bez zewnętrznych zależności;
+- dodano skrypty npm `check:js`, `check:wcag:static`, `check:governance` i `ci:gates`.
+
 ## v1.5.72-rotaract-detail-copy
 - zaktualizowano `mlodziez-rotaract.html` do pełnej treści informacyjnej o Rotaract dla młodych dorosłych;
 - zachowano jasny status: Rotary Klub Silesia nie prowadzi obecnie aktywnego klubu Rotaract;
