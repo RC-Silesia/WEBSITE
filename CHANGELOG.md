@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.83-governance-metadata-gate-lifecycle
+- doprecyzowano GOV-3 metadata gate o lifecycle statusów dokumentów oraz regułę staging/production;
+- dodano twardą walidację przypadku „dokument deklaruje przyjęcie, ale nie ma powiązanej uchwały ani placeholdera”;
+- utrzymano staging jako tryb domyślny, w którym projekty i dokumenty `board_approval_required` nie blokują gate'u;
+- zmiana governance-only, bez zmian publicznego HTML/CSS/JS i bez cache-bustu.
+
 ## v1.5.82-governance-metadata-gate
 - dodano pierwszy techniczny gate metadanych `scripts/governance-metadata-check.mjs` dla publicznego depozytu Polityki i standardy;
 - gate sprawdza obecność schema-lite, kolumn indeksu publicznego, podstawowe metadane dokumentów oraz zakaz publikacji prywatnych materiałów governance;
