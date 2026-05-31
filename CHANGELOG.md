@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.56-hero-tytul-skala
+- zmniejszono skalę tytułu hero o około 20% i zwiększono odstęp między nazwą Klubu a hasłem;
+- usunięto ręczny `<br>` z tytułu hero i dodano kropkę kończącą zdanie;
+- podbito cache-bust assetów i danych do `v=1.5.56`.
+
 ## v1.5.55-szybkie-poprawki-layout
 - poprawiono domyślny kontrast przycisku `.button.secondary` na jasnych tłach, z zachowaniem wariantu hero;
 - usunięto pasek KRS/NIP/REGON/adres z hero, dodano KRS/NIP/REGON do górnego paska oraz adres do sekcji Kontakt;

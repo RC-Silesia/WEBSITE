@@ -340,13 +340,14 @@ p {
 h1 {
   max-width: 820px;
   margin: 0;
-  font-size: clamp(42px, 7vw, 78px);
+  font-size: clamp(34px, 5.6vw, 62px);
   line-height: .98;
   letter-spacing: 0;
 }
 
 .hero-name {
-  display: inline-block;
+  display: block;
+  margin-bottom: .4em;
 }
 
 h2 {
@@ -2949,7 +2950,7 @@ textarea {
   }
 
   h1 {
-    font-size: 38px;
+    font-size: 30px;
     line-height: 1.04;
   }
 
