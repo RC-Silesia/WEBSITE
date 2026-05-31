@@ -1775,6 +1775,16 @@ th {
   color: var(--blue-dark);
 }
 
+.subsection-heading--section-scale {
+  text-align: center;
+}
+
+.subsection-heading--section-scale .areas-intro-large {
+  max-width: 60ch;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .subsection-heading p {
   margin: 0;
 }

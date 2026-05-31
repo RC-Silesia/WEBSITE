@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.45-spojnosc-naglowkow
+- przywrócono nadtytuł `Fundament Rotary` w sekcji `#zasady-rotary`,
+- wycentrowano skalowany nagłówek `Obszary działania Rotary` oraz jego intro,
+- ograniczono szerokość intro `areas-intro-large`, zachowując lżejszą typografię z v1.5.43,
+- podbito cache-bust assetów i danych do `v=1.5.45`.
+
 ## v1.5.43-obszary-hierarchia
 - podniesiono nagłówek `Obszary działania Rotary` w bloku zasad do skali nagłówka sekcji,
 - przestylowano intro `areas-intro-large` na lżejszy, niepogrubiony akapit podporządkowany nagłówkowi,
