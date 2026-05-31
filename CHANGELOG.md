@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.70-youth-exchange-rye-copy
+- zaktualizowano podstronę `mlodziez-wymiana.html` do pełnej treści RYE z akcentem na bezpieczeństwo, budowanie pokoju i rolę RC Silesia;
+- ujednolicono tytuł i nagłówek do `Wymiana młodzieży Rotary (RYE)`;
+- doprecyzowano oficera wymiany jako `Agnieszka Koniarek-Smorzewska` bez publikacji zdjęcia, prywatnego kontaktu ani CV;
+- podbito cache-bust assetów i danych do `v=1.5.70`.
+
 ## v1.5.69-chore-versioning-and-consent-hardening
 - dopisano regułę ściśle monotonicznego cache-bustu w `DEPLOYMENT.md`;
 - doprecyzowano bramkę karuzeli dla zdjęć z małoletnimi: `guardianConsent === true` jest wymagane jako twardy boolean;
