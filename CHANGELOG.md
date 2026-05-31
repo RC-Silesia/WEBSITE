@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.54-porozumienie-link-wspolpraca
+- dodano link do porozumienia ramowego RC Silesia / ŚOB w panelu współpracy na podstronie ROTARY for PLANET;
+- pozostawiono link partnera i sekcję Rejestr nasadzeń bez zmian;
+- podbito cache-bust assetów i danych do `v=1.5.54`.
+
 ## v1.5.53-kolory-cardinal
 - dodano tokeny `--cardinal` i `--cardinal-text` dla czerwieni stanów,
 - ujednolicono czerwienie błędów formularzy, statusów i wskaźników mapy do rodziny Rotary Cardinal,
