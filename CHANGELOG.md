@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.59-youth-logos
+- dodano logotypy Rotary Youth Exchange Program i Rotaract Club Silesia nad tytułami kart w sekcji `#mlodziez`;
+- osadzono dostarczone przezroczyste pliki PNG w `assets/img/` bez zmian treści merytorycznej sekcji;
+- dodano responsywne style `.youth-card-logo`;
+- podbito cache-bust assetów i danych do `v=1.5.59`.
+
 ## v1.5.58-zarzad-karty-aktywne
 - przekształcono karty osób funkcyjnych Zarządu w dostępne akordeony z miejscem na zdjęcie i CV;
 - dodano opcjonalne pola `photo` i `cv` do danych Zarządu bez uzupełniania danych osobowych;
