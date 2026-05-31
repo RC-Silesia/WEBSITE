@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.69-chore-versioning-and-consent-hardening
+- dopisano regułę ściśle monotonicznego cache-bustu w `DEPLOYMENT.md`;
+- doprecyzowano bramkę karuzeli dla zdjęć z małoletnimi: `guardianConsent === true` jest wymagane jako twardy boolean;
+- uzupełniono `PRIVACY_RELEASE_CHECKLIST.md` o wymóg pisemnej zgody opiekuna przed `status:"approved"`;
+- podbito cache-bust assetów i danych do `v=1.5.69`.
+
 ## v1.5.68-areas-of-focus-icons
 - dodano siedem oficjalnych ikon Areas of Focus z Rotary Brand Center/WebDAM do nagłówków kafli `#zasady-rotary`;
 - dodano dostępne, responsywne polskie koło obszarów działania Rotary pod siatką kafli;

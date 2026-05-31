@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.68";
+  var DATA_VERSION = "1.5.69";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -793,18 +793,21 @@
   }
 
   function isApprovedPhotoSlide(slide) {
-    var consent = slide && slide.consent;
-    var minorsApproved = !consent || consent.minorsPresent !== true || consent.guardianConsent === true;
-    return Boolean(
+    var ok = Boolean(
       slide &&
       slide.type === "photo" &&
-      consent &&
-      consent.status === "approved" &&
-      minorsApproved &&
+      slide.consent &&
+      slide.consent.status === "approved" &&
       slide.image &&
       typeof slide.image.src === "string" &&
       slide.image.src.trim()
     );
+    if (!ok) return false;
+    // Defense-in-depth: zdjęcie z małoletnimi wymaga jawnej zgody opiekuna.
+    if (slide.consent.minorsPresent === true && slide.consent.guardianConsent !== true) {
+      return false;
+    }
+    return true;
   }
 
   function renderHeroCarouselPhotoPlaceholder(slide) {

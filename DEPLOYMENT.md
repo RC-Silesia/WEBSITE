@@ -2,6 +2,10 @@
 
 Projekt jest statyczny. Nie wymaga builda do samego działania strony. Node.js i npm są potrzebne tylko do pipeline zdjęć (`npm run optimize`), nie do renderowania strony.
 
+## Wersjonowanie / cache-bust
+
+Cache-bust jest ściśle monotoniczny. Każdy nowy commit ustawia `?v=`, `DATA_VERSION` i `version` w danych na wartość wyższą niż jakakolwiek wcześniej użyta (release lub snapshot). Nigdy nie zmniejszamy ani nie powtarzamy numeru. Reguła praktyczna: weź maksimum ze wszystkich dotychczasowych i podnieś najniższy człon (patch). Kolejne sprinty: > 1.5.69.
+
 ## A. GitHub Pages
 
 1. Utwórz repozytorium GitHub.

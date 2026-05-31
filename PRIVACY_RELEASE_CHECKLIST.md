@@ -22,6 +22,7 @@
 
 - [ ] Stosować szczególną ostrożność przy zdjęciach dzieci i młodzieży.
 - [ ] Potwierdzić zgodę opiekunów prawnych przed publikacją.
+- [ ] Slajd/zdjęcie z `minorsPresent:true` można ustawić na `status:"approved"` dopiero po uzyskaniu pisemnej zgody opiekuna i ustawieniu `guardianConsent:true`.
 - [ ] Ograniczać dane identyfikujące osoby niepełnoletnie.
 
 ## 5. Social media i embed-y
