@@ -163,22 +163,30 @@
           {
             "name": "Małgorzata Szymczyk",
             "role": "Prezydent (Prezes Zarządu)",
-            "description": "Koordynuje pracę Klubu i reprezentuje go zgodnie z zasadami statutowymi."
+            "description": "Koordynuje pracę Klubu i reprezentuje go zgodnie z zasadami statutowymi.",
+            "photo": "",
+            "cv": ""
           },
           {
             "name": "Marian Januszkiewicz",
             "role": "Sekretarz",
-            "description": "Wspiera obieg informacji, dokumentację i organizację pracy Klubu."
+            "description": "Wspiera obieg informacji, dokumentację i organizację pracy Klubu.",
+            "photo": "",
+            "cv": ""
           },
           {
             "name": "Ilona Piwkowska",
             "role": "Skarbnik",
-            "description": "Prowadzi finanse Klubu, składki członkowskie i rozliczenia zgodnie z zasadami statutowymi."
+            "description": "Prowadzi finanse Klubu, składki członkowskie i rozliczenia zgodnie z zasadami statutowymi.",
+            "photo": "",
+            "cv": ""
           },
           {
             "name": "Roman Szyja",
             "role": "Członek Zarządu",
-            "description": "Współuczestniczy w pracach Zarządu i wspiera realizację zadań statutowych Klubu."
+            "description": "Współuczestniczy w pracach Zarządu i wspiera realizację zadań statutowych Klubu.",
+            "photo": "",
+            "cv": ""
           }
         ],
         "membersNote": "[DO POTWIERDZENIA - czy Zarząd ma także osobę pełniącą funkcję Wiceprezydenta. Statut przewiduje tę funkcję, ale aktualny skład może jej nie obejmować.]",

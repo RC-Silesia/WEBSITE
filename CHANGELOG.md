@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.58-zarzad-karty-aktywne
+- przekształcono karty osób funkcyjnych Zarządu w dostępne akordeony z miejscem na zdjęcie i CV;
+- dodano opcjonalne pola `photo` i `cv` do danych Zarządu bez uzupełniania danych osobowych;
+- dodano placeholdery zdjęć i CV, obsługę kliknięcia oraz Enter/Spacji, `aria-expanded`, `aria-hidden` i `inert`;
+- podbito cache-bust assetów i danych do `v=1.5.58`.
+
 ## v1.5.57-test-czterech-pytan-akordeony
 - przekształcono cztery kafle Testu Czterech Pytań w dostępne akordeony z wyjaśnieniami pojęć;
 - dodano obsługę kliknięcia, Enter/Spacji, `aria-expanded`, `aria-hidden` i `inert` dla nowych kafli;

@@ -22,7 +22,7 @@
   <meta name="twitter:image" content="https://rc-silesia.github.io/WEBSITE/assets/img/og-rc-silesia.jpg">
   <meta name="twitter:image:alt" content="RC Silesia - Rotary Klub Silesia na Górnym Śląsku">
   <link rel="icon" href="assets/img/rotary-moe-r-rev.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=1.5.57">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.5.58">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -752,32 +752,68 @@
         <p>Lista robocza do potwierdzenia przed publikacją produkcyjną.</p>
       </div>
       <div class="people-grid" data-render="board-members">
-        <article class="person-card">
-          <div>
-            <h3>Małgorzata Szymczyk</h3>
-            <p class="person-role">Prezydent Klubu / Prezes Zarządu</p>
-            <p>Koordynuje pracę Klubu i reprezentuje go zgodnie z zasadami statutowymi.</p>
+        <article class="person-card" aria-expanded="false">
+          <div class="person-card__header" id="zarzad-toggle-1" role="button" tabindex="0" aria-expanded="false" aria-controls="zarzad-panel-1">
+            <div>
+              <h3>Małgorzata Szymczyk</h3>
+              <p class="person-role">Prezydent Klubu / Prezes Zarządu</p>
+              <p>Koordynuje pracę Klubu i reprezentuje go zgodnie z zasadami statutowymi.</p>
+            </div>
+            <span class="person-card__chevron" aria-hidden="true"></span>
+          </div>
+          <div class="person-card__panel" id="zarzad-panel-1" role="region" aria-labelledby="zarzad-toggle-1" aria-hidden="true" inert>
+            <div class="person-card__details">
+              <div class="person-card__photo-placeholder">Zdjęcie do dodania po zgodzie osoby</div>
+              <div class="person-card__cv"><p>CV w przygotowaniu - do uzupełnienia przed publikacją.</p></div>
+            </div>
           </div>
         </article>
-        <article class="person-card">
-          <div>
-            <h3>Marian Januszkiewicz</h3>
-            <p class="person-role">Sekretarz</p>
-            <p>Wspiera obieg informacji, dokumentację i organizację pracy Klubu.</p>
+        <article class="person-card" aria-expanded="false">
+          <div class="person-card__header" id="zarzad-toggle-2" role="button" tabindex="0" aria-expanded="false" aria-controls="zarzad-panel-2">
+            <div>
+              <h3>Marian Januszkiewicz</h3>
+              <p class="person-role">Sekretarz</p>
+              <p>Wspiera obieg informacji, dokumentację i organizację pracy Klubu.</p>
+            </div>
+            <span class="person-card__chevron" aria-hidden="true"></span>
+          </div>
+          <div class="person-card__panel" id="zarzad-panel-2" role="region" aria-labelledby="zarzad-toggle-2" aria-hidden="true" inert>
+            <div class="person-card__details">
+              <div class="person-card__photo-placeholder">Zdjęcie do dodania po zgodzie osoby</div>
+              <div class="person-card__cv"><p>CV w przygotowaniu - do uzupełnienia przed publikacją.</p></div>
+            </div>
           </div>
         </article>
-        <article class="person-card">
-          <div>
-            <h3>Ilona Piwkowska</h3>
-            <p class="person-role">Skarbnik</p>
-            <p>Prowadzi finanse Klubu, składki członkowskie i rozliczenia zgodnie z zasadami statutowymi.</p>
+        <article class="person-card" aria-expanded="false">
+          <div class="person-card__header" id="zarzad-toggle-3" role="button" tabindex="0" aria-expanded="false" aria-controls="zarzad-panel-3">
+            <div>
+              <h3>Ilona Piwkowska</h3>
+              <p class="person-role">Skarbnik</p>
+              <p>Prowadzi finanse Klubu, składki członkowskie i rozliczenia zgodnie z zasadami statutowymi.</p>
+            </div>
+            <span class="person-card__chevron" aria-hidden="true"></span>
+          </div>
+          <div class="person-card__panel" id="zarzad-panel-3" role="region" aria-labelledby="zarzad-toggle-3" aria-hidden="true" inert>
+            <div class="person-card__details">
+              <div class="person-card__photo-placeholder">Zdjęcie do dodania po zgodzie osoby</div>
+              <div class="person-card__cv"><p>CV w przygotowaniu - do uzupełnienia przed publikacją.</p></div>
+            </div>
           </div>
         </article>
-        <article class="person-card">
-          <div>
-            <h3>Roman Szyja</h3>
-            <p class="person-role">Członek Zarządu</p>
-            <p>Współuczestniczy w pracach Zarządu i wspiera realizację zadań statutowych Klubu.</p>
+        <article class="person-card" aria-expanded="false">
+          <div class="person-card__header" id="zarzad-toggle-4" role="button" tabindex="0" aria-expanded="false" aria-controls="zarzad-panel-4">
+            <div>
+              <h3>Roman Szyja</h3>
+              <p class="person-role">Członek Zarządu</p>
+              <p>Współuczestniczy w pracach Zarządu i wspiera realizację zadań statutowych Klubu.</p>
+            </div>
+            <span class="person-card__chevron" aria-hidden="true"></span>
+          </div>
+          <div class="person-card__panel" id="zarzad-panel-4" role="region" aria-labelledby="zarzad-toggle-4" aria-hidden="true" inert>
+            <div class="person-card__details">
+              <div class="person-card__photo-placeholder">Zdjęcie do dodania po zgodzie osoby</div>
+              <div class="person-card__cv"><p>CV w przygotowaniu - do uzupełnienia przed publikacją.</p></div>
+            </div>
           </div>
         </article>
       </div>
@@ -1476,6 +1512,6 @@
   <button class="back-to-top" type="button" aria-label="Wróć na górę strony" data-back-to-top hidden>
     <span aria-hidden="true"></span>
   </button>
-  <script src="assets/js/script.js?v=1.5.57"></script>
+  <script src="assets/js/script.js?v=1.5.58"></script>
 </body>
 </html>

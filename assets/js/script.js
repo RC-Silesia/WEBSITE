@@ -684,7 +684,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.57";
+  var DATA_VERSION = "1.5.58";
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -981,16 +981,73 @@
     if (!container || !zarzad || !Array.isArray(zarzad.members) || !zarzad.members.length) return;
 
     clearElement(container);
-    zarzad.members.forEach(function (member) {
+    zarzad.members.forEach(function (member, index) {
+      var itemNumber = index + 1;
+      var toggleId = "zarzad-toggle-" + itemNumber;
+      var panelId = "zarzad-panel-" + itemNumber;
       var card = document.createElement("article");
       card.className = "person-card";
+      card.setAttribute("aria-expanded", "false");
+
+      var header = document.createElement("div");
+      header.className = "person-card__header";
+      header.id = toggleId;
+      header.setAttribute("role", "button");
+      header.setAttribute("tabindex", "0");
+      header.setAttribute("aria-expanded", "false");
+      header.setAttribute("aria-controls", panelId);
+
       var body = document.createElement("div");
       appendTextElement(body, "h3", "", member.name);
       appendTextElement(body, "p", "person-role", member.role);
       appendTextElement(body, "p", "", member.description || "Opis roli do potwierdzenia przed publikacją produkcyjną.");
-      card.appendChild(body);
+      header.appendChild(body);
+
+      var chevron = document.createElement("span");
+      chevron.className = "person-card__chevron";
+      chevron.setAttribute("aria-hidden", "true");
+      header.appendChild(chevron);
+      card.appendChild(header);
+
+      var panel = document.createElement("div");
+      panel.className = "person-card__panel";
+      panel.id = panelId;
+      panel.setAttribute("role", "region");
+      panel.setAttribute("aria-labelledby", toggleId);
+      panel.setAttribute("aria-hidden", "true");
+      panel.setAttribute("inert", "");
+
+      var details = document.createElement("div");
+      details.className = "person-card__details";
+      if (member.photo) {
+        var photo = document.createElement("img");
+        photo.className = "person-card__photo";
+        photo.src = member.photo;
+        photo.alt = (member.name || "Osoba funkcyjna") + " - " + (member.role || "Zarząd");
+        photo.loading = "lazy";
+        photo.width = 320;
+        photo.height = 400;
+        details.appendChild(photo);
+      } else {
+        appendTextElement(details, "div", "person-card__photo-placeholder", "Zdjęcie do dodania po zgodzie osoby");
+      }
+
+      var cv = document.createElement("div");
+      cv.className = "person-card__cv";
+      if (member.cv) {
+        String(member.cv).split(/\n{2,}/).forEach(function (paragraph) {
+          appendTextElement(cv, "p", "", paragraph.trim());
+        });
+      } else {
+        appendTextElement(cv, "p", "", "CV w przygotowaniu - do uzupełnienia przed publikacją.");
+      }
+      details.appendChild(cv);
+      panel.appendChild(details);
+      card.appendChild(panel);
+
       container.appendChild(card);
     });
+    initPersonAccordions(container);
   }
 
   function toggleStatutoryButton(button, expanded) {
@@ -1077,6 +1134,38 @@
         if (event.key === "Enter" || event.key === " " || event.code === "Enter" || event.code === "Space" || event.keyCode === 13 || event.keyCode === 32) {
           event.preventDefault();
           toggleFourWayCard(header, header.getAttribute("aria-expanded") !== "true");
+        }
+      });
+    });
+  }
+
+  function togglePersonCard(header, expanded) {
+    var card = header.closest(".person-card");
+    var panel = document.getElementById(header.getAttribute("aria-controls"));
+    if (!card || !panel) return;
+    card.setAttribute("aria-expanded", String(expanded));
+    header.setAttribute("aria-expanded", String(expanded));
+    panel.setAttribute("aria-hidden", String(!expanded));
+    if (expanded) {
+      panel.removeAttribute("inert");
+    } else {
+      panel.setAttribute("inert", "");
+    }
+  }
+
+  function initPersonAccordions(scope) {
+    var root = scope || document;
+    Array.prototype.slice.call(root.querySelectorAll(".person-card__header")).forEach(function (header) {
+      if (header.getAttribute("data-accordion-ready") === "true") return;
+      header.setAttribute("data-accordion-ready", "true");
+      togglePersonCard(header, header.getAttribute("aria-expanded") === "true");
+      header.addEventListener("click", function () {
+        togglePersonCard(header, header.getAttribute("aria-expanded") !== "true");
+      });
+      header.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " " || event.code === "Enter" || event.code === "Space" || event.keyCode === 13 || event.keyCode === 32) {
+          event.preventDefault();
+          togglePersonCard(header, header.getAttribute("aria-expanded") !== "true");
         }
       });
     });
@@ -1380,6 +1469,7 @@
   initStatutoryAccordions(document);
   initGalleryAccordions(document);
   initFourWayAccordions(document);
+  initPersonAccordions(document);
   initMemberAccordions(document);
   initPartnerAccordions(document);
   initDisclosures(document);
