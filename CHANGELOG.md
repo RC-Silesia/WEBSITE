@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.75-a11y-honeypot-gate-refinement
+- doprecyzowano statyczny gate WCAG dla kontrolowanego honeypotu formularza kontaktowego;
+- rozszerzono kontrolę `noindex,nofollow` na wszystkie strony HTML objęte testem statycznym;
+- przeklasyfikowano `A11Y-STATIC-001` jako `resolved / false positive` z zachowaniem śladu audytowego.
+
 ## v1.5.74-partner-sob-logo-link
 - dodano lokalne logo Śląskiego Ogrodu Botanicznego ZS w istniejącej karcie partnera;
 - poprawiono link karty ŚOB na stronę internetową Ogrodu i pozostawiono Facebook jako osobny link;

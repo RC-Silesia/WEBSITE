@@ -118,9 +118,28 @@ function isWrappedByLabel(text, index) {
   return nextClose !== -1;
 }
 
+function looksLikeHoneypot(tag) {
+  const className = getAttr(tag, "class") || "";
+  return (
+    getAttr(tag, "data-honeypot") === "true" ||
+    getAttr(tag, "name") === "_honey" ||
+    /\bhp\b/.test(className)
+  );
+}
+
+function isControlledHoneypot(tag) {
+  return (
+    looksLikeHoneypot(tag) &&
+    getAttr(tag, "aria-hidden") === "true" &&
+    getAttr(tag, "tabindex") === "-1" &&
+    getAttr(tag, "autocomplete") === "off"
+  );
+}
+
 function hasFormControlLabel(text, tagInfo, labelsFor) {
   const type = (getAttr(tagInfo.tag, "type") || "").toLowerCase();
   if (["hidden", "submit", "button", "reset"].includes(type)) return true;
+  if (isControlledHoneypot(tagInfo.tag)) return true;
   if ((getAttr(tagInfo.tag, "aria-label") || "").trim()) return true;
   if ((getAttr(tagInfo.tag, "aria-labelledby") || "").trim()) return true;
   const id = getAttr(tagInfo.tag, "id");
@@ -201,17 +220,19 @@ function checkHtmlFile(file) {
   const labelForSet = labelsFor(text);
   for (const tagName of ["input", "select", "textarea"]) {
     for (const control of tags(text, tagName)) {
-      if (hasFormControlLabel(text, control, labelForSet)) pass(`${location(file, text, control.index)} ${tagName} has label`);
+      if (isControlledHoneypot(control.tag)) {
+        pass(`${location(file, text, control.index)} ${tagName} is controlled honeypot and is exempt from label requirement`);
+      } else if (looksLikeHoneypot(control.tag)) {
+        fail(file, text, control.index, `${tagName} honeypot must have aria-hidden="true", tabindex="-1" and autocomplete="off"`);
+      } else if (hasFormControlLabel(text, control, labelForSet)) pass(`${location(file, text, control.index)} ${tagName} has label`);
       else fail(file, text, control.index, `${tagName} is missing label, aria-label or aria-labelledby`);
     }
   }
 
-  if (file === "index.html") {
-    if (/<meta\b[^>]*name\s*=\s*["']robots["'][^>]*content\s*=\s*["'][^"']*noindex\s*,\s*nofollow[^"']*["']/i.test(text)) {
-      pass("index.html keeps noindex,nofollow");
-    } else {
-      fail(file, text, 0, "index.html must keep noindex,nofollow while staging");
-    }
+  if (/<meta\b[^>]*name\s*=\s*["']robots["'][^>]*content\s*=\s*["'][^"']*noindex\s*,\s*nofollow[^"']*["']/i.test(text)) {
+    pass(`${file} keeps noindex,nofollow`);
+  } else {
+    fail(file, text, 0, `${file} must keep noindex,nofollow while staging`);
   }
 }
 
