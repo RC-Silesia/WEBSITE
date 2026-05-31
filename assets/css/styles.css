@@ -927,6 +927,40 @@ a.is-disabled {
   color: var(--blue-dark);
 }
 
+.planet-partner-accordion {
+  max-width: 940px;
+  margin: 0 auto 28px;
+}
+
+.planet-partner-accordion .partner-accordion-card__panel {
+  display: grid;
+  gap: 12px;
+}
+
+.planet-partner-accordion .partner-accordion-card__panel[aria-hidden="true"] {
+  display: none;
+}
+
+.planet-partner-accordion .partner-accordion-card__panel p {
+  font-weight: 400;
+}
+
+.planet-partner-accordion .planet-partner-link {
+  padding: 0;
+  border-left: 0;
+  background: transparent;
+}
+
+.planet-partner-link a {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.planet-partner-link a:focus-visible {
+  outline: 3px solid rgba(247, 168, 27, .75);
+  outline-offset: 3px;
+}
+
 .planet-facts {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

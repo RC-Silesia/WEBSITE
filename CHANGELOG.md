@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.47-planet-sob
+- dodano rozwijany panel współpracy ze Śląskim Ogrodem Botanicznym w sekcji `#planet`,
+- dopisano lekkie odwołania do Ogrodu w kroku `Sadzenie i edukacja` oraz karcie `Dobór gatunku`,
+- pozostawiono materiały źródłowe Rotary Polska i pozostałe sekcje bez zmian,
+- podbito cache-bust assetów i danych do `v=1.5.47`.
+
 ## v1.5.46-partnerzy-linki
 - dodano linki do stron internetowych nazwanych partnerów w sekcji `#partnerstwa`,
 - pozostawiono placeholdery list partnerów bez nazw i bez linków,
