@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.78-wcag-baseline-audit
+- dodano techniczny baseline audit dostępności `docs/WCAG_BASELINE_AUDIT_v0_1.md`;
+- udokumentowano wyniki governance gate, headless overflow smoke i podstawowego testu klawiatury;
+- zaktualizowano rejestr WCAG bez zmian w kodzie publicznej strony i bez cache-bustu.
+
 ## v1.5.77-wcag-youth-pages-noindex-gate
 - rozszerzono statyczny gate WCAG o podstrony `mlodziez-wymiana.html` i `mlodziez-rotaract.html`;
 - gate sprawdza teraz `noindex,nofollow` również dla podstron YEP i Rotaract;
