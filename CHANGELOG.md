@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.66-youth-pages
+- aktywowano kafle w sekcji `#mlodziez` jako dostępne karty-linki prowadzące do osobnych podstron YEP i Rotaract.
+- dodano `mlodziez-wymiana.html` z opisem aktywnego programu wymiany młodzieży, rolą RC Silesia, ograniczonym zakresem danych oficera wymiany i notą o wizerunku małoletnich.
+- dodano `mlodziez-rotaract.html` jako niezależny placeholder z jasnym statusem braku aktywnego klubu Rotaract przy RC Silesia.
+- Podbito cache-bust assetów i danych do `v=1.5.66`.
+
 ## v1.5.64-hero-carousel
 - dodano dostępną karuzelę pod hero z trybem treściowym i zdjęciowym, statycznym fallbackiem HTML oraz sterowaniem klawiaturą.
 - dodano `assets/data/carousel.json` ładowany przez `fetch(...?v=DATA_VERSION)` z fallbackiem na statyczne slajdy.

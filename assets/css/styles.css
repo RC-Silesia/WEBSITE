@@ -980,6 +980,32 @@ main[id] {
   margin: 0 auto;
 }
 
+.youth-card {
+  position: relative;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.youth-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.youth-card-link {
+  color: var(--blue-dark);
+  text-decoration: none;
+}
+
+.youth-card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.youth-card-link:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
 .youth-card-logo {
   display: flex;
   align-items: center;
