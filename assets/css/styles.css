@@ -15,6 +15,18 @@
   --shadow: 0 14px 36px rgba(16, 37, 64, .12);
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 * { box-sizing: border-box; }
 
 html {
@@ -1215,8 +1227,9 @@ main[id] {
 .principle-card__header {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
   gap: 14px;
+  align-items: start;
   min-height: 128px;
   padding: 18px;
   cursor: pointer;
@@ -1232,6 +1245,13 @@ main[id] {
   color: var(--blue-dark);
   font-size: 16px;
   line-height: 1.35;
+}
+
+.principle-card__icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .principle-card__chevron {
@@ -1266,6 +1286,119 @@ main[id] {
 
 .principle-card[aria-expanded="true"] .principle-card__panel {
   max-height: 900px;
+}
+
+.areas-wheel {
+  --aof-azure: #0067c8;
+  --aof-cardinal: #e02927;
+  --aof-sky-blue: #00a2e0;
+  --aof-violet: #901f93;
+  --aof-orange: #ff7600;
+  --aof-turquoise: #00adbb;
+  --aof-grass: #009739;
+  position: relative;
+  max-width: 860px;
+  min-height: 620px;
+  margin: 42px auto 0;
+}
+
+.areas-wheel__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 190px;
+  height: 190px;
+  padding: 20px;
+  border: 1px solid rgba(23, 69, 143, .16);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--blue-dark);
+  box-shadow: var(--shadow);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.areas-wheel__list {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.areas-wheel__item {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 250px;
+  color: var(--aof-azure);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.areas-wheel__icon {
+  display: block;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.areas-wheel__item--peace {
+  top: 0;
+  left: 50%;
+  color: var(--aof-azure);
+  transform: translateX(-50%);
+}
+
+.areas-wheel__item--disease {
+  top: 18%;
+  right: 4%;
+  color: var(--aof-cardinal);
+}
+
+.areas-wheel__item--water {
+  right: 0;
+  bottom: 18%;
+  color: var(--aof-sky-blue);
+}
+
+.areas-wheel__item--maternal {
+  right: 22%;
+  bottom: 0;
+  color: var(--aof-violet);
+}
+
+.areas-wheel__item--education {
+  bottom: 0;
+  left: 22%;
+  color: var(--aof-orange);
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.areas-wheel__item--economic {
+  bottom: 18%;
+  left: 0;
+  color: var(--aof-turquoise);
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.areas-wheel__item--environment {
+  top: 18%;
+  left: 4%;
+  color: var(--aof-grass);
+  justify-content: flex-end;
+  text-align: right;
 }
 
 .local-principles-card {
@@ -3405,6 +3538,40 @@ textarea {
 
   .principles-grid .principle-card {
     flex-basis: 100%;
+  }
+
+  .areas-wheel {
+    min-height: 0;
+    margin-top: 30px;
+  }
+
+  .areas-wheel__center {
+    position: static;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    margin: 0 0 18px;
+    border-radius: 8px;
+    transform: none;
+  }
+
+  .areas-wheel__list {
+    display: grid;
+    gap: 14px;
+    min-height: 0;
+  }
+
+  .areas-wheel__item {
+    position: static;
+    width: auto;
+    justify-content: flex-start;
+    text-align: left;
+    transform: none;
+  }
+
+  .areas-wheel__icon {
+    width: 56px;
+    height: 56px;
   }
 }
 

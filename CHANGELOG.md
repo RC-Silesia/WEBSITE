@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.68-areas-of-focus-icons
+- dodano siedem oficjalnych ikon Areas of Focus z Rotary Brand Center/WebDAM do nagłówków kafli `#zasady-rotary`;
+- dodano dostępne, responsywne polskie koło obszarów działania Rotary pod siatką kafli;
+- podbito cache-bust assetów i danych do `v=1.5.68`.
+
 ## v1.5.67-carousel-guardian-consent
 - wzmocniono bramkę karuzeli: slajdy `photo` z `consent.minorsPresent === true` wymagają teraz także `consent.guardianConsent === true`, poza statusem `approved` i niepustym `image.src`.
 - dodano jawne `guardianConsent: false` w domyślnym slajdzie zdjęciowym `assets/data/carousel.json`, więc paczka nadal renderuje placeholder.
