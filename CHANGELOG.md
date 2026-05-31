@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.72-rotaract-detail-copy
+- zaktualizowano `mlodziez-rotaract.html` do pełnej treści informacyjnej o Rotaract dla młodych dorosłych;
+- zachowano jasny status: Rotary Klub Silesia nie prowadzi obecnie aktywnego klubu Rotaract;
+- podbito cache-bust assetów i danych do `v=1.5.72`.
+
 ## v1.5.71-fix-areas-icons
 - usunięto koło obszarów działania Rotary spod siatki `#zasady-rotary`;
 - powiększono oficjalne ikony w nagłówkach siedmiu kafli obszarów z 40 px do 60 px;
