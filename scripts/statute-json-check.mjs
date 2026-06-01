@@ -1,110 +1,34 @@
-import crypto from "node:crypto";
 import fs from "node:fs";
 
 const STATUTE_PATH = "governance/legal/statut.json";
 const EVOTING_PATH = "governance/legal/EVOTING_CONCEPT_v0_1.md";
-const SOURCE_DOCX = "assets/docs/RC_Silesia_Statut_Final.docx";
+const RESOLUTION_A_PATH = "governance/legal/uchwala-wz-2026-1-korekta-redakcyjna.json";
+const RESOLUTION_B_PATH = "governance/legal/uchwala-wz-2026-2-zmiana-dewizy.json";
 
-const REQUIRED_TOP_LEVEL_KEYS = [
-  "_status",
-  "statute_id",
-  "organization_id",
-  "title",
-  "version",
-  "status",
-  "source_document",
-  "source_document_sha256",
-  "source_document_size_bytes",
-  "generated_at",
-  "reference_prefix",
-  "articles",
-  "paragraphs",
-  "units",
-  "organs",
-  "competences",
-  "representation",
-  "resolution_rules",
-  "membership",
-  "fees",
-  "assets",
-  "electronic_communication",
-  "amendment",
-  "dissolution"
+const REQUIRED_FILES = [
+  STATUTE_PATH,
+  EVOTING_PATH,
+  RESOLUTION_A_PATH,
+  RESOLUTION_B_PATH
 ];
 
-const REQUIRED_UNIT_KEYS = [
-  "id",
-  "canonical_ref",
-  "label",
-  "type",
-  "text",
-  "children",
-  "parent_id",
-  "article_id",
-  "paragraph_id",
-  "source_order",
-  "effective_from"
-];
-
-const REQUIRED_ARTICLE_KEYS = [
-  "id",
-  "canonical_ref",
-  "label",
-  "title",
-  "source_order",
-  "paragraph_refs"
-];
-
-const REQUIRED_PARAGRAPH_KEYS = [
-  "id",
-  "canonical_ref",
-  "label",
-  "type",
-  "text",
-  "children",
-  "parent_id",
-  "article_id",
-  "paragraph_id",
-  "source_order",
-  "effective_from"
-];
-
-const REQUIRED_REFS = [
-  "statut:par_9_ust_1",
-  "statut:par_10",
-  "statut:par_18",
-  "statut:par_18_ust_19",
-  "statut:par_18_ust_20",
-  "statut:par_19",
-  "statut:par_20",
-  "statut:par_33",
-  "statut:par_33_ust_1",
-  "statut:par_33_ust_2",
-  "statut:par_33_ballot_by_mailing"
-];
-
-const REQUIRED_TEXT_FRAGMENTS = [
-  "Rotary Klub Silesia",
-  "Siedzibą Klubu jest miasto Mikołów",
-  "Członek czynny Klubu ma status",
-  "Walne Zgromadzenie Członków jest najwyższą władzą Klubu",
-  "Uchwały Walnego Zgromadzenia Członków zapadają zwykłą większością głosów",
-  "Zmiana Statutu wymaga bezwzględnej większości głosów",
-  "Do składania w imieniu Klubu oświadczeń woli",
-  "Zebrania Klubu, posiedzenia Zarządu",
-  "ballot-by-mailing"
-];
-
-const MOJIBAKE_PATTERNS = [
-  /Â§/,
-  /ArtykuĹ/,
-  /OgĂ/,
-  /Ĺ‚/,
-  /Ĺ›/,
-  /Ä…/,
-  /Ä™/,
-  /Ăł/,
-  /Â[^\n]/
+const EXPECTED_ARTICLES = [
+  "I",
+  "II",
+  "III",
+  "IV",
+  "V",
+  "VI",
+  "VII",
+  "VIII",
+  "IX",
+  "X",
+  "XI",
+  "XII",
+  "XIII",
+  "XIV",
+  "XV",
+  "XVI"
 ];
 
 let failures = 0;
@@ -141,12 +65,20 @@ function readUtf8(path) {
   return { bytes, text };
 }
 
-function hasOwn(object, key) {
-  return Object.prototype.hasOwnProperty.call(object, key);
+function readJson(path) {
+  const file = readUtf8(path);
+  try {
+    const json = JSON.parse(file.text);
+    pass(`${path}: JSON parses`);
+    return { file, json };
+  } catch (error) {
+    fail(`${path}: JSON parses: ${error.message}`);
+    return { file, json: null };
+  }
 }
 
-function extractStatuteRefs(text) {
-  return [...text.matchAll(/`(statut:[a-z0-9_:-]+)`/gi)].map((match) => match[1]);
+function hasOwn(object, key) {
+  return Object.prototype.hasOwnProperty.call(object, key);
 }
 
 function findDuplicates(values) {
@@ -164,270 +96,148 @@ function findDuplicates(values) {
   return [...duplicates];
 }
 
-function assertUnique(values, message, duplicateMessage) {
-  const duplicates = findDuplicates(values);
-  assert(duplicates.length === 0, message);
-
-  for (const duplicate of duplicates) {
-    fail(`${duplicateMessage}: ${duplicate}`);
-  }
+function flattenParagraphs(statute) {
+  return statute.artykuly.flatMap((article) =>
+    (article.paragrafy || []).map((paragraph) => ({ ...paragraph, articleNumber: article.numer }))
+  );
 }
 
-assert(fs.existsSync(STATUTE_PATH), `${STATUTE_PATH}: exists`);
-assert(fs.existsSync(EVOTING_PATH), `${EVOTING_PATH}: exists`);
-assert(fs.existsSync(SOURCE_DOCX), `${SOURCE_DOCX}: exists`);
+function flattenUnitsFromParagraph(paragraph) {
+  const units = [paragraph];
 
-const statuteFile = readUtf8(STATUTE_PATH);
-const evotingFile = readUtf8(EVOTING_PATH);
-const statute = JSON.parse(statuteFile.text);
-pass(`${STATUTE_PATH}: JSON parses`);
-
-for (const key of REQUIRED_TOP_LEVEL_KEYS) {
-  assert(hasOwn(statute, key), `${STATUTE_PATH}: top-level key exists: ${key}`);
-}
-
-assert(statute.source_document === SOURCE_DOCX, `${STATUTE_PATH}: source_document points to DOCX`);
-
-const sourceBytes = fs.readFileSync(SOURCE_DOCX);
-const sourceHash = crypto.createHash("sha256").update(sourceBytes).digest("hex");
-assert(statute.source_document_sha256 === sourceHash, `${STATUTE_PATH}: source_document_sha256 matches DOCX`);
-assert(statute.source_document_size_bytes === sourceBytes.length, `${STATUTE_PATH}: source_document_size_bytes matches DOCX`);
-
-assert(Array.isArray(statute.articles), `${STATUTE_PATH}: articles is an array`);
-assert(Array.isArray(statute.paragraphs), `${STATUTE_PATH}: paragraphs is an array`);
-assert(Array.isArray(statute.units), `${STATUTE_PATH}: units is an array`);
-assert(statute.articles.length === 16, `${STATUTE_PATH}: contains 16 articles`);
-assert(statute.paragraphs.length === 33, `${STATUTE_PATH}: contains 33 paragraphs`);
-assert(statute.units.length >= 239, `${STATUTE_PATH}: contains at least 239 units`);
-
-assertUnique(
-  statute.articles.map((article) => article.id),
-  `${STATUTE_PATH}: article ids are unique`,
-  `${STATUTE_PATH}: duplicate article id`
-);
-assertUnique(
-  statute.articles.map((article) => article.canonical_ref),
-  `${STATUTE_PATH}: article canonical_refs are unique`,
-  `${STATUTE_PATH}: duplicate article canonical_ref`
-);
-assertUnique(
-  statute.paragraphs.map((paragraph) => paragraph.id),
-  `${STATUTE_PATH}: paragraph ids are unique`,
-  `${STATUTE_PATH}: duplicate paragraph id`
-);
-assertUnique(
-  statute.paragraphs.map((paragraph) => paragraph.canonical_ref),
-  `${STATUTE_PATH}: paragraph canonical_refs are unique`,
-  `${STATUTE_PATH}: duplicate paragraph canonical_ref`
-);
-
-const duplicateArticleLabels = findDuplicates(statute.articles.map((article) => article.label));
-if (duplicateArticleLabels.length) {
-  warning(`${STATUTE_PATH}: duplicate source article labels preserved from source: ${duplicateArticleLabels.join(", ")}`);
-} else {
-  pass(`${STATUTE_PATH}: article labels are unique`);
-}
-
-const allText = statuteFile.text;
-for (const pattern of MOJIBAKE_PATTERNS) {
-  assert(!pattern.test(allText), `${STATUTE_PATH}: no mojibake pattern ${pattern}`);
-}
-
-assert(allText.includes("§"), `${STATUTE_PATH}: preserves §`);
-assert(allText.includes("ą") && allText.includes("ł") && allText.includes("ś"), `${STATUTE_PATH}: preserves Polish characters`);
-
-for (const fragment of REQUIRED_TEXT_FRAGMENTS) {
-  assert(allText.includes(fragment), `${STATUTE_PATH}: contains required text fragment: ${fragment}`);
-}
-
-const refToUnit = new Map();
-const idToUnit = new Map();
-const duplicateRefs = new Set();
-const duplicateIds = new Set();
-for (const unit of statute.units) {
-  if (idToUnit.has(unit.id)) duplicateIds.add(unit.id);
-  idToUnit.set(unit.id, unit);
-  if (refToUnit.has(unit.canonical_ref)) duplicateRefs.add(unit.canonical_ref);
-  refToUnit.set(unit.canonical_ref, unit);
-}
-
-assert(duplicateIds.size === 0, `${STATUTE_PATH}: unit ids are unique`);
-assert(duplicateRefs.size === 0, `${STATUTE_PATH}: unit canonical_refs are unique`);
-
-const articleIds = new Set(statute.articles.map((article) => article.id));
-const paragraphIds = new Set(statute.paragraphs.map((paragraph) => paragraph.id));
-
-let articleStructuralIssues = 0;
-for (const article of statute.articles) {
-  for (const key of REQUIRED_ARTICLE_KEYS) {
-    if (!hasOwn(article, key)) {
-      articleStructuralIssues += 1;
-      fail(`${article.id}: article key missing: ${key}`);
+  for (const unit of paragraph.ustepy || []) {
+    units.push(unit);
+    for (const point of unit.punkty || []) {
+      units.push(point);
     }
   }
-  if (typeof article.canonical_ref !== "string" || !article.canonical_ref.startsWith(statute.reference_prefix)) {
-    articleStructuralIssues += 1;
-    fail(`${article.id}: article canonical_ref must start with ${statute.reference_prefix}`);
-  }
-  if (!Array.isArray(article.paragraph_refs)) {
-    articleStructuralIssues += 1;
-    fail(`${article.id}: paragraph_refs is not an array`);
-  }
-}
-assert(articleStructuralIssues === 0, `${STATUTE_PATH}: all ${statute.articles.length} articles have required structure`);
 
-let paragraphStructuralIssues = 0;
-for (const paragraph of statute.paragraphs) {
-  for (const key of REQUIRED_PARAGRAPH_KEYS) {
-    if (!hasOwn(paragraph, key)) {
-      paragraphStructuralIssues += 1;
-      fail(`${paragraph.id}: paragraph key missing: ${key}`);
-    }
+  for (const point of paragraph.punkty || []) {
+    units.push(point);
   }
-  if (typeof paragraph.canonical_ref !== "string" || !paragraph.canonical_ref.startsWith(statute.reference_prefix)) {
-    paragraphStructuralIssues += 1;
-    fail(`${paragraph.id}: paragraph canonical_ref must start with ${statute.reference_prefix}`);
-  }
-  if (!articleIds.has(paragraph.article_id)) {
-    paragraphStructuralIssues += 1;
-    fail(`${paragraph.id}: article_id does not point to existing article: ${paragraph.article_id}`);
-  }
-  if (!Array.isArray(paragraph.children)) {
-    paragraphStructuralIssues += 1;
-    fail(`${paragraph.id}: children is not an array`);
-  }
-}
-assert(paragraphStructuralIssues === 0, `${STATUTE_PATH}: all ${statute.paragraphs.length} paragraphs have required structure`);
 
-let unitStructuralIssues = 0;
-for (const unit of statute.units) {
-  for (const key of REQUIRED_UNIT_KEYS) {
-    if (!hasOwn(unit, key)) {
-      unitStructuralIssues += 1;
-      fail(`${unit.id}: unit key missing: ${key}`);
-    }
-  }
-  if (unit.canonical_ref !== `${statute.reference_prefix}${unit.id}`) {
-    unitStructuralIssues += 1;
-    fail(`${unit.id}: canonical_ref does not match reference_prefix + id`);
-  }
-  if (typeof unit.canonical_ref !== "string" || !unit.canonical_ref.startsWith(statute.reference_prefix)) {
-    unitStructuralIssues += 1;
-    fail(`${unit.id}: unit canonical_ref must start with ${statute.reference_prefix}`);
-  }
-  if (!articleIds.has(unit.article_id)) {
-    unitStructuralIssues += 1;
-    fail(`${unit.id}: article_id does not point to existing article: ${unit.article_id}`);
-  }
-  if (!paragraphIds.has(unit.paragraph_id)) {
-    unitStructuralIssues += 1;
-    fail(`${unit.id}: paragraph_id does not point to existing paragraph: ${unit.paragraph_id}`);
-  }
-  if (!(typeof unit.text === "string" && unit.text.trim().length > 0)) {
-    unitStructuralIssues += 1;
-    fail(`${unit.id}: text is empty`);
-  }
-  if (!Array.isArray(unit.children)) {
-    unitStructuralIssues += 1;
-    fail(`${unit.id}: children is not an array`);
-  }
-  if (!Number.isInteger(unit.source_order)) {
-    unitStructuralIssues += 1;
-    fail(`${unit.id}: source_order is not an integer`);
-  }
-}
-assert(unitStructuralIssues === 0, `${STATUTE_PATH}: all ${statute.units.length} units have required structure`);
-
-const paragraphRefs = new Set(statute.paragraphs.map((paragraph) => paragraph.canonical_ref));
-let articleRefIssues = 0;
-for (const article of statute.articles) {
-  if (!Array.isArray(article.paragraph_refs)) {
-    articleRefIssues += 1;
-    fail(`${article.id}: paragraph_refs is not an array`);
-    continue;
-  }
-  for (const paragraphRef of article.paragraph_refs) {
-    if (!paragraphRefs.has(paragraphRef)) {
-      articleRefIssues += 1;
-      fail(`${article.id}: paragraph_ref missing: ${paragraphRef}`);
-    }
-  }
-}
-assert(articleRefIssues === 0, `${STATUTE_PATH}: article paragraph_refs point to existing paragraphs`);
-
-let hierarchyIssues = 0;
-for (const paragraph of statute.paragraphs) {
-  if (!refToUnit.has(paragraph.canonical_ref)) {
-    hierarchyIssues += 1;
-    fail(`${paragraph.id}: paragraph missing from units`);
-  }
-  for (const childId of paragraph.children) {
-    const child = idToUnit.get(childId);
-    if (!child) {
-      hierarchyIssues += 1;
-      fail(`${paragraph.id}: child unit missing: ${childId}`);
-      continue;
-    }
-    if (child) {
-      if (child.parent_id !== paragraph.id) {
-        hierarchyIssues += 1;
-        fail(`${child.id}: parent_id does not point to ${paragraph.id}`);
-      }
-      if (child.paragraph_id !== paragraph.id) {
-        hierarchyIssues += 1;
-        fail(`${child.id}: paragraph_id does not point to ${paragraph.id}`);
-      }
-      if (child.article_id !== paragraph.article_id) {
-        hierarchyIssues += 1;
-        fail(`${child.id}: article_id does not match parent paragraph`);
-      }
-    }
-  }
-}
-assert(hierarchyIssues === 0, `${STATUTE_PATH}: paragraph child hierarchy is consistent`);
-
-for (const ref of REQUIRED_REFS) {
-  assert(refToUnit.has(ref), `${STATUTE_PATH}: required ref exists: ${ref}`);
+  return units;
 }
 
-const ballot = refToUnit.get("statut:par_33_ballot_by_mailing");
-assert(Boolean(ballot), "statut:par_33_ballot_by_mailing: exists");
-if (ballot) {
-  assert(ballot.parent_id === "par_33", "statut:par_33_ballot_by_mailing: parent is par_33");
-  assert(ballot.text.includes("ballot-by-mailing"), "statut:par_33_ballot_by_mailing: text contains ballot-by-mailing");
-  assert(ballot.derived_from === "statut:par_33", "statut:par_33_ballot_by_mailing: derived_from points to par_33");
-  assert(ballot.not_formal_statute_unit === true, "statut:par_33_ballot_by_mailing: marked as not formal statute unit");
-  if (ballot.type !== "derived_concept") {
-    warning("statut:par_33_ballot_by_mailing is not marked as derived_concept");
+function findParagraph(paragraphs, number) {
+  return paragraphs.find((paragraph) => paragraph.numer === `§ ${number}`);
+}
+
+function assertResolutionDocument(document, path, expectedUri) {
+  assert(document.$schema === "https://rc-silesia.github.io/WEBSITE/schemas/document.v1.json", `${path}: document schema URI`);
+  assert(document.wersjaSchematu === "1.0.0", `${path}: schema version`);
+  assert(document.dokument?.uri === expectedUri, `${path}: stable document URI`);
+  assert(document.dokument?.typ === "uchwala", `${path}: type is uchwala`);
+  assert(document.dokument?.status === "projekt", `${path}: status is project`);
+  assert(Array.isArray(document.dokument?.podstawaPrawna), `${path}: legal basis array`);
+  assert(Array.isArray(document.dokument?.powiazania), `${path}: relations array`);
+  assert(document.tresc?.typPodzialu === "paragrafy", `${path}: content split by paragraphs`);
+  assert(Array.isArray(document.tresc?.paragrafy) && document.tresc.paragrafy.length > 0, `${path}: has content paragraphs`);
+}
+
+function main() {
+  for (const path of REQUIRED_FILES) {
+    assert(fs.existsSync(path), `${path}: exists`);
+  }
+
+  const statuteData = readJson(STATUTE_PATH);
+  const evotingFile = readUtf8(EVOTING_PATH);
+  const resolutionA = readJson(RESOLUTION_A_PATH);
+  const resolutionB = readJson(RESOLUTION_B_PATH);
+  const statute = statuteData.json;
+
+  if (!statute) {
+    process.exit(1);
+  }
+
+  assert(statute.$schema === "https://rc-silesia.github.io/WEBSITE/schemas/statut.v1.json", `${STATUTE_PATH}: statute schema URI`);
+  assert(statute.wersjaSchematu === "1.0.0", `${STATUTE_PATH}: schema version`);
+  assert(hasOwn(statute, "dokument"), `${STATUTE_PATH}: dokument key exists`);
+  assert(Array.isArray(statute.artykuly), `${STATUTE_PATH}: artykuly is an array`);
+  assert(statute.dokument?.wersja === "1.2", `${STATUTE_PATH}: version is 1.2`);
+  assert(statute.dokument?.wersjaPoprzednia === "1.1", `${STATUTE_PATH}: previous version is 1.1`);
+  assert(Array.isArray(statute.dokument?.powiazania), `${STATUTE_PATH}: back-relations exist`);
+
+  const relationUris = new Set((statute.dokument.powiazania || []).map((relation) => relation.uri));
+  assert(relationUris.has("uchwala:rcs-silesia/wz/2026-XX-XX/1-korekta-redakcyjna"), `${STATUTE_PATH}: links back to resolution A`);
+  assert(relationUris.has("uchwala:rcs-silesia/wz/2026-XX-XX/2-zmiana-dewizy"), `${STATUTE_PATH}: links back to resolution B`);
+  assert(relationUris.has("statut:rcs-silesia/v1.1"), `${STATUTE_PATH}: links to direct previous statute version`);
+
+  assert(statute.artykuly.length === 16, `${STATUTE_PATH}: contains 16 articles`);
+  assert(
+    JSON.stringify(statute.artykuly.map((article) => article.numer)) === JSON.stringify(EXPECTED_ARTICLES),
+    `${STATUTE_PATH}: articles are numbered I-XVI without duplicate Article VIII`
+  );
+
+  const paragraphs = flattenParagraphs(statute);
+  assert(paragraphs.length === 33, `${STATUTE_PATH}: contains 33 paragraphs`);
+  assert(findDuplicates(paragraphs.map((paragraph) => paragraph.id)).length === 0, `${STATUTE_PATH}: paragraph ids are unique`);
+  assert(findDuplicates(paragraphs.map((paragraph) => paragraph.referencja)).length === 0, `${STATUTE_PATH}: paragraph references are unique`);
+
+  const paragraphNumbers = paragraphs.map((paragraph) => Number(String(paragraph.numer).replace(/[^0-9]/g, "")));
+  assert(
+    paragraphNumbers.every((value, index) => value === index + 1),
+    `${STATUTE_PATH}: paragraphs are continuous 1-33`
+  );
+
+  const allText = statuteData.file.text;
+  assert(allText.includes("Rotary Klub Silesia"), `${STATUTE_PATH}: contains organization name`);
+  assert(allText.includes("Służba ponad własny interes"), `${STATUTE_PATH}: contains current motto`);
+  assert(allText.includes("Service Above Self"), `${STATUTE_PATH}: contains RI motto source`);
+
+  const par5 = findParagraph(paragraphs, 5);
+  assert(Boolean(par5), `${STATUTE_PATH}: § 5 exists`);
+  const par5LiveText = JSON.stringify(par5 || {});
+  assert(par5LiveText.includes("Służba ponad własny interes"), `${STATUTE_PATH}: § 5 contains current motto`);
+  assert(!par5LiveText.includes("Uczynność innym ponad korzyść własną"), `${STATUTE_PATH}: § 5 does not contain old motto as live text`);
+  if (statute.dokument.notaWersji?.includes("Uczynność innym ponad korzyść własną")) {
+    pass(`${STATUTE_PATH}: old motto appears only in version note context`);
   } else {
-    pass("statut:par_33_ballot_by_mailing: marked as derived_concept");
+    warning(`${STATUTE_PATH}: version note does not mention old motto provenance`);
   }
-  if (ballot.text.includes("glosowanie") && !ballot.text.includes("głosowanie")) {
-    warning("statut:par_33_ballot_by_mailing keeps source spelling without Polish diacritic: glosowanie");
+
+  const par18 = findParagraph(paragraphs, 18);
+  assert(Boolean(par18), `${STATUTE_PATH}: § 18 exists`);
+  const par18Text = JSON.stringify(par18 || {});
+  assert(par18Text.includes("2/3") || par18Text.includes("dwóch trzecich"), `${STATUTE_PATH}: § 18 contains quorum language`);
+  assert(par18Text.includes("bezwzględnej większości"), `${STATUTE_PATH}: § 18 contains absolute majority language`);
+  assert(par18Text.includes("Odwołanie Prezydenta"), `${STATUTE_PATH}: § 18 ust. 9 is completed`);
+
+  const par19 = findParagraph(paragraphs, 19);
+  assert(Boolean(par19), `${STATUTE_PATH}: § 19 exists`);
+  assert(JSON.stringify(par19 || {}).includes("Zarząd"), `${STATUTE_PATH}: § 19 contains board scope`);
+
+  const allUnits = paragraphs.flatMap(flattenUnitsFromParagraph);
+  assert(allUnits.some((unit) => unit.referencja === "§ 33 ust. 2"), `${STATUTE_PATH}: § 33 ust. 2 exists`);
+  assert(allText.includes("ballot-by-mailing"), `${STATUTE_PATH}: contains ballot-by-mailing source phrase`);
+
+  assertResolutionDocument(
+    resolutionA.json,
+    RESOLUTION_A_PATH,
+    "uchwala:rcs-silesia/wz/2026-XX-XX/1-korekta-redakcyjna"
+  );
+  assertResolutionDocument(
+    resolutionB.json,
+    RESOLUTION_B_PATH,
+    "uchwala:rcs-silesia/wz/2026-XX-XX/2-zmiana-dewizy"
+  );
+
+  const resolutionARelations = new Set((resolutionA.json?.dokument?.powiazania || []).map((relation) => relation.uri));
+  const resolutionBRelations = new Set((resolutionB.json?.dokument?.powiazania || []).map((relation) => relation.uri));
+  assert(resolutionARelations.has("statut:rcs-silesia/v1.0"), `${RESOLUTION_A_PATH}: changes statute v1.0`);
+  assert(resolutionARelations.has("statut:rcs-silesia/v1.1"), `${RESOLUTION_A_PATH}: produces statute v1.1`);
+  assert(resolutionBRelations.has("statut:rcs-silesia/v1.1"), `${RESOLUTION_B_PATH}: changes statute v1.1`);
+  assert(resolutionBRelations.has("statut:rcs-silesia/v1.2"), `${RESOLUTION_B_PATH}: produces statute v1.2`);
+
+  assert(evotingFile.text.includes("statut:par_33"), `${EVOTING_PATH}: still references electronic communication statute area`);
+  console.log(`INFO ${STATUTE_PATH}: articles=${statute.artykuly.length}, paragraphs=${paragraphs.length}, units=${allUnits.length}`);
+
+  if (failures > 0) {
+    console.error(`FAIL statute-json-check: ${failures} failure(s), ${warnings} warning(s)`);
+    process.exit(1);
   }
+
+  console.log(`PASS statute-json-check: no integrity regressions found (${warnings} warning(s))`);
 }
 
-const evotingRefs = extractStatuteRefs(evotingFile.text);
-const missingEvotingRefs = [...new Set(evotingRefs)].filter((ref) => !refToUnit.has(ref));
-assert(missingEvotingRefs.length === 0, `${EVOTING_PATH}: all statute refs exist in statut.json`);
-if (missingEvotingRefs.length) {
-  for (const ref of missingEvotingRefs) {
-    fail(`${EVOTING_PATH}: missing statute ref: ${ref}`);
-  }
-}
-
-if (!statute.note.includes("interpretacja statutu wymaga weryfikacji prawnej")) {
-  warning(`${STATUTE_PATH}: note should state that legal interpretation requires verification`);
-} else {
-  pass(`${STATUTE_PATH}: note keeps legal-verification caveat`);
-}
-
-console.log(`INFO ${STATUTE_PATH}: articles=${statute.articles.length}, paragraphs=${statute.paragraphs.length}, units=${statute.units.length}`);
-console.log(`INFO ${SOURCE_DOCX}: sha256=${sourceHash}, size=${sourceBytes.length}`);
-
-if (failures > 0) {
-  console.error(`FAIL statute-json-check: ${failures} failure(s), ${warnings} warning(s)`);
-  process.exit(1);
-}
-
-console.log(`PASS statute-json-check: no integrity regressions found (${warnings} warning(s))`);
+main();
