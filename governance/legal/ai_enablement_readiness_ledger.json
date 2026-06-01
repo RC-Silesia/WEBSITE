@@ -1,0 +1,91 @@
+{
+  "ledger_id": "ai_enablement_readiness_rc_silesia_v0_1",
+  "organization_id": "rc-silesia",
+  "status": "governance-design",
+  "version": "0.1",
+  "scope": "ngOs AI enablement readiness for assistant-layer features",
+  "last_reviewed_at": "2026-06-01",
+  "preconditions": [
+    {
+      "id": "AI-INV-1",
+      "category": "architectural_invariant",
+      "description": "Dostęp AI do danych idzie kontekstem wołającego i RLS; FORCE RLS aktywny, zweryfikowany runtime; AI nigdy nie używa service-role bypass do zwykłego dostępu do danych.",
+      "status": "verified_runtime",
+      "blocks_ai_enable": true,
+      "evidence_ref": "ngos-payments-backend:docs/RUNTIME_TEST_RESULTS_v0_1.md; read model tokenem wołającego + anon key; FORCE RLS 11/11 tabel",
+      "note": "Zweryfikowano dla backendowego read modelu i lokalnego runtime RLS. Każda przyszła funkcja AI musi używać tego samego wzorca albo przejść osobny runtime test."
+    },
+    {
+      "id": "AI-INV-2",
+      "category": "architectural_invariant",
+      "description": "Deterministyczny rdzeń jest jedynym właścicielem decyzji prawnych, finansowych, członkowskich i głosowaniowych; AI tworzy tylko drafty/propozycje, chyba że mieści się w przyjętym katalogu odwracalnych i audytowalnych procedur autonomicznych bez skutków.",
+      "status": "in_progress",
+      "blocks_ai_enable": true,
+      "evidence_ref": "governance/legal/AI_ENABLEMENT_READINESS_GATE_v0_1.md",
+      "note": "Zasada jest opisana governance, ale nie ma jeszcze przyjętego katalogu procedur AI ani technicznych guardrails dla wszystkich modułów."
+    },
+    {
+      "id": "AI-INV-3",
+      "category": "architectural_invariant",
+      "description": "Jednolity, append-only audit log rejestruje każdą akcję AI: prompt, wywołanie narzędzia, wynik, kontekst danych i zatwierdzenie człowieka.",
+      "status": "not_met",
+      "blocks_ai_enable": true,
+      "evidence_ref": "ngos-payments-backend:contact audit log exists for contact_submission_created, but AI audit events are not implemented",
+      "note": "Backend ma zalążek trwałego audit logu dla kontaktu, ale nie ma jeszcze modelu zdarzeń AI ani append-only polityki dla promptów/narzędzi/wyników AI."
+    },
+    {
+      "id": "AI-INV-4",
+      "category": "architectural_invariant",
+      "description": "Istnieje tryb bez AI: feature flag i graceful degradation; AI jest dodatkiem, a nie twardą zależnością rdzenia ngOs.",
+      "status": "not_met",
+      "blocks_ai_enable": true,
+      "evidence_ref": "brak wdrożonej flagi AI_ENABLED i brak opisanej degradacji per funkcja",
+      "note": "Ten gate definiuje flagę AI_ENABLED dla kontroli governance, ale aplikacyjny mechanizm graceful degradation nie jest jeszcze wdrożony."
+    },
+    {
+      "id": "AI-INV-5",
+      "category": "architectural_invariant",
+      "description": "Jeśli używany jest retrieval/RAG, izolacja per-tenant jest równoważna RLS oraz istnieje propagacja usunięcia do indeksów i embeddingów.",
+      "status": "not_met",
+      "blocks_ai_enable": true,
+      "evidence_ref": "brak RAG/retrieval layer w ngOs",
+      "note": "Brak implementacji RAG. Status może przejść do verified_runtime dopiero po teście izolacji tenantów i propagacji usunięcia."
+    },
+    {
+      "id": "AI-GOV-1",
+      "category": "governance",
+      "description": "Istnieje rejestr przypadków użycia AI z klasyfikacją ryzyka per funkcja.",
+      "status": "not_met",
+      "blocks_ai_enable": false,
+      "evidence_ref": "brak publicznego lub prywatnego rejestru przypadków użycia AI",
+      "note": "Wymagane przed GREEN dla jakiejkolwiek funkcji AI."
+    },
+    {
+      "id": "AI-GOV-2",
+      "category": "governance",
+      "description": "Przyjęty katalog określa, co wymaga human review, a co AI może wykonać proceduralnie autonomicznie.",
+      "status": "not_met",
+      "blocks_ai_enable": false,
+      "evidence_ref": "brak przyjętego katalogu human review/autonomous procedures",
+      "note": "Autonomiczne działania AI bez tego katalogu są niedopuszczalne."
+    },
+    {
+      "id": "AI-RODO-1",
+      "category": "rodo",
+      "description": "Istnieje DPA z dostawcą modelu, potwierdzona rezydencja danych UE oraz zakaz PII w promptach do dostawcy bez DPA.",
+      "status": "not_met",
+      "blocks_ai_enable": false,
+      "evidence_ref": "brak zatwierdzonego dostawcy AI i DPA",
+      "note": "Bez DPA funkcje AI mogą być rozważane wyłącznie bez PII i bez danych członkowskich, po osobnym review."
+    },
+    {
+      "id": "AI-SEC-1",
+      "category": "security",
+      "description": "Istnieje threat model prompt-injection/eksfiltracji, izolowane narzędzia oraz wykonany red-team albo równoważny test bezpieczeństwa.",
+      "status": "not_met",
+      "blocks_ai_enable": false,
+      "evidence_ref": "brak threat modelu AI i red-team",
+      "note": "Threat model pozostaje dokumentem prywatnym governance i nie powinien być publikowany w publicznym depozycie."
+    }
+  ]
+}

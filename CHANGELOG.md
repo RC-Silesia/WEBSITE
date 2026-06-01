@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.90-ai-enablement-readiness-gate
+- dodano GOV-6 AI Enablement Readiness Gate jako governance-only bramę-alert dla przyszłych funkcji AI w ngOs;
+- dodano ledger `governance/legal/ai_enablement_readiness_ledger.json` z niezmiennikami architektonicznymi AI-INV oraz warunkami governance/RODO/security;
+- dodano `scripts/ai-readiness-check.mjs`, który emituje `BLOCK`/`WARNING`/`GREEN` i blokuje `AI_ENABLED=true`, gdy niezmienniki architektoniczne nie są spełnione;
+- podłączono `check:ai:readiness` do `npm run check:governance`; zmiana governance-only, bez publicznego HTML/CSS/JS i bez cache-bustu.
+
 ## v1.5.89-statute-json-integrity-fix
 - naprawiono techniczny duplikat `art_viii` / `statut:art_viii` w `governance/legal/statut.json`, zachowując źródłową etykietę `Artykuł VIII` jako ostrzeżenie numeracji źródła;
 - przypisano §22 do unikalnego technicznego artykułu `statut:art_viii_b`;
