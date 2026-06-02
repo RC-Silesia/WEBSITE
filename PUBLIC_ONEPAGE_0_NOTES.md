@@ -24,6 +24,12 @@ Platforma ngOs jest opisana w repo jako zaplecze organizacyjne w rozwoju, ale ni
 
 Kontakt publiczny zostal ograniczony do `mailto:silesia@rotary.org.pl`. Formularz kontaktowy nie jest wystawiony na stronie glownej, poniewaz publiczny sprint nie uruchamia produkcyjnego backendu formularzy ani dodatkowej obslugi danych osobowych.
 
+## Status aktualnosci i porozumienia SOB
+
+W sprincie v1.5.82 publiczna wizytowka zawiera jedna aktualnosc: podpisanie 02.06.2026 w Mikolowie porozumienia ramowego ze Slaskim Ogrodem Botanicznym Zwiazkiem Stowarzyszen. Komunikat ma status opublikowany, ale zdjecia z wydarzenia pozostaja wstrzymane do zatwierdzenia zgod wizerunkowych.
+
+Porozumienie ramowe ROTARY for PLANET jest opisane jako obowiazujace w okresie 02.06.2026-31.05.2028. Ta informacja nie oznacza uruchomienia pelnej platformy ngOs, platnosci, panelu czlonka ani publicznego archiwum dokumentow.
+
 ## Status SEO / noindex
 
 `index.html` i `privacy.html` nie zawieraja blokady indeksowania. `robots.txt` pozwala na indeksowanie publicznej wizytowki i wskazuje `sitemap.xml`.

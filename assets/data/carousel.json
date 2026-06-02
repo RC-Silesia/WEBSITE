@@ -1,5 +1,5 @@
 {
-  "version": "1.5.81",
+  "version": "1.5.82",
   "autoRotate": false,
   "slides": [
     {
@@ -8,7 +8,7 @@
       "title": "RC Silesia w działaniu",
       "text": "Krótkie wprowadzenie do klubu i programu ROTARY for PLANET.",
       "link": {
-        "href": "#o-klubie",
+        "href": "#kim-jestesmy",
         "label": "Poznaj klub"
       }
     },
@@ -16,9 +16,9 @@
       "id": "planet",
       "type": "content",
       "title": "ROTARY for PLANET",
-      "text": "Odpowiedzialne nasadzenia drzew na Górnym Śląsku ze Śląskim Ogrodem Botanicznym ZS.",
+      "text": "Odpowiedzialne nasadzenia drzew na Śląsku po podpisaniu porozumienia ramowego ze Śląskim Ogrodem Botanicznym Związkiem Stowarzyszeń.",
       "link": {
-        "href": "#planet",
+        "href": "#kierunki",
         "label": "Zobacz program"
       }
     },

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.82-porozumienie-sob-signed-motto
+- opublikowano publiczną aktualność z 02.06.2026 o podpisaniu porozumienia ramowego ze Śląskim Ogrodem Botanicznym Związkiem Stowarzyszeń;
+- zaktualizowano publiczny opis ROTARY for PLANET i metadane porozumienia na status obowiązujący w okresie 02.06.2026-31.05.2028;
+- ujednolicono komunikacyjne brzmienie motta jako `Service Above Self — „Służba na rzecz innych ponad własną korzyść”`, bez zmian literalnych cytatów statutowych;
+- podbito cache-bust strony i danych do `v=1.5.82`.
+
 ## v1.5.90-ai-enablement-readiness-gate
 - dodano GOV-6 AI Enablement Readiness Gate jako governance-only bramę-alert dla przyszłych funkcji AI w ngOs;
 - dodano ledger `governance/legal/ai_enablement_readiness_ledger.json` z niezmiennikami architektonicznymi AI-INV oraz warunkami governance/RODO/security;
@@ -302,7 +308,7 @@
 - podbito cache-bust assetów i danych do `v=1.5.38`.
 
 ## v1.5.37-zarzad-layout-skonsolidowany
-- skonsolidowano uwagi Zarządu po sprincie v1.5.36 i skorygowano komunikacyjne brzmienie motta Rotary na `Służba ponad własne interesy`,
+- skonsolidowano uwagi Zarządu po sprincie v1.5.36 i skorygowano komunikacyjne brzmienie motta Rotary,
 - zaktualizowano nadtytuł hero do `ŚLĄSK | ROTARY POLSKA | ROTARY INTERNATIONAL`,
 - skrócono wskazane treści w sekcjach Rotary i Zasady Rotary oraz usunięto kartę opisową Dystryktu,
 - powiększono skrócone zdanie wprowadzające przy obszarach działania,

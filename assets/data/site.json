@@ -57,8 +57,8 @@
       },
       {
         "title": "Współpraca",
-        "value": "Śląski Ogród Botaniczny",
-        "body": "Partner merytoryczny programu na Górnym Śląsku - bioróżnorodność, dobór gatunków i odpowiedzialne nasadzenia."
+        "value": "Śląski Ogród Botaniczny Związek Stowarzyszeń",
+        "body": "Partner merytoryczny programu na Śląsku; po podpisaniu porozumienia ramowego 02.06.2026 dalsze wzmianki mogą używać skrótu ŚOB ZS."
       }
     ],
     "links": {
@@ -100,10 +100,10 @@
     },
     {
       "title": "Porozumienie ramowe ROTARY for PLANET",
-      "status": "projekt roboczy / do uzgodnienia ze Stronami",
+      "status": "obowiązujące - podpisane 02.06.2026 (okres do 31.05.2028)",
       "format": "DOCX",
       "href": "assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx",
-      "note": "Lokalny dokument wdrożeniowy RC Silesia / ŚOB ZS. Wersja DOCX zawierająca dokumenty D1-D14, statuty Stron oraz analizę porównawczą celów statutowych. Dokument nie jest wersją finalną i wymaga zatwierdzenia przed publikacją produkcyjną."
+      "note": "Lokalny dokument wdrożeniowy RC Silesia / ŚOB ZS. Porozumienie ramowe podpisane 02.06.2026 w Mikołowie, obowiązuje do 31.05.2028 i obejmuje komplet dokumentów operacyjnych D1-D14."
     }
   ],
   "statutoryBodies": {
@@ -271,9 +271,11 @@
       "href": "#"
     },
     {
-      "type": "Informacja prasowa",
-      "title": "Informacja prasowa - do uzupełnienia",
-      "href": "#"
+      "type": "Aktualność",
+      "title": "Podpisaliśmy porozumienie ramowe ze Śląskim Ogrodem Botanicznym",
+      "href": "#aktualnosci",
+      "date": "2026-06-02",
+      "status": "opublikowany - zdjęcia po zatwierdzeniu zgód wizerunkowych"
     }
   ]
 }
