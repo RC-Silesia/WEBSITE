@@ -1068,12 +1068,6 @@ main[id] {
   line-height: 1.45;
 }
 
-.section-link-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 22px;
-}
-
 .rotary-principles-section {
   background:
     linear-gradient(180deg, rgba(23, 69, 143, .08), rgba(23, 69, 143, 0) 42%),
