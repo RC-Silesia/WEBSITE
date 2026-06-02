@@ -10,6 +10,8 @@ const htmlFiles = [
   "mlodziez-rotaract.html",
 ];
 
+const publicIndexedHtmlFiles = new Set(["index.html", "privacy.html"]);
+
 const failures = [];
 const passes = [];
 
@@ -231,10 +233,14 @@ function checkHtmlFile(file) {
     }
   }
 
-  if (/<meta\b[^>]*name\s*=\s*["']robots["'][^>]*content\s*=\s*["'][^"']*noindex\s*,\s*nofollow[^"']*["']/i.test(text)) {
+  const keepsNoindex = /<meta\b[^>]*name\s*=\s*["']robots["'][^>]*content\s*=\s*["'][^"']*noindex\s*,\s*nofollow[^"']*["']/i.test(text);
+  if (publicIndexedHtmlFiles.has(file)) {
+    if (!keepsNoindex) pass(`${file} is indexable for PUBLIC-ONEPAGE-0`);
+    else fail(file, text, 0, `${file} must not keep noindex,nofollow for PUBLIC-ONEPAGE-0`);
+  } else if (keepsNoindex) {
     pass(`${file} keeps noindex,nofollow`);
   } else {
-    fail(file, text, 0, `${file} must keep noindex,nofollow while staging`);
+    fail(file, text, 0, `${file} must keep noindex,nofollow outside the public one page`);
   }
 }
 
@@ -250,8 +256,8 @@ if (!fs.existsSync("robots.txt")) {
   failures.push("FAIL robots.txt: file is missing");
 } else {
   const robots = read("robots.txt");
-  if (/Disallow:\s*\//.test(robots)) pass("robots.txt contains Disallow: /");
-  else failures.push("FAIL robots.txt: missing Disallow: /");
+  if (/Allow:\s*\//.test(robots) && !/Disallow:\s*\//.test(robots)) pass("robots.txt allows PUBLIC-ONEPAGE-0 indexing");
+  else failures.push("FAIL robots.txt: must allow PUBLIC-ONEPAGE-0 indexing and avoid Disallow: /");
 }
 
 const scriptPath = path.join("assets", "js", "script.js");

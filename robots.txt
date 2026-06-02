@@ -1,6 +1,6 @@
 User-agent: *
-Disallow: /
+Allow: /
 
-# Public demo/staging version. Marked visibly as demonstrational.
-# Switch to allow indexing only after production approval.
+# PUBLIC-ONEPAGE-0: public visiting card only.
+# Private platform, payments and operational surfaces are not exposed here.
 Sitemap: https://rc-silesia.github.io/WEBSITE/sitemap.xml
