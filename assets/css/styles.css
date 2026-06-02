@@ -986,6 +986,10 @@ main[id] {
   background: var(--soft);
 }
 
+#rotary {
+  padding-bottom: clamp(56px, 5vw, 72px);
+}
+
 .rotary-membership {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   max-width: 1040px;
@@ -1069,6 +1073,8 @@ main[id] {
 }
 
 .rotary-principles-section {
+  padding-top: clamp(58px, 6vw, 78px);
+  border-top: 1px solid var(--line);
   background:
     linear-gradient(180deg, rgba(23, 69, 143, .08), rgba(23, 69, 143, 0) 42%),
     var(--white);
@@ -3683,6 +3689,14 @@ textarea {
 
   .section {
     padding: 58px 18px;
+  }
+
+  #rotary {
+    padding-bottom: 46px;
+  }
+
+  #zasady-rotary {
+    padding-top: 48px;
   }
 
   .value-grid,
