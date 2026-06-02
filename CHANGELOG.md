@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.84-staging-fullpreview
+- odtworzono pełną przedpivotową wersję strony w `staging/index.html` z historii gita (`6e13231^`);
+- dodano widoczny baner staging oraz `noindex,nofollow,noarchive` z canonical wskazującym publiczny root;
+- poprawiono ścieżki assetów i lokalnych podstron dla działania spod `/staging/`;
+- podbito cache-bust staging i `DATA_VERSION` do `1.5.84`.
+
 ## PUBLIC-STAGING-SPLIT-0
 - dodano `/staging/index.html` jako roboczy podglad noindex/nofollow/noarchive z widocznym banerem staging;
 - zaktualizowano `robots.txt`, aby publiczny root pozostawal indeksowany, a `/staging/` byl zablokowany przed crawlingiem;

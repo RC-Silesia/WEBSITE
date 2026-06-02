@@ -73,6 +73,13 @@
 
     form.addEventListener("submit", function (event) {
       event.preventDefault();
+      if (form.getAttribute("data-mock-form") === "true") {
+        if (statusEl) {
+          statusEl.classList.remove("is-error");
+          statusEl.textContent = "Makieta formularza: dane nie są wysyłane. Napisz bezpośrednio na " + CONTACT_EMAIL + ".";
+        }
+        return;
+      }
       const hp = form.elements["_honey"];
       if (hp && hp.value) return; // pułapka na boty
       const data = {};
@@ -684,7 +691,15 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.82";
+  var DATA_VERSION = "1.5.84";
+
+  function assetDataUrl(fileName) {
+    var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
+    var base = script && script.src ? script.src : "assets/js/script.js";
+    var url = new URL("../data/" + fileName, base);
+    url.searchParams.set("v", DATA_VERSION);
+    return url.toString();
+  }
 
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
@@ -1030,7 +1045,7 @@
       return Promise.resolve(null);
     }
 
-    return fetch("assets/data/carousel.json?v=" + DATA_VERSION)
+    return fetch(assetDataUrl("carousel.json"))
       .then(function (response) {
         if (!response.ok) throw new Error("HTTP " + response.status);
         return response.json();
@@ -1730,7 +1745,7 @@
   function loadMeetingsData() {
     if (!window.fetch) return Promise.resolve(null);
 
-    return fetch("assets/data/meetings.json?v=" + DATA_VERSION)
+    return fetch(assetDataUrl("meetings.json"))
       .then(function (response) {
         if (!response.ok) throw new Error("HTTP " + response.status);
         return response.json();
@@ -1762,7 +1777,7 @@
   function loadSiteData() {
     if (!window.fetch) return Promise.resolve(null);
 
-    return fetch("assets/data/site.json?v=" + DATA_VERSION)
+    return fetch(assetDataUrl("site.json"))
       .then(function (response) {
         if (!response.ok) throw new Error("HTTP " + response.status);
         return response.json();
