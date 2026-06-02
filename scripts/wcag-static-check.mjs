@@ -3,6 +3,7 @@ import path from "node:path";
 
 const htmlFiles = [
   "index.html",
+  "staging/index.html",
   "rotary-for-planet.html",
   "privacy.html",
   "newsletter-preview.html",
@@ -256,8 +257,10 @@ if (!fs.existsSync("robots.txt")) {
   failures.push("FAIL robots.txt: file is missing");
 } else {
   const robots = read("robots.txt");
-  if (/Allow:\s*\//.test(robots) && !/Disallow:\s*\//.test(robots)) pass("robots.txt allows PUBLIC-ONEPAGE-0 indexing");
-  else failures.push("FAIL robots.txt: must allow PUBLIC-ONEPAGE-0 indexing and avoid Disallow: /");
+  if (/Allow:\s*\//.test(robots) && !/Disallow:\s*\/(?:\s|$)/.test(robots)) pass("robots.txt allows PUBLIC-ONEPAGE-0 root indexing");
+  else failures.push("FAIL robots.txt: must allow PUBLIC-ONEPAGE-0 root indexing and avoid Disallow: /");
+  if (/Disallow:\s*\/staging\/?/i.test(robots)) pass("robots.txt blocks staging preview crawling");
+  else failures.push("FAIL robots.txt: must block /staging/ preview crawling");
 }
 
 const scriptPath = path.join("assets", "js", "script.js");

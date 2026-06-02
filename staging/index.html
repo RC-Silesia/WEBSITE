@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Staging | Rotary Club Silesia</title>
+  <meta name="description" content="Roboczy podgląd strony RC Silesia. Materiał staging, nieoficjalny i wyłączony z indeksowania.">
+  <link rel="icon" href="../assets/img/rotary-moe-r-rev.png" type="image/png">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=1.5.82">
+  <style>
+    .staging-banner {
+      background: #7a1f1f;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    .staging-banner p {
+      margin: 0;
+    }
+
+    .staging-note {
+      border: 2px solid #7a1f1f;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#staging-main">Przejdź do treści</a>
+  <div class="staging-banner" role="note">
+    <p>Wersja robocza / staging. Materiał podglądowy do pracy nad stroną RC Silesia. Nie jest oficjalną publiczną wersją serwisu.</p>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="../index.html#start" aria-label="Rotary Club Silesia - publiczna strona główna">
+      <picture class="brand-logo">
+        <source media="(max-width: 600px)" srcset="../assets/img/rotary-rc-silesia-logo-sm.webp" type="image/webp">
+        <source media="(max-width: 600px)" srcset="../assets/img/rotary-rc-silesia-logo-sm.png" type="image/png">
+        <source srcset="../assets/img/rotary-rc-silesia-logo.webp" type="image/webp">
+        <img class="brand-logo__image" src="../assets/img/rotary-rc-silesia-logo.png" width="240" height="124" alt="Rotary Club Silesia - logo">
+      </picture>
+    </a>
+    <nav id="site-nav" class="site-nav" aria-label="Menu staging">
+      <a href="#status">Status</a>
+      <a href="#public">Public</a>
+      <a href="#preview">Preview</a>
+      <a href="#checks">Bramki</a>
+      <a class="nav-cta" href="../index.html#start">Public root</a>
+    </nav>
+  </header>
+
+  <main id="staging-main">
+    <section class="hero" aria-label="Roboczy podgląd RC Silesia">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <p class="eyebrow hero-eyebrow">STAGING | NOINDEX | PREVIEW</p>
+        <div class="hero-brand-lockup">
+          <div class="hero-brand-row">
+            <h1 class="hero-brand-title"><span>RC Silesia</span><span>Staging</span></h1>
+            <picture class="hero-brand-gear">
+              <source srcset="../assets/img/rotary-moe-r-rev.webp" type="image/webp">
+              <img class="hero-brand-gear__image" src="../assets/img/rotary-moe-r-rev.png" width="252" height="253" alt="Znak Rotary International" loading="eager" decoding="async">
+            </picture>
+          </div>
+          <p class="hero-brand-claim">Roboczy podgląd treści i kierunków rozwoju strony RC Silesia.</p>
+        </div>
+        <p class="lead">Ta wersja służy do pracy nad sekcjami w przygotowaniu. Nie uruchamia platformy ngOs, płatności, Workbench, formularzy ani prywatnego backendu.</p>
+      </div>
+    </section>
+
+    <section id="status" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Status staging</p>
+        <h2>Podgląd roboczy, nie oficjalna wersja publiczna</h2>
+        <p>Staging ma meta robots `noindex,nofollow,noarchive` i jest blokowany w `robots.txt` przez `Disallow: /staging/`. Publiczną wersją indeksowaną pozostaje root serwisu.</p>
+      </div>
+      <div class="value-grid" aria-label="Zasady staging">
+        <article class="staging-note">
+          <h3>Dozwolone</h3>
+          <p>Sekcje w przygotowaniu, szkice publicznych opisów, preview governance, oznaczone statusy robocze i materiały bez danych wrażliwych.</p>
+        </article>
+        <article class="staging-note">
+          <h3>Niedozwolone</h3>
+          <p>Dane członków, PESEL, sekrety, service-role, prywatne endpointy, Workbench, produkcyjne płatności i formularze bez gotowego backendu oraz RODO.</p>
+        </article>
+        <article class="staging-note">
+          <h3>Publikacja</h3>
+          <p>Treść może przejść do publicznego root dopiero po redakcji, walidacji linków, sprawdzeniu WCAG smoke i potwierdzeniu statusu formalnego.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="public" class="section rotary-band">
+      <div class="section-heading">
+        <p class="eyebrow">Public root</p>
+        <h2>Minimalna wizytówka pozostaje w `index.html`</h2>
+        <p>Publiczna strona komunikuje: kim jest Rotary Club Silesia, jakie są wartości Rotary, lokalny profil na Śląsku, obszary działania, kierunki inicjatyw, aktualność o porozumieniu ze ŚOB ZS, współpracę i kontakt e-mail.</p>
+      </div>
+    </section>
+
+    <section id="preview" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Preview roboczy</p>
+        <h2>Sekcje możliwe do rozwijania w staging</h2>
+        <p>W staging można testować pełniejsze opisy ROTARY for PLANET, publiczne metadane polityk, szkice sekcji partnerskich i materiały edukacyjne, o ile są jawnie oznaczone jako robocze i nie zawierają danych prywatnych.</p>
+      </div>
+      <div class="areas-grid" aria-label="Obszary preview">
+        <article>
+          <h3>ROTARY for PLANET</h3>
+          <p>Preview: opis programu, ramy porozumienia 02.06.2026-31.05.2028, standard D1-D14 i zasada rzetelnego monitoringu.</p>
+        </article>
+        <article>
+          <h3>Governance publiczne</h3>
+          <p>Preview: tylko metadane i dokumenty przeznaczone do publicznego opisu. Projekty muszą być oznaczone jako draft lub w przygotowaniu.</p>
+        </article>
+        <article>
+          <h3>Partnerstwa</h3>
+          <p>Preview: opisy partnerów po potwierdzeniu zgód na nazwę, logo, zakres współpracy i sposób publikacji.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="checks" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Bramki</p>
+        <h2>Warunki przed przeniesieniem do public root</h2>
+        <p>Każda sekcja przenoszona ze staging do publicznego `index.html` musi przejść: brak zakazanych wzorców, brak martwych anchorów, brak danych wrażliwych, poprawny status formalny, WCAG smoke i `npm run check:governance`.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <strong>RC Silesia staging</strong>
+    <span>Noindex preview. Pełna platforma ngOs jest rozwijana później i nie jest publicznie dostępna.</span>
+    <a href="../index.html#start">Public root</a>
+  </footer>
+
+  <script src="../assets/js/script.js?v=1.5.82" defer></script>
+</body>
+</html>

@@ -1,5 +1,11 @@
 # Changelog
 
+## PUBLIC-STAGING-SPLIT-0
+- dodano `/staging/index.html` jako roboczy podglad noindex/nofollow/noarchive z widocznym banerem staging;
+- zaktualizowano `robots.txt`, aby publiczny root pozostawal indeksowany, a `/staging/` byl zablokowany przed crawlingiem;
+- dodano schemat `schemas/document.v1.json` z typem `porozumienie` oraz wpis SoT porozumienia ramowego RC Silesia / ŚOB ZS z 02.06.2026;
+- doprecyzowano notatki public one page i dodano `STAGING_PREVIEW_NOTES.md`.
+
 ## v1.5.82-porozumienie-sob-signed-motto
 - opublikowano publiczną aktualność z 02.06.2026 o podpisaniu porozumienia ramowego ze Śląskim Ogrodem Botanicznym Związkiem Stowarzyszeń;
 - zaktualizowano publiczny opis ROTARY for PLANET i metadane porozumienia na status obowiązujący w okresie 02.06.2026-31.05.2028;

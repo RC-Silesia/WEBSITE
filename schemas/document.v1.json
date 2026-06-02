@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rc-silesia.github.io/WEBSITE/schemas/document.v1.json",
+  "title": "RC Silesia - schemat dokumentu wewnętrznego",
+  "description": "Uniwersalny schemat JSON dla dokumentów wewnętrznych RC Silesia. Wersja 1.1.0 dodaje typ porozumienie oraz pola opcjonalne dla stron, daty podpisania i okresu obowiązywania.",
+  "type": "object",
+  "required": ["$schema", "wersjaSchematu", "dokument", "tresc"],
+  "properties": {
+    "$schema": {
+      "const": "https://rc-silesia.github.io/WEBSITE/schemas/document.v1.json"
+    },
+    "wersjaSchematu": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "dokument": {
+      "type": "object",
+      "required": ["uri", "typ", "tytul", "organPrzyjmujacy", "status"],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "pattern": "^(statut|uchwala|regulamin|polityka|zarzadzenie|memo|protokol|porozumienie):rcs-silesia\\/.+$"
+        },
+        "typ": {
+          "type": "string",
+          "enum": ["statut", "uchwala", "regulamin", "polityka", "zarzadzenie", "memo", "protokol", "porozumienie"]
+        },
+        "tytul": { "type": "string" },
+        "tytulSkrocony": { "type": "string" },
+        "numerKolejny": { "type": ["string", "null"] },
+        "organPrzyjmujacy": {
+          "type": "string",
+          "enum": ["wz", "zarzad", "prezydent", "sekretarz", "skarbnik", "komisja-rewizyjna", "audytor"]
+        },
+        "dataPrzyjecia": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$|^\\d{4}-XX-XX$" },
+        "dataPodpisania": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$|^\\d{4}-XX-XX$" },
+        "miejscePrzyjecia": { "type": "string" },
+        "wersja": { "type": "string" },
+        "wersjaPoprzednia": { "type": ["string", "null"] },
+        "status": {
+          "type": "string",
+          "enum": ["projekt", "przyjety", "obowiazujacy", "uchylony", "wygasly", "bezprzedmiotowy"]
+        },
+        "okresObowiazywania": {
+          "type": ["object", "null"],
+          "properties": {
+            "od": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+            "do": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+          }
+        },
+        "strony": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["nazwa", "rola"],
+            "properties": {
+              "nazwa": { "type": "string" },
+              "rola": { "type": "string" },
+              "KRS": { "type": ["string", "null"] },
+              "NIP": { "type": ["string", "null"] },
+              "REGON": { "type": ["string", "null"] },
+              "adres": { "type": ["string", "null"] },
+              "reprezentanci": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["imieNazwisko", "funkcja"],
+                  "properties": {
+                    "imieNazwisko": { "type": "string" },
+                    "funkcja": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "danePodmiotu": { "type": "object" },
+        "podstawaPrawna": { "type": "array" },
+        "powiazania": { "type": "array" }
+      }
+    },
+    "tresc": {
+      "type": "object",
+      "required": ["typPodzialu"],
+      "properties": {
+        "typPodzialu": { "enum": ["artykuly", "paragrafy", "sekcje", "ciagly"] },
+        "artykuly": { "type": "array" },
+        "paragrafy": { "type": "array" },
+        "sekcje": { "type": "array" },
+        "tresc": { "type": "string" }
+      }
+    },
+    "metadane": { "type": "object" },
+    "znaneUwagi": { "type": "array" }
+  }
+}

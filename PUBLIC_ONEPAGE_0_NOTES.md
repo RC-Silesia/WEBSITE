@@ -36,6 +36,14 @@ Porozumienie ramowe ROTARY for PLANET jest opisane jako obowiazujace w okresie 0
 
 Pozostale strony pomocnicze lub dawne podstrony moga nadal miec meta robots blokujace indeksowanie, poniewaz nie sa czescia publicznego one page i nie sa prezentowane jako pelna platforma produkcyjna.
 
+## Public vs Staging split
+
+Publiczny root `https://rc-silesia.github.io/WEBSITE/` pozostaje indeksowana wizytowka Rotary Club Silesia. Root nie zawiera formularza, platnosci, Workbench, prywatnego backendu, pelnego governance ani danych czlonkow.
+
+Roboczy podglad jest dostepny pod `/staging/`. `staging/index.html` ma `noindex,nofollow,noarchive`, widoczny baner staging i jest blokowany w `robots.txt` przez `Disallow: /staging/`. Staging nie jest oficjalna publiczna wersja serwisu.
+
+Pelna platforma Rotary Silesia / ngOs pozostaje etapem pozniejszym. Materialy testowane w staging moga przejsc do publicznego root dopiero po sprawdzeniu statusu formalnego, linkow, WCAG smoke i braku zakazanych wzorcow.
+
 ## Status WCAG smoke
 
 Wykonany zakres smoke:
