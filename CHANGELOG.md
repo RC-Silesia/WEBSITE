@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.85-wizytowka-dane-zarzad
+- dodano do publicznej wizytówki sekcje `Władze Klubu` i `Dane formalne` wraz z pozycjami w nawigacji;
+- opublikowano jawne dane rejestrowe: adres, KRS, NIP, REGON, e-mail, przynależność i zasady reprezentacji;
+- dodano jawny `meta robots` `index,follow` dla publicznego root;
+- podbito cache-bust publicznego HTML i `DATA_VERSION` do `1.5.85`.
+
 ## v1.5.84-staging-fullpreview
 - odtworzono pełną przedpivotową wersję strony w `staging/index.html` z historii gita (`6e13231^`);
 - dodano widoczny baner staging oraz `noindex,nofollow,noarchive` z canonical wskazującym publiczny root;
