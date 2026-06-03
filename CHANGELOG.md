@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.86-public-repo-governance-boundary
+- usunięto z publicznego repo strony katalog `governance/` z wewnętrznymi materiałami SoT/governance;
+- odłączono z wizytówki link do szkicu deklaracji dostępności i pozostawiono bezpieczny status publikacji;
+- zawężono lokalny gate `check:governance` do walidacji publicznej strony (`check:js` + `check:wcag:static`);
+- dodano blokady crawl dla historycznych ścieżek `/governance/` i `/docs/` w `robots.txt`;
+- podbito cache-bust publicznego HTML i `DATA_VERSION` do `1.5.86`.
+
 ## v1.5.85-wizytowka-dane-zarzad
 - dodano do publicznej wizytówki sekcje `Władze Klubu` i `Dane formalne` wraz z pozycjami w nawigacji;
 - opublikowano jawne dane rejestrowe: adres, KRS, NIP, REGON, e-mail, przynależność i zasady reprezentacji;

@@ -1,8 +1,10 @@
 User-agent: *
 Allow: /
 Disallow: /staging/
+Disallow: /governance/
+Disallow: /docs/
 
 # PUBLIC-ONEPAGE-0: public visiting card only.
 # PUBLIC-STAGING-SPLIT-0: staging preview is noindex and blocked from crawling.
-# Private platform, payments and operational surfaces are not exposed here.
+# Private governance, platform, payments and operational surfaces are not exposed here.
 Sitemap: https://rc-silesia.github.io/WEBSITE/sitemap.xml

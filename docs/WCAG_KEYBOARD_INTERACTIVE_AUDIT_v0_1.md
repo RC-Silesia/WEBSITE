@@ -104,7 +104,7 @@ Nie dodano nowych zależności npm. Tymczasowy skrypt headless był narzędziem 
 
 W A11Y-3 nie wykryto nowych automatycznych barier P0/P1/P2/P3.
 
-Nie dodano nowych wpisów do `governance/WCAG_DEFECT_REGISTER.md`.
+Nie dodano nowych wpisów do rejestru barier dostępności.
 
 Pozostaje otwarte:
 
