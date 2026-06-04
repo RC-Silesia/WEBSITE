@@ -691,7 +691,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.86";
+  var DATA_VERSION = "1.5.87";
 
   function assetDataUrl(fileName) {
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
@@ -764,7 +764,8 @@
     if (!social) return;
     Array.prototype.slice.call(document.querySelectorAll("[data-social-link]")).forEach(function (link) {
       var key = link.getAttribute("data-social-link");
-      safeHref(link, social[key]);
+      var href = key === "facebook" ? (social.facebookUrl || social.facebook) : social[key];
+      safeHref(link, href);
     });
   }
 

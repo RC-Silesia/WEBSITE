@@ -1,0 +1,13 @@
+Command: git diff --stat
+Exit code: 0
+Result:
+
+ CHANGELOG.md                                  |   7 ++
+ assets/data/site.json                         |  20 +---
+ assets/js/script.js                           |   5 +-
+ index.html                                    | 276 +++++++++++++++++++++++++++++++++++++++++++++++---
+ package-lock.json                             |   4 +-
+ package.json                                  |   3 +-
+ scripts/check-website-v1-5-34-runtime.mjs     |  new file
+
+Note: this stat was captured before adding the audit artifact files.

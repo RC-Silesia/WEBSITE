@@ -1,0 +1,41 @@
+Status: `FAILED_RUNTIME`
+
+Command:
+`npm run check:runtime:v1.5.34`
+
+Result:
+
+- `file://` headless: PASS
+  - body has content;
+  - exactly one `h1`;
+  - required sections exist;
+  - no `PLAYLIST_ID` placeholder in public page text;
+  - motto is `Służba ponad własny interes`;
+  - Test Czterech Pytań official wording present;
+  - Facebook link has `_blank` and `noopener noreferrer`;
+  - gallery accordion click expands panel;
+  - membership accordion click expands panel;
+  - four-way accordion click expands panel.
+
+- local HTTP headless: FAIL
+  - local Edge did not return harness DOM for the HTTP server run;
+  - retried with `require_escalated`;
+  - same result.
+
+Representative failing output:
+
+```json
+{
+  "status": "FAILED_RUNTIME",
+  "file": {
+    "pass": true
+  },
+  "http": {
+    "pass": false,
+    "exitCode": null,
+    "error": "missing-result"
+  }
+}
+```
+
+Conclusion: runtime is not full PASS. The implementation has a successful headless `file://` runtime test but not a successful local HTTP headless test on this machine.

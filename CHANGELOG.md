@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5.87-visitcard-v1-5-34-consolidation
+- skonsolidowano publiczną wizytówkę w zakresie sprintu audytowego `WEBSITE-v1.5.34`, bez cofania aktualnej linii repo `v1.5.86`;
+- przywrócono w publicznym `index.html` model członkostwa z v1.5.32 oraz galerię jako cztery tematyczne kafle-akordeony z v1.5.31;
+- poprawiono motto komunikacyjne na `Służba ponad własny interes` i uporządkowano Test Czterech Pytań w oficjalnym brzmieniu Rotary Polska;
+- skonsolidowano link Facebook przez `site.social.facebookUrl`, dodano zwykły link bez embedu i usunięto z publicznej warstwy danych listę operatorów płatności;
+- podbito publiczny cache-bust i `DATA_VERSION` do `1.5.87`.
+
 ## v1.5.86-public-repo-governance-boundary
 - usunięto z publicznego repo strony katalog `governance/` z wewnętrznymi materiałami SoT/governance;
 - odłączono z wizytówki link do szkicu deklaracji dostępności i pozostawiono bezpieczny status publikacji;

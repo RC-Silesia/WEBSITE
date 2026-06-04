@@ -1,7 +1,7 @@
 {
   "version": "v1-data-pilot",
   "social": {
-    "facebook": "https://www.facebook.com/p/Rotary-Club-Silesia-61569752879280/",
+    "facebookUrl": "https://www.facebook.com/RotaryClubSilesia",
     "instagram": "#",
     "youtube": "#",
     "linkedin": "#",
@@ -214,24 +214,6 @@
         "showMembersList": true
       }
     ]
-  },
-  "payment": {
-    "methods": [
-      "BLIK",
-      "szybki przelew",
-      "karta płatnicza",
-      "Apple Pay",
-      "Google Pay",
-      "przelew tradycyjny"
-    ],
-    "preferredOperators": [
-      "Wpłacam.ngo.pl",
-      "Autopay / FaniPay",
-      "PayU",
-      "Przelewy24",
-      "Tpay"
-    ],
-    "reserveOperator": "Stripe - wyłącznie wariant techniczny lub rezerwowy"
   },
   "plantingsDemo": [
     {
