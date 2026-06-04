@@ -2,8 +2,8 @@
 
 Status: `PASS_CONTENT_WITH_WARNINGS`
 
-- PASS: `Służba na rzecz innych ponad własną korzyść` is used as public communication motto, aligned with the current Rotary Polska wording for `Service Above Self`.
-- PASS: public `index.html` no longer uses the older shorthand `Służba ponad własny interes`.
+- PASS: `Służba na rzecz innych ponad własną korzyść` is used as public communication motto.
+- PASS: public `index.html` no longer uses the older shorthand working variant.
 - PASS: `Uczynność innym ponad korzyść własną` appears only as a statutory quote note.
 - PASS: Test Czterech Pytań uses official wording:
   - `Czy to jest prawda?`

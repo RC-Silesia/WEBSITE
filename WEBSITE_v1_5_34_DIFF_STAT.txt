@@ -2,18 +2,16 @@ Command: git diff --stat
 Exit code: 0
 Result:
 
- CHANGELOG.md                              |  5 +++++
+ CHANGELOG.md                              | 10 ++++++++--
  WEBSITE_v1_5_34_AUDIT_NOTES.md            |  6 +++---
  WEBSITE_v1_5_34_CONTENT_CHECKLIST.md      |  4 ++--
- WEBSITE_v1_5_34_DIFF_STAT.txt             | 20 ++++++++++++--------
  WEBSITE_v1_5_34_KNOWN_WARNINGS.md         |  2 +-
- WEBSITE_v1_5_34_REPO_STATUS.txt           |  9 ++++++---
- WEBSITE_v1_5_34_RUNTIME_TEST.txt          |  2 +-
  assets/js/script.js                       |  2 +-
  index.html                                | 10 +++++-----
  package-lock.json                         |  4 ++--
  package.json                              |  2 +-
- scripts/check-website-v1-5-34-runtime.mjs |  2 +-
- 12 files changed, 40 insertions(+), 28 deletions(-)
+ scripts/check-website-v1-5-34-runtime.mjs |  3 ++-
+ staging/index.html                        |  6 +++---
+ 10 files changed, 28 insertions(+), 21 deletions(-)
 
-Note: this stat covers the follow-up v1.5.88 motto-alignment correction based on the Walne Zgromadzenie attachment.
+Note: this stat covers the follow-up v1.5.89 copy-polish correction for the public visitcard hero and related motto text.

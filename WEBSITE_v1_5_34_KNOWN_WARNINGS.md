@@ -5,4 +5,4 @@
 - `WARNING_DOMAIN_PENDING_CONFIRMATION`: current canonical remains GitHub Pages URL; no custom domain was confirmed.
 - Public repo still has governance-related paths/history. They were not used as public page content.
 - Historical changelog entries contain older P24/AI/governance references. They are not live `index.html` claims.
-- Active repo line was `1.5.86`; this work now records the visitcard consolidation and motto alignment through `1.5.88` while preserving the requested audit artifact naming.
+- Active repo line was `1.5.86`; this work now records the visitcard consolidation and copy polish through `1.5.89` while preserving the requested audit artifact naming.

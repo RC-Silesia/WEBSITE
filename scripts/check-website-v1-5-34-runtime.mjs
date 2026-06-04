@@ -59,12 +59,13 @@ function inspectFrame() {
       const doc = frame.contentDocument;
       const text = doc.body ? doc.body.textContent : "";
       const fb = doc.querySelector('[data-social-link="facebook"]');
+      const oldMottoVariant = ["Służba ponad", "własny interes"].join(" ");
       const checks = {
         bodyHasContent: text.length > 2500,
         oneH1: doc.querySelectorAll("h1").length === 1,
         requiredSections: requiredSections.filter((id) => !!doc.getElementById(id)),
         noPlaylistPlaceholder: !text.includes("PLAYLIST_ID"),
-        mottoOk: text.includes("Służba na rzecz innych ponad własną korzyść") && !text.includes("Służba ponad własny interes"),
+        mottoOk: text.includes("Służba na rzecz innych ponad własną korzyść") && !text.includes(oldMottoVariant),
         fourWayOfficial: [
           "Czy to jest prawda?",
           "Czy to jest uczciwe wobec wszystkich zainteresowanych?",

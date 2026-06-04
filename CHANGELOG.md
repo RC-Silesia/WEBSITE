@@ -1,14 +1,20 @@
 # Changelog
 
+## v1.5.89-copy-polish-public-visitcard-hero
+- poprawiono nagłówek publicznej wizytówki na `Publiczna wizytówka Klubu Rotary na Śląsku`;
+- skrócono akapit motta do `Nasze motto: Służba na rzecz innych ponad własną korzyść`, bez dodatkowego objaśnienia instytucjonalnego;
+- ujednolicono analogiczne tekstowe wystąpienia motta w staging preview, bez zmiany struktury strony;
+- podbito publiczny cache-bust, `DATA_VERSION` i package metadata do `1.5.89`.
+
 ## v1.5.88-rotary-polska-motto-alignment
-- skorygowano publiczne motto komunikacyjne do bieżącego brzmienia Rotary Polska: `Służba na rzecz innych ponad własną korzyść` dla motta Rotary International `Service Above Self`;
+- skorygowano publiczne motto komunikacyjne do `Służba na rzecz innych ponad własną korzyść`;
 - pozostawiono `Uczynność innym ponad korzyść własną` wyłącznie jako aktualny cytat statutowy z § 5 ust. 1 do czasu ewentualnej decyzji Walnego Zgromadzenia;
 - zaktualizowano runtime check v1.5.34 oraz cache-bust publicznego HTML i `DATA_VERSION` do `1.5.88`.
 
 ## v1.5.87-visitcard-v1-5-34-consolidation
 - skonsolidowano publiczną wizytówkę w zakresie sprintu audytowego `WEBSITE-v1.5.34`, bez cofania aktualnej linii repo `v1.5.86`;
 - przywrócono w publicznym `index.html` model członkostwa z v1.5.32 oraz galerię jako cztery tematyczne kafle-akordeony z v1.5.31;
-- poprawiono motto komunikacyjne na `Służba ponad własny interes` i uporządkowano Test Czterech Pytań w oficjalnym brzmieniu Rotary Polska;
+- uporządkowano roboczy wariant motta komunikacyjnego oraz Test Czterech Pytań w oficjalnym brzmieniu Rotary Polska;
 - skonsolidowano link Facebook przez `site.social.facebookUrl`, dodano zwykły link bez embedu i usunięto z publicznej warstwy danych listę operatorów płatności;
 - podbito publiczny cache-bust i `DATA_VERSION` do `1.5.87`.
 

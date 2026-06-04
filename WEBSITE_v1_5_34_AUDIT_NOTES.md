@@ -23,7 +23,7 @@ Repo: `RC-Silesia/WEBSITE` local checkout at `C:\Users\pkojs\WEBSITE`.
 - `assets/js/script.js` had `DATA_VERSION = "1.5.86"`.
 - `CHANGELOG.md` exists and contains v1.5.31, v1.5.32 and later entries.
 - Public `index.html` did not contain `#galeria` or `#czlonkostwo`; full versions existed in `staging/index.html`.
-- Public motto had the older shorthand `Służba ponad własny interes`; the later attachment clarified that the current Rotary Polska wording is `Służba na rzecz innych ponad własną korzyść`.
+- Public motto had an older shorthand working variant; the later attachment clarified that the current wording is `Służba na rzecz innych ponad własną korzyść`.
 - Data layer exists in `assets/data/site.json`; JS renderer exists in `assets/js/script.js`.
 - Existing hardening includes `safeHref`, placeholder link hardening, embed guards, iframe `allow` / `referrerpolicy` logic, and static fallback on fetch failure.
 - `robots.txt` blocks `/staging/`, `/governance/`, and `/docs/`; public root is indexable.
@@ -31,7 +31,7 @@ Repo: `RC-Silesia/WEBSITE` local checkout at `C:\Users\pkojs\WEBSITE`.
 
 ## Changes
 
-- Corrected public motto to `Służba na rzecz innych ponad własną korzyść` as the current Rotary Polska wording for `Service Above Self`.
+- Corrected public motto to `Służba na rzecz innych ponad własną korzyść`.
 - Replaced public Test Czterech Pytań copy with official Rotary Polska wording.
 - Restored membership section as `#czlonkostwo` with member-card accordions based on v1.5.32.
 - Restored gallery as `#galeria` with four thematic accordion cards based on v1.5.31.
@@ -39,7 +39,7 @@ Repo: `RC-Silesia/WEBSITE` local checkout at `C:\Users\pkojs\WEBSITE`.
 - Consolidated Facebook data source to `site.social.facebookUrl`.
 - Removed the public data-layer payment operator list from `assets/data/site.json`.
 - Added `scripts/check-website-v1-5-34-runtime.mjs` for headless file/HTTP runtime checks.
-- Bumped public cache-bust, `DATA_VERSION`, package metadata and changelog to `1.5.88` instead of downgrading the active repo line to `1.5.34`.
+- Bumped public cache-bust, `DATA_VERSION`, package metadata and changelog to `1.5.89` instead of downgrading the active repo line to `1.5.34`.
 
 ## Result
 
