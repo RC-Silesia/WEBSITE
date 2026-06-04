@@ -2,12 +2,18 @@ Command: git diff --stat
 Exit code: 0
 Result:
 
- CHANGELOG.md                                  |   7 ++
- assets/data/site.json                         |  20 +---
- assets/js/script.js                           |   5 +-
- index.html                                    | 276 +++++++++++++++++++++++++++++++++++++++++++++++---
- package-lock.json                             |   4 +-
- package.json                                  |   3 +-
- scripts/check-website-v1-5-34-runtime.mjs     |  new file
+ CHANGELOG.md                              |  5 +++++
+ WEBSITE_v1_5_34_AUDIT_NOTES.md            |  6 +++---
+ WEBSITE_v1_5_34_CONTENT_CHECKLIST.md      |  4 ++--
+ WEBSITE_v1_5_34_DIFF_STAT.txt             | 20 ++++++++++++--------
+ WEBSITE_v1_5_34_KNOWN_WARNINGS.md         |  2 +-
+ WEBSITE_v1_5_34_REPO_STATUS.txt           |  9 ++++++---
+ WEBSITE_v1_5_34_RUNTIME_TEST.txt          |  2 +-
+ assets/js/script.js                       |  2 +-
+ index.html                                | 10 +++++-----
+ package-lock.json                         |  4 ++--
+ package.json                              |  2 +-
+ scripts/check-website-v1-5-34-runtime.mjs |  2 +-
+ 12 files changed, 40 insertions(+), 28 deletions(-)
 
-Note: this stat was captured before adding the audit artifact files.
+Note: this stat covers the follow-up v1.5.88 motto-alignment correction based on the Walne Zgromadzenie attachment.

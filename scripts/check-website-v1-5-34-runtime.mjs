@@ -64,7 +64,7 @@ function inspectFrame() {
         oneH1: doc.querySelectorAll("h1").length === 1,
         requiredSections: requiredSections.filter((id) => !!doc.getElementById(id)),
         noPlaylistPlaceholder: !text.includes("PLAYLIST_ID"),
-        mottoOk: text.includes("Służba ponad własny interes") && !text.includes("Służba na rzecz innych ponad własną korzyść"),
+        mottoOk: text.includes("Służba na rzecz innych ponad własną korzyść") && !text.includes("Służba ponad własny interes"),
         fourWayOfficial: [
           "Czy to jest prawda?",
           "Czy to jest uczciwe wobec wszystkich zainteresowanych?",

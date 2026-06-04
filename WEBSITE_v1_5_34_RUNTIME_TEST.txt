@@ -10,7 +10,7 @@ Result:
   - exactly one `h1`;
   - required sections exist;
   - no `PLAYLIST_ID` placeholder in public page text;
-  - motto is `Służba ponad własny interes`;
+  - motto is `Służba na rzecz innych ponad własną korzyść`;
   - Test Czterech Pytań official wording present;
   - Facebook link has `_blank` and `noopener noreferrer`;
   - gallery accordion click expands panel;
