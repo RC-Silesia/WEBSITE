@@ -1,7 +1,7 @@
 # Changelog
 
 ## v1.5.89-copy-polish-public-visitcard-hero
-- poprawiono nagłówek publicznej wizytówki na `Publiczna wizytówka Klubu Rotary na Śląsku`;
+- poprawiono nagłówek publicznej wizytówki na `Klub Rotary na Śląsku`;
 - skrócono akapit motta do `Nasze motto: Służba na rzecz innych ponad własną korzyść`, bez dodatkowego objaśnienia instytucjonalnego;
 - ujednolicono analogiczne tekstowe wystąpienia motta w staging preview, bez zmiany struktury strony;
 - podbito publiczny cache-bust, `DATA_VERSION` i package metadata do `1.5.89`.

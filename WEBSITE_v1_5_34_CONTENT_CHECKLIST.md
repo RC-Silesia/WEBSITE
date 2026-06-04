@@ -3,6 +3,7 @@
 Status: `PASS_CONTENT_WITH_WARNINGS`
 
 - PASS: `Służba na rzecz innych ponad własną korzyść` is used as public communication motto.
+- PASS: hero heading is `Klub Rotary na Śląsku`.
 - PASS: public `index.html` no longer uses the older shorthand working variant.
 - PASS: `Uczynność innym ponad korzyść własną` appears only as a statutory quote note.
 - PASS: Test Czterech Pytań uses official wording:
