@@ -1,20 +1,87 @@
 (function () {
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
+  const isLayerNavigatorPage = document.body.classList.contains("layer-route-body") || Boolean(document.querySelector("[data-layer-navigator]"));
+  const layerReturnKeys = {
+    enabled: "rcs.returnToLayerNavigator",
+    lastPath: "rcs.layerNavigator.lastPath"
+  };
+
+  function readSessionValue(key) {
+    try {
+      return window.sessionStorage.getItem(key) || "";
+    } catch (error) {
+      return "";
+    }
+  }
+
+  function resolveLayerNavigatorHref() {
+    const storedPath = readSessionValue(layerReturnKeys.lastPath);
+    if (storedPath) {
+      try {
+        const storedUrl = new URL(storedPath, window.location.href);
+        if (storedUrl.origin === window.location.origin && storedUrl.pathname.indexOf("/staging/layer-navigator/") !== -1) {
+          return storedUrl.pathname + storedUrl.search + storedUrl.hash;
+        }
+      } catch (error) {
+        // NieprawidĹ‚owy URL nie blokuje linku powrotnego.
+      }
+    }
+    return window.location.pathname.indexOf("/staging/") !== -1 ? "layer-navigator/" : "staging/layer-navigator/";
+  }
+
+  function renderLayerNavigatorReturn() {
+    if (isLayerNavigatorPage) return;
+    if (readSessionValue(layerReturnKeys.enabled) !== "true") return;
+    if (document.querySelector("[data-layer-return-link]")) return;
+    const link = document.createElement("a");
+    link.className = "layer-return-link";
+    link.setAttribute("data-layer-return-link", "");
+    link.href = resolveLayerNavigatorHref();
+    link.textContent = "← Wróć do Mapy Warstw";
+    document.body.appendChild(link);
+  }
 
   if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    nav.addEventListener("click", (event) => {
-      if (event.target instanceof HTMLAnchorElement) {
-        nav.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
+    if (isLayerNavigatorPage) {
+      nav.classList.remove("open");
+      nav.hidden = true;
+      toggle.classList.add("nav-toggle--layer-map");
+      toggle.setAttribute("data-layer-header-toggle", "");
+      toggle.setAttribute("aria-controls", "layer-map");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-pressed", "false");
+      toggle.setAttribute("aria-label", "Otwórz Mapę Warstw");
+      toggle.setAttribute("title", "Mapa Warstw");
+      const srLabel = toggle.querySelector(".sr-only");
+      if (srLabel) srLabel.textContent = "Otwórz Mapę Warstw";
+      if (!toggle.querySelector(".nav-toggle__label")) {
+        const visibleLabel = document.createElement("span");
+        visibleLabel.className = "nav-toggle__label";
+        visibleLabel.setAttribute("aria-hidden", "true");
+        visibleLabel.textContent = "Mapa Warstw";
+        toggle.appendChild(visibleLabel);
       }
-    });
+      toggle.addEventListener("click", () => {
+        nav.classList.remove("open");
+        document.dispatchEvent(new CustomEvent("rcs:openLayerNavigator", { detail: { pin: true } }));
+      });
+    } else {
+      toggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      nav.addEventListener("click", (event) => {
+        if (event.target instanceof HTMLAnchorElement) {
+          nav.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
   }
+
+  renderLayerNavigatorReturn();
 
   const form = document.querySelector(".contact-form");
   if (form) {

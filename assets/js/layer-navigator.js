@@ -11,6 +11,12 @@
     showDescriptions: storagePrefix + "showDescriptions",
     scrollPositions: storagePrefix + "scrollPositions"
   };
+  var returnStorageKeys = {
+    enabled: "rcs.returnToLayerNavigator",
+    lastPath: "rcs.layerNavigator.lastPath",
+    lastNodeId: "rcs.layerNavigator.lastNodeId",
+    scrollY: "rcs.layerNavigator.scrollY"
+  };
   var scrollTicking = false;
   var pendingScroll = null;
   var pendingFocusSelector = "";
@@ -594,10 +600,38 @@
     }
   }
 
+  function readSessionString(key) {
+    try {
+      return window.sessionStorage.getItem(key) || "";
+    } catch (error) {
+      return "";
+    }
+  }
+
+  function writeSessionString(key, value) {
+    try {
+      window.sessionStorage.setItem(key, String(value));
+    } catch (error) {
+      // Brak sessionStorage nie blokuje nawigacji.
+    }
+  }
+
+  function removeSessionString(key) {
+    try {
+      window.sessionStorage.removeItem(key);
+    } catch (error) {
+      // Brak sessionStorage nie blokuje nawigacji.
+    }
+  }
+
+  var shouldRestoreReturnState = readSessionString(returnStorageKeys.enabled) === "true";
+  var returnNode = shouldRestoreReturnState ? readSessionString(returnStorageKeys.lastNodeId) : "";
+  var returnScrollY = parseInt(shouldRestoreReturnState ? readSessionString(returnStorageKeys.scrollY) : "", 10);
   var storedNode = window.localStorage ? window.localStorage.getItem(storageKeys.currentNode) : "";
+  var initialNode = returnNode && index[returnNode] ? returnNode : (storedNode && index[storedNode] ? storedNode : "home");
   var state = {
-    currentNodeId: storedNode && index[storedNode] ? storedNode : "home",
-    activeSectionId: "home",
+    currentNodeId: initialNode,
+    activeSectionId: initialNode,
     drawerOpen: false,
     drawerPinned: false,
     showDescriptions: readBoolean(storageKeys.showDescriptions, true),
@@ -657,6 +691,15 @@
     state.scrollPositions[state.currentNodeId] = window.scrollY || 0;
     writeJson(storageKeys.scrollPositions, state.scrollPositions);
     return state.scrollPositions[state.currentNodeId];
+  }
+
+  function saveLayerReturnState() {
+    var scrollY = saveCurrentScroll();
+    persistState();
+    writeSessionString(returnStorageKeys.enabled, "true");
+    writeSessionString(returnStorageKeys.lastPath, window.location.href);
+    writeSessionString(returnStorageKeys.lastNodeId, state.currentNodeId);
+    writeSessionString(returnStorageKeys.scrollY, String(scrollY));
   }
 
   function expandPath(nodeId) {
@@ -1011,8 +1054,17 @@
     pendingFocusSelector = "";
     window.requestAnimationFrame(function () {
       var target = root.querySelector(selector);
+      if (target && selector === ".layer-map-trigger" && target.offsetParent === null) target = null;
+      if (!target && selector === ".layer-map-trigger") target = document.querySelector("[data-layer-header-toggle]");
       if (target && target.focus) target.focus();
     });
+  }
+
+  function syncExternalHeaderToggle() {
+    var toggle = document.querySelector("[data-layer-header-toggle]");
+    if (!toggle) return;
+    toggle.setAttribute("aria-expanded", String(state.drawerOpen));
+    toggle.setAttribute("aria-pressed", String(state.drawerPinned));
   }
 
   function bindHoverInteractions() {
@@ -1035,6 +1087,7 @@
     initScrollSpy();
     refreshActiveState();
     bindHoverInteractions();
+    syncExternalHeaderToggle();
     if (pendingScroll !== null) restoreScrollAfterRender();
     focusAfterRender();
   }
@@ -1064,6 +1117,12 @@
       closeDrawer();
       return;
     }
+    state.drawerPinned = true;
+    openDrawer({ forceRender: true });
+  }
+
+  function openPinnedDrawer() {
+    clearHoverCloseTimer();
     state.drawerPinned = true;
     openDrawer({ forceRender: true });
   }
@@ -1177,6 +1236,27 @@
     }
   });
 
+  document.addEventListener("rcs:openLayerNavigator", function () {
+    openPinnedDrawer();
+  });
+
+  document.addEventListener("click", function (event) {
+    var target = event.target instanceof Element ? event.target.closest("a[href]") : null;
+    if (!target || target.hasAttribute("download")) return;
+    var rawHref = target.getAttribute("href") || "";
+    if (!rawHref || rawHref.charAt(0) === "#") return;
+    var nextUrl = null;
+    try {
+      nextUrl = new URL(rawHref, window.location.href);
+    } catch (error) {
+      return;
+    }
+    if (nextUrl.origin !== window.location.origin) return;
+    if (nextUrl.pathname === window.location.pathname) return;
+    if (nextUrl.pathname.indexOf("/staging/layer-navigator/") !== -1) return;
+    saveLayerReturnState();
+  }, true);
+
   document.addEventListener("mousemove", function (event) {
     if (!canUseHoverMap()) return;
     if (event.clientX >= 0 && event.clientX <= 18) {
@@ -1208,6 +1288,7 @@
   window.addEventListener("beforeunload", saveCurrentScroll);
 
   expandPath(state.currentNodeId);
-  pendingScroll = state.scrollPositions[state.currentNodeId] || 0;
+  pendingScroll = shouldRestoreReturnState && !isNaN(returnScrollY) ? returnScrollY : (state.scrollPositions[state.currentNodeId] || 0);
+  if (shouldRestoreReturnState) removeSessionString(returnStorageKeys.enabled);
   render();
 })();
