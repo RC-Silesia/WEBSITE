@@ -2,6 +2,13 @@
   --blue: #17458f;
   --blue-dark: #0d2b5f;
   --gold: #f7a81b;
+  --rotary-royal-blue: #17458f;
+  --rotary-azure: #005daa;
+  --rotary-gold: #f7a81b;
+  --rotary-deep-gold: #d89b00;
+  --rotary-sky: #d9e9f7;
+  --rotary-navy: #0b1f3a;
+  --rotary-white: #ffffff;
   --cardinal: #e02927;
   --cardinal-text: #b3261e;
   --green: #2d7d46;
@@ -4238,13 +4245,22 @@ textarea {
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--rotary-gold);
   border-radius: 8px;
-  color: var(--blue-dark);
-  background: var(--white);
+  color: var(--rotary-white);
+  background: var(--rotary-royal-blue);
   box-shadow: var(--shadow);
   font-weight: 800;
   cursor: pointer;
+}
+
+.layer-map-trigger:hover,
+.layer-map-trigger:focus-visible {
+  background: var(--rotary-azure);
+}
+
+.layer-map-trigger span {
+  color: var(--rotary-gold);
 }
 
 .layer-backdrop {
@@ -4270,10 +4286,10 @@ textarea {
   width: min(390px, calc(100vw - 36px));
   display: grid;
   grid-template-columns: minmax(0, 1fr) 96px;
-  color: var(--graphite);
-  background: var(--white);
-  border-right: 1px solid var(--line);
-  box-shadow: 24px 0 46px rgba(16, 37, 64, .2);
+  color: var(--rotary-navy);
+  background: var(--rotary-white);
+  border-right: 3px solid var(--rotary-gold);
+  box-shadow: 24px 0 46px rgba(11, 31, 58, .22);
   transform: translateX(-104%);
   transition: transform .25s ease;
 }
@@ -4293,9 +4309,11 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 14px;
-  padding: 0 2px 16px;
-  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+  padding: 14px;
+  color: var(--rotary-white);
+  background: linear-gradient(135deg, var(--rotary-royal-blue), var(--rotary-azure));
+  border-radius: 10px;
 }
 
 .layer-drawer-header strong,
@@ -4304,13 +4322,13 @@ textarea {
 }
 
 .layer-drawer-header strong {
-  color: var(--blue-dark);
+  color: var(--rotary-white);
   font-size: 17px;
 }
 
 .layer-drawer-header span {
   margin-top: 3px;
-  color: var(--muted);
+  color: var(--rotary-sky);
   font-size: 13px;
 }
 
@@ -4320,12 +4338,17 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, .36);
   border-radius: 8px;
-  color: var(--blue-dark);
-  background: var(--white);
+  color: var(--rotary-white);
+  background: rgba(255, 255, 255, .12);
   cursor: pointer;
   font-size: 20px;
+}
+
+.layer-drawer-close:hover,
+.layer-drawer-close:focus-visible {
+  background: rgba(255, 255, 255, .22);
 }
 
 .layer-tree,
@@ -4345,8 +4368,9 @@ textarea {
 }
 
 .layer-tree-row.is-active .layer-tree-link {
-  border-color: rgba(23, 69, 143, .42);
-  background: #eef4ff;
+  border-color: var(--rotary-gold);
+  background: var(--rotary-sky);
+  box-shadow: inset 3px 0 0 var(--rotary-gold);
 }
 
 .layer-tree-toggle {
@@ -4381,8 +4405,9 @@ textarea {
 }
 
 .layer-tree-link[aria-current="page"] {
-  border-color: rgba(45, 125, 70, .42);
-  background: var(--green-soft);
+  border-color: var(--rotary-gold);
+  background: var(--rotary-sky);
+  box-shadow: inset 3px 0 0 var(--rotary-gold);
 }
 
 .layer-tree-icon,
@@ -4399,10 +4424,18 @@ textarea {
   font-weight: 850;
 }
 
+.layer-tree-row.is-active .layer-tree-icon,
+.layer-tree-link[aria-current="page"] .layer-tree-icon {
+  color: var(--rotary-navy);
+  background: var(--rotary-gold);
+}
+
 .layer-tree-icon {
   grid-row: 1 / span 2;
   width: 30px;
   height: 30px;
+  color: var(--rotary-gold);
+  background: var(--rotary-royal-blue);
   font-size: 10px;
 }
 
@@ -4428,8 +4461,8 @@ textarea {
   align-content: start;
   gap: 10px;
   padding: 22px 10px;
-  border-left: 1px solid var(--line);
-  background: #f7f9fc;
+  border-left: 1px solid var(--rotary-sky);
+  background: #f8fbff;
 }
 
 .layer-level-step {
@@ -4457,9 +4490,9 @@ textarea {
   width: 12px;
   height: 12px;
   margin-top: 4px;
-  border: 2px solid #9aa6b2;
+  border: 2px solid var(--rotary-azure);
   border-radius: 999px;
-  background: var(--white);
+  background: var(--rotary-white);
 }
 
 .layer-level-name {
@@ -4476,12 +4509,14 @@ textarea {
 }
 
 .layer-level-step.is-active {
-  background: #fff7e6;
+  color: var(--rotary-navy);
+  background: var(--rotary-sky);
 }
 
 .layer-level-step.is-active .layer-level-dot {
-  border-color: var(--gold);
-  background: var(--gold);
+  border-color: var(--rotary-royal-blue);
+  background: var(--rotary-gold);
+  box-shadow: 0 0 0 4px rgba(247, 168, 27, .18);
 }
 
 .layer-orientation {
