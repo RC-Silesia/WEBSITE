@@ -4201,6 +4201,7 @@ textarea {
 /* ===== RC Silesia Layer Navigator ===== */
 .layer-route-body {
   background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 38%, #eef7f1 100%);
+  --layer-map-trigger-top: 150px;
 }
 
 .layer-route-main {
@@ -4210,13 +4211,13 @@ textarea {
 .layer-app {
   width: min(1180px, 100%);
   margin: 0 auto;
-  padding: 24px clamp(16px, 4vw, 40px) 64px 82px;
+  padding: 24px clamp(16px, 4vw, 40px) 64px 86px;
 }
 
 .layer-map-trigger {
   position: fixed;
-  top: 104px;
-  left: 18px;
+  top: var(--layer-map-trigger-top);
+  left: 16px;
   z-index: 70;
   min-height: 40px;
   display: inline-flex;
@@ -4826,12 +4827,16 @@ textarea {
 }
 
 @media (max-width: 860px) {
+  .layer-route-body {
+    --layer-map-trigger-top: 180px;
+  }
+
   .layer-app {
     padding: 72px 16px 48px;
   }
 
   .layer-map-trigger {
-    top: 80px;
+    top: var(--layer-map-trigger-top);
     left: 14px;
   }
 
