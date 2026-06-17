@@ -940,10 +940,10 @@
   function renderCommands() {
     return [
       '<div class="layer-command-bar" aria-label="Nawigacja kontekstowa">',
-      '<button class="layer-command-button" type="button" data-layer-action="back"' + (state.history.length ? "" : " disabled") + "><span aria-hidden=\"true\">←</span> Wróć</button>",
-      '<button class="layer-command-button" type="button" data-layer-action="home"><span aria-hidden="true">⌂</span> Home</button>',
-      '<button class="layer-command-button" type="button" data-layer-action="up"' + (currentMeta().parentId ? "" : " disabled") + "><span aria-hidden=\"true\">↑</span> Wyżej</button>",
-      '<button class="layer-command-button" type="button" data-layer-action="panel"><span aria-hidden="true">⚙</span> Panel</button>',
+      '<button class="layer-command-button" type="button" data-layer-action="back"' + (state.history.length ? "" : " disabled") + '><span aria-hidden="true">←</span><span class="layer-command-label">Wróć</span></button>',
+      '<button class="layer-command-button" type="button" data-layer-action="home"><span aria-hidden="true">⌂</span><span class="layer-command-label">Home</span></button>',
+      '<button class="layer-command-button" type="button" data-layer-action="up"' + (currentMeta().parentId ? "" : " disabled") + '><span aria-hidden="true">↑</span><span class="layer-command-label">Wyżej</span></button>',
+      '<button class="layer-command-button" type="button" data-layer-action="panel"><span aria-hidden="true">⚙</span><span class="layer-command-label">Panel</span></button>',
       '<label class="layer-toggle"><input type="checkbox" data-layer-description-toggle' + (state.showDescriptions ? " checked" : "") + '> <span>Pokaż opisy przed wejściem</span></label>',
       "</div>"
     ].join("");
@@ -959,7 +959,6 @@
       '<section class="layer-app" id="layer-app">',
       '<header class="layer-orientation">',
       renderBreadcrumb(),
-      renderCommands(),
       "</header>",
       '<section class="layer-context" data-layer-section="' + escapeAttribute(item.id) + '">',
       "<div>",
@@ -1073,6 +1072,28 @@
     toggle.setAttribute("aria-pressed", String(state.drawerPinned));
   }
 
+  function renderHeaderControls() {
+    var controls = document.querySelector("[data-layer-header-controls]");
+    if (!controls) return;
+    controls.innerHTML = renderCommands();
+    controls.onclick = function (event) {
+      var target = event.target;
+      if (!(target instanceof HTMLInputElement)) return;
+      if (target.matches("[data-layer-description-toggle]")) {
+        window.setTimeout(function () {
+          handleDescriptionToggle(target);
+        }, 0);
+      }
+    };
+    controls.onchange = function (event) {
+      var target = event.target;
+      if (!(target instanceof HTMLInputElement)) return;
+      if (target.matches("[data-layer-description-toggle]")) {
+        handleDescriptionToggle(target);
+      }
+    };
+  }
+
   function bindHoverInteractions() {
     var hoverZone = root.querySelector("[data-layer-hover-zone]");
     var drawer = root.querySelector("[data-layer-hover-drawer]");
@@ -1090,6 +1111,7 @@
 
   function render() {
     root.innerHTML = renderShell();
+    renderHeaderControls();
     initScrollSpy();
     refreshActiveState();
     bindHoverInteractions();
@@ -1155,6 +1177,23 @@
     render();
   }
 
+  function handleLayerAction(actionButton) {
+    var action = actionButton.getAttribute("data-layer-action");
+    if (action === "open-map") toggleDrawerPin();
+    if (action === "close-map") closeDrawer();
+    if (action === "back") goBack();
+    if (action === "home") navigateTo("home", { scrollY: 0 });
+    if (action === "up" && currentMeta().parentId) navigateTo(currentMeta().parentId);
+    if (action === "panel") navigateTo("panel-placeholder", { scrollY: 0 });
+  }
+
+  function handleDescriptionToggle(target) {
+    state.showDescriptions = target.checked;
+    state.armedTileId = "";
+    persistState();
+    render();
+  }
+
   root.addEventListener("click", function (event) {
     var target = event.target instanceof Element ? event.target : null;
     if (!target) return;
@@ -1179,13 +1218,14 @@
 
     var actionButton = target.closest("[data-layer-action]");
     if (!actionButton) return;
-    var action = actionButton.getAttribute("data-layer-action");
-    if (action === "open-map") toggleDrawerPin();
-    if (action === "close-map") closeDrawer();
-    if (action === "back") goBack();
-    if (action === "home") navigateTo("home", { scrollY: 0 });
-    if (action === "up" && currentMeta().parentId) navigateTo(currentMeta().parentId);
-    if (action === "panel") navigateTo("panel-placeholder", { scrollY: 0 });
+    handleLayerAction(actionButton);
+  });
+
+  document.addEventListener("click", function (event) {
+    var actionButton = event.target instanceof Element ? event.target.closest("[data-layer-header-controls] [data-layer-action]") : null;
+    if (!actionButton) return;
+    event.preventDefault();
+    handleLayerAction(actionButton);
   });
 
   root.addEventListener("mouseover", function (event) {
@@ -1209,10 +1249,7 @@
     var target = event.target;
     if (!(target instanceof HTMLInputElement)) return;
     if (target.matches("[data-layer-description-toggle]")) {
-      state.showDescriptions = target.checked;
-      state.armedTileId = "";
-      persistState();
-      render();
+      handleDescriptionToggle(target);
     }
   });
 

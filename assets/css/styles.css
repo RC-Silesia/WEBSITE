@@ -4256,6 +4256,12 @@ textarea {
   display: none;
 }
 
+.layer-route-body .site-header {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .layer-route-body .nav-toggle {
   width: auto;
   min-width: 44px;
@@ -4274,6 +4280,52 @@ textarea {
 
 .layer-route-body .nav-toggle__label {
   display: inline-block;
+}
+
+.header-layer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.header-layer-controls:empty {
+  display: none;
+}
+
+.header-layer-controls .layer-command-bar {
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.header-layer-controls .layer-command-button,
+.header-layer-controls .layer-toggle {
+  min-height: 36px;
+  padding: 7px 11px;
+  border-color: rgba(247, 168, 27, .46);
+  border-radius: 8px;
+  color: var(--rotary-white);
+  background: rgba(255, 255, 255, .1);
+}
+
+.header-layer-controls .layer-command-button:hover:not(:disabled),
+.header-layer-controls .layer-command-button:focus-visible,
+.header-layer-controls .layer-toggle:hover,
+.header-layer-controls .layer-toggle:focus-within {
+  color: var(--rotary-white);
+  background: rgba(0, 93, 170, .72);
+  border-color: var(--rotary-gold);
+}
+
+.header-layer-controls .layer-command-button:disabled {
+  opacity: .48;
+}
+
+.header-layer-controls .layer-toggle input {
+  accent-color: var(--rotary-gold);
 }
 
 .layer-route-main {
@@ -4634,9 +4686,13 @@ textarea {
   z-index: 30;
   display: grid;
   gap: 12px;
-  padding: 12px 0 14px;
+  padding: 8px 0 10px;
   background: rgba(247, 249, 252, .94);
   border-bottom: 1px solid rgba(223, 229, 234, .9);
+}
+
+.layer-orientation .layer-command-bar {
+  display: none;
 }
 
 .layer-breadcrumb,
@@ -5002,6 +5058,13 @@ textarea {
     top: 78px;
   }
 
+  .header-layer-controls {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
   .layer-context,
   .layer-work-grid {
     grid-template-columns: 1fr;
@@ -5052,6 +5115,29 @@ textarea {
   .layer-secondary-action,
   .layer-toggle {
     width: 100%;
+  }
+
+  .header-layer-controls {
+    gap: 6px;
+  }
+
+  .header-layer-controls .layer-command-bar {
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .header-layer-controls .layer-command-button,
+  .header-layer-controls .layer-toggle {
+    width: auto;
+    min-height: 34px;
+    padding: 6px 9px;
+  }
+
+  .header-layer-controls .layer-command-label,
+  .header-layer-controls .layer-toggle span {
+    display: none;
   }
 
   .layer-tile-grid {
