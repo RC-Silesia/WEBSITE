@@ -661,6 +661,12 @@
     return window.innerWidth > 860 && !!(window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches);
   }
 
+  function hoverZoneTopOffset() {
+    var value = window.getComputedStyle(document.documentElement).getPropertyValue("--public-header-height");
+    var parsed = parseFloat(value);
+    return Number.isFinite(parsed) ? parsed : 88;
+  }
+
   function clearHoverCloseTimer() {
     if (!hoverCloseTimer) return;
     window.clearTimeout(hoverCloseTimer);
@@ -1259,7 +1265,7 @@
 
   document.addEventListener("mousemove", function (event) {
     if (!canUseHoverMap()) return;
-    if (event.clientX >= 0 && event.clientX <= 18) {
+    if (event.clientX >= 0 && event.clientX <= 14 && event.clientY >= hoverZoneTopOffset()) {
       openDrawerFromHover();
       return;
     }

@@ -9,6 +9,7 @@
   --rotary-sky: #d9e9f7;
   --rotary-navy: #0b1f3a;
   --rotary-white: #ffffff;
+  --public-header-height: 88px;
   --cardinal: #e02927;
   --cardinal-text: #b3261e;
   --green: #2d7d46;
@@ -223,6 +224,33 @@ textarea:focus-visible,
   color: var(--blue-dark);
   background: var(--gold);
   font-weight: 700;
+}
+
+.site-nav a.main-layer-map-button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--rotary-gold);
+  border-radius: 999px;
+  color: var(--rotary-white);
+  background: var(--rotary-royal-blue);
+  box-shadow: 0 10px 24px rgba(11, 31, 58, .18);
+  font-weight: 850;
+}
+
+.site-nav a.main-layer-map-button:hover,
+.site-nav a.main-layer-map-button:focus-visible {
+  color: var(--rotary-white);
+  background: var(--rotary-azure);
+}
+
+.site-nav a.main-layer-map-button span[aria-hidden="true"] {
+  color: var(--rotary-gold);
+  font-size: 18px;
+  line-height: 1;
 }
 
 .mobile-social {
@@ -3425,6 +3453,11 @@ textarea {
     padding: 13px 10px;
   }
 
+  .site-nav a.main-layer-map-button {
+    margin-bottom: 4px;
+    padding: 11px 14px;
+  }
+
   .site-nav .nav-cta {
     margin-left: 0;
     text-align: center;
@@ -4255,12 +4288,24 @@ textarea {
 
 .layer-hover-zone {
   position: fixed;
-  top: 0;
+  top: var(--public-header-height, 88px);
   left: 0;
   z-index: 49;
-  width: 18px;
-  height: 100vh;
+  width: 14px;
+  height: calc(100vh - var(--public-header-height, 88px));
   background: transparent;
+}
+
+.layer-hover-zone::after {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 6px;
+  height: 72px;
+  border-radius: 0 6px 6px 0;
+  background: var(--rotary-gold);
+  opacity: .9;
 }
 
 .layer-hover-zone:hover {
