@@ -15,6 +15,8 @@
   var pendingScroll = null;
   var pendingFocusSelector = "";
   var sectionObserver = null;
+  var hoverCloseTimer = 0;
+  var hoverCloseDelay = 200;
 
   function page(hash) {
     return sourceBase + "index.html" + hash;
@@ -597,6 +599,7 @@
     currentNodeId: storedNode && index[storedNode] ? storedNode : "home",
     activeSectionId: "home",
     drawerOpen: false,
+    drawerPinned: false,
     showDescriptions: readBoolean(storageKeys.showDescriptions, true),
     armedTileId: "",
     expandedTreeIds: new Set(readJson(storageKeys.expandedTree, ["home"]).filter(function (id) { return index[id]; })),
@@ -618,6 +621,36 @@
 
   function activeMeta() {
     return index[state.activeSectionId] || currentMeta();
+  }
+
+  function canUseHoverMap() {
+    return window.innerWidth > 860 && !!(window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches);
+  }
+
+  function clearHoverCloseTimer() {
+    if (!hoverCloseTimer) return;
+    window.clearTimeout(hoverCloseTimer);
+    hoverCloseTimer = 0;
+  }
+
+  function scheduleHoverClose() {
+    clearHoverCloseTimer();
+    if (state.drawerPinned || !state.drawerOpen) return;
+    hoverCloseTimer = window.setTimeout(function () {
+      hoverCloseTimer = 0;
+      if (!state.drawerPinned) closeDrawer({ skipFocus: true });
+    }, hoverCloseDelay);
+  }
+
+  function openDrawerFromHover() {
+    if (!canUseHoverMap()) return;
+    clearHoverCloseTimer();
+    if (!state.drawerOpen) openDrawer({ skipFocus: true });
+  }
+
+  function closeDrawerFromHover() {
+    if (!canUseHoverMap() || state.drawerPinned) return;
+    scheduleHoverClose();
   }
 
   function saveCurrentScroll() {
@@ -650,6 +683,7 @@
     state.currentNodeId = nodeId;
     state.activeSectionId = nodeId;
     state.armedTileId = "";
+    state.drawerPinned = false;
     state.drawerOpen = false;
     expandPath(nodeId);
     pendingScroll = typeof options.scrollY === "number" ? options.scrollY : (state.scrollPositions[nodeId] || 0);
@@ -666,6 +700,7 @@
     state.expandedTreeIds = new Set(entry.expandedTreeIds && entry.expandedTreeIds.length ? entry.expandedTreeIds : ["home"]);
     state.expandedTreeIds.add("home");
     state.armedTileId = "";
+    state.drawerPinned = false;
     state.drawerOpen = false;
     pendingScroll = entry.scrollY || 0;
     persistState();
@@ -840,7 +875,7 @@
   function renderDrawer() {
     return [
       '<button class="layer-backdrop' + (state.drawerOpen ? " is-open" : "") + '" type="button" data-layer-action="close-map" aria-label="Zamknij mapę"' + (state.drawerOpen ? "" : " hidden") + "></button>",
-      '<aside id="layer-map" class="layer-drawer' + (state.drawerOpen ? " is-open" : "") + '" aria-label="Mapa warstw RC Silesia" aria-hidden="' + String(!state.drawerOpen) + '"' + (state.drawerOpen ? "" : " inert") + ">",
+      '<aside id="layer-map" class="layer-drawer' + (state.drawerOpen ? " is-open" : "") + '" data-layer-hover-drawer aria-label="Mapa warstw RC Silesia" aria-hidden="' + String(!state.drawerOpen) + '"' + (state.drawerOpen ? "" : " inert") + ">",
       '<div class="layer-drawer-content">',
       '<div class="layer-drawer-header">',
       "<div><strong>Mapa warstw</strong><span data-layer-active-label>" + escapeHtml(activeMeta().node.label) + "</span></div>",
@@ -869,7 +904,8 @@
     var meta = currentMeta();
     var item = meta.node;
     return [
-      '<button class="layer-map-trigger" type="button" data-layer-action="open-map" aria-expanded="' + String(state.drawerOpen) + '" aria-controls="layer-map"><span aria-hidden="true">☰</span> Mapa</button>',
+      '<div class="layer-hover-zone" aria-hidden="true" data-layer-hover-zone></div>',
+      '<button class="layer-map-trigger" type="button" data-layer-action="open-map" aria-expanded="' + String(state.drawerOpen) + '" aria-pressed="' + String(state.drawerPinned) + '" aria-controls="layer-map"><span aria-hidden="true">☰</span> Mapa</button>',
       renderDrawer(),
       '<section class="layer-app" id="layer-app">',
       '<header class="layer-orientation">',
@@ -979,24 +1015,57 @@
     });
   }
 
+  function bindHoverInteractions() {
+    var hoverZone = root.querySelector("[data-layer-hover-zone]");
+    var drawer = root.querySelector("[data-layer-hover-drawer]");
+    if (hoverZone) {
+      hoverZone.addEventListener("mouseenter", openDrawerFromHover);
+      hoverZone.addEventListener("pointerenter", openDrawerFromHover);
+    }
+    if (drawer) {
+      drawer.addEventListener("mouseenter", clearHoverCloseTimer);
+      drawer.addEventListener("mouseleave", closeDrawerFromHover);
+      drawer.addEventListener("pointerenter", clearHoverCloseTimer);
+      drawer.addEventListener("pointerleave", closeDrawerFromHover);
+    }
+  }
+
   function render() {
     root.innerHTML = renderShell();
     initScrollSpy();
     refreshActiveState();
+    bindHoverInteractions();
     if (pendingScroll !== null) restoreScrollAfterRender();
     focusAfterRender();
   }
 
-  function openDrawer() {
+  function openDrawer(options) {
+    options = options || {};
+    var alreadyOpen = state.drawerOpen;
+    clearHoverCloseTimer();
     state.drawerOpen = true;
-    pendingFocusSelector = ".layer-drawer-close";
-    render();
+    if (!options.skipFocus) pendingFocusSelector = ".layer-drawer-close";
+    if (!alreadyOpen || options.forceRender) render();
   }
 
-  function closeDrawer() {
+  function closeDrawer(options) {
+    options = options || {};
+    var alreadyClosed = !state.drawerOpen;
+    clearHoverCloseTimer();
     state.drawerOpen = false;
-    pendingFocusSelector = ".layer-map-trigger";
-    render();
+    state.drawerPinned = false;
+    if (!options.skipFocus) pendingFocusSelector = ".layer-map-trigger";
+    if (!alreadyClosed || options.forceRender) render();
+  }
+
+  function toggleDrawerPin() {
+    clearHoverCloseTimer();
+    if (state.drawerPinned && state.drawerOpen) {
+      closeDrawer();
+      return;
+    }
+    state.drawerPinned = true;
+    openDrawer({ forceRender: true });
   }
 
   function toggleTreeNode(id) {
@@ -1046,12 +1115,29 @@
     var actionButton = target.closest("[data-layer-action]");
     if (!actionButton) return;
     var action = actionButton.getAttribute("data-layer-action");
-    if (action === "open-map") openDrawer();
+    if (action === "open-map") toggleDrawerPin();
     if (action === "close-map") closeDrawer();
     if (action === "back") goBack();
     if (action === "home") navigateTo("home", { scrollY: 0 });
     if (action === "up" && currentMeta().parentId) navigateTo(currentMeta().parentId);
     if (action === "panel") navigateTo("panel-placeholder", { scrollY: 0 });
+  });
+
+  root.addEventListener("mouseover", function (event) {
+    var target = event.target instanceof Element ? event.target : null;
+    if (!target) return;
+    if (target.closest("[data-layer-hover-zone]")) openDrawerFromHover();
+    if (target.closest("[data-layer-hover-drawer]")) clearHoverCloseTimer();
+  });
+
+  root.addEventListener("mouseout", function (event) {
+    var target = event.target instanceof Element ? event.target : null;
+    if (!target) return;
+    var drawer = target.closest("[data-layer-hover-drawer]");
+    if (!drawer) return;
+    var nextTarget = event.relatedTarget instanceof Element ? event.relatedTarget : null;
+    if (nextTarget && drawer.contains(nextTarget)) return;
+    closeDrawerFromHover();
   });
 
   root.addEventListener("change", function (event) {
@@ -1089,6 +1175,24 @@
       event.preventDefault();
       first.focus();
     }
+  });
+
+  document.addEventListener("mousemove", function (event) {
+    if (!canUseHoverMap()) return;
+    if (event.clientX >= 0 && event.clientX <= 18) {
+      openDrawerFromHover();
+      return;
+    }
+    if (!state.drawerOpen || state.drawerPinned) return;
+    var drawer = root.querySelector("[data-layer-hover-drawer]");
+    if (!drawer) return;
+    var rect = drawer.getBoundingClientRect();
+    var insideDrawer = event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom;
+    if (insideDrawer) {
+      clearHoverCloseTimer();
+      return;
+    }
+    scheduleHoverClose();
   });
 
   window.addEventListener("scroll", function () {
