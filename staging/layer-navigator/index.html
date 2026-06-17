@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapa warstw RC Silesia | staging</title>
+  <meta name="description" content="Przestrzenna mapa nawigacji po publicznych treściach stagingu RC Silesia.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <link rel="canonical" href="https://rc-silesia.github.io/WEBSITE/staging/layer-navigator/">
+  <link rel="icon" href="../../assets/img/rotary-moe-r-rev.png" type="image/png">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=1.5.90">
+  <style>
+    .staging-banner {
+      background: #7a1f1f;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      text-align: center;
+    }
+
+    .staging-banner p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body class="layer-route-body">
+  <a class="skip-link" href="#layer-start">Przejdź do mapy warstw</a>
+  <div class="staging-banner" role="note">
+    <p>Wersja robocza / staging. Mapa warstw jest prototypem nawigacji po publicznych treściach RC Silesia.</p>
+  </div>
+  <div class="top-bar" aria-label="Informacje kontaktowe i media społecznościowe">
+    <div class="top-bar__inner">
+      <span class="top-bar__identity">RC Silesia | Górny Śląsk | Rotary District 2231 <span class="top-bar__registry">KRS 0001161058 | NIP 6351874727 | REGON 541208196</span></span>
+      <a class="top-support" href="../index.html#wsparcie">Wesprzyj</a>
+      <a class="top-newsletter" href="../../newsletter-preview.html">Newsletter RCS</a>
+      <nav class="top-social" aria-label="Social media">
+        <a href="https://www.facebook.com/p/Rotary-Club-Silesia-61569752879280/">Facebook</a>
+        <a href="mailto:silesia@rotary.org.pl">silesia@rotary.org.pl</a>
+      </nav>
+    </div>
+  </div>
+  <header class="site-header">
+    <a class="brand" href="../index.html#start" aria-label="RC Silesia - strona główna">
+      <picture class="brand-logo">
+        <source media="(max-width: 600px)" srcset="../../assets/img/rotary-rc-silesia-logo-sm.webp" type="image/webp">
+        <source media="(max-width: 600px)" srcset="../../assets/img/rotary-rc-silesia-logo-sm.png" type="image/png">
+        <source srcset="../../assets/img/rotary-rc-silesia-logo.webp" type="image/webp">
+        <img class="brand-logo__image" src="../../assets/img/rotary-rc-silesia-logo.png" width="240" height="124" alt="Rotary Klub Silesia - logo, Dystrykt 2231">
+      </picture>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Menu</span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Menu główne">
+      <a href="../index.html#start">Strona staging</a>
+      <a href="../index.html#o-klubie">Klub</a>
+      <a href="../index.html#planet">ROTARY for PLANET</a>
+      <a href="../index.html#dokumenty">Dokumenty</a>
+      <a href="../index.html#wsparcie">Wsparcie</a>
+      <a class="nav-cta" href="../index.html#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main
+    id="layer-start"
+    class="layer-route-main"
+    data-layer-navigator
+    data-source-base="../"
+    data-root-base="../../"
+  ></main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>RC Silesia</strong>
+      <p>Regionalny klub Rotary na Górnym Śląsku, z siedzibą w Mikołowie.</p>
+      <a href="../index.html#galeria">Galeria działań</a>
+      <a href="../index.html#spotkania">Kalendarium</a>
+      <a href="../../newsletter-preview.html">Newsletter tygodniowy</a>
+    </div>
+    <div>
+      <strong>Kontakt</strong>
+      <a href="mailto:silesia@rotary.org.pl">silesia@rotary.org.pl</a>
+      <span>ul. Golfowa 2, 43-190 Mikołów</span>
+    </div>
+    <div>
+      <strong>Dane formalne</strong>
+      <span>KRS 0001161058</span>
+      <span>NIP 6351874727</span>
+      <span>REGON 541208196</span>
+      <a href="../index.html#dane">Dane formalne</a>
+      <a href="../../assets/docs/RC_Silesia_Statut_Final.docx" download>Statut RC Silesia - pobierz DOCX</a>
+      <a href="../../privacy.html" data-privacy-link>Polityka prywatności - wersja robocza</a>
+    </div>
+    <div>
+      <strong>Rotary</strong>
+      <span>Rotary International</span>
+      <span>Rotary Polska / Dystrykt 2231</span>
+      <a href="../index.html#zasady-rotary">Zasady Rotary</a>
+      <span class="demo-note">Publiczna wersja demonstracyjna - treści, dokumenty i funkcje wymagają zatwierdzenia przed publikacją produkcyjną.</span>
+    </div>
+  </footer>
+
+  <section class="privacy-notice" data-privacy-notice role="region" aria-label="Informacja o prywatności i cookies" hidden>
+    <div class="privacy-notice__inner">
+      <p class="privacy-notice__text">Ta wersja demonstracyjna nie ładuje zewnętrznych treści społecznościowych bez kliknięcia użytkownika.</p>
+      <div class="privacy-notice__actions">
+        <button class="button primary" type="button" data-privacy-accept>Rozumiem</button>
+        <a class="button secondary" href="../../privacy.html" data-privacy-link>Polityka prywatności</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="../../assets/js/layer-navigator.js?v=1.5.90"></script>
+  <script src="../../assets/js/script.js?v=1.5.90"></script>
+</body>
+</html>
