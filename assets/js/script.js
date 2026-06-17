@@ -30,10 +30,44 @@
     return window.location.pathname.indexOf("/staging/") !== -1 ? "layer-navigator/" : "staging/layer-navigator/";
   }
 
+  function normalizedPathname() {
+    const withoutIndex = window.location.pathname.replace(/\/index\.html$/i, "/");
+    const normalized = withoutIndex.replace(/\/+$/, "/") || "/";
+    return normalized.replace(/^\/WEBSITE(?=\/|$)/i, "") || "/";
+  }
+
+  function currentHashId() {
+    try {
+      return decodeURIComponent(window.location.hash || "").replace(/^#/, "").toLowerCase();
+    } catch (error) {
+      return (window.location.hash || "").replace(/^#/, "").toLowerCase();
+    }
+  }
+
+  function isPublicHomePath() {
+    const pathname = normalizedPathname();
+    return pathname === "/" || pathname === "/staging/";
+  }
+
+  function isHeroSection() {
+    const hashId = currentHashId();
+    return !hashId || hashId === "start" || hashId === "hero" || hashId === "home";
+  }
+
+  function shouldShowLayerNavigatorReturn() {
+    if (isLayerNavigatorPage) return false;
+    if (readSessionValue(layerReturnKeys.enabled) !== "true") return false;
+    if (isPublicHomePath() && isHeroSection()) return false;
+    return true;
+  }
+
   function renderLayerNavigatorReturn() {
-    if (isLayerNavigatorPage) return;
-    if (readSessionValue(layerReturnKeys.enabled) !== "true") return;
-    if (document.querySelector("[data-layer-return-link]")) return;
+    const existingLink = document.querySelector("[data-layer-return-link]");
+    if (!shouldShowLayerNavigatorReturn()) {
+      if (existingLink) existingLink.remove();
+      return;
+    }
+    if (existingLink) return;
     const link = document.createElement("a");
     link.className = "layer-return-link";
     link.setAttribute("data-layer-return-link", "");
@@ -82,6 +116,7 @@
   }
 
   renderLayerNavigatorReturn();
+  window.addEventListener("hashchange", renderLayerNavigatorReturn);
 
   const form = document.querySelector(".contact-form");
   if (form) {
