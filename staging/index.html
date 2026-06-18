@@ -1363,59 +1363,16 @@
         </div>
       </div>
 
-      <div class="support-info-grid">
-        <article class="formal-card bank-card">
-          <h3>Przelew tradycyjny</h3>
-          <dl>
-            <div><dt>Numer konta</dt><dd><span>39 1600 1462 1773 3412 1000 0001</span></dd></div>
-            <div><dt>Bank</dt><dd>BNP Paribas Bank Polska</dd></div>
-          </dl>
-          <p class="support-titles-label">Sugerowane tytuły przelewu:</p>
-          <ul class="support-titles">
-            <li>Darowizna na cele statutowe RC Silesia</li>
-            <li>Składka członkowska – imię i nazwisko – okres</li>
-            <li>Wpłata na wydarzenie – nazwa wydarzenia</li>
-          </ul>
-          <button class="copy-account-button copy-generic" type="button" data-copy-value="39160014621773341210000001" data-support-status="status-konto-copy">Kopiuj numer konta</button>
-          <p class="copy-status" id="status-konto-copy" role="status" aria-live="polite"></p>
-          <p class="status-note">Numer konta i zasady przyjmowania wpłat wymagają finalnego potwierdzenia przed publikacją produkcyjną.</p>
-        </article>
-
-        <article class="formal-card support-operator-card">
-          <h3>Operator płatności rekomendowany do wdrożenia: Przelewy24</h3>
-          <p>RC Silesia przyjmuje Przelewy24 jako rekomendowanego operatora zewnętrznego do dalszego wdrożenia płatności online. Wybór wynika z dostępności raportów transakcji, eksportów dla skarbnika i księgowości oraz możliwości późniejszej integracji z panelem ngOs przez REST API.</p>
-          <p class="support-operator-status">Status: rekomendacja zaakceptowana koncepcyjnie. Płatności online zostaną uruchomione dopiero po założeniu konta Przelewy24, konfiguracji operatora i decyzji Zarządu.</p>
-          <h4>Dlaczego Przelewy24?</h4>
-          <ul class="support-ops">
-            <li>raporty transakcji, wypłat i zwrotów;</li>
-            <li>eksporty danych przydatne dla księgowości;</li>
-            <li>możliwość późniejszej integracji przez REST API;</li>
-            <li>obsługa BLIK, szybkich przelewów, kart i portfeli elektronicznych;</li>
-            <li>możliwość rozdzielenia typów wpłat w przyszłym panelu ngOs.</li>
-          </ul>
-          <h4>Docelowe metody płatności</h4>
-          <ul class="support-ops" data-render="payment-methods">
-            <li>BLIK</li>
-            <li>szybki przelew</li>
-            <li>karta płatnicza</li>
-            <li>Apple Pay</li>
-            <li>Google Pay</li>
-            <li>przelew tradycyjny</li>
-          </ul>
-          <p class="field-note">Koszty według aktualnego cennika operatora – do weryfikacji przed zawarciem umowy.</p>
-        </article>
-
-        <article class="formal-card support-future-card">
-          <h3>Przyszła integracja</h3>
-          <p>Po konfiguracji konta Przelewy24 w tym miejscu mogą pojawić się osobne ścieżki płatności dla darowizn, składek członkowskich oraz wpłat wydarzeniowych.</p>
-          <div class="future-payment-list" aria-label="Przyszłe ścieżki płatności online">
-            <button class="button secondary" type="button" disabled>Darowizna online – w przygotowaniu</button>
-            <button class="button secondary" type="button" disabled>Składka członkowska online – w przygotowaniu</button>
-            <button class="button secondary" type="button" disabled>Wydarzenie / partnerstwo online – w przygotowaniu</button>
+      <div class="support-info-grid support-payment-layout">
+        <section class="payment-tile-section" aria-label="Sposoby wsparcia i płatności">
+          <div class="payment-tile-section-header">
+            <h2>Sposoby wsparcia</h2>
+            <p>Wybierz ścieżkę wpłaty, żeby zobaczyć szczegóły. Dane płatnicze nie są pokazane domyślnie.</p>
           </div>
-        </article>
+          <div class="payment-tile-grid" data-payment-tiles></div>
+        </section>
 
-        <article class="formal-card">
+        <article class="formal-card support-prelaunch-card">
           <h3>Przed uruchomieniem płatności online</h3>
           <p>Warunki, które muszą zostać spełnione przed włączeniem realnych płatności:</p>
           <ul class="support-checklist">

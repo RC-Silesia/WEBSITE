@@ -1997,6 +1997,140 @@
       } catch (e) { fail(); }
     }
   }
+
+
+  var paymentMethods = [
+    {
+      id: "bank-transfer",
+      label: "Przelew tradycyjny",
+      summary: "Numer konta i dane bankowe do wykonania przelewu.",
+      details: [
+        { label: "Numer konta", value: "39 1600 1462 1773 3412 1000 0001" },
+        { label: "Bank", value: "BNP Paribas Bank Polska" },
+        { label: "Odbiorca", value: "Rotary Klub Silesia" },
+        { label: "Tytuły przelewu", value: "Darowizna na cele statutowe, składka członkowska albo wpłata na wydarzenie." },
+        { label: "Status", value: "Numer konta i zasady przyjmowania wpłat wymagają finalnego potwierdzenia przed publikacją produkcyjną." }
+      ],
+      actions: [
+        { type: "copy", label: "Kopiuj numer konta", value: "39 1600 1462 1773 3412 1000 0001" }
+      ]
+    },
+    {
+      id: "przelewy24",
+      label: "Przelewy24",
+      summary: "Rekomendowany operator płatności do przyszłego wdrożenia.",
+      details: [
+        { label: "Status", value: "Rekomendowany do wdrożenia po decyzji Zarządu." },
+        { label: "Zastosowanie", value: "Darowizny, składki członkowskie i wpłaty wydarzeniowe." },
+        { label: "Metody docelowe", value: "BLIK, szybki przelew, karta płatnicza, Apple Pay, Google Pay i przelew tradycyjny." },
+        { label: "Integracja", value: "Docelowo przez raporty transakcji, eksporty dla księgowości i REST API panelu ngOs." }
+      ]
+    },
+    {
+      id: "future-payment-integration",
+      label: "Przyszła integracja",
+      summary: "Planowane osobne ścieżki płatności dla różnych typów wpłat.",
+      details: [
+        { label: "Darowizny", value: "Osobna ścieżka wpłat darczyńców." },
+        { label: "Składki członkowskie", value: "Osobna ścieżka dla członków klubu." },
+        { label: "Wydarzenia", value: "Osobna ścieżka dla wpłat wydarzeniowych i partnerstw." }
+      ]
+    }
+  ];
+  var expandedPaymentTileId = null;
+
+  function escapeSupportHtml(value) {
+    return String(value).replace(/[&<>"']/g, function (char) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char];
+    });
+  }
+
+  function getPaymentIcon(id) {
+    var icons = {
+      "bank-transfer": "PLN",
+      "przelewy24": "P24",
+      "future-payment-integration": "API"
+    };
+    return icons[id] || "→";
+  }
+
+  function renderPaymentTile(method) {
+    var isExpanded = expandedPaymentTileId === method.id;
+    var detailsHtml = "";
+    var actionsHtml = "";
+
+    if (isExpanded) {
+      detailsHtml = method.details.map(function (item) {
+        return [
+          '<div class="payment-detail-row">',
+          "  <span>" + escapeSupportHtml(item.label) + "</span>",
+          "  <strong>" + escapeSupportHtml(item.value) + "</strong>",
+          "</div>"
+        ].join("");
+      }).join("");
+
+      if (method.actions && method.actions.length) {
+        actionsHtml = [
+          '<div class="payment-tile-actions">',
+          method.actions.map(function (action) {
+            return [
+              '<button type="button" class="plain-button" data-action="copy-payment-value" data-copy-value="' + escapeSupportHtml(action.value) + '" data-support-status="status-payment-copy-' + escapeSupportHtml(method.id) + '">',
+              escapeSupportHtml(action.label),
+              "</button>"
+            ].join("");
+          }).join(""),
+          '<p class="copy-status payment-copy-status" id="status-payment-copy-' + escapeSupportHtml(method.id) + '" role="status" aria-live="polite"></p>',
+          "</div>"
+        ].join("");
+      }
+
+      detailsHtml = '<div class="payment-tile-details">' + detailsHtml + actionsHtml + "</div>";
+    }
+
+    return [
+      '<article class="payment-tile ' + (isExpanded ? "is-expanded" : "") + '">',
+      '  <button type="button" class="payment-tile-main" data-action="toggle-payment-tile" data-payment-id="' + escapeSupportHtml(method.id) + '" aria-expanded="' + String(isExpanded) + '">',
+      '    <span class="payment-tile-icon" aria-hidden="true">' + escapeSupportHtml(getPaymentIcon(method.id)) + "</span>",
+      '    <span class="payment-tile-copy">',
+      "      <strong>" + escapeSupportHtml(method.label) + "</strong>",
+      "      <small>" + escapeSupportHtml(method.summary) + "</small>",
+      "    </span>",
+      '    <span class="payment-tile-state" aria-hidden="true">' + (isExpanded ? "−" : "+") + "</span>",
+      "  </button>",
+      detailsHtml,
+      "</article>"
+    ].join("");
+  }
+
+  function renderPaymentTiles() {
+    var container = document.querySelector("[data-payment-tiles]");
+    if (!container) return;
+    container.innerHTML = paymentMethods.map(renderPaymentTile).join("");
+  }
+
+  var paymentTileContainer = document.querySelector("[data-payment-tiles]");
+  if (paymentTileContainer) {
+    renderPaymentTiles();
+    paymentTileContainer.addEventListener("click", function (event) {
+      var target = event.target.closest("[data-action]");
+      if (!target || !paymentTileContainer.contains(target)) return;
+
+      var action = target.getAttribute("data-action");
+      if (action === "toggle-payment-tile") {
+        var paymentId = target.getAttribute("data-payment-id");
+        expandedPaymentTileId = expandedPaymentTileId === paymentId ? null : paymentId;
+        renderPaymentTiles();
+      } else if (action === "copy-payment-value") {
+        copyText(target.getAttribute("data-copy-value") || "", document.getElementById(target.getAttribute("data-support-status")));
+      }
+    });
+  }
   Array.prototype.slice.call(document.querySelectorAll(".copy-generic")).forEach(function (btn) {
     btn.addEventListener("click", function () {
       var val = btn.getAttribute("data-copy-value");
