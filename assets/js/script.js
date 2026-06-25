@@ -796,7 +796,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.120";
+  var DATA_VERSION = "1.5.124";
 
   function assetDataUrl(fileName) {
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
@@ -1215,6 +1215,77 @@
       if (userInitiated) userStop();
     }
 
+    function isSwipeIgnoredTarget(target) {
+      return Boolean(target && target.closest && target.closest("a, button, input, textarea, select, video, iframe"));
+    }
+
+    function setupSwipeNavigation() {
+      var viewport = carousel.querySelector(".hero-carousel__viewport");
+      if (!viewport || slides.length < 2 || viewport.dataset.swipeReady === "true") return;
+      viewport.dataset.swipeReady = "true";
+
+      var startX = 0;
+      var startY = 0;
+      var startTime = 0;
+      var isTracking = false;
+      var pointerStartX = 0;
+      var pointerStartY = 0;
+      var pointerStartTime = 0;
+      var pointerId = null;
+
+      function navigateBySwipe(endX, endY, elapsed) {
+        var deltaX = endX - startX;
+        var deltaY = endY - startY;
+        var horizontalEnough = Math.abs(deltaX) >= 42 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2;
+        if (!horizontalEnough || elapsed > 900) return;
+        goTo(activeIndex + (deltaX < 0 ? 1 : -1), true);
+      }
+
+      viewport.addEventListener("touchstart", function (event) {
+        if (!event.touches || event.touches.length !== 1 || isSwipeIgnoredTarget(event.target)) {
+          isTracking = false;
+          return;
+        }
+        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
+        startTime = Date.now();
+        isTracking = true;
+      }, { passive: true });
+
+      viewport.addEventListener("touchend", function (event) {
+        if (!isTracking || !event.changedTouches || event.changedTouches.length !== 1) return;
+        isTracking = false;
+        navigateBySwipe(event.changedTouches[0].clientX, event.changedTouches[0].clientY, Date.now() - startTime);
+      }, { passive: true });
+
+      viewport.addEventListener("touchcancel", function () {
+        isTracking = false;
+      }, { passive: true });
+
+      viewport.addEventListener("pointerdown", function (event) {
+        if (event.pointerType === "touch" || event.button !== 0 || isSwipeIgnoredTarget(event.target)) {
+          pointerId = null;
+          return;
+        }
+        pointerStartX = event.clientX;
+        pointerStartY = event.clientY;
+        pointerStartTime = Date.now();
+        pointerId = event.pointerId;
+      });
+
+      viewport.addEventListener("pointerup", function (event) {
+        if (pointerId === null || event.pointerId !== pointerId) return;
+        startX = pointerStartX;
+        startY = pointerStartY;
+        navigateBySwipe(event.clientX, event.clientY, Date.now() - pointerStartTime);
+        pointerId = null;
+      });
+
+      viewport.addEventListener("pointercancel", function () {
+        pointerId = null;
+      });
+    }
+
     function setupCarousel(data) {
       var dataSlides = data && Array.isArray(data.slides) ? data.slides : null;
       if (dataSlides && dataSlides.length) {
@@ -1255,6 +1326,7 @@
       next.addEventListener("click", function () {
         goTo(activeIndex + 1, true);
       });
+      setupSwipeNavigation();
       carousel.addEventListener("keydown", function (event) {
         if (event.key === "ArrowLeft") {
           event.preventDefault();
@@ -1886,6 +1958,9 @@
     if (normalized === "review") return "is-review";
     if (normalized === "open" || normalized === "missing-data") return "is-open";
     if (normalized === "approved" || normalized === "published") return "is-approved";
+    if (normalized === "current") return "is-current";
+    if (normalized === "upcoming") return "is-upcoming";
+    if (normalized === "ended" || normalized === "archive") return "is-ended";
     return "is-draft";
   }
 
@@ -1894,7 +1969,44 @@
     if (normalized === "approved") return "zatwierdzone";
     if (normalized === "published") return "opublikowane";
     if (normalized === "open" || normalized === "missing-data") return "do uzupełnienia";
+    if (normalized === "current") return "aktualne";
+    if (normalized === "upcoming") return "zapowiadane";
+    if (normalized === "ended" || normalized === "archive") return "zakończone";
     return "do zatwierdzenia / robocze";
+  }
+
+  function parseMeetingDate(date) {
+    var match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(date || ""));
+    if (!match) return null;
+    return new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+  }
+
+  function todayDateOnly() {
+    var now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  }
+
+  function meetingTemporalStatus(item) {
+    var normalized = String(item && item.status || "").toLowerCase();
+    if (normalized === "open" || normalized === "missing-data") {
+      return {
+        status: normalized,
+        label: item.approvalStatus || meetingStatusLabel(normalized)
+      };
+    }
+
+    var meetingDate = parseMeetingDate(item && item.date);
+    if (!meetingDate) {
+      return {
+        status: normalized || "draft",
+        label: item && item.approvalStatus || meetingStatusLabel(normalized)
+      };
+    }
+
+    var today = todayDateOnly();
+    if (meetingDate < today) return { status: "ended", label: meetingStatusLabel("ended") };
+    if (meetingDate > today) return { status: "upcoming", label: meetingStatusLabel("upcoming") };
+    return { status: "current", label: meetingStatusLabel("current") };
   }
 
   function appendMeetingDate(card, date, meetingTime) {
@@ -1908,24 +2020,16 @@
     appendTextElement(card, "span", "meeting-date", "Data do potwierdzenia");
   }
 
-  function meetingGroupRank(item) {
-    var group = String(item && item.calendarGroup || "").toLowerCase();
-    if (group === "upcoming") return 0;
-    if (group === "archive") return 1;
-    if (group === "missing") return 2;
-    if (!item || !item.date) return 2;
-    return Date.parse(item.date) >= Date.now() ? 0 : 1;
-  }
-
   function compareMeetings(a, b) {
-    var groupDiff = meetingGroupRank(a) - meetingGroupRank(b);
-    if (groupDiff) return groupDiff;
-
-    var group = meetingGroupRank(a);
-    var dateA = a && a.date ? Date.parse(a.date) : 0;
-    var dateB = b && b.date ? Date.parse(b.date) : 0;
-    if (group === 0) return dateA - dateB;
-    if (group === 1) return dateB - dateA;
+    var dateA = parseMeetingDate(a && a.date);
+    var dateB = parseMeetingDate(b && b.date);
+    if (dateA && dateB) {
+      var dateDiff = dateB.getTime() - dateA.getTime();
+      if (dateDiff) return dateDiff;
+      return String(b && b.time || "").localeCompare(String(a && a.time || ""), "pl");
+    }
+    if (dateA) return -1;
+    if (dateB) return 1;
     return String(a && a.title || "").localeCompare(String(b && b.title || ""), "pl");
   }
 
@@ -1994,8 +2098,9 @@
 
       var meta = document.createElement("div");
       meta.className = "meeting-card__meta";
+      var temporalStatus = meetingTemporalStatus(item);
       appendTextElement(meta, "span", "meeting-card__type", meetingTypeLabel(item.type));
-      appendTextElement(meta, "span", "meeting-card__status " + meetingStatusClass(item.status), item.approvalStatus || meetingStatusLabel(item.status));
+      appendTextElement(meta, "span", "meeting-card__status " + meetingStatusClass(temporalStatus.status), temporalStatus.label);
       card.appendChild(meta);
 
       appendMeetingDate(card, item.date, item.time);

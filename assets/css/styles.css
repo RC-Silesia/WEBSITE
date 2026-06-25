@@ -3152,6 +3152,24 @@ th {
   background: rgba(45, 125, 70, .14);
 }
 
+.meeting-card__status.is-current,
+.meeting-status.is-current {
+  color: #1d6b38;
+  background: rgba(45, 125, 70, .16);
+}
+
+.meeting-card__status.is-upcoming,
+.meeting-status.is-upcoming {
+  color: #775100;
+  background: rgba(247, 168, 27, .2);
+}
+
+.meeting-card__status.is-ended,
+.meeting-status.is-ended {
+  color: #4f5f70;
+  background: #e8eef6;
+}
+
 .meeting-location,
 .meeting-speaker,
 .meeting-card__consent {
@@ -3892,7 +3910,26 @@ textarea {
 
   .hero-carousel__prev,
   .hero-carousel__next {
-    display: none;
+    display: inline-grid;
+    z-index: 3;
+    width: 42px;
+    height: 42px;
+    border-width: 2px;
+    background: rgba(255, 255, 255, .92);
+    box-shadow: 0 8px 20px rgba(16, 37, 64, .16);
+  }
+
+  .hero-carousel__prev {
+    left: 8px;
+  }
+
+  .hero-carousel__next {
+    right: 8px;
+  }
+
+  .hero-carousel__prev span,
+  .hero-carousel__next span {
+    font-size: 32px;
   }
 
   .hero-content,
