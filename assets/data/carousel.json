@@ -1,12 +1,12 @@
 {
-  "version": "1.5.110",
+  "version": "1.5.114",
   "autoRotate": false,
   "slides": [
     {
       "id": "service-handover-poster",
       "type": "photo",
       "title": "Przekazanie służby rotariańskiej",
-      "caption": "Plakat wydarzenia: przekazanie służby rotariańskiej w Rotary Club Silesia i zmiana prezydenta.",
+      "caption": "Przekazanie służby rotariańskiej w Rotary Club Silesia.",
       "image": {
         "src": "rotary-service-handover-2026-06-25-card.webp",
         "fallback": "rotary-service-handover-2026-06-25.png",
@@ -25,7 +25,7 @@
       "id": "raymundo-farewell-poster",
       "type": "photo",
       "title": "Uroczystość pożegnalna Raymundo",
-      "caption": "Plakat wydarzenia: uroczystość pożegnalna studenta wymiany Raymundo Dominguez Barrieras.",
+      "caption": "Oficjalna uroczystość pożegnalna studenta wymiany Raymundo Dominguez Barrieras w RC Silesia.",
       "image": {
         "src": "raymundo-farewell-event-poster-card.webp",
         "fallback": "raymundo-farewell-event-poster.png",

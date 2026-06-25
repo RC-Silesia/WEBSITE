@@ -90,6 +90,17 @@
       "ROTARY for PLANET Silesia"
     ]
   },
+  "sourceOfTruth": {
+    "documents": {
+      "rotaryForPlanetAgreement": {
+        "title": "Porozumienie ramowe ROTARY for PLANET",
+        "status": "obowiązujące - podpisane 02.06.2026 (okres do 31.05.2028)",
+        "format": "PDF",
+        "href": "assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.pdf",
+        "note": "Aktualne porozumienie ramowe RC Silesia / ŚOB ZS podpisane 02.06.2026 w Mikołowie, obowiązuje do 31.05.2028 i obejmuje komplet dokumentów operacyjnych D1-D14."
+      }
+    }
+  },
   "documents": [
     {
       "title": "Statut RC Silesia",
@@ -99,11 +110,7 @@
       "note": "Lokalny dokument RC Silesia. Wersja DOCX przeznaczona do pracy roboczej i weryfikacji. W wersji produkcyjnej rekomendowana jest publikacja zatwierdzonego PDF."
     },
     {
-      "title": "Porozumienie ramowe ROTARY for PLANET",
-      "status": "obowiązujące - podpisane 02.06.2026 (okres do 31.05.2028)",
-      "format": "DOCX",
-      "href": "assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.docx",
-      "note": "Lokalny dokument wdrożeniowy RC Silesia / ŚOB ZS. Porozumienie ramowe podpisane 02.06.2026 w Mikołowie, obowiązuje do 31.05.2028 i obejmuje komplet dokumentów operacyjnych D1-D14."
+      "sourceRef": "rotaryForPlanetAgreement"
     }
   ],
   "statutoryBodies": {

@@ -796,7 +796,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.110";
+  var DATA_VERSION = "1.5.114";
 
   function assetDataUrl(fileName) {
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
@@ -1285,31 +1285,54 @@
       });
   }
 
-  function renderDocuments(documents) {
+  function resolveDocumentItem(documentItem, sourceOfTruth) {
+    if (!documentItem || typeof documentItem !== "object") return null;
+    var sourceRef = documentItem.sourceRef || documentItem.sotRef;
+    var sourceItem = sourceRef && sourceOfTruth ? sourceOfTruth[sourceRef] : null;
+    if (!sourceItem || typeof sourceItem !== "object") return documentItem;
+
+    var resolved = {};
+    [sourceItem, documentItem].forEach(function (item) {
+      Object.keys(item).forEach(function (key) {
+        if (key !== "sourceRef" && key !== "sotRef") {
+          resolved[key] = item[key];
+        }
+      });
+    });
+    return resolved;
+  }
+
+  function renderDocuments(documents, sourceOfTruth) {
     var container = document.querySelector('[data-render="documents"]');
     if (!container || !Array.isArray(documents) || !documents.length) return;
 
     clearElement(container);
     documents.forEach(function (documentItem) {
+      var resolvedDocument = resolveDocumentItem(documentItem, sourceOfTruth);
+      if (!resolvedDocument) return;
+
       var card = document.createElement("article");
       card.className = "document-card";
 
-      var status = appendTextElement(card, "span", "document-status", documentItem.status);
-      if (String(documentItem.status || "").toLowerCase().indexOf("projekt") !== -1) {
+      var status = appendTextElement(card, "span", "document-status", resolvedDocument.status);
+      var normalizedStatus = String(resolvedDocument.status || "").toLowerCase();
+      if (normalizedStatus.indexOf("projekt") !== -1) {
         status.classList.add("is-draft");
+      } else if (normalizedStatus.indexOf("obowiąz") !== -1 || normalizedStatus.indexOf("podpis") !== -1) {
+        status.classList.add("is-approved");
       }
 
-      appendTextElement(card, "h3", "", documentItem.title);
-      appendTextElement(card, "p", "", "Format: " + (documentItem.format || "plik"));
-      appendTextElement(card, "p", "", documentItem.note);
+      appendTextElement(card, "h3", "", resolvedDocument.title);
+      appendTextElement(card, "p", "", "Format: " + (resolvedDocument.format || "plik"));
+      appendTextElement(card, "p", "", resolvedDocument.note);
 
       var link = document.createElement("a");
       link.className = "document-download-bar";
-      link.setAttribute("aria-label", "Pobierz " + (documentItem.title || "dokument") + " " + (documentItem.format || ""));
+      link.setAttribute("aria-label", "Pobierz " + (resolvedDocument.title || "dokument") + " " + (resolvedDocument.format || ""));
       appendTextElement(link, "span", "", "Pobierz");
       var icon = appendTextElement(link, "span", "", "↓");
       icon.setAttribute("aria-hidden", "true");
-      safeHref(link, documentItem.href);
+      safeHref(link, resolvedDocument.href);
       enhanceDocumentDownloadLink(link);
       card.appendChild(link);
 
@@ -2020,7 +2043,7 @@
     renderRotaryForPlanet(data.rotaryForPlanet);
     renderStatutoryBodies(data.statutoryBodies);
     renderBoardMembers(data.statutoryBodies);
-    renderDocuments(data.documents);
+    renderDocuments(data.documents, data.sourceOfTruth && data.sourceOfTruth.documents);
     renderPlantings(data.plantingsDemo);
     renderMediaDemo(data.mediaDemo);
     if (data.payment) {

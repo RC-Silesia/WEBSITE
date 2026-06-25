@@ -1,6 +1,6 @@
 @local = http://127.0.0.1:4173
 @github = https://rc-silesia.github.io/WEBSITE
-@version = 1.5.110
+@version = 1.5.114
 
 ### Staging page - local
 GET {{local}}/staging/?codex={{version}}
@@ -37,3 +37,6 @@ GET {{local}}/rotary-for-planet.html?codex={{version}}
 
 ### ROTARY for PLANET group photo
 GET {{local}}/assets/img/rotary-for-planet-group-linden-2026-06-03-card.webp
+
+### ROTARY for PLANET framework agreement PDF
+GET {{local}}/assets/docs/Porozumienie_ramowe_RC_Silesia_SOB_D1-D14_ze_statutami_i_analiza.pdf
