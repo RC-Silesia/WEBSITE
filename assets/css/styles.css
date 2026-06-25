@@ -1742,6 +1742,38 @@ main[id] {
   padding: 0 18px 20px;
 }
 
+.gallery-card__photo {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.gallery-card__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+
+.gallery-card__photo--portrait {
+  justify-items: center;
+}
+
+.gallery-card__photo--portrait img {
+  width: auto;
+  max-width: 100%;
+  max-height: 560px;
+}
+
+.gallery-card__photo figcaption {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
 .gallery-card__photo-placeholder {
   display: grid;
   place-items: center;
