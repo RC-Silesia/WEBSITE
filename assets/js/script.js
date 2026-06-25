@@ -21,13 +21,16 @@
       try {
         const storedUrl = new URL(storedPath, window.location.href);
         if (storedUrl.origin === window.location.origin && storedUrl.pathname.indexOf("/staging/layer-navigator/") !== -1) {
-          return storedUrl.pathname + storedUrl.search + storedUrl.hash;
+          if (/\/staging\/layer-navigator\/?$/i.test(storedUrl.pathname)) {
+            storedUrl.pathname = storedUrl.pathname.replace(/\/?$/i, "/index.html");
+          }
+          return storedUrl.href;
         }
       } catch (error) {
         // NieprawidĹ‚owy URL nie blokuje linku powrotnego.
       }
     }
-    return window.location.pathname.indexOf("/staging/") !== -1 ? "layer-navigator/" : "staging/layer-navigator/";
+    return window.location.pathname.indexOf("/staging/") !== -1 ? "layer-navigator/index.html" : "staging/layer-navigator/index.html";
   }
 
   function normalizedPathname() {
@@ -793,7 +796,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.89";
+  var DATA_VERSION = "1.5.103";
 
   function assetDataUrl(fileName) {
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
@@ -919,57 +922,13 @@
     return link;
   }
 
-  function renderHeroCarouselGallery(parent, gallery) {
-    if (!Array.isArray(gallery) || !gallery.length) return;
-    var grid = document.createElement("div");
-    grid.className = "hero-carousel__media-grid";
-    grid.setAttribute("aria-label", "Fotografie RC Silesia w działaniu");
-
-    gallery.slice(0, 9).forEach(function (imageData) {
-      if (!imageData || typeof imageData !== "object") return;
-      var webp = assetImageUrl(imageData.src || imageData.webp);
-      var fallback = assetImageUrl(imageData.fallback || imageData.image || imageData.src || imageData.webp);
-      if (!fallback && !webp) return;
-
-      var figure = document.createElement("figure");
-      var picture = document.createElement("picture");
-      if (webp && /\.webp(?:\?|$)/i.test(webp) && fallback !== webp) {
-        var source = document.createElement("source");
-        source.srcset = webp;
-        source.type = "image/webp";
-        picture.appendChild(source);
-      }
-
-      var img = document.createElement("img");
-      img.src = fallback || webp;
-      img.alt = typeof imageData.alt === "string" ? imageData.alt : "";
-      img.width = Number(imageData.width) || 960;
-      img.height = Number(imageData.height) || 640;
-      img.loading = "lazy";
-      img.decoding = "async";
-      picture.appendChild(img);
-      figure.appendChild(picture);
-      grid.appendChild(figure);
-    });
-
-    if (grid.children.length) parent.appendChild(grid);
-  }
-
   function renderHeroCarouselContentSlide(slide) {
-    var hasGallery = Array.isArray(slide.gallery) && slide.gallery.length;
     var article = document.createElement("article");
-    article.className = "hero-carousel__content-card" + (hasGallery ? " hero-carousel__content-card--gallery" : "");
-    var copy = hasGallery ? document.createElement("div") : article;
-    if (hasGallery) copy.className = "hero-carousel__content-copy";
-
-    appendTextElement(copy, "p", "eyebrow", slide.id === "planet" ? "ROTARY for PLANET" : "RC Silesia");
-    appendTextElement(copy, "h2", "", slide.title);
-    appendTextElement(copy, "p", "", slide.text);
-    appendCarouselLink(copy, slide.link, "button secondary");
-    if (hasGallery) {
-      article.appendChild(copy);
-      renderHeroCarouselGallery(article, slide.gallery);
-    }
+    article.className = "hero-carousel__content-card";
+    appendTextElement(article, "p", "eyebrow", slide.id === "planet" ? "ROTARY for PLANET" : "RC Silesia");
+    appendTextElement(article, "h2", "", slide.title);
+    appendTextElement(article, "p", "", slide.text);
+    appendCarouselLink(article, slide.link, "button secondary");
     return article;
   }
 
@@ -1023,6 +982,7 @@
     article.className = "hero-carousel__photo-card";
     var picture = document.createElement("picture");
     var image = slide.image || {};
+    if (image.variant === "portrait") article.classList.add("hero-carousel__photo-card--portrait");
     var src = assetImageUrl(image.src);
     var fallback = assetImageUrl(image.fallback) || src;
     if (!fallback && !src) return renderHeroCarouselPhotoPlaceholder(slide);

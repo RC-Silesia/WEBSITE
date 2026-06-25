@@ -1,7 +1,45 @@
 {
-  "version": "1.5.82",
+  "version": "1.5.103",
   "autoRotate": false,
   "slides": [
+    {
+      "id": "service-handover-poster",
+      "type": "photo",
+      "title": "Przekazanie służby rotariańskiej",
+      "caption": "Plakat wydarzenia: przekazanie służby rotariańskiej w Rotary Club Silesia i zmiana prezydenta.",
+      "image": {
+        "src": "rotary-service-handover-2026-06-25-card.webp",
+        "fallback": "rotary-service-handover-2026-06-25.png",
+        "alt": "Plakat zaproszenia na przekazanie służby rotariańskiej w Rotary Club Silesia",
+        "width": 960,
+        "height": 1440,
+        "variant": "portrait"
+      },
+      "consent": {
+        "status": "approved",
+        "minorsPresent": false,
+        "basis": "plakat wydarzenia dodany do stagingu"
+      }
+    },
+    {
+      "id": "raymundo-farewell-poster",
+      "type": "photo",
+      "title": "Uroczystość pożegnalna Raymundo",
+      "caption": "Plakat wydarzenia: uroczystość pożegnalna studenta wymiany Raymundo Dominguez Barrieras.",
+      "image": {
+        "src": "raymundo-farewell-event-poster-card.webp",
+        "fallback": "raymundo-farewell-event-poster.png",
+        "alt": "Plakat uroczystości pożegnalnej studenta wymiany Raymundo Dominguez Barrieras",
+        "width": 960,
+        "height": 1409,
+        "variant": "portrait"
+      },
+      "consent": {
+        "status": "approved",
+        "minorsPresent": false,
+        "basis": "plakat wydarzenia dodany do stagingu"
+      }
+    },
     {
       "id": "intro",
       "type": "content",
@@ -10,37 +48,61 @@
       "link": {
         "href": "#o-klubie",
         "label": "Poznaj klub"
+      }
+    },
+    {
+      "id": "raymundo-farewell-photo",
+      "type": "photo",
+      "title": "Spotkanie z Raymundo",
+      "caption": "Członkowie Rotary Klub Silesia podczas pożegnalnego spotkania z Raymundo.",
+      "image": {
+        "src": "raymundo-farewell-rotary-silesia-card.webp",
+        "fallback": "raymundo-farewell-rotary-silesia.jpeg",
+        "alt": "Członkowie Rotary Klub Silesia podczas pożegnalnego spotkania z Raymundo",
+        "width": 960,
+        "height": 491
       },
-      "gallery": [
-        {
-          "src": "raymundo-farewell-rotary-silesia-card.webp",
-          "fallback": "raymundo-farewell-rotary-silesia.jpeg",
-          "alt": "Członkowie Rotary Klub Silesia podczas pożegnalnego spotkania z Raymundo",
-          "width": 960,
-          "height": 491
-        },
-        {
-          "src": "rotary-for-planet-linden-2026-06-03-card.webp",
-          "fallback": "rotary-for-planet-linden-2026-06-03.png",
-          "alt": "Lipa drobnolistna posadzona przy wznowieniu programu ROTARY for PLANET 03.06.2026",
-          "width": 576,
-          "height": 1280
-        },
-        {
-          "src": "sob-rc-silesia-cooperation-agreement-card.webp",
-          "fallback": "sob-rc-silesia-cooperation-agreement.png",
-          "alt": "Podpisanie porozumienia o współpracy pomiędzy Związkiem Stowarzyszeń ŚOB i RC Silesia",
-          "width": 960,
-          "height": 432
-        },
-        {
-          "src": "peace-pole-krakow-rotary-card.webp",
-          "fallback": "peace-pole-krakow-rotary.jpeg",
-          "alt": "Uczestnicy wydarzenia Rotary przy słupie pokoju w Krakowie",
-          "width": 960,
-          "height": 641
-        }
-      ]
+      "consent": {
+        "status": "approved",
+        "minorsPresent": false,
+        "basis": "materiał dodany do stagingu do akceptacji klubowej"
+      }
+    },
+    {
+      "id": "sob-agreement-photo",
+      "type": "photo",
+      "title": "Partnerstwo ŚOB i RC Silesia",
+      "caption": "Podpisanie porozumienia o współpracy pomiędzy Związkiem Stowarzyszeń ŚOB i RC Silesia.",
+      "image": {
+        "src": "sob-rc-silesia-cooperation-agreement-card.webp",
+        "fallback": "sob-rc-silesia-cooperation-agreement.png",
+        "alt": "Podpisanie porozumienia o współpracy pomiędzy Związkiem Stowarzyszeń ŚOB i RC Silesia",
+        "width": 960,
+        "height": 432
+      },
+      "consent": {
+        "status": "approved",
+        "minorsPresent": false,
+        "basis": "materiał dodany do stagingu do akceptacji klubowej"
+      }
+    },
+    {
+      "id": "peace-pole-photo",
+      "type": "photo",
+      "title": "Słup pokoju w Krakowie",
+      "caption": "Wspólne zdjęcie z okazji wkopania słupa pokoju w Krakowie.",
+      "image": {
+        "src": "peace-pole-krakow-rotary-card.webp",
+        "fallback": "peace-pole-krakow-rotary.jpeg",
+        "alt": "Uczestnicy wydarzenia Rotary przy słupie pokoju w Krakowie",
+        "width": 960,
+        "height": 641
+      },
+      "consent": {
+        "status": "approved",
+        "minorsPresent": false,
+        "basis": "materiał dodany do stagingu do akceptacji klubowej"
+      }
     },
     {
       "id": "planet",
