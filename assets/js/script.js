@@ -796,7 +796,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.103";
+  var DATA_VERSION = "1.5.107";
 
   function assetDataUrl(fileName) {
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
@@ -922,13 +922,57 @@
     return link;
   }
 
+  function appendCarouselMediaGrid(parent, gallery, label) {
+    if (!Array.isArray(gallery) || !gallery.length) return;
+    var grid = document.createElement("div");
+    grid.className = "hero-carousel__media-grid";
+    grid.setAttribute("aria-label", label || "Materiały zdjęciowe");
+
+    gallery.slice(0, 4).forEach(function (imageData) {
+      if (!imageData || typeof imageData !== "object") return;
+      var src = assetImageUrl(imageData.src || imageData.webp);
+      var fallback = assetImageUrl(imageData.fallback || imageData.image || imageData.src || imageData.webp);
+      if (!fallback && !src) return;
+
+      var figure = document.createElement("figure");
+      var picture = document.createElement("picture");
+      if (src && /\.webp(?:\?|$)/i.test(src) && fallback !== src) {
+        var source = document.createElement("source");
+        source.srcset = src;
+        source.type = "image/webp";
+        picture.appendChild(source);
+      }
+
+      var img = document.createElement("img");
+      img.src = fallback || src;
+      img.alt = typeof imageData.alt === "string" ? imageData.alt : "";
+      img.width = Number(imageData.width) || 960;
+      img.height = Number(imageData.height) || 640;
+      img.loading = "lazy";
+      img.decoding = "async";
+      picture.appendChild(img);
+      figure.appendChild(picture);
+      grid.appendChild(figure);
+    });
+
+    if (grid.children.length) parent.appendChild(grid);
+  }
+
   function renderHeroCarouselContentSlide(slide) {
+    var hasGallery = Array.isArray(slide.gallery) && slide.gallery.length;
     var article = document.createElement("article");
-    article.className = "hero-carousel__content-card";
-    appendTextElement(article, "p", "eyebrow", slide.id === "planet" ? "ROTARY for PLANET" : "RC Silesia");
-    appendTextElement(article, "h2", "", slide.title);
-    appendTextElement(article, "p", "", slide.text);
-    appendCarouselLink(article, slide.link, "button secondary");
+    article.className = "hero-carousel__content-card" + (hasGallery ? " hero-carousel__content-card--media" : "");
+    var copy = hasGallery ? document.createElement("div") : article;
+    if (hasGallery) copy.className = "hero-carousel__media-copy";
+
+    appendTextElement(copy, "p", "eyebrow", slide.id === "planet" ? "ROTARY for PLANET" : "RC Silesia");
+    appendTextElement(copy, "h2", "", slide.title);
+    appendTextElement(copy, "p", "", slide.text);
+    appendCarouselLink(copy, slide.link, "button secondary");
+    if (hasGallery) {
+      article.appendChild(copy);
+      appendCarouselMediaGrid(article, slide.gallery, slide.galleryLabel || (slide.id === "planet" ? "Materiały zdjęciowe ROTARY for PLANET" : "Materiały zdjęciowe RYE"));
+    }
     return article;
   }
 

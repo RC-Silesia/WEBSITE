@@ -122,6 +122,31 @@
     {
       "type": "event",
       "status": "review",
+      "date": "2026-06-13",
+      "time": "12:00",
+      "title": "Religa Golf Cup VII - charytatywny piknik golfowy",
+      "speaker": "",
+      "location": "Golf Park Mikołów, ul. Golfowa 2, 43-190 Mikołów",
+      "summary": "Charytatywny piknik golfowy Religa Golf Cup VII w Golf Park Mikołów. Wydarzenie jest współorganizowane przez RC Silesia i wspiera Fundację Rozwoju Kardiochirurgii im. prof. Zbigniewa Religi. Plakat zapowiada start o godzinie 12:00, turniej golfowy, poczęstunek, licytację i cegiełkę dla Fundacji.",
+      "sourceName": "RC Silesia / plakat wydarzenia",
+      "sourceUrl": "",
+      "visibility": "public",
+      "approvalStatus": "do zatwierdzenia",
+      "imageConsentStatus": "plakat wydarzenia - do akceptacji",
+      "calendarGroup": "archive",
+      "image": {
+        "src": "../assets/img/religa-golf-cup-vii-2026-06-13.png",
+        "webp": "../assets/img/religa-golf-cup-vii-2026-06-13-card.webp",
+        "alt": "Plakat charytatywnego pikniku golfowego Religa Golf Cup VII współorganizowanego przez RC Silesia",
+        "caption": "Plakat wydarzenia: Religa Golf Cup VII, charytatywny piknik golfowy współorganizowany przez RC Silesia.",
+        "width": 526,
+        "height": 526,
+        "variant": "poster"
+      }
+    },
+    {
+      "type": "event",
+      "status": "review",
       "date": "2025-12-10",
       "time": "",
       "title": "Koncert Charytatywny RC Silesia",

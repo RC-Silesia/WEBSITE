@@ -1,5 +1,5 @@
 {
-  "version": "1.5.103",
+  "version": "1.5.107",
   "autoRotate": false,
   "slides": [
     {
@@ -112,7 +112,24 @@
       "link": {
         "href": "#kierunki",
         "label": "Zobacz program"
-      }
+      },
+      "galleryLabel": "Materiały zdjęciowe ROTARY for PLANET",
+      "gallery": [
+        {
+          "src": "rotary-for-planet-group-linden-2026-06-03-card.webp",
+          "fallback": "rotary-for-planet-group-linden-2026-06-03.png",
+          "alt": "Członkowie RC Silesia przy lipie posadzonej w ramach programu ROTARY for PLANET",
+          "width": 960,
+          "height": 1280
+        },
+        {
+          "src": "sob-rc-silesia-cooperation-agreement-card.webp",
+          "fallback": "sob-rc-silesia-cooperation-agreement.png",
+          "alt": "Podpisanie porozumienia o współpracy pomiędzy Związkiem Stowarzyszeń ŚOB i RC Silesia",
+          "width": 960,
+          "height": 432
+        }
+      ]
     },
     {
       "id": "youth-2026",
@@ -123,6 +140,37 @@
         "href": "#mlodziez",
         "label": "Zobacz RYE"
       },
+      "galleryLabel": "Materiały zdjęciowe RYE",
+      "gallery": [
+        {
+          "src": "rye-international-group-flags-card.webp",
+          "fallback": "rye-international-group-flags.png",
+          "alt": "Uczestnicy programu Rotary Youth Exchange podczas spotkania z flagami państw uczestników",
+          "width": 1600,
+          "height": 1200
+        },
+        {
+          "src": "rye-rotary-youth-exchange-promo-card.webp",
+          "fallback": "rye-rotary-youth-exchange-promo.png",
+          "alt": "Grupa uczestników i grafika promująca program Rotary Youth Exchange",
+          "width": 1485,
+          "height": 1485
+        },
+        {
+          "src": "rye-welcome-students-katowice-airport-card.webp",
+          "fallback": "rye-welcome-students-katowice-airport.png",
+          "alt": "Powitanie uczestników wymiany młodzieżowej Rotary Youth Exchange na lotnisku w Katowicach",
+          "width": 1321,
+          "height": 723
+        },
+        {
+          "src": "raymundo-farewell-event-poster-card.webp",
+          "fallback": "raymundo-farewell-event-poster.png",
+          "alt": "Plakat uroczystości pożegnalnej studenta wymiany Raymundo Dominguez Barrieras",
+          "width": 960,
+          "height": 1409
+        }
+      ],
       "policyHref": "privacy.html#wizerunek"
     }
   ]

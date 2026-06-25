@@ -414,6 +414,18 @@ textarea:focus-visible,
   max-width: 780px;
 }
 
+.hero-carousel__content-card--media {
+  grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(18px, 4vw, 38px);
+  align-items: center;
+  max-width: none;
+}
+
+.hero-carousel__media-copy {
+  display: grid;
+  align-content: center;
+}
+
 .hero-carousel__content-card h2,
 .hero-carousel__placeholder h2 {
   margin: 0 0 10px;
@@ -432,6 +444,36 @@ textarea:focus-visible,
 
 .hero-carousel__content-card .button {
   justify-self: start;
+}
+
+.hero-carousel__media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hero-carousel__media-grid figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.hero-carousel__media-grid figure:only-child {
+  grid-column: 1 / -1;
+}
+
+.hero-carousel__media-grid picture,
+.hero-carousel__media-grid img {
+  display: block;
+}
+
+.hero-carousel__media-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: contain;
+  background: #f7f9fc;
 }
 
 .hero-carousel__photo-card {
@@ -1431,6 +1473,55 @@ main[id] {
   background:
     linear-gradient(180deg, rgba(45, 125, 70, .08), rgba(45, 125, 70, 0) 32%),
     var(--white);
+}
+
+.planet-feature-photo,
+.planet-detail-photo {
+  display: grid;
+  gap: 8px;
+  margin: 0 auto 28px;
+}
+
+.planet-feature-photo {
+  max-width: 980px;
+}
+
+.planet-detail-photo {
+  max-width: 780px;
+}
+
+.planet-feature-photo picture,
+.planet-feature-photo img,
+.planet-detail-photo picture,
+.planet-detail-photo img {
+  display: block;
+}
+
+.planet-feature-photo img,
+.planet-detail-photo img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f7f9fc;
+  object-fit: cover;
+}
+
+.planet-feature-photo img {
+  height: clamp(360px, 58vw, 720px);
+  object-position: center 44%;
+}
+
+.planet-detail-photo img {
+  height: clamp(280px, 44vw, 520px);
+  object-position: center 42%;
+}
+
+.planet-feature-photo figcaption,
+.planet-detail-photo figcaption {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.45;
 }
 
 .planet-principle {
@@ -3634,6 +3725,10 @@ textarea {
 }
 
 @media (max-width: 1024px) {
+  .hero-carousel__content-card--media {
+    grid-template-columns: 1fr;
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3754,6 +3849,10 @@ textarea {
   .hero-carousel__placeholder {
     min-height: 250px;
     padding: 24px 18px;
+  }
+
+  .hero-carousel__media-grid {
+    grid-template-columns: 1fr 1fr;
   }
 
   .hero-carousel__content-card .button {
