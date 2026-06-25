@@ -42,7 +42,7 @@ function buildMarkdown(data) {
     lines.push('');
   });
   if (data.cta && data.cta.label) {
-    lines.push(`CTA: [${data.cta.label}](${data.cta.href || 'index.html#start'})`);
+    lines.push(`CTA: [${data.cta.label}](${data.cta.href || 'staging/index.html#start'})`);
     lines.push('');
   }
   lines.push(data.footer || 'To jest szkic newslettera RC Silesia. Przed wysyłką wymaga zatwierdzenia.');
@@ -70,7 +70,7 @@ function buildNewsletterHtml(data) {
       </section>`;
   }).join('');
   const cta = data.cta && data.cta.label ? `
-      <p class="cta"><a href="${escapeHtml(data.cta.href || 'index.html#start')}">${escapeHtml(data.cta.label)}</a></p>` : '';
+      <p class="cta"><a href="${escapeHtml(data.cta.href || 'staging/index.html#start')}">${escapeHtml(data.cta.label)}</a></p>` : '';
 
   return `<!doctype html>
 <html lang="pl">

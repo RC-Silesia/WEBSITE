@@ -305,7 +305,7 @@
   Array.prototype.slice.call(document.querySelectorAll("[data-return-link]")).forEach(function (link) {
     const params = new URLSearchParams(window.location.search);
     const returnTo = safeReturnHash(params.get("returnTo") || "") || readStoredReturnHash() || "#start";
-    link.setAttribute("href", "index.html" + returnTo);
+    link.setAttribute("href", "staging/index.html" + returnTo);
   });
 
   let currentNewsletterData = null;
@@ -374,7 +374,7 @@
       const cta = document.createElement("a");
       cta.className = "button primary";
       cta.textContent = data.cta.label;
-      cta.setAttribute("href", data.cta.href || "index.html#start");
+      cta.setAttribute("href", data.cta.href || "staging/index.html#start");
       newsletterContainer.appendChild(cta);
     }
   }
@@ -413,7 +413,7 @@
       ].join("\n");
     }).join("\n");
     const cta = data.cta && data.cta.label
-      ? "      <p class=\"cta\"><a href=\"" + escapeHtml(data.cta.href || "index.html#start") + "\">" + escapeHtml(data.cta.label) + "</a></p>\n"
+      ? "      <p class=\"cta\"><a href=\"" + escapeHtml(data.cta.href || "staging/index.html#start") + "\">" + escapeHtml(data.cta.label) + "</a></p>\n"
       : "";
 
     return [
@@ -796,7 +796,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.114";
+  var DATA_VERSION = "1.5.119";
 
   function assetDataUrl(fileName) {
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
@@ -1976,7 +1976,7 @@
       appendMeetingDate(card, item.date, item.time);
       appendTextElement(card, "h3", "", item.title);
       appendMeetingImage(card, item.image);
-      if (item.speaker) appendTextElement(card, "p", "meeting-speaker", "Prelegent: " + item.speaker);
+      if (item.speaker) appendTextElement(card, "p", "meeting-speaker", (item.speakerLabel || "Prelegent") + ": " + item.speaker);
       appendTextElement(card, "p", "meeting-location", item.location || "Miejsce do potwierdzenia");
       appendTextElement(card, "p", "", item.summary);
       if (item.imageConsentStatus) {

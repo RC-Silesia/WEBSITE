@@ -64,19 +64,29 @@
     },
     {
       "type": "meeting",
-      "status": "draft",
+      "status": "review",
       "date": "2026-04-28",
-      "time": "",
+      "time": "19:00",
       "title": "Podróż po Azji i Bliskim Wschodzie",
-      "speaker": "do uzupełnienia",
-      "location": "Golf Park Mikołów",
-      "summary": "Zapowiedź spotkania RC Silesia poświęconego Azji i Bliskiemu Wschodowi. Wpis wymaga uzupełnienia o pełną agendę, prelegenta i opis.",
-      "sourceName": "Rotary Polska / Facebook",
+      "speakerLabel": "Prelegenci",
+      "speaker": "Ewa i Bogdan Uliaszowie",
+      "location": "Pole Golfowe Mikołów, ul. Golfowa 2, 43-192 Mikołów",
+      "summary": "Spotkanie z Ewą i Bogdanem Uliaszami poświęcone tegorocznej podróży po Azji i Bliskim Wschodzie. Prelegenci opowiedzą o Bali, Sri Lance, zwyczajach, życiu codziennym mieszkańców poznanych państw, niskobudżetowym realizowaniu podróży życia, nowych przyjaźniach oraz odwiedzinach lokalnych klubów Rotary.",
+      "sourceName": "Rotary Polska / Facebook / plakat wydarzenia",
       "sourceUrl": "https://www.facebook.com/RotaryPolska/posts/1421666296671675/",
       "visibility": "public",
       "approvalStatus": "do zatwierdzenia",
-      "imageConsentStatus": "do potwierdzenia",
-      "calendarGroup": "archive"
+      "imageConsentStatus": "plakat wydarzenia - do akceptacji",
+      "calendarGroup": "archive",
+      "image": {
+        "src": "../assets/img/rc-silesia-ewa-bogdan-uliasz-2026-04-28.jpg",
+        "webp": "../assets/img/rc-silesia-ewa-bogdan-uliasz-2026-04-28-card.webp",
+        "alt": "Plakat spotkania RC Silesia z Ewą i Bogdanem Uliaszami",
+        "caption": "Plakat wydarzenia: spotkanie z Ewą i Bogdanem Uliaszami, 28.04.2026.",
+        "width": 600,
+        "height": 679,
+        "variant": "poster"
+      }
     },
     {
       "type": "event",
@@ -150,6 +160,32 @@
         "caption": "Plakat wydarzenia: Religa Golf Cup VII, charytatywny piknik golfowy współorganizowany przez RC Silesia.",
         "width": 526,
         "height": 526,
+        "variant": "poster"
+      }
+    },
+    {
+      "type": "event",
+      "status": "review",
+      "date": "2026-06-02",
+      "time": "19:00",
+      "title": "Projekt ROTARY for PLANET - STARTUJEMY dla PLANETY",
+      "speakerLabel": "Prelegenci",
+      "speaker": "dr inż. Marta Zając-Ossowska i dr Paweł Kojs",
+      "location": "Pole Golfowe Mikołów, ul. Golfowa 2, 43-192 Mikołów",
+      "summary": "Spotkanie RC Silesia poświęcone zwierzętom, roślinom, ekologii i środowisku oraz wznowieniu projektu ROTARY for PLANET. Post i plakat zapowiadają wystąpienia dr inż. Marty Zając-Ossowskiej, zootechniczki i ekspertki od ogrodów zoologicznych, oraz dr. Pawła Kojsa, botanika i dyrektora Mikołowskiego Ogrodu Botanicznego. W ramach spotkania zostanie posadzone pierwsze drzewo nowej edycji projektu - lipa drobnolistna.",
+      "sourceName": "Facebook RC Silesia / plakat wydarzenia",
+      "sourceUrl": "https://www.facebook.com/61569752879280/posts/122161935788658429",
+      "visibility": "public",
+      "approvalStatus": "do zatwierdzenia",
+      "imageConsentStatus": "publiczny post Facebook / plakat wydarzenia - do akceptacji",
+      "calendarGroup": "archive",
+      "image": {
+        "src": "../assets/img/rotary-for-planet-startujemy-dla-planety-2026-06-02.jpg",
+        "webp": "../assets/img/rotary-for-planet-startujemy-dla-planety-2026-06-02-card.webp",
+        "alt": "Plakat wydarzenia Projekt ROTARY for PLANET - STARTUJEMY dla PLANETY w RC Silesia",
+        "caption": "Plakat wydarzenia: STARTUJEMY dla PLANETY, wznowienie programu ROTARY for PLANET, 02.06.2026.",
+        "width": 555,
+        "height": 630,
         "variant": "poster"
       }
     },
