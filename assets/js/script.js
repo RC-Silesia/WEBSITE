@@ -796,7 +796,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.108";
+  var DATA_VERSION = "1.5.110";
 
   function assetDataUrl(fileName) {
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
@@ -823,6 +823,25 @@
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
     var base = script && script.src ? script.src : "assets/js/script.js";
     return new URL("../img/" + normalizedValue, base).toString();
+  }
+
+  function assetVideoUrl(value) {
+    if (typeof value !== "string") return "";
+    var normalizedValue = value.trim();
+    if (!normalizedValue) return "";
+    if (normalizedValue.indexOf("https://") === 0 || normalizedValue.indexOf("http://") === 0) return normalizedValue;
+    normalizedValue = normalizedValue.replace(/^(?:\.\.\/)?assets\/video\//, "");
+    if (
+      normalizedValue.indexOf("..") !== -1 ||
+      normalizedValue.indexOf(":") !== -1 ||
+      normalizedValue.indexOf("\\") !== -1 ||
+      normalizedValue.charAt(0) === "/"
+    ) {
+      return "";
+    }
+    var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
+    var base = script && script.src ? script.src : "assets/js/script.js";
+    return new URL("../video/" + normalizedValue, base).toString();
   }
 
   function safeText(element, value) {
@@ -958,20 +977,54 @@
     if (grid.children.length) parent.appendChild(grid);
   }
 
+  function appendCarouselVideo(parent, videoData) {
+    if (!videoData || typeof videoData !== "object") return;
+    var src = assetVideoUrl(videoData.src || videoData.video);
+    if (!src) return;
+
+    var figure = document.createElement("figure");
+    figure.className = "hero-carousel__video-frame";
+    if (videoData.label) figure.setAttribute("aria-label", String(videoData.label));
+
+    var video = document.createElement("video");
+    video.controls = true;
+    video.preload = "metadata";
+    video.playsInline = true;
+
+    var source = document.createElement("source");
+    source.src = src;
+    source.type = videoData.type || "video/mp4";
+    video.appendChild(source);
+    video.appendChild(document.createTextNode("Twoja przeglądarka nie obsługuje odtwarzania wideo."));
+    figure.appendChild(video);
+
+    if (videoData.caption) {
+      appendTextElement(figure, "figcaption", "", videoData.caption);
+    }
+
+    parent.appendChild(figure);
+  }
+
   function renderHeroCarouselContentSlide(slide) {
     var hasGallery = Array.isArray(slide.gallery) && slide.gallery.length;
+    var hasVideo = Boolean(slide.video && slide.video.src);
+    var hasMedia = hasGallery || hasVideo;
     var article = document.createElement("article");
-    article.className = "hero-carousel__content-card" + (hasGallery ? " hero-carousel__content-card--media" : "");
-    var copy = hasGallery ? document.createElement("div") : article;
-    if (hasGallery) copy.className = "hero-carousel__media-copy";
+    article.className = "hero-carousel__content-card" + (hasMedia ? " hero-carousel__content-card--media" : "");
+    var copy = hasMedia ? document.createElement("div") : article;
+    if (hasMedia) copy.className = "hero-carousel__media-copy";
 
     appendTextElement(copy, "p", "eyebrow", slide.id === "planet" ? "ROTARY for PLANET" : "RC Silesia");
     appendTextElement(copy, "h2", "", slide.title);
     appendTextElement(copy, "p", "", slide.text);
     appendCarouselLink(copy, slide.link, "button secondary");
-    if (hasGallery) {
+    if (hasMedia) {
       article.appendChild(copy);
-      appendCarouselMediaGrid(article, slide.gallery, slide.galleryLabel || (slide.id === "planet" ? "Materiały zdjęciowe ROTARY for PLANET" : "Materiały zdjęciowe RYE"));
+      if (hasVideo) {
+        appendCarouselVideo(article, slide.video);
+      } else {
+        appendCarouselMediaGrid(article, slide.gallery, slide.galleryLabel || (slide.id === "planet" ? "Materiały zdjęciowe ROTARY for PLANET" : "Materiały zdjęciowe RYE"));
+      }
     }
     return article;
   }

@@ -1,0 +1,39 @@
+@local = http://127.0.0.1:4173
+@github = https://rc-silesia.github.io/WEBSITE
+@version = 1.5.110
+
+### Staging page - local
+GET {{local}}/staging/?codex={{version}}
+
+### Staging page - GitHub Pages
+GET {{github}}/staging/?codex={{version}}
+
+### Meetings data
+GET {{local}}/assets/data/meetings.json?v={{version}}
+
+### Carousel data
+GET {{local}}/assets/data/carousel.json?v={{version}}
+
+### RC Silesia w dzialaniu video
+GET {{local}}/assets/video/rc-silesia-w-dzialaniu-rotary-for-planet-2026-06-03.mp4
+
+### Spring event poster - Iwona Plodzien
+GET {{local}}/assets/img/rc-silesia-iwona-plodzien-2026-05-19-card.webp
+
+### Spring event poster - Sebastian Owczarski
+GET {{local}}/assets/img/rc-silesia-sebastian-owczarski-2026-04-14-card.webp
+
+### Spring event poster - Anna i Magdalena Kaleniak
+GET {{local}}/assets/img/rc-silesia-anna-magdalena-kaleniak-2026-03-31-card.webp
+
+### Spring event poster - JAZZ TV
+GET {{local}}/assets/img/rc-silesia-jazz-tv-2026-03-24-card.webp
+
+### Spring event poster - Michal Krysa
+GET {{local}}/assets/img/rc-silesia-michal-krysa-2026-03-17-card.webp
+
+### ROTARY for PLANET detail page
+GET {{local}}/rotary-for-planet.html?codex={{version}}
+
+### ROTARY for PLANET group photo
+GET {{local}}/assets/img/rotary-for-planet-group-linden-2026-06-03-card.webp
