@@ -8,9 +8,39 @@
       "title": "RC Silesia w działaniu",
       "text": "Krótkie wprowadzenie do klubu i programu ROTARY for PLANET.",
       "link": {
-        "href": "#kim-jestesmy",
+        "href": "#o-klubie",
         "label": "Poznaj klub"
-      }
+      },
+      "gallery": [
+        {
+          "src": "raymundo-farewell-rotary-silesia-card.webp",
+          "fallback": "raymundo-farewell-rotary-silesia.jpeg",
+          "alt": "Członkowie Rotary Klub Silesia podczas pożegnalnego spotkania z Raymundo",
+          "width": 960,
+          "height": 491
+        },
+        {
+          "src": "rotary-for-planet-linden-2026-06-03-card.webp",
+          "fallback": "rotary-for-planet-linden-2026-06-03.png",
+          "alt": "Lipa drobnolistna posadzona przy wznowieniu programu ROTARY for PLANET 03.06.2026",
+          "width": 576,
+          "height": 1280
+        },
+        {
+          "src": "sob-rc-silesia-cooperation-agreement-card.webp",
+          "fallback": "sob-rc-silesia-cooperation-agreement.png",
+          "alt": "Podpisanie porozumienia o współpracy pomiędzy Związkiem Stowarzyszeń ŚOB i RC Silesia",
+          "width": 960,
+          "height": 432
+        },
+        {
+          "src": "peace-pole-krakow-rotary-card.webp",
+          "fallback": "peace-pole-krakow-rotary.jpeg",
+          "alt": "Uczestnicy wydarzenia Rotary przy słupie pokoju w Krakowie",
+          "width": 960,
+          "height": 641
+        }
+      ]
     },
     {
       "id": "planet",
@@ -24,21 +54,12 @@
     },
     {
       "id": "youth-2026",
-      "type": "photo",
-      "title": "Wymiana młodzieży",
-      "caption": "Podpis pojawi się po zatwierdzeniu zdjęcia i zgód.",
-      "image": {
-        "src": "",
-        "fallback": "",
-        "alt": "",
-        "width": 1200,
-        "height": 675
-      },
-      "consent": {
-        "status": "pending",
-        "minorsPresent": true,
-        "guardianConsent": false,
-        "basis": "pisemna zgoda opiekuna - do uzyskania"
+      "type": "content",
+      "title": "Wymiana młodzieży RYE",
+      "text": "Rotary Youth Exchange łączy młodych ludzi, rodziny goszczące i wolontariuszy Rotary wokół międzykulturowej przyjaźni, odpowiedzialności i służby.",
+      "link": {
+        "href": "#mlodziez",
+        "label": "Zobacz RYE"
       },
       "policyHref": "privacy.html#wizerunek"
     }

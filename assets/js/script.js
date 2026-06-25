@@ -803,6 +803,25 @@
     return url.toString();
   }
 
+  function assetImageUrl(value) {
+    if (typeof value !== "string") return "";
+    var normalizedValue = value.trim();
+    if (!normalizedValue) return "";
+    if (normalizedValue.indexOf("https://") === 0 || normalizedValue.indexOf("http://") === 0) return normalizedValue;
+    normalizedValue = normalizedValue.replace(/^(?:\.\.\/)?assets\/img\//, "");
+    if (
+      normalizedValue.indexOf("..") !== -1 ||
+      normalizedValue.indexOf(":") !== -1 ||
+      normalizedValue.indexOf("\\") !== -1 ||
+      normalizedValue.charAt(0) === "/"
+    ) {
+      return "";
+    }
+    var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
+    var base = script && script.src ? script.src : "assets/js/script.js";
+    return new URL("../img/" + normalizedValue, base).toString();
+  }
+
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
     element.textContent = String(value);
@@ -900,13 +919,57 @@
     return link;
   }
 
+  function renderHeroCarouselGallery(parent, gallery) {
+    if (!Array.isArray(gallery) || !gallery.length) return;
+    var grid = document.createElement("div");
+    grid.className = "hero-carousel__media-grid";
+    grid.setAttribute("aria-label", "Fotografie RC Silesia w działaniu");
+
+    gallery.slice(0, 9).forEach(function (imageData) {
+      if (!imageData || typeof imageData !== "object") return;
+      var webp = assetImageUrl(imageData.src || imageData.webp);
+      var fallback = assetImageUrl(imageData.fallback || imageData.image || imageData.src || imageData.webp);
+      if (!fallback && !webp) return;
+
+      var figure = document.createElement("figure");
+      var picture = document.createElement("picture");
+      if (webp && /\.webp(?:\?|$)/i.test(webp) && fallback !== webp) {
+        var source = document.createElement("source");
+        source.srcset = webp;
+        source.type = "image/webp";
+        picture.appendChild(source);
+      }
+
+      var img = document.createElement("img");
+      img.src = fallback || webp;
+      img.alt = typeof imageData.alt === "string" ? imageData.alt : "";
+      img.width = Number(imageData.width) || 960;
+      img.height = Number(imageData.height) || 640;
+      img.loading = "lazy";
+      img.decoding = "async";
+      picture.appendChild(img);
+      figure.appendChild(picture);
+      grid.appendChild(figure);
+    });
+
+    if (grid.children.length) parent.appendChild(grid);
+  }
+
   function renderHeroCarouselContentSlide(slide) {
+    var hasGallery = Array.isArray(slide.gallery) && slide.gallery.length;
     var article = document.createElement("article");
-    article.className = "hero-carousel__content-card";
-    appendTextElement(article, "p", "eyebrow", slide.id === "planet" ? "ROTARY for PLANET" : "RC Silesia");
-    appendTextElement(article, "h2", "", slide.title);
-    appendTextElement(article, "p", "", slide.text);
-    appendCarouselLink(article, slide.link, "button secondary");
+    article.className = "hero-carousel__content-card" + (hasGallery ? " hero-carousel__content-card--gallery" : "");
+    var copy = hasGallery ? document.createElement("div") : article;
+    if (hasGallery) copy.className = "hero-carousel__content-copy";
+
+    appendTextElement(copy, "p", "eyebrow", slide.id === "planet" ? "ROTARY for PLANET" : "RC Silesia");
+    appendTextElement(copy, "h2", "", slide.title);
+    appendTextElement(copy, "p", "", slide.text);
+    appendCarouselLink(copy, slide.link, "button secondary");
+    if (hasGallery) {
+      article.appendChild(copy);
+      renderHeroCarouselGallery(article, slide.gallery);
+    }
     return article;
   }
 
@@ -960,8 +1023,9 @@
     article.className = "hero-carousel__photo-card";
     var picture = document.createElement("picture");
     var image = slide.image || {};
-    var src = image.src.trim();
-    var fallback = typeof image.fallback === "string" && image.fallback.trim() ? image.fallback.trim() : src;
+    var src = assetImageUrl(image.src);
+    var fallback = assetImageUrl(image.fallback) || src;
+    if (!fallback && !src) return renderHeroCarouselPhotoPlaceholder(slide);
 
     if (/\.webp(\?|$)/i.test(src) && fallback !== src) {
       var source = document.createElement("source");
@@ -1774,6 +1838,35 @@
     }
   }
 
+  function appendMeetingImage(card, image) {
+    if (!image || !image.src) return;
+
+    var figure = document.createElement("figure");
+    figure.className = "meeting-card__image";
+    if (image.variant === "poster") figure.className += " meeting-card__image--poster";
+
+    var picture = document.createElement("picture");
+    if (image.webp) {
+      var source = document.createElement("source");
+      source.setAttribute("srcset", image.webp);
+      source.setAttribute("type", "image/webp");
+      picture.appendChild(source);
+    }
+
+    var img = document.createElement("img");
+    img.src = image.src;
+    img.alt = image.alt || "";
+    img.width = Number(image.width) || 960;
+    img.height = Number(image.height) || 540;
+    img.loading = "lazy";
+    img.decoding = "async";
+    picture.appendChild(img);
+    figure.appendChild(picture);
+
+    if (image.caption) appendTextElement(figure, "figcaption", "", image.caption);
+    card.appendChild(figure);
+  }
+
   function renderMeetings(data) {
     var container = document.querySelector('[data-render="meetings"]');
     if (!container || !data || !Array.isArray(data.items) || !data.items.length) return;
@@ -1802,6 +1895,7 @@
 
       appendMeetingDate(card, item.date, item.time);
       appendTextElement(card, "h3", "", item.title);
+      appendMeetingImage(card, item.image);
       if (item.speaker) appendTextElement(card, "p", "meeting-speaker", "Prelegent: " + item.speaker);
       appendTextElement(card, "p", "meeting-location", item.location || "Miejsce do potwierdzenia");
       appendTextElement(card, "p", "", item.summary);

@@ -414,6 +414,18 @@ textarea:focus-visible,
   max-width: 780px;
 }
 
+.hero-carousel__content-card--gallery {
+  grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr);
+  gap: clamp(18px, 4vw, 38px);
+  align-items: center;
+  max-width: none;
+}
+
+.hero-carousel__content-copy {
+  display: grid;
+  align-content: center;
+}
+
 .hero-carousel__content-card h2,
 .hero-carousel__placeholder h2 {
   margin: 0 0 10px;
@@ -432,6 +444,32 @@ textarea:focus-visible,
 
 .hero-carousel__content-card .button {
   justify-self: start;
+}
+
+.hero-carousel__media-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.hero-carousel__media-grid figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.hero-carousel__media-grid picture,
+.hero-carousel__media-grid img {
+  display: block;
+}
+
+.hero-carousel__media-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: cover;
+  background: #eef2f7;
 }
 
 .hero-carousel__photo-card {
@@ -1732,7 +1770,7 @@ main[id] {
 }
 
 .gallery-card[aria-expanded="true"] .gallery-card__panel {
-  max-height: 1500px;
+  max-height: 2600px;
   opacity: 1;
 }
 
@@ -1846,6 +1884,40 @@ main[id] {
 
 .gallery-card__policy {
   color: var(--blue-dark);
+}
+
+.youth-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.youth-photo-grid figure {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.youth-photo-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.youth-photo-grid figcaption {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.youth-photo-card .status-note {
+  margin-top: 16px;
 }
 
 .process {
@@ -2914,6 +2986,38 @@ th {
   margin: 0;
 }
 
+.meeting-card__image {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.meeting-card__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.meeting-card__image--poster {
+  justify-items: center;
+}
+
+.meeting-card__image--poster img {
+  width: auto;
+  max-width: 100%;
+  max-height: 520px;
+}
+
+.meeting-card__image figcaption {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
 .meeting-card time,
 .meeting-date {
   color: var(--blue-dark);
@@ -3567,6 +3671,14 @@ textarea {
 }
 
 @media (max-width: 1024px) {
+  .hero-carousel__content-card--gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-carousel__media-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3578,7 +3690,8 @@ textarea {
   }
 
   .gallery-grid,
-  .membership-grid {
+  .membership-grid,
+  .youth-photo-grid {
     grid-template-columns: 1fr;
   }
 
@@ -3686,6 +3799,10 @@ textarea {
   .hero-carousel__placeholder {
     min-height: 250px;
     padding: 24px 18px;
+  }
+
+  .hero-carousel__media-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-carousel__content-card .button {
