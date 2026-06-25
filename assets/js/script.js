@@ -796,7 +796,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.119";
+  var DATA_VERSION = "1.5.120";
 
   function assetDataUrl(fileName) {
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
@@ -844,6 +844,25 @@
     return new URL("../video/" + normalizedValue, base).toString();
   }
 
+  function assetDocumentUrl(value) {
+    if (typeof value !== "string") return "";
+    var normalizedValue = value.trim();
+    if (!normalizedValue) return "";
+    if (normalizedValue.indexOf("https://") === 0 || normalizedValue.indexOf("http://") === 0) return normalizedValue;
+    normalizedValue = normalizedValue.replace(/^(?:\.\.\/)?assets\/docs\//, "");
+    if (
+      normalizedValue.indexOf("..") !== -1 ||
+      normalizedValue.indexOf(":") !== -1 ||
+      normalizedValue.indexOf("\\") !== -1 ||
+      normalizedValue.charAt(0) === "/"
+    ) {
+      return "";
+    }
+    var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
+    var base = script && script.src ? script.src : "assets/js/script.js";
+    return new URL("../docs/" + normalizedValue, base).toString();
+  }
+
   function safeText(element, value) {
     if (!element || value === undefined || value === null) return;
     element.textContent = String(value);
@@ -885,14 +904,20 @@
   function enhanceDocumentDownloadLink(link) {
     if (!link) return;
     var href = link.getAttribute("href") || "";
-    if (href.indexOf("assets/docs/") !== 0) return;
-    var fileName = href.split("/").pop();
+    if (href.indexOf("assets/docs/") !== 0 && href.indexOf("../assets/docs/") !== 0 && href.indexOf("/assets/docs/") === -1) return;
+    var pathName = href;
+    try {
+      pathName = new URL(href, window.location.href).pathname;
+    } catch (error) {
+      pathName = href;
+    }
+    var fileName = decodeURIComponent(pathName.split("/").pop() || "");
     link.setAttribute("download", fileName || "");
   }
 
   function enhanceDocumentDownloads(scope) {
     var root = scope || document;
-    Array.prototype.slice.call(root.querySelectorAll('a[href^="assets/docs/"]')).forEach(enhanceDocumentDownloadLink);
+    Array.prototype.slice.call(root.querySelectorAll('a[href^="assets/docs/"], a[href^="../assets/docs/"], a[href*="/assets/docs/"]')).forEach(enhanceDocumentDownloadLink);
   }
 
   function appendTextElement(parent, tagName, className, text) {
@@ -1332,7 +1357,7 @@
       appendTextElement(link, "span", "", "Pobierz");
       var icon = appendTextElement(link, "span", "", "↓");
       icon.setAttribute("aria-hidden", "true");
-      safeHref(link, resolvedDocument.href);
+      safeHref(link, assetDocumentUrl(resolvedDocument.href));
       enhanceDocumentDownloadLink(link);
       card.appendChild(link);
 

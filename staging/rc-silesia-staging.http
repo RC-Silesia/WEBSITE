@@ -1,6 +1,6 @@
 @local = http://127.0.0.1:4173
 @github = https://rc-silesia.github.io/WEBSITE
-@version = 1.5.119
+@version = 1.5.120
 
 ### Staging page - local
 GET {{local}}/staging/?codex={{version}}
