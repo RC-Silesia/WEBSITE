@@ -796,7 +796,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.124";
+  var DATA_VERSION = "1.5.125";
 
   function assetDataUrl(fileName) {
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');

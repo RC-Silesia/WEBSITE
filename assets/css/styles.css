@@ -1885,6 +1885,11 @@ main[id] {
   max-height: 560px;
 }
 
+.gallery-card__photo--document img {
+  background: #f7f9fc;
+  object-fit: contain;
+}
+
 .gallery-card__photo figcaption {
   color: var(--muted);
   font-size: 13px;
