@@ -796,7 +796,7 @@
 
 /* ===== Sprint 1.1 — pilotaż warstwy danych JSON ===== */
 (function () {
-  var DATA_VERSION = "1.5.125";
+  var DATA_VERSION = "1.5.126";
 
   function assetDataUrl(fileName) {
     var script = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
@@ -2343,17 +2343,6 @@
   ];
   var expandedPaymentTileId = null;
 
-  function escapeSupportHtml(value) {
-    return String(value).replace(/[&<>"']/g, function (char) {
-      return {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      }[char];
-    });
-  }
 
   function getPaymentIcon(id) {
     var icons = {
@@ -2364,58 +2353,96 @@
     return icons[id] || "→";
   }
 
-  function renderPaymentTile(method) {
+  function createPaymentTile(method) {
     var isExpanded = expandedPaymentTileId === method.id;
-    var detailsHtml = "";
-    var actionsHtml = "";
+    var article = document.createElement("article");
+    var button = document.createElement("button");
+    var icon = document.createElement("span");
+    var copy = document.createElement("span");
+    var title = document.createElement("strong");
+    var summary = document.createElement("small");
+    var state = document.createElement("span");
+
+    article.className = "payment-tile" + (isExpanded ? " is-expanded" : "");
+
+    button.type = "button";
+    button.className = "payment-tile-main";
+    button.setAttribute("data-action", "toggle-payment-tile");
+    button.setAttribute("data-payment-id", method.id);
+    button.setAttribute("aria-expanded", String(isExpanded));
+
+    icon.className = "payment-tile-icon";
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = getPaymentIcon(method.id);
+
+    copy.className = "payment-tile-copy";
+    title.textContent = method.label;
+    summary.textContent = method.summary;
+    copy.appendChild(title);
+    copy.appendChild(summary);
+
+    state.className = "payment-tile-state";
+    state.setAttribute("aria-hidden", "true");
+    state.textContent = isExpanded ? "−" : "+";
+
+    button.appendChild(icon);
+    button.appendChild(copy);
+    button.appendChild(state);
+    article.appendChild(button);
 
     if (isExpanded) {
-      detailsHtml = method.details.map(function (item) {
-        return [
-          '<div class="payment-detail-row">',
-          "  <span>" + escapeSupportHtml(item.label) + "</span>",
-          "  <strong>" + escapeSupportHtml(item.value) + "</strong>",
-          "</div>"
-        ].join("");
-      }).join("");
+      var details = document.createElement("div");
+      details.className = "payment-tile-details";
+
+      method.details.forEach(function (item) {
+        var row = document.createElement("div");
+        var rowLabel = document.createElement("span");
+        var rowValue = document.createElement("strong");
+        row.className = "payment-detail-row";
+        rowLabel.textContent = item.label;
+        rowValue.textContent = item.value;
+        row.appendChild(rowLabel);
+        row.appendChild(rowValue);
+        details.appendChild(row);
+      });
 
       if (method.actions && method.actions.length) {
-        actionsHtml = [
-          '<div class="payment-tile-actions">',
-          method.actions.map(function (action) {
-            return [
-              '<button type="button" class="plain-button" data-action="copy-payment-value" data-copy-value="' + escapeSupportHtml(action.value) + '" data-support-status="status-payment-copy-' + escapeSupportHtml(method.id) + '">',
-              escapeSupportHtml(action.label),
-              "</button>"
-            ].join("");
-          }).join(""),
-          '<p class="copy-status payment-copy-status" id="status-payment-copy-' + escapeSupportHtml(method.id) + '" role="status" aria-live="polite"></p>',
-          "</div>"
-        ].join("");
+        var actions = document.createElement("div");
+        var status = document.createElement("p");
+        actions.className = "payment-tile-actions";
+
+        method.actions.forEach(function (action) {
+          var actionButton = document.createElement("button");
+          actionButton.type = "button";
+          actionButton.className = "plain-button";
+          actionButton.setAttribute("data-action", "copy-payment-value");
+          actionButton.setAttribute("data-copy-value", action.value);
+          actionButton.setAttribute("data-support-status", "status-payment-copy-" + method.id);
+          actionButton.textContent = action.label;
+          actions.appendChild(actionButton);
+        });
+
+        status.className = "copy-status payment-copy-status";
+        status.id = "status-payment-copy-" + method.id;
+        status.setAttribute("role", "status");
+        status.setAttribute("aria-live", "polite");
+        actions.appendChild(status);
+        details.appendChild(actions);
       }
 
-      detailsHtml = '<div class="payment-tile-details">' + detailsHtml + actionsHtml + "</div>";
+      article.appendChild(details);
     }
 
-    return [
-      '<article class="payment-tile ' + (isExpanded ? "is-expanded" : "") + '">',
-      '  <button type="button" class="payment-tile-main" data-action="toggle-payment-tile" data-payment-id="' + escapeSupportHtml(method.id) + '" aria-expanded="' + String(isExpanded) + '">',
-      '    <span class="payment-tile-icon" aria-hidden="true">' + escapeSupportHtml(getPaymentIcon(method.id)) + "</span>",
-      '    <span class="payment-tile-copy">',
-      "      <strong>" + escapeSupportHtml(method.label) + "</strong>",
-      "      <small>" + escapeSupportHtml(method.summary) + "</small>",
-      "    </span>",
-      '    <span class="payment-tile-state" aria-hidden="true">' + (isExpanded ? "−" : "+") + "</span>",
-      "  </button>",
-      detailsHtml,
-      "</article>"
-    ].join("");
+    return article;
   }
 
   function renderPaymentTiles() {
     var container = document.querySelector("[data-payment-tiles]");
     if (!container) return;
-    container.innerHTML = paymentMethods.map(renderPaymentTile).join("");
+    while (container.firstChild) container.removeChild(container.firstChild);
+    paymentMethods.forEach(function (method) {
+      container.appendChild(createPaymentTile(method));
+    });
   }
 
   var paymentTileContainer = document.querySelector("[data-payment-tiles]");
