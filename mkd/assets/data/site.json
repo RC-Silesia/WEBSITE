@@ -3,7 +3,7 @@
   "wersjaSchematu": "0.2.0",
   "projekt": {
     "nazwa": "Mikołowska Karta Drzew",
-    "program": "ROTARY for PLANET",
+    "program": "Mikołowska Karta Drzew",
     "rola": "obywatelski komponent gminnej Mikołowskiej Karty Drzew",
     "dataAktualizacji": "2026-07-03",
     "status": "serwis roboczy przed formalnym porozumieniem",
@@ -22,9 +22,9 @@
       "url": ""
     },
     {
-      "nazwa": "Rotary Klub Silesia",
-      "rola": "operator komponentu obywatelskiego",
-      "url": "https://www.rotarysilesia.org"
+      "nazwa": "Zespół społeczny MKD",
+      "rola": "komponent obywatelski i przyszłe zgłoszenia mieszkańców",
+      "url": ""
     },
     {
       "nazwa": "Śląski Ogród Botaniczny",

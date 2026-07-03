@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.94-mkd-independent-seasonal-identity
+- usunięto z publicznego katalogu `mkd/` widoczne ślady obcego brandingu: nagłówek, hero, stopkę, sekcję partnerów, dane `site.json` i metadane strony;
+- przebudowano tożsamość wizualną MKD na ciemną zieleń oraz sezonowe akcenty liści: wiosna, lato, jesień, zima;
+- podbito cache-bust zasobów MKD do `0.2.1` i dodano testowy parametr `?sezon=wiosna|lato|jesien|zima`.
+
 ## v1.5.93-publish-mkd-www-bootstrap
 - opublikowano w katalogu `mkd/` wersję `MKD-WWW-0-bootstrap` serwisu Mikołowska Karta Drzew;
 - zaktualizowano model danych rejestru do `0.2.0` z kanonicznym układem `EPSG:2177` i prezentacją `EPSG:4326`;

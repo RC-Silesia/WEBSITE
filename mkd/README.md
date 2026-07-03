@@ -1,6 +1,6 @@
 # Mikołowska Karta Drzew
 
-`mkd-www` to samodzielny statyczny projekt roboczego serwisu Mikołowska Karta Drzew. Serwis jest obywatelskim komponentem gminnej Mikołowskiej Karty Drzew, przygotowywanym przez Rotary Klub Silesia w ramach programu ROTARY for PLANET we współpracy ze Śląskim Ogrodem Botanicznym.
+`mkd-www` to samodzielny statyczny projekt roboczego serwisu Mikołowska Karta Drzew. Serwis jest obywatelskim komponentem gminnej Mikołowskiej Karty Drzew, przygotowywanym jako narzędzie publicznej informacji o standardzie odpowiedzialnych nasadzeń.
 
 Status formalny: porozumienie z Gminą Mikołów jest w przygotowaniu. Do czasu jego zawarcia serwis ma charakter roboczy i nie jest oficjalnym serwisem Gminy.
 
@@ -58,7 +58,7 @@ Zasady danych:
 - `idMiejscaRWMN` jest miejscem na powiązanie z miejskim rejestrem miejsc nasadzeń,
 - `zgodnyZTabelaTaksonow` oznacza zgodność gatunku z tabelą taksonów przyjętą w warstwie gminnej,
 - `opiekun` jest opcjonalny i nie powinien zawierać danych osobowych osób fizycznych do czasu przyjęcia polityki RODO,
-- `kartaNasadzeniaD2` jest referencją do dokumentu nasadzenia programu Rotary/ŚOB,
+- `kartaNasadzeniaD2` jest referencją do dokumentu nasadzenia komponentu społecznego/ŚOB,
 - `kartaMiejscaNasadzenia` jest referencją do dokumentu warstwy gminnej,
 - status monitoringu przyjmuje jedną z wartości: `zyje`, `oslabione`, `usuniete`, `wymienione`, `brak-danych`,
 - `m36` jest opcjonalny i wypełniany dla nasadzeń objętych gwarancją 36-miesięczną.
@@ -91,10 +91,11 @@ Przy `file://` przeglądarka może zablokować `fetch` do plików JSON. To oczek
 
 Projekt korzysta z architektury wypracowanej w repo `RC-Silesia/WEBSITE`, ale nie zależy od jego plików. Zaadaptowano:
 
-- treści kierunku ROTARY for PLANET z sekcji projektów, aktualności i galerii,
+- układ informacyjny sekcji projektowych, aktualnościowych i galeryjnych,
 - wzorzec akordeonu klikalnego i obsługiwanego klawiaturą,
 - kafle informacyjne, badge, przyciski i układ sekcji,
 - ostrożny model komunikacji: brak liczb i efektów bez potwierdzonego rejestru.
+- własny system kolorystyki sezonowej MKD oparty o ciemną zieleń i barwy liści.
 
 Repo `RC-Silesia/WEBSITE` jest w tym sprincie tylko źródłem odczytu i nie jest modyfikowane.
 
