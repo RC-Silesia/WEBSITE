@@ -1,10 +1,12 @@
-# Mikołowska Karta Drzew 1:1
+# Mikołowska Karta Drzew
 
 Samodzielny statyczny projekt informacyjnego serwisu programu identyfikowalnych nasadzeń drzew w Mikołowie i na Górnym Śląsku. Projekt wydziela kierunek ROTARY for PLANET z architektury strony `RC-Silesia/WEBSITE`, ale nie zależy od żadnych plików tamtego repozytorium.
 
-Na tym etapie MKD pełni funkcję informacyjną: opisuje zasadę 1:1, standard antygreenwashingowy, pusty rejestr startowy i planowany proces zgłaszania lokalizacji. Docelowo serwis ma pozwolić mieszkańcom łatwo wskazywać potencjalne miejsca nasadzeń.
+Na tym etapie MKD pełni funkcję informacyjną: opisuje zasadę jednej karty dla jednego drzewa, standard antygreenwashingowy, pusty rejestr startowy i planowany proces zgłaszania lokalizacji. Docelowo serwis ma pozwolić mieszkańcom łatwo wskazywać potencjalne miejsca nasadzeń.
 
-## Zasada 1:1
+Oznaczenie `1:1` dotyczyło sposobu startowego wydzielenia serwisu z kierunku ROTARY for PLANET, nie nazwy projektu.
+
+## Zasada karty drzewa
 
 Jedno drzewo = jedna karta = jeden wpis w rejestrze. Publikujemy tylko to, co istnieje w `assets/data/rejestr.json`. Nie ma deklaracji liczbowych ani komunikatów o efektach bez wpisu w rejestrze.
 

@@ -2,14 +2,14 @@
   "$schema": "",
   "wersjaSchematu": "0.1.0",
   "projekt": {
-    "nazwa": "Mikołowska Karta Drzew 1:1",
+    "nazwa": "Mikołowska Karta Drzew",
     "program": "ROTARY for PLANET",
     "dataAktualizacji": "2026-07-03",
     "status": "serwis informacyjny",
     "funkcjaDocelowa": "zgłaszanie potencjalnych miejsc nasadzeń przez mieszkańców"
   },
   "kontakt": {
-    "nazwa": "Mikołowska Karta Drzew 1:1",
+    "nazwa": "Mikołowska Karta Drzew",
     "email": "kontakt@example.org",
     "telefon": "telefon do uzupełnienia",
     "lokalizacja": "Mikołów / Górny Śląsk"

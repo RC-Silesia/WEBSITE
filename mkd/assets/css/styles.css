@@ -107,6 +107,7 @@ button:focus-visible,
   width: 44px;
   height: 44px;
   flex: 0 0 44px;
+  font-size: .82rem;
   color: var(--blue-dark);
   background: var(--gold);
   border-radius: 50%;
