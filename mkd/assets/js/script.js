@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const DATA_VERSION = "0.1.0";
+  const DATA_VERSION = "0.1.1";
   const EMPTY_REGISTRY_TEXT = "Rejestr jest pusty. Pierwsze nasadzenia planowane są na sezon jesień 2026. Karty pojawią się po wykonaniu nasadzeń i dokumentacji standardu.";
   const MONITORING_LABELS = {
     "zyje": "żyje",
@@ -22,6 +22,18 @@
       event.code === "Space" ||
       event.keyCode === 13 ||
       event.keyCode === 32;
+  }
+
+  function currentSeason(date) {
+    var month = date.getMonth();
+    if (month >= 2 && month <= 4) return "spring";
+    if (month >= 5 && month <= 7) return "summer";
+    if (month >= 8 && month <= 10) return "autumn";
+    return "winter";
+  }
+
+  function initSeasonTheme() {
+    document.documentElement.setAttribute("data-season", currentSeason(new Date()));
   }
 
   function toggleAccordion(header, expanded) {
@@ -234,6 +246,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    initSeasonTheme();
     initAccordions(document);
     loadRegistry();
     loadSiteConfig();

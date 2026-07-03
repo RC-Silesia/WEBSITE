@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.92-mkd-seasonal-leaf-palette
+- przebudowano paletę `mkd/` wokół ciemnej zieleni i kolorów liści;
+- dodano sezonowe warianty akcentów dla wiosny, lata, jesieni i zimy;
+- podbito cache-bust zasobów MKD do `0.1.1`.
+
 ## v1.5.91-mkd-independent-info-service
 - doprecyzowano MKD jako niezależny serwis informacyjny Mikołowskiej Karty Drzew;
 - dodano w `mkd/` sekcję przyszłego wskazywania potencjalnych miejsc nasadzeń przez mieszkańców;

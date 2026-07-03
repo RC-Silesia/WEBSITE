@@ -1,5 +1,11 @@
 # Changelog
 
+## MKD-0.1.1-seasonal-leaf-palette - 2026-07-03
+
+- Przebudowano paletę strony wokół ciemnej zieleni i kolorów liści.
+- Dodano sezonowe warianty akcentów: wiosna, lato, jesień i zima.
+- Podbito cache-bust CSS/JS do `0.1.1`.
+
 ## MKD-0-bootstrap - 2026-07-03
 
 - Utworzono samodzielny statyczny projekt `mikolowska-karta-drzew`.
