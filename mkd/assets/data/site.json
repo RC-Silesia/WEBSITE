@@ -1,12 +1,13 @@
 {
   "$schema": "",
-  "wersjaSchematu": "0.1.0",
+  "wersjaSchematu": "0.2.0",
   "projekt": {
     "nazwa": "Mikołowska Karta Drzew",
     "program": "ROTARY for PLANET",
+    "rola": "obywatelski komponent gminnej Mikołowskiej Karty Drzew",
     "dataAktualizacji": "2026-07-03",
-    "status": "serwis informacyjny",
-    "funkcjaDocelowa": "zgłaszanie potencjalnych miejsc nasadzeń przez mieszkańców"
+    "status": "serwis roboczy przed formalnym porozumieniem",
+    "funkcjaDocelowa": "identyfikowalny rejestr nasadzeń i przyszłe wskazywanie potencjalnych miejsc nasadzeń przez mieszkańców"
   },
   "kontakt": {
     "nazwa": "Mikołowska Karta Drzew",
@@ -16,13 +17,18 @@
   },
   "partnerzy": [
     {
+      "nazwa": "Gmina Mikołów",
+      "rola": "porozumienie w przygotowaniu",
+      "url": ""
+    },
+    {
       "nazwa": "Rotary Klub Silesia",
-      "rola": "partner programu",
+      "rola": "operator komponentu obywatelskiego",
       "url": "https://www.rotarysilesia.org"
     },
     {
       "nazwa": "Śląski Ogród Botaniczny",
-      "rola": "partner merytoryczny",
+      "rola": "współpraca merytoryczna",
       "url": ""
     }
   ]

@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.93-publish-mkd-www-bootstrap
+- opublikowano w katalogu `mkd/` wersję `MKD-WWW-0-bootstrap` serwisu Mikołowska Karta Drzew;
+- zaktualizowano model danych rejestru do `0.2.0` z kanonicznym układem `EPSG:2177` i prezentacją `EPSG:4326`;
+- dodano publiczny pasek statusu inicjatywy roboczej oraz sekcję relacji komponentu obywatelskiego do gminnej MKD.
+
 ## v1.5.92-mkd-seasonal-leaf-palette
 - przebudowano paletę `mkd/` wokół ciemnej zieleni i kolorów liści;
 - dodano sezonowe warianty akcentów dla wiosny, lata, jesieni i zimy;

@@ -1,9 +1,12 @@
 {
   "$schema": "",
-  "wersjaSchematu": "0.1.0",
+  "wersjaSchematu": "0.2.0",
   "meta": {
     "projekt": "Mikołowska Karta Drzew",
+    "rola": "obywatelski serwis WWW gminnej Mikołowskiej Karty Drzew",
     "zasada": "jedno drzewo = jedna karta = jeden wpis",
+    "ukladWspolrzednychKanoniczny": "EPSG:2177",
+    "ukladWspolrzednychPrezentacji": "EPSG:4326",
     "dataAktualizacji": "2026-07-03"
   },
   "drzewa": []

@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const DATA_VERSION = "0.1.1";
+  const DATA_VERSION = "0.2.0";
   const EMPTY_REGISTRY_TEXT = "Rejestr jest pusty. Pierwsze nasadzenia planowane są na sezon jesień 2026. Karty pojawią się po wykonaniu nasadzeń i dokumentacji standardu.";
   const MONITORING_LABELS = {
     "zyje": "żyje",
@@ -22,18 +22,6 @@
       event.code === "Space" ||
       event.keyCode === 13 ||
       event.keyCode === 32;
-  }
-
-  function currentSeason(date) {
-    var month = date.getMonth();
-    if (month >= 2 && month <= 4) return "spring";
-    if (month >= 5 && month <= 7) return "summer";
-    if (month >= 8 && month <= 10) return "autumn";
-    return "winter";
-  }
-
-  function initSeasonTheme() {
-    document.documentElement.setAttribute("data-season", currentSeason(new Date()));
   }
 
   function toggleAccordion(header, expanded) {
@@ -143,6 +131,18 @@
     list.appendChild(row);
   }
 
+  function coordinateSummary(location) {
+    var epsg = location && location.epsg2177 ? location.epsg2177 : {};
+    var wgs = location && location.wgs84 ? location.wgs84 : {};
+    if (epsg.x !== null && epsg.x !== undefined && epsg.y !== null && epsg.y !== undefined) {
+      return "EPSG:2177 x=" + epsg.x + ", y=" + epsg.y;
+    }
+    if (wgs.lat !== null && wgs.lat !== undefined && wgs.lng !== null && wgs.lng !== undefined) {
+      return "WGS84 " + wgs.lat + ", " + wgs.lng;
+    }
+    return "brak danych";
+  }
+
   function renderTreeCard(tree) {
     var card = document.createElement("article");
     var meta = document.createElement("dl");
@@ -158,10 +158,13 @@
 
     meta.className = "tree-meta";
     buildMetaRow(meta, "Lokalizacja", formatValue(location.opis, "lokalizacja do uzupełnienia"));
+    buildMetaRow(meta, "Współrzędne", coordinateSummary(location));
     buildMetaRow(meta, "Typ terenu", formatValue(location.typTerenu, "brak danych"));
     buildMetaRow(meta, "Data nasadzenia", formatValue(tree && tree.dataNasadzenia, "brak danych"));
+    buildMetaRow(meta, "Obwód pnia", tree && tree.obwodPniaCm !== null && tree.obwodPniaCm !== undefined ? tree.obwodPniaCm + " cm" : "brak danych");
     buildMetaRow(meta, "Monitoring 12 mies.", monitoringStatus(monitoring.m12));
     buildMetaRow(meta, "Monitoring 24 mies.", monitoringStatus(monitoring.m24));
+    buildMetaRow(meta, "Monitoring 36 mies.", monitoringStatus(monitoring.m36));
     card.appendChild(meta);
 
     return card;
@@ -172,7 +175,7 @@
     empty.className = "empty-state";
     empty.setAttribute("data-registry-empty", "");
     appendText(empty, "h3", "", "Rejestr jest pusty.");
-    appendText(empty, "p", "", "Pierwsze nasadzenia planowane są na sezon jesień 2026. Karty pojawią się po wykonaniu nasadzeń i dokumentacji standardu.");
+    appendText(empty, "p", "", EMPTY_REGISTRY_TEXT);
     list.appendChild(empty);
   }
 
@@ -246,7 +249,6 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    initSeasonTheme();
     initAccordions(document);
     loadRegistry();
     loadSiteConfig();
