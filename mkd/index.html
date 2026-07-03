@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mikołowska Karta Drzew</title>
   <meta name="description" content="Roboczy serwis inicjatywy Mikołowianie dla klimatu przy Mikołowskiej Karcie Drzew, przygotowywany jako element działań na rzecz ochrony drzew i odpowiedzialnych nasadzeń.">
-  <link rel="stylesheet" href="assets/css/styles.css?v=0.2.6">
+  <link rel="stylesheet" href="assets/css/styles.css?v=0.2.7">
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
@@ -21,6 +21,8 @@
     <nav class="site-nav" aria-label="Nawigacja główna">
       <a href="#zasada">Zasada</a>
       <a href="#standard">Standard</a>
+      <a href="#ocena-siedliska">Siedlisko</a>
+      <a href="#dobor-gatunkow">Gatunki</a>
       <a href="#relacja-mkd">Relacja z MKD</a>
       <a href="#rejestr">Rejestr</a>
       <a href="#mapa">Mapa</a>
@@ -93,43 +95,193 @@
 
     <section id="standard" class="section band">
       <div class="section-heading">
-        <p class="eyebrow">Standard jakości</p>
-        <h2>Liczy się przeżywalność, nie sama deklaracja</h2>
-        <p>Standard został osadzony w kontekście lokalnych zasad ochrony drzew, doboru gatunków i odpowiedzialnej pielęgnacji. Strona pokazuje tylko dane potwierdzone w rejestrze.</p>
+        <p class="eyebrow">Standard nasadzeń</p>
+        <h2>Od pomysłu do monitoringu</h2>
+        <p>Standard MKD porządkuje decyzję o sadzeniu, ocenę miejsca, dobór gatunku, odpowiedzialność za pielęgnację i zapis wyniku w karcie drzewa.</p>
       </div>
       <blockquote class="principle-statement">
         <strong>Wartością nie jest liczba posadzonych drzew, lecz właściwy dobór miejsca i gatunku, rzetelna pielęgnacja oraz monitorowanie przeżywalności.</strong>
       </blockquote>
-      <div class="accordion-list" aria-label="Elementy standardu">
-        <article class="accordion-card" aria-expanded="false">
-          <div class="accordion-card__header" id="standard-toggle-place" role="button" tabindex="0" aria-expanded="false" aria-controls="standard-panel-place">
-            <span class="badge">Miejsce</span>
-            <h3>Dobór miejsca i gatunku</h3>
-            <span class="accordion-card__chevron" aria-hidden="true"></span>
-          </div>
-          <div class="accordion-card__panel" id="standard-panel-place" role="region" aria-labelledby="standard-toggle-place" aria-hidden="true" inert>
-            <p>Nasadzenie powinno odpowiadać warunkom siedliskowym, docelowej wielkości drzewa i realnej możliwości utrzymania. Gatunek musi być dobrany z myślą o miejscu, nie tylko o efekcie wizualnym.</p>
-          </div>
+      <div class="standard-flow" aria-label="Etapy standardu nasadzeń">
+        <article>
+          <span class="badge">01</span>
+          <h3>Czy sadzić?</h3>
+          <p>Najpierw sprawdzamy, czy w danym miejscu sadzenie drzewa zwiększy wartość przyrodniczą. Czasem lepsza jest ochrona łąki, murawy, mokradła albo istniejącej sukcesji.</p>
         </article>
-        <article class="accordion-card" aria-expanded="false">
-          <div class="accordion-card__header" id="standard-toggle-care" role="button" tabindex="0" aria-expanded="false" aria-controls="standard-panel-care">
-            <span class="badge">Opieka</span>
-            <h3>Pielęgnacja po nasadzeniu</h3>
-            <span class="accordion-card__chevron" aria-hidden="true"></span>
-          </div>
-          <div class="accordion-card__panel" id="standard-panel-care" role="region" aria-labelledby="standard-toggle-care" aria-hidden="true" inert>
-            <p>Karta drzewa łączy nasadzenie z odpowiedzialnością za podlewanie, zabezpieczenie, obserwację i odnotowanie zdarzeń wpływających na przeżywalność.</p>
-          </div>
+        <article>
+          <span class="badge">02</span>
+          <h3>Zgoda i opiekun</h3>
+          <p>Nasadzenie wymaga zgody właściciela lub zarządcy terenu oraz wskazania podmiotu odpowiedzialnego za podlewanie i kontrolę przez minimum 2-3 sezony.</p>
         </article>
-        <article class="accordion-card" aria-expanded="false">
-          <div class="accordion-card__header" id="standard-toggle-proof" role="button" tabindex="0" aria-expanded="false" aria-controls="standard-panel-proof">
-            <span class="badge">Dowód</span>
-            <h3>Dokumentacja i monitoring</h3>
-            <span class="accordion-card__chevron" aria-hidden="true"></span>
-          </div>
-          <div class="accordion-card__panel" id="standard-panel-proof" role="region" aria-labelledby="standard-toggle-proof" aria-hidden="true" inert>
-            <p>Rejestr pokazuje stan potwierdzony danymi. Wyniki po 12 i 24 miesiącach są częścią karty, a opcjonalny punkt 36 miesięcy pomaga zsynchronizować nasadzenia z dłuższą gwarancją.</p>
-          </div>
+        <article>
+          <span class="badge">03</span>
+          <h3>Ocena siedliska</h3>
+          <p>Przed wyborem gatunku oceniamy glebę, wodę, światło, przestrzeń, infrastrukturę, presję użytkowania i możliwość późniejszej pielęgnacji.</p>
+        </article>
+        <article>
+          <span class="badge">04</span>
+          <h3>Dobór gatunku</h3>
+          <p>Preferowane są gatunki rodzime lub dobrze dostosowane do warunków miejsca. Gatunki obce dopuszcza się tylko wyjątkowo, po ocenie siedliska.</p>
+        </article>
+        <article>
+          <span class="badge">05</span>
+          <h3>Sadzenie i karta</h3>
+          <p>W karcie zapisujemy lokalizację, gatunek, liczbę roślin, źródło materiału, termin sadzenia, opiekuna, plan podlewania i dokumentację fotograficzną.</p>
+        </article>
+        <article>
+          <span class="badge">06</span>
+          <h3>Monitoring</h3>
+          <p>Kontrole po posadzeniu oraz po 12 i 24 miesiącach pokazują realny efekt. Spadek przeżywalności poniżej 80% uruchamia analizę przyczyn i plan dosadzeń.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="ocena-siedliska" class="section habitat-section">
+      <div class="section-heading">
+        <p class="eyebrow">Ocena siedliska</p>
+        <h2>Najpierw miejsce, potem gatunek</h2>
+        <p>Ocena siedliska jest bramką jakości. Bez niej łatwo posadzić dobre drzewo w złym miejscu albo zniszczyć cenne siedlisko, które nie potrzebuje zadrzewienia.</p>
+      </div>
+      <div class="habitat-layout">
+        <article class="habitat-note">
+          <h3>Kiedy nie sadzić</h3>
+          <p>Nasadzenie nie powinno zastępować ochrony siedlisk otwartych, mokradeł, terenów podmokłych, muraw, cennych łąk ani miejsc, w których drzewo będzie kolidowało z infrastrukturą lub nie będzie miało opiekuna.</p>
+          <ul class="check-list">
+            <li>czy teren nie jest cennym siedliskiem otwartym,</li>
+            <li>czy jest realny opiekun pielęgnacji na 2-3 lata,</li>
+            <li>czy wybrany gatunek pasuje do gleby, wody i światła,</li>
+            <li>czy jest zgoda właściciela lub zarządcy terenu.</li>
+          </ul>
+        </article>
+        <div class="standard-table-wrap" tabindex="0" aria-label="Tabela oceny siedliska">
+          <table class="standard-table">
+            <thead>
+              <tr>
+                <th>Kryterium</th>
+                <th>Co sprawdzamy</th>
+                <th>Znaczenie dla decyzji</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gleba</td>
+                <td>żyzność, zwięzłość, przepuszczalność, zasolenie, zanieczyszczenie</td>
+                <td>dobór gatunków tolerujących dane podłoże lub decyzja o poprawie gleby</td>
+              </tr>
+              <tr>
+                <td>Woda</td>
+                <td>wilgotność, retencja, spływ powierzchniowy, dostęp do podlewania</td>
+                <td>wybór gatunków sucholubnych, wilgociolubnych albo plan podlewania</td>
+              </tr>
+              <tr>
+                <td>Światło</td>
+                <td>nasłonecznienie, półcień, cień, ekspozycja na wiatr</td>
+                <td>dobór gatunków światłolubnych lub znoszących ocienienie</td>
+              </tr>
+              <tr>
+                <td>Przestrzeń</td>
+                <td>miejsce dla korzeni i korony, odległości od budynków, dróg i granic działek</td>
+                <td>dopasowanie docelowej wielkości drzewa do skali miejsca</td>
+              </tr>
+              <tr>
+                <td>Infrastruktura</td>
+                <td>sieci podziemne, napowietrzne, odwodnienie, widoczność i bezpieczeństwo</td>
+                <td>wykluczenie kolizji albo wybór mniejszych form i innych lokalizacji</td>
+              </tr>
+              <tr>
+                <td>Użytkowanie</td>
+                <td>ruch pieszy, parkowanie, koszenie, place zabaw, dostęp serwisowy</td>
+                <td>dobór zabezpieczeń, misy, palikowania i sposobu pielęgnacji</td>
+              </tr>
+              <tr>
+                <td>Wartość przyrodnicza</td>
+                <td>istniejące drzewa, krzewy, łąki, murawy, mokradła, sukcesja</td>
+                <td>decyzja, czy sadzenie pomaga, czy lepsza jest ochrona obecnego siedliska</td>
+              </tr>
+              <tr>
+                <td>Opieka</td>
+                <td>podlewanie, mulczowanie, kontrola uszkodzeń, odpowiedzialny podmiot</td>
+                <td>bez opiekuna nasadzenie nie przechodzi standardu MKD</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="dobor-gatunkow" class="section band species-section">
+      <div class="section-heading">
+        <p class="eyebrow">Dobór gatunków</p>
+        <h2>Lista pomocnicza MKD</h2>
+        <p>Lista nie zastępuje oceny konkretnego miejsca. Pomaga uporządkować gatunki rekomendowane, warunkowe, wymagające ostrożności i niewprowadzane w standardzie MKD.</p>
+      </div>
+      <div class="species-grid">
+        <article class="species-group">
+          <h3>Drzewa rekomendowane</h3>
+          <p>Gatunki rodzime lub dobrze dostosowane, wybierane zgodnie z siedliskiem i zasadą różnorodności 10-20-30.</p>
+          <ul class="species-list">
+            <li>Dąb szypułkowy <em>Quercus robur</em></li>
+            <li>Dąb bezszypułkowy <em>Quercus petraea</em></li>
+            <li>Lipa drobnolistna <em>Tilia cordata</em></li>
+            <li>Grab pospolity <em>Carpinus betulus</em></li>
+            <li>Klon polny <em>Acer campestre</em></li>
+            <li>Klon jawor <em>Acer pseudoplatanus</em></li>
+            <li>Jarząb pospolity <em>Sorbus aucuparia</em></li>
+            <li>Czereśnia ptasia <em>Prunus avium</em></li>
+            <li>Olsza czarna <em>Alnus glutinosa</em></li>
+            <li>Brzoza brodawkowata <em>Betula pendula</em></li>
+            <li>Sosna zwyczajna <em>Pinus sylvestris</em></li>
+            <li>Wiąz szypułkowy <em>Ulmus laevis</em></li>
+            <li>Grusza polna <em>Pyrus pyraster</em></li>
+          </ul>
+        </article>
+        <article class="species-group">
+          <h3>Krzewy rekomendowane</h3>
+          <p>Wartościowe dla zapylaczy, ptaków, biogrup, żywopłotów swobodnych i enklaw bioróżnorodności.</p>
+          <ul class="species-list">
+            <li>Leszczyna pospolita <em>Corylus avellana</em></li>
+            <li>Głóg jednoszyjkowy <em>Crataegus monogyna</em></li>
+            <li>Dereń świdwa <em>Cornus sanguinea</em></li>
+            <li>Kalina koralowa <em>Viburnum opulus</em></li>
+            <li>Trzmielina pospolita <em>Euonymus europaeus</em></li>
+            <li>Kruszyna pospolita <em>Frangula alnus</em></li>
+            <li>Bez czarny <em>Sambucus nigra</em></li>
+            <li>Tarnina <em>Prunus spinosa</em></li>
+            <li>Róża dzika <em>Rosa canina</em></li>
+            <li>Wierzba iwa <em>Salix caprea</em></li>
+            <li>Szakłak pospolity <em>Rhamnus cathartica</em></li>
+            <li>Ligustr pospolity <em>Ligustrum vulgare</em></li>
+          </ul>
+        </article>
+        <article class="species-group">
+          <h3>Warunkowo i ostrożnie</h3>
+          <p>Do trudnych warunków miejskich lub wyłącznie na właściwych siedliskach, po ocenie eksperckiej i bez masowego stosowania.</p>
+          <ul class="species-list">
+            <li>Lipa srebrzysta <em>Tilia tomentosa</em> - warunkowo przy ulicach i suszy</li>
+            <li>Glediczja trójcierniowa <em>Gleditsia triacanthos</em> - tylko odmiany bezcierniowe</li>
+            <li>Platan klonolistny <em>Platanus x hispanica</em> - tylko tam, gdzie jest dużo przestrzeni</li>
+            <li>Miłorząb dwuklapowy <em>Ginkgo biloba</em> - preferowane egzemplarze męskie</li>
+            <li>Jesion wyniosły <em>Fraxinus excelsior</em> - ostrożnie ze względu na zamieranie jesionu</li>
+            <li>Wiąz górski i polny <em>Ulmus glabra, Ulmus minor</em> - ostrożnie ze względu na grafiozę</li>
+            <li>Kasztanowiec biały <em>Aesculus hippocastanum</em> - nie do nasadzeń masowych</li>
+            <li>Świerk pospolity <em>Picea abies</em> - tylko na właściwych, wilgotniejszych siedliskach</li>
+            <li>Buk pospolity <em>Fagus sylvatica</em> - wrażliwy na suszę i warunki miejskie</li>
+          </ul>
+        </article>
+        <article class="species-group warning-group">
+          <h3>Nie wprowadzać w MKD</h3>
+          <p>Gatunki zakazane, inwazyjne lub stanowczo odradzane. Status prawny gatunków regulowanych trzeba każdorazowo sprawdzić przed decyzją terenową.</p>
+          <ul class="species-list">
+            <li>Bożodrzew gruczołowaty <em>Ailanthus altissima</em></li>
+            <li>Dławisz okrągłolistny <em>Celastrus orbiculatus</em></li>
+            <li>Barszcz Sosnowskiego i barszcz Mantegazziego <em>Heracleum spp.</em></li>
+            <li>Niecierpek gruczołowaty <em>Impatiens glandulifera</em></li>
+            <li>Robinia akacjowa <em>Robinia pseudoacacia</em></li>
+            <li>Klon jesionolistny <em>Acer negundo</em></li>
+            <li>Dąb czerwony <em>Quercus rubra</em></li>
+            <li>Czeremcha amerykańska <em>Prunus serotina</em></li>
+            <li>Nawłoć kanadyjska i późna <em>Solidago canadensis, Solidago gigantea</em></li>
+          </ul>
         </article>
       </div>
     </section>

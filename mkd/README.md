@@ -19,6 +19,16 @@ Każda karta drzewa dokumentuje:
 - opcjonalnego opiekuna instytucjonalnego,
 - referencje do dokumentów nasadzenia.
 
+## Moduły merytoryczne
+
+Wersja `0.2.7` wydziela na stronie trzy moduły informacyjne MKD:
+
+- `Standard nasadzeń` - kolejność decyzji od pytania, czy sadzić, do monitoringu przeżywalności,
+- `Ocena siedliska` - kryteria sprawdzania gleby, wody, światła, przestrzeni, infrastruktury, użytkowania, wartości przyrodniczej i opieki,
+- `Dobór gatunków` - lista pomocnicza gatunków rekomendowanych, warunkowych, wymagających ostrożności oraz niewprowadzanych w standardzie MKD.
+
+Listy gatunków nie zastępują oceny konkretnego miejsca. Gatunki regulowane prawnie wymagają aktualnej weryfikacji przed decyzją terenową.
+
 ## Schemat karty drzewa
 
 Tablica `drzewa` pozostaje pusta w sprincie `MKD-WWW-0-bootstrap`. Docelowy rekord ma postać:

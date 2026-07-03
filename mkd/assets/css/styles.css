@@ -376,6 +376,7 @@ button:focus-visible,
 }
 
 .principle-grid,
+.standard-flow,
 .partner-grid,
 .relation-grid,
 .legal-grid {
@@ -387,6 +388,7 @@ button:focus-visible,
 }
 
 .info-card,
+.standard-flow article,
 .partner-card,
 .relation-grid article,
 .legal-grid article {
@@ -399,11 +401,15 @@ button:focus-visible,
 }
 
 .info-card:nth-child(2),
+.standard-flow article:nth-child(2),
+.standard-flow article:nth-child(5),
 .partner-card:nth-child(2) {
   border-top-color: var(--kolor-marki);
 }
 
 .info-card:nth-child(3),
+.standard-flow article:nth-child(3),
+.standard-flow article:nth-child(6),
 .partner-card:nth-child(3) {
   border-top-color: var(--sezon-obramowanie);
 }
@@ -413,6 +419,7 @@ button:focus-visible,
 }
 
 .info-card h3,
+.standard-flow h3,
 .partner-card h3,
 .relation-grid h3,
 .legal-grid h2 {
@@ -422,6 +429,7 @@ button:focus-visible,
 }
 
 .info-card p,
+.standard-flow p,
 .partner-card p,
 .relation-grid p,
 .legal-grid p {
@@ -467,6 +475,130 @@ button:focus-visible,
 
 .principle-statement strong {
   display: block;
+}
+
+.habitat-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr);
+  gap: 18px;
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.habitat-note,
+.species-group {
+  padding: 22px;
+  border: 1px solid var(--kolor-linii);
+  border-top: 4px solid var(--sezon-akcent);
+  border-radius: 8px;
+  background: var(--kolor-panelu);
+  box-shadow: 0 10px 28px rgba(15, 42, 32, .08);
+}
+
+.habitat-note h3,
+.species-group h3 {
+  margin: 0 0 10px;
+  color: var(--kolor-marki);
+  font-size: 22px;
+}
+
+.habitat-note p,
+.species-group p {
+  margin: 0;
+  color: var(--kolor-muted);
+}
+
+.check-list,
+.species-list {
+  display: grid;
+  gap: 9px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li,
+.species-list li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--kolor-tekstu);
+}
+
+.check-list li::before,
+.species-list li::before {
+  content: "";
+  position: absolute;
+  top: .66em;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--sezon-akcent);
+}
+
+.standard-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--kolor-linii);
+  border-radius: 8px;
+  background: var(--kolor-panelu);
+  box-shadow: 0 10px 28px rgba(15, 42, 32, .08);
+}
+
+.standard-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.standard-table th,
+.standard-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--kolor-linii);
+  text-align: left;
+  vertical-align: top;
+}
+
+.standard-table th {
+  color: var(--kolor-panelu);
+  background: var(--kolor-marki);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.standard-table tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--sezon-tlo-sekcji) 45%, white);
+}
+
+.standard-table td:first-child {
+  color: var(--kolor-marki);
+  font-weight: 900;
+}
+
+.species-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.species-group {
+  display: grid;
+  align-content: start;
+}
+
+.species-list em {
+  color: var(--kolor-muted);
+  font-style: italic;
+}
+
+.warning-group {
+  border-top-color: var(--kolor-blad);
+}
+
+.warning-group .species-list li::before {
+  background: var(--kolor-blad);
 }
 
 .accordion-list {
@@ -787,11 +919,17 @@ button:focus-visible,
   }
 
   .principle-grid,
+  .standard-flow,
   .partner-grid,
   .relation-grid,
   .legal-grid,
+  .species-grid,
   .registry-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .habitat-layout {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -815,9 +953,11 @@ button:focus-visible,
   }
 
   .principle-grid,
+  .standard-flow,
   .partner-grid,
   .relation-grid,
   .legal-grid,
+  .species-grid,
   .registry-list {
     grid-template-columns: 1fr;
   }
@@ -851,6 +991,9 @@ button:focus-visible,
 
   .hero-metrics div,
   .info-card,
+  .standard-flow article,
+  .habitat-note,
+  .species-group,
   .partner-card,
   .relation-grid article,
   .empty-state,

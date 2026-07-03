@@ -1,5 +1,12 @@
 # Changelog
 
+## MKD-WWW-0.2.7-standard-habitat-species - 2026-07-03
+
+- Wydzielono na stronie MKD moduły: `Standard nasadzeń`, `Ocena siedliska` i `Dobór gatunków`.
+- Przepisano materiał merytoryczny na język MKD, bez śladów nazewnictwa zewnętrznych inicjatyw.
+- Dodano listy gatunków rekomendowanych, warunkowych, wymagających ostrożności oraz niewprowadzanych w standardzie MKD.
+- Podbito cache-bust CSS do `0.2.7`.
+
 ## MKD-WWW-0.2.6-seasonal-tree-filter - 2026-07-03
 
 - Drzewo w hero zmienia barwy wraz z sezonem: wiosna, lato, jesień i zima.

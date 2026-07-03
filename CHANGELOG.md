@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.100-mkd-standard-habitat-species
+- dodano w `mkd/` moduły `Standard nasadzeń`, `Ocena siedliska` i `Dobór gatunków`;
+- wydzielono materiał merytoryczny do języka MKD, bez śladów zewnętrznych inicjatyw w publicznej podstronie;
+- dodano listy gatunków rekomendowanych, warunkowych, wymagających ostrożności oraz niewprowadzanych w standardzie MKD;
+- podbito cache-bust CSS do `0.2.7`.
+
 ## v1.5.99-mkd-seasonal-tree
 - podłączono drzewo w hero `mkd/` do sezonowych filtrów: wiosna, lato, jesień i zima;
 - wykorzystano istniejące `data-season` oraz parametr testowy `?sezon=wiosna|lato|jesien|zima`;
