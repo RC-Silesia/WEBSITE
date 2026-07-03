@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.5.98-mkd-climate-service-copy
+- zmieniono nagłówek sekcji relacji w `mkd/` na `Serwis klimatyczny Mikołowa`;
+- usunięto z widocznego nagłówka niezręczną formę zaprzeczenia.
+
 ## v1.5.97-mkd-hero-tree
 - zastąpiono koncentryczne okręgi w hero `mkd/` ilustracją dojrzałego drzewa;
 - uspokojono układ metryk w prawym panelu hero i podbito cache-bust CSS do `0.2.4`;

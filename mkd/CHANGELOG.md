@@ -1,5 +1,10 @@
 # Changelog
 
+## MKD-WWW-0.2.5-climate-service-copy - 2026-07-03
+
+- Zmieniono nagłówek relacji z MKD na `Serwis klimatyczny Mikołowa`.
+- Usunięto z widocznego nagłówka niezręczną formę zaprzeczenia.
+
 ## MKD-WWW-0.2.4-hero-tree - 2026-07-03
 
 - Zastąpiono koncentryczne okręgi w hero ilustracją dojrzałego drzewa.
