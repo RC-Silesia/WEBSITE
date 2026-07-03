@@ -1,5 +1,10 @@
 # Changelog
 
+## MKD-WWW-0.2.3-mikolowianie-dla-klimatu - 2026-07-03
+
+- Zmieniono publiczną nazwę społecznej części serwisu na `Mikołowianie dla klimatu`.
+- Zaktualizowano hero, relację z MKD, kartę partnerów, stopkę i dane `site.json`.
+
 ## MKD-WWW-0.2.2-local-copy-cleanup - 2026-07-03
 
 - Usunięto widoczny dopisek lokalizacyjny z hero i panelu kontaktu.

@@ -1,6 +1,6 @@
 # Mikołowska Karta Drzew
 
-`mkd-www` to samodzielny statyczny projekt roboczego serwisu Mikołowska Karta Drzew. Serwis jest obywatelskim komponentem gminnej Mikołowskiej Karty Drzew, przygotowywanym jako narzędzie publicznej informacji o standardzie odpowiedzialnych nasadzeń.
+`mkd-www` to samodzielny statyczny projekt roboczego serwisu Mikołowska Karta Drzew. Serwis rozwija inicjatywę Mikołowianie dla klimatu przy gminnej Mikołowskiej Karcie Drzew i jest przygotowywany jako narzędzie publicznej informacji o standardzie odpowiedzialnych nasadzeń.
 
 Status formalny: porozumienie z Gminą Mikołów jest w przygotowaniu. Do czasu jego zawarcia serwis ma charakter roboczy i nie jest oficjalnym serwisem Gminy.
 
@@ -103,5 +103,5 @@ Repo `RC-Silesia/WEBSITE` jest w tym sprincie tylko źródłem odczytu i nie jes
 
 - Nazwa publiczna została zmieniona na `Mikołowska Karta Drzew`.
 - Dodano obowiązkowy pasek statusu formalnego.
-- Dodano sekcję relacji obywatelskiego komponentu do gminnej Mikołowskiej Karty Drzew.
+- Dodano sekcję relacji inicjatywy Mikołowianie dla klimatu do gminnej Mikołowskiej Karty Drzew.
 - Rozszerzono model danych rejestru o zgodność z `EPSG:2177`, `EPSG:4326`, RWMN, `m36` oraz referencję do karty miejsca nasadzenia.

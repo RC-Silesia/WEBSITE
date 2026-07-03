@@ -4,7 +4,7 @@
   "projekt": {
     "nazwa": "Mikołowska Karta Drzew",
     "program": "Mikołowska Karta Drzew",
-    "rola": "obywatelski komponent gminnej Mikołowskiej Karty Drzew",
+    "rola": "inicjatywa społeczna Mikołowianie dla klimatu przy gminnej Mikołowskiej Karcie Drzew",
     "dataAktualizacji": "2026-07-03",
     "status": "serwis roboczy przed formalnym porozumieniem",
     "funkcjaDocelowa": "identyfikowalny rejestr nasadzeń i przyszłe wskazywanie potencjalnych miejsc nasadzeń przez mieszkańców"
@@ -22,8 +22,8 @@
       "url": ""
     },
     {
-      "nazwa": "Zespół społeczny MKD",
-      "rola": "komponent obywatelski i przyszłe zgłoszenia mieszkańców",
+      "nazwa": "Mikołowianie dla klimatu",
+      "rola": "inicjatywa społeczna i przyszłe zgłoszenia mieszkańców",
       "url": ""
     },
     {

@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.5.96-mkd-mikolowianie-dla-klimatu
+- zmieniono publiczną nazwę społecznej części `mkd/` na `Mikołowianie dla klimatu`;
+- zaktualizowano hero, sekcję relacji z MKD, kartę partnerów, stopkę i dane `site.json`.
+
 ## v1.5.95-mkd-local-copy-cleanup
 - usunięto z `mkd/` widoczny dopisek lokalizacyjny w hero i panelu kontaktu;
 - pozostawiono formalne odwołania do Gminy Mikołów wyłącznie tam, gdzie opisują status porozumienia.
