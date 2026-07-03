@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.5.95-mkd-local-copy-cleanup
+- usunięto z `mkd/` widoczny dopisek lokalizacyjny w hero i panelu kontaktu;
+- pozostawiono formalne odwołania do Gminy Mikołów wyłącznie tam, gdzie opisują status porozumienia.
+
 ## v1.5.94-mkd-independent-seasonal-identity
 - usunięto z publicznego katalogu `mkd/` widoczne ślady obcego brandingu: nagłówek, hero, stopkę, sekcję partnerów, dane `site.json` i metadane strony;
 - przebudowano tożsamość wizualną MKD na ciemną zieleń oraz sezonowe akcenty liści: wiosna, lato, jesień, zima;

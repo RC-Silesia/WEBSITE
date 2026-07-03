@@ -1,5 +1,10 @@
 # Changelog
 
+## MKD-WWW-0.2.2-local-copy-cleanup - 2026-07-03
+
+- Usunięto widoczny dopisek lokalizacyjny z hero i panelu kontaktu.
+- Pozostawiono formalne odwołania do Gminy Mikołów tam, gdzie opisują status porozumienia.
+
 ## MKD-WWW-0.2.1-mkd-identity - 2026-07-03
 
 - Usunięto obce brandowanie z nagłówka, leadu, sekcji partnerów i stopki serwisu.
