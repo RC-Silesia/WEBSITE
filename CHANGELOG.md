@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.99-mkd-seasonal-tree
+- podłączono drzewo w hero `mkd/` do sezonowych filtrów: wiosna, lato, jesień i zima;
+- wykorzystano istniejące `data-season` oraz parametr testowy `?sezon=wiosna|lato|jesien|zima`;
+- podbito cache-bust CSS do `0.2.6`.
+
 ## v1.5.98-mkd-climate-service-copy
 - zmieniono nagłówek sekcji relacji w `mkd/` na `Serwis klimatyczny Mikołowa`;
 - usunięto z widocznego nagłówka niezręczną formę zaprzeczenia.

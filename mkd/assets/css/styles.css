@@ -13,6 +13,7 @@
   --sezon-tlo-sekcji: #e8f5e9;
   --sezon-obramowanie: #81c784;
   --sezon-dodatkowy: #6d4c41;
+  --drzewo-filtr: saturate(1.08) brightness(1);
   --shadow: 0 18px 42px rgba(15, 42, 32, .14);
 }
 
@@ -21,6 +22,7 @@
   --sezon-akcent: #7cb342;
   --sezon-tlo-sekcji: #f1f8e9;
   --sezon-obramowanie: #aed581;
+  --drzewo-filtr: saturate(1.28) brightness(1.1) hue-rotate(-8deg);
 }
 
 [data-season="lato"] {
@@ -28,6 +30,7 @@
   --sezon-akcent: #2e7d32;
   --sezon-tlo-sekcji: #e8f5e9;
   --sezon-obramowanie: #81c784;
+  --drzewo-filtr: saturate(1.08) brightness(.96) contrast(1.04);
 }
 
 [data-season="jesien"] {
@@ -36,6 +39,7 @@
   --sezon-tlo-sekcji: #fef3e2;
   --sezon-obramowanie: #f59e0b;
   --sezon-dodatkowy: #6d4c41;
+  --drzewo-filtr: sepia(.58) saturate(1.55) hue-rotate(-18deg) brightness(1.05) contrast(1.04);
 }
 
 [data-season="zima"] {
@@ -43,6 +47,7 @@
   --sezon-akcent: #78909c;
   --sezon-tlo-sekcji: #f4f6f6;
   --sezon-obramowanie: #b0bec5;
+  --drzewo-filtr: grayscale(.78) sepia(.14) saturate(.65) hue-rotate(152deg) brightness(1.18) contrast(.88);
 }
 
 .visually-hidden {
@@ -331,6 +336,8 @@ button:focus-visible,
   display: block;
   width: 100%;
   height: auto;
+  filter: var(--drzewo-filtr);
+  transition: filter .35s ease;
 }
 
 .hero-metrics {

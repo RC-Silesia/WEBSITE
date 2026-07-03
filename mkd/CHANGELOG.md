@@ -1,5 +1,11 @@
 # Changelog
 
+## MKD-WWW-0.2.6-seasonal-tree-filter - 2026-07-03
+
+- Drzewo w hero zmienia barwy wraz z sezonem: wiosna, lato, jesień i zima.
+- Podłączono sezonowe filtry obrazu do istniejącego `data-season` i parametru testowego `?sezon=...`.
+- Podbito cache-bust CSS do `0.2.6`.
+
 ## MKD-WWW-0.2.5-climate-service-copy - 2026-07-03
 
 - Zmieniono nagłówek relacji z MKD na `Serwis klimatyczny Mikołowa`.
