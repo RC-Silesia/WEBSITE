@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.97-mkd-hero-tree
+- zastąpiono koncentryczne okręgi w hero `mkd/` ilustracją dojrzałego drzewa;
+- uspokojono układ metryk w prawym panelu hero i podbito cache-bust CSS do `0.2.4`;
+- dodano asset `mkd/assets/img/hero-tree.png`.
+
 ## v1.5.96-mkd-mikolowianie-dla-klimatu
 - zmieniono publiczną nazwę społecznej części `mkd/` na `Mikołowianie dla klimatu`;
 - zaktualizowano hero, sekcję relacji z MKD, kartę partnerów, stopkę i dane `site.json`.

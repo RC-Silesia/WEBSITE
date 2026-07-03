@@ -301,73 +301,54 @@ button:focus-visible,
   position: relative;
   min-height: 430px;
   display: grid;
-  place-items: center;
+  align-items: center;
+  justify-items: center;
+  gap: 18px;
 }
 
-.orbit {
-  position: absolute;
-  inset: 8%;
-  border: 2px solid rgba(255, 255, 255, .28);
-  border-radius: 50%;
+.hero-tree {
+  position: relative;
+  z-index: 1;
+  width: min(440px, 86vw);
+  margin: 0;
+  filter: drop-shadow(0 28px 32px rgba(0, 0, 0, .28));
 }
 
-.orbit::before,
-.orbit::after,
-.orbit span {
+.hero-tree::after {
   content: "";
   position: absolute;
-  border-radius: 50%;
-}
-
-.orbit::before {
-  inset: 14%;
-  border: 2px solid color-mix(in srgb, var(--sezon-obramowanie) 72%, transparent);
-}
-
-.orbit::after {
-  inset: 31%;
-  background: var(--sezon-akcent);
-  box-shadow: 0 0 0 18px color-mix(in srgb, var(--sezon-akcent) 18%, transparent);
-}
-
-.orbit span {
-  width: 18px;
+  left: 24%;
+  right: 24%;
+  bottom: 2%;
   height: 18px;
-  background: var(--kolor-panelu);
+  background: radial-gradient(ellipse, rgba(0, 0, 0, .32), transparent 70%);
+  transform: translateY(50%);
 }
 
-.orbit span:nth-child(1) {
-  top: 11%;
-  left: 25%;
-}
-
-.orbit span:nth-child(2) {
-  right: 12%;
-  top: 48%;
-  background: var(--sezon-obramowanie);
-}
-
-.orbit span:nth-child(3) {
-  bottom: 14%;
-  left: 38%;
-  background: var(--sezon-tlo-sekcji);
+.hero-tree img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .hero-metrics {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
-  gap: 12px;
-  width: min(330px, 100%);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: min(430px, 100%);
   margin: 0;
 }
 
 .hero-metrics div {
-  padding: 16px 18px;
+  padding: 14px 16px;
   border: 1px solid rgba(255, 255, 255, .24);
-  border-left: 5px solid var(--sezon-akcent);
+  border-top: 4px solid var(--sezon-akcent);
   border-radius: 8px;
-  background: rgba(15, 42, 32, .66);
+  background: rgba(15, 42, 32, .72);
   box-shadow: var(--shadow);
 }
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## MKD-WWW-0.2.4-hero-tree - 2026-07-03
+
+- Zastąpiono koncentryczne okręgi w hero ilustracją dojrzałego drzewa.
+- Uspokojono układ metryk w prawym panelu hero i podbito cache-bust CSS do `0.2.4`.
+
 ## MKD-WWW-0.2.3-mikolowianie-dla-klimatu - 2026-07-03
 
 - Zmieniono publiczną nazwę społecznej części serwisu na `Mikołowianie dla klimatu`.
