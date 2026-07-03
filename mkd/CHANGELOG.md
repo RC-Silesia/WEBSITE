@@ -1,5 +1,11 @@
 # Changelog
 
+## MKD-WWW-0.2.10-place-language - 2026-07-03
+
+- Uproszczono język sekcji o miejscu sadzenia.
+- Zmieniono tytuł na `To miejsce wskazuje gatunek i odmianę drzewa`.
+- Usunięto z publicznego wprowadzenia żargon o kategoriach A-E i odniesienie do wersji pakietu.
+
 ## MKD-WWW-0.2.9-tree-shrub-risk-list - 2026-07-03
 
 - Zawężono blok gatunków niewprowadzanych do drzew, krzewów i pnączy istotnych dla decyzji nasadzeniowych MKD.

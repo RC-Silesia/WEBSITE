@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.103-mkd-place-language
+- uproszczono w `mkd/` język sekcji o miejscu sadzenia;
+- zmieniono tytuł na `To miejsce wskazuje gatunek i odmianę drzewa`;
+- usunięto z publicznego wprowadzenia żargon o kategoriach A-E i odniesienie do wersji pakietu.
+
 ## v1.5.102-mkd-tree-shrub-risk-list
 - zawężono w `mkd/` blok gatunków niewprowadzanych do drzew, krzewów i pnączy istotnych dla decyzji nasadzeniowych;
 - usunięto sugestię, że strona pokazuje pełną listę wszystkich roślin IGO;

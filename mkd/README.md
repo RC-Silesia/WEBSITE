@@ -24,7 +24,7 @@ Każda karta drzewa dokumentuje:
 Wersja `0.2.8` scala treść strony z pakietem `Mikolowska_Karta_Drzew_pakiet_final_v1_4_po_korekcie` i zachowuje wcześniejsze moduły informacyjne MKD:
 
 - `Standard MKD v1.4` - podstawowe zasady aktywnego zadrzewiania miasta,
-- `Kategorie miejsc A-E` - decyzja, czy sadzić drzewo duże, mniejsze, formę kolumnową czy zieleń alternatywną,
+- `Miejsce sadzenia` - warunki miejsca wskazują gatunek i odmianę drzewa,
 - `Karty operacyjne` - Karta Miejsca Nasadzenia i Karta Terenu Inwestycji,
 - `Ocena miejsca` - pola decyzyjne: korzenie, korona, woda, zasolenie, kolizje, uzbrojenie i utrzymanie,
 - `Dobór taksonów` - tabela pomocnicza do kategorii miejsca oraz lista taksonów wymagających ostrożności,
