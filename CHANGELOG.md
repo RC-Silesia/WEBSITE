@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.90-mkd-main-entry
+- przeniesiono pełny pakiet MKD - Mikołowskiej Karty Drzew 1:1 do publicznego katalogu `mkd/`;
+- dodano wejście `MKD` w głównej nawigacji oraz kartę MKD w sekcji `#kierunki`;
+- połączono kafel ROTARY for PLANET w galerii z nową stroną `mkd/`;
+- dodano pusty rejestr `mkd/assets/data/rejestr.json` oraz lokalny loader licznika rejestru z fallbackiem stanu zerowego.
+
 ## v1.5.89-copy-polish-public-visitcard-hero
 - poprawiono nagłówek publicznej wizytówki na `Klub Rotary na Śląsku`;
 - skrócono akapit motta do `Nasze motto: Służba na rzecz innych ponad własną korzyść`, bez dodatkowego objaśnienia instytucjonalnego;

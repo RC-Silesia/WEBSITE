@@ -4,6 +4,8 @@ import path from "node:path";
 const htmlFiles = [
   "index.html",
   "staging/index.html",
+  "mkd/index.html",
+  "mkd/privacy.html",
   "rotary-for-planet.html",
   "privacy.html",
   "newsletter-preview.html",
@@ -11,7 +13,7 @@ const htmlFiles = [
   "mlodziez-rotaract.html",
 ];
 
-const publicIndexedHtmlFiles = new Set(["index.html", "privacy.html"]);
+const publicIndexedHtmlFiles = new Set(["index.html", "mkd/index.html", "mkd/privacy.html", "privacy.html"]);
 
 const failures = [];
 const passes = [];

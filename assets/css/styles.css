@@ -1031,6 +1031,18 @@ main[id] {
   font-weight: 800;
 }
 
+.text-card-link {
+  color: var(--blue);
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.mkd-teaser-card {
+  border-top: 4px solid var(--green);
+}
+
 .section p {
   max-width: 760px;
   color: var(--muted);

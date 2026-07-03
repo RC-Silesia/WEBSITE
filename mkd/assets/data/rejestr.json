@@ -1,0 +1,10 @@
+{
+  "$schema": "",
+  "wersjaSchematu": "0.1.0",
+  "meta": {
+    "projekt": "Mikołowska Karta Drzew 1:1",
+    "zasada": "jedno drzewo = jedna karta = jeden wpis",
+    "dataAktualizacji": "2026-07-03"
+  },
+  "drzewa": []
+}

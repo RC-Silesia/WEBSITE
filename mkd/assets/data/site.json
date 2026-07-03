@@ -1,0 +1,27 @@
+{
+  "$schema": "",
+  "wersjaSchematu": "0.1.0",
+  "projekt": {
+    "nazwa": "Mikołowska Karta Drzew 1:1",
+    "program": "ROTARY for PLANET",
+    "dataAktualizacji": "2026-07-03"
+  },
+  "kontakt": {
+    "nazwa": "Mikołowska Karta Drzew 1:1",
+    "email": "kontakt@example.org",
+    "telefon": "telefon do uzupełnienia",
+    "lokalizacja": "Mikołów / Górny Śląsk"
+  },
+  "partnerzy": [
+    {
+      "nazwa": "Rotary Klub Silesia",
+      "rola": "partner programu",
+      "url": "https://www.rotarysilesia.org"
+    },
+    {
+      "nazwa": "Śląski Ogród Botaniczny",
+      "rola": "partner merytoryczny",
+      "url": ""
+    }
+  ]
+}
