@@ -4,9 +4,9 @@
   "projekt": {
     "nazwa": "Mikołowska Karta Drzew",
     "program": "Mikołowska Karta Drzew",
-    "rola": "informacyjny serwis WWW pakietu Mikołowska Karta Drzew",
+    "rola": "informacyjny serwis WWW Mikołowskiej Karty Drzew",
     "dataAktualizacji": "2026-07-03",
-    "status": "pakiet v1.4 po korekcie jest materiałem do uzgodnień wewnętrznych i podpisania zarządzenia",
+    "status": "projekt Mikołowskiej Karty Drzew jest materiałem do uzgodnień wewnętrznych i podpisania zarządzenia",
     "funkcjaDocelowa": "informacyjna warstwa standardu MKD, Rejestr Wolnych Miejsc do Nasadzeń, karty drzew i przyszłe wskazywanie potencjalnych miejsc nasadzeń przez mieszkańców"
   },
   "kontakt": {
@@ -18,7 +18,7 @@
   "partnerzy": [
     {
       "nazwa": "Gmina Mikołów",
-      "rola": "pakiet MKD v1.4 do uzgodnień wewnętrznych",
+      "rola": "projekt Mikołowskiej Karty Drzew do uzgodnień wewnętrznych",
       "url": ""
     },
     {

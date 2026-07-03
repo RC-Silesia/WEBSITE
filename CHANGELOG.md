@@ -1,18 +1,23 @@
 # Changelog
 
+## v1.5.104-mkd-remove-technical-language
+- uproszczono w `mkd/` opisy standardu, kart operacyjnych, oceny miejsca, tabeli taksonów i statusu;
+- zastąpiono techniczne odniesienia do dokumentu źródłowego językiem publicznym;
+- zachowano treść merytoryczną i układ strony.
+
 ## v1.5.103-mkd-place-language
 - uproszczono w `mkd/` język sekcji o miejscu sadzenia;
 - zmieniono tytuł na `To miejsce wskazuje gatunek i odmianę drzewa`;
-- usunięto z publicznego wprowadzenia żargon o kategoriach A-E i odniesienie do wersji pakietu.
+- usunięto z publicznego wprowadzenia żargon o kategoriach A-E i odniesienie do numeru dokumentu.
 
 ## v1.5.102-mkd-tree-shrub-risk-list
 - zawężono w `mkd/` blok gatunków niewprowadzanych do drzew, krzewów i pnączy istotnych dla decyzji nasadzeniowych;
 - usunięto sugestię, że strona pokazuje pełną listę wszystkich roślin IGO;
 - wskazano taksony: bożodrzew gruczołowaty, dławisz okrągłolistny, robinia akacjowa, klon jesionolistny, dąb czerwony i czeremcha amerykańska.
 
-## v1.5.101-mkd-merge-v1-4
-- sprawdzono zgodność `mkd/` z pakietem `Mikolowska_Karta_Drzew_pakiet_final_v1_4_po_korekcie`;
-- zmergowano treści MKD v1.4: zasady standardu, kategorie miejsc A-E, karty operacyjne, SOD, tabelę doboru taksonów oraz dokumenty techniczne T-01-T-09;
+## v1.5.101-mkd-merge-source
+- sprawdzono zgodność `mkd/` z dokumentem źródłowym Mikołowskiej Karty Drzew;
+- zmergowano treści MKD: zasady standardu, kategorie miejsc A-E, karty operacyjne, SOD, tabelę doboru taksonów oraz dokumenty techniczne T-01-T-09;
 - zaktualizowano status formalny na materiał do uzgodnień wewnętrznych i podpisania zarządzenia;
 - zachowano bez regresji sezonowe drzewo, rejestr kart drzew, cache-bust CSS i czystość podstrony MKD bez śladów zewnętrznych inicjatyw.
 
@@ -65,7 +70,7 @@
 - opisano status formularza zgłoszeń jako funkcję w przygotowaniu, zależną od RODO, moderacji i procesu weryfikacji lokalizacji.
 
 ## v1.5.90-mkd-main-entry
-- przeniesiono pełny pakiet MKD - Mikołowskiej Karty Drzew do publicznego katalogu `mkd/`;
+- przeniesiono pełny serwis Mikołowskiej Karty Drzew do publicznego katalogu `mkd/`;
 - dodano wejście `MKD` w głównej nawigacji oraz kartę MKD w sekcji `#kierunki`;
 - połączono kafel ROTARY for PLANET w galerii z nową stroną `mkd/`;
 - dodano pusty rejestr `mkd/assets/data/rejestr.json` oraz lokalny loader licznika rejestru z fallbackiem stanu zerowego.

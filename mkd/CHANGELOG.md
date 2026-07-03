@@ -1,10 +1,16 @@
 # Changelog
 
+## MKD-WWW-0.2.11-remove-technical-language - 2026-07-03
+
+- Usunięto z publicznych treści MKD techniczne odniesienia do dokumentu źródłowego.
+- Zastąpiono techniczne sformułowania zwykłym językiem: `projekt dokumentu`, `standard`, `tabela` i `ocena`.
+- Uproszczono teksty w hero, sekcjach kart operacyjnych, oceny miejsca, doboru taksonów, dokumentów technicznych oraz statusu.
+
 ## MKD-WWW-0.2.10-place-language - 2026-07-03
 
 - Uproszczono język sekcji o miejscu sadzenia.
 - Zmieniono tytuł na `To miejsce wskazuje gatunek i odmianę drzewa`.
-- Usunięto z publicznego wprowadzenia żargon o kategoriach A-E i odniesienie do wersji pakietu.
+- Usunięto z publicznego wprowadzenia żargon o kategoriach A-E i odniesienie do numeru dokumentu.
 
 ## MKD-WWW-0.2.9-tree-shrub-risk-list - 2026-07-03
 
@@ -12,10 +18,10 @@
 - Usunięto sugestię, że strona pokazuje pełną listę wszystkich roślin IGO.
 - Wskazano konkretne taksony ryzyka: bożodrzew gruczołowaty, dławisz okrągłolistny, robinia akacjowa, klon jesionolistny, dąb czerwony i czeremcha amerykańska.
 
-## MKD-WWW-0.2.8-merge-mkd-v1-4 - 2026-07-03
+## MKD-WWW-0.2.8-merge-mkd-source - 2026-07-03
 
-- Sprawdzono zgodność strony z pakietem `Mikolowska_Karta_Drzew_pakiet_final_v1_4_po_korekcie`.
-- Zmergowano treści pakietu v1.4: zasady MKD, kategorie miejsc A-E, karty operacyjne, SOD, tabelę doboru taksonów i dokumenty techniczne T-01-T-09.
+- Sprawdzono zgodność strony z dokumentem źródłowym Mikołowskiej Karty Drzew.
+- Zmergowano treści dokumentu źródłowego MKD: zasady, kategorie miejsc A-E, karty operacyjne, SOD, tabelę doboru taksonów i dokumenty techniczne T-01-T-09.
 - Zaktualizowano status formalny na materiał do uzgodnień wewnętrznych i podpisania zarządzenia.
 - Zachowano wcześniejsze elementy strony: sezonowe drzewo, rejestr kart drzew, moduły jakości, brak niepotwierdzonych liczb i brak śladów zewnętrznych inicjatyw.
 - Podbito cache-bust CSS do `0.2.8`.

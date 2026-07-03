@@ -1,8 +1,8 @@
 # Mikołowska Karta Drzew
 
-`mkd-www` to samodzielny statyczny projekt roboczego serwisu Mikołowska Karta Drzew. Serwis prezentuje informacyjną warstwę pakietu MKD v1.4 po korekcie: aktywne zadrzewianie miasta, kategorie miejsc, karty operacyjne, tabelę doboru taksonów, rejestry i etapowe dokumenty techniczne.
+`mkd-www` to samodzielny statyczny projekt roboczego serwisu Mikołowska Karta Drzew. Serwis prezentuje informacyjną warstwę Mikołowskiej Karty Drzew: aktywne zadrzewianie miasta, kategorie miejsc, karty operacyjne, tabelę doboru taksonów, rejestry i etapowe dokumenty techniczne.
 
-Status formalny: pakiet MKD v1.4 po korekcie jest materiałem do uzgodnień wewnętrznych i podpisania zarządzenia. Do czasu formalnego przyjęcia dokumentu serwis ma charakter informacyjny i roboczy.
+Status formalny: projekt Mikołowskiej Karty Drzew jest materiałem do uzgodnień wewnętrznych i podpisania zarządzenia. Do czasu formalnego przyjęcia dokumentu serwis ma charakter informacyjny i roboczy.
 
 ## Zasada rejestru
 
@@ -21,9 +21,9 @@ Każda karta drzewa dokumentuje:
 
 ## Moduły merytoryczne
 
-Wersja `0.2.8` scala treść strony z pakietem `Mikolowska_Karta_Drzew_pakiet_final_v1_4_po_korekcie` i zachowuje wcześniejsze moduły informacyjne MKD:
+Strona scala treść z dokumentem źródłowym Mikołowskiej Karty Drzew i zachowuje wcześniejsze moduły informacyjne MKD:
 
-- `Standard MKD v1.4` - podstawowe zasady aktywnego zadrzewiania miasta,
+- `Standard MKD` - podstawowe zasady aktywnego zadrzewiania miasta,
 - `Miejsce sadzenia` - warunki miejsca wskazują gatunek i odmianę drzewa,
 - `Karty operacyjne` - Karta Miejsca Nasadzenia i Karta Terenu Inwestycji,
 - `Ocena miejsca` - pola decyzyjne: korzenie, korona, woda, zasolenie, kolizje, uzbrojenie i utrzymanie,
