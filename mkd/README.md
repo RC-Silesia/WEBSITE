@@ -30,7 +30,7 @@ Wersja `0.2.8` scala treść strony z pakietem `Mikolowska_Karta_Drzew_pakiet_fi
 - `Dobór taksonów` - tabela pomocnicza do kategorii miejsca oraz lista taksonów wymagających ostrożności,
 - `Dokumenty T-01-T-09` - rejestr dokumentów technicznych do etapowego opracowania.
 
-Tabela doboru taksonów nie zastępuje oceny konkretnego miejsca. Gatunki regulowane prawnie i gatunki ryzyka wymagają aktualnej weryfikacji przed decyzją terenową.
+Tabela doboru taksonów nie zastępuje oceny konkretnego miejsca. Lista ryzyka na stronie dotyczy drzew, krzewów i pnączy istotnych dla decyzji nasadzeniowych MKD, a nie pełnej listy wszystkich roślin IGO.
 
 ## Schemat karty drzewa
 

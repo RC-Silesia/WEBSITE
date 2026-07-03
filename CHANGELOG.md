@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.102-mkd-tree-shrub-risk-list
+- zawężono w `mkd/` blok gatunków niewprowadzanych do drzew, krzewów i pnączy istotnych dla decyzji nasadzeniowych;
+- usunięto sugestię, że strona pokazuje pełną listę wszystkich roślin IGO;
+- wskazano taksony: bożodrzew gruczołowaty, dławisz okrągłolistny, robinia akacjowa, klon jesionolistny, dąb czerwony i czeremcha amerykańska.
+
 ## v1.5.101-mkd-merge-v1-4
 - sprawdzono zgodność `mkd/` z pakietem `Mikolowska_Karta_Drzew_pakiet_final_v1_4_po_korekcie`;
 - zmergowano treści MKD v1.4: zasady standardu, kategorie miejsc A-E, karty operacyjne, SOD, tabelę doboru taksonów oraz dokumenty techniczne T-01-T-09;
