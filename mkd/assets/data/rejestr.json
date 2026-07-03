@@ -3,8 +3,8 @@
   "wersjaSchematu": "0.2.0",
   "meta": {
     "projekt": "Mikołowska Karta Drzew",
-    "rola": "obywatelski serwis WWW gminnej Mikołowskiej Karty Drzew",
-    "zasada": "jedno drzewo = jedna karta = jeden wpis",
+    "rola": "informacyjny serwis WWW pakietu Mikołowska Karta Drzew",
+    "zasada": "jedno drzewo = jedna karta = jeden wpis; osobno rozwijany Rejestr Wolnych Miejsc do Nasadzeń",
     "ukladWspolrzednychKanoniczny": "EPSG:2177",
     "ukladWspolrzednychPrezentacji": "EPSG:4326",
     "dataAktualizacji": "2026-07-03"

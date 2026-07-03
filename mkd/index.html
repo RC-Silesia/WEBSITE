@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mikołowska Karta Drzew</title>
   <meta name="description" content="Roboczy serwis inicjatywy Mikołowianie dla klimatu przy Mikołowskiej Karcie Drzew, przygotowywany jako element działań na rzecz ochrony drzew i odpowiedzialnych nasadzeń.">
-  <link rel="stylesheet" href="assets/css/styles.css?v=0.2.7">
+  <link rel="stylesheet" href="assets/css/styles.css?v=0.2.8">
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
@@ -21,8 +21,11 @@
     <nav class="site-nav" aria-label="Nawigacja główna">
       <a href="#zasada">Zasada</a>
       <a href="#standard">Standard</a>
+      <a href="#kategorie-miejsc">Kategorie</a>
+      <a href="#karty-operacyjne">Karty</a>
       <a href="#ocena-siedliska">Siedlisko</a>
       <a href="#dobor-gatunkow">Gatunki</a>
+      <a href="#dokumenty-techniczne">Techniczne</a>
       <a href="#relacja-mkd">Relacja z MKD</a>
       <a href="#rejestr">Rejestr</a>
       <a href="#mapa">Mapa</a>
@@ -35,11 +38,11 @@
     <section id="hero" class="hero section">
       <div class="hero-copy">
         <h1>Mikołowska Karta Drzew</h1>
-        <p class="lead">Mikołowianie dla klimatu to społeczna inicjatywa przy Mikołowskiej Karcie Drzew, programie Gminy Mikołów na rzecz ochrony drzew i nasadzeń. Serwis porządkuje standard identyfikowalnych nasadzeń, kart drzew i monitoringu przeżywalności.</p>
-        <p class="status-strip">Inicjatywa w przygotowaniu. Formalne porozumienie z Gminą Mikołów w toku - do czasu jego zawarcia serwis ma charakter roboczy i nie jest oficjalnym serwisem Gminy.</p>
+        <p class="lead">Serwis porządkuje kompaktowy standard aktywnego zadrzewiania miasta: sadzenie właściwych drzew we właściwych miejscach, ochronę drzew istniejących, karty operacyjne, rejestr miejsc i monitoring efektów.</p>
+        <p class="status-strip">Pakiet MKD v1.4 po korekcie jest materiałem do uzgodnień wewnętrznych i podpisania zarządzenia. Do czasu przyjęcia dokumentu serwis ma charakter informacyjny i roboczy.</p>
         <div class="hero-actions" aria-label="Najważniejsze przejścia">
           <a class="button primary" href="#rejestr">Zobacz rejestr</a>
-          <a class="button secondary" href="#relacja-mkd">Jak działa inicjatywa</a>
+          <a class="button secondary" href="#standard">Jak działa MKD</a>
         </div>
       </div>
       <div class="hero-visual" aria-label="Model: jedno drzewo, jedna karta, jeden wpis">
@@ -95,113 +98,199 @@
 
     <section id="standard" class="section band">
       <div class="section-heading">
-        <p class="eyebrow">Standard nasadzeń</p>
-        <h2>Od pomysłu do monitoringu</h2>
-        <p>Standard MKD porządkuje decyzję o sadzeniu, ocenę miejsca, dobór gatunku, odpowiedzialność za pielęgnację i zapis wyniku w karcie drzewa.</p>
+        <p class="eyebrow">Standard MKD v1.4</p>
+        <h2>Sadzimy wszędzie tam, gdzie można</h2>
+        <p>Osią pakietu jest aktywne zadrzewianie miasta: prosta decyzja, uzasadnienie, właściwa kategoria miejsca, karta operacyjna i wpis do rejestru.</p>
       </div>
       <blockquote class="principle-statement">
-        <strong>Wartością nie jest liczba posadzonych drzew, lecz właściwy dobór miejsca i gatunku, rzetelna pielęgnacja oraz monitorowanie przeżywalności.</strong>
+        <strong>Właściwe drzewo we właściwym miejscu: najpierw ocena możliwości, potem dobór taksonu, ochrona drzew istniejących, woda opadowa jako zasób i utrzymanie po posadzeniu.</strong>
       </blockquote>
-      <div class="standard-flow" aria-label="Etapy standardu nasadzeń">
+      <div class="standard-flow" aria-label="Podstawowe zasady Mikołowskiej Karty Drzew">
         <article>
           <span class="badge">01</span>
-          <h3>Czy sadzić?</h3>
-          <p>Najpierw sprawdzamy, czy w danym miejscu sadzenie drzewa zwiększy wartość przyrodniczą. Czasem lepsza jest ochrona łąki, murawy, mokradła albo istniejącej sukcesji.</p>
+          <h3>Aktywne szukanie miejsc</h3>
+          <p>Mikołów dąży do wykorzystania wszystkich racjonalnych miejsc dla nowych drzew. Nie sadzimy tylko tam, gdzie są uzasadnione przeciwwskazania.</p>
         </article>
         <article>
           <span class="badge">02</span>
-          <h3>Zgoda i opiekun</h3>
-          <p>Nasadzenie wymaga zgody właściciela lub zarządcy terenu oraz wskazania podmiotu odpowiedzialnego za podlewanie i kontrolę przez minimum 2-3 sezony.</p>
+          <h3>Najpierw drzewa duże</h3>
+          <p>Jeżeli miejsce pozwala, wybiera się drzewa duże, długowieczne i cieniodajne. Mniejsze formy oraz zieleń alternatywna są dla miejsc ograniczonych.</p>
         </article>
         <article>
           <span class="badge">03</span>
-          <h3>Ocena siedliska</h3>
-          <p>Przed wyborem gatunku oceniamy glebę, wodę, światło, przestrzeń, infrastrukturę, presję użytkowania i możliwość późniejszej pielęgnacji.</p>
+          <h3>Ciągłość pokoleniowa</h3>
+          <p>Przy starych drzewach analizuje się dosadzanie młodszych egzemplarzy, aby przestrzeń nie traciła cienia, krajobrazu i funkcji klimatycznej.</p>
         </article>
         <article>
           <span class="badge">04</span>
-          <h3>Dobór gatunku</h3>
-          <p>Preferowane są gatunki rodzime lub dobrze dostosowane do warunków miejsca. Gatunki obce dopuszcza się tylko wyjątkowo, po ocenie siedliska.</p>
+          <h3>Drzewo istniejące najpierw oceniamy</h3>
+          <p>Drzewa i wartościowe samosiewy nie są automatycznie przeszkodą. Najpierw sprawdza się możliwość zachowania, zabezpieczenia albo włączenia w projekt.</p>
         </article>
         <article>
           <span class="badge">05</span>
-          <h3>Sadzenie i karta</h3>
-          <p>W karcie zapisujemy lokalizację, gatunek, liczbę roślin, źródło materiału, termin sadzenia, opiekuna, plan podlewania i dokumentację fotograficzną.</p>
+          <h3>Woda dla zieleni</h3>
+          <p>Przy inwestycjach najpierw analizuje się retencję, infiltrację, rozszczelnienie i wykorzystanie wody opadowej. Kanalizacja jest rozwiązaniem ostatnim.</p>
         </article>
         <article>
           <span class="badge">06</span>
-          <h3>Monitoring</h3>
-          <p>Kontrole po posadzeniu oraz po 12 i 24 miesiącach pokazują realny efekt. Spadek przeżywalności poniżej 80% uruchamia analizę przyczyn i plan dosadzeń.</p>
+          <h3>Decyzja krótka, ale zapisana</h3>
+          <p>Miasto powinno umieć krótko wyjaśnić, dlaczego sadzi, nie sadzi, zachowuje drzewo albo je usuwa. Uzasadnienie jest częścią standardu.</p>
         </article>
       </div>
     </section>
 
+    <section id="kategorie-miejsc" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Kategorie miejsc A-E</p>
+        <h2>Kategoria miejsca prowadzi decyzję</h2>
+        <p>Pakiet v1.4 klasyfikuje miejsca sadzenia od łatwych terenów zieleni po lokalizacje niewłaściwe dla drzewa. To ta kategoria wskazuje, czy priorytetem jest drzewo duże, mniejsza forma czy zieleń alternatywna.</p>
+      </div>
+      <div class="standard-table-wrap" tabindex="0" aria-label="Kategorie miejsc sadzenia w MKD">
+        <table class="standard-table">
+          <thead>
+            <tr>
+              <th>Kategoria</th>
+              <th>Opis</th>
+              <th>Decyzja podstawowa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A - miejsce łatwe zielone</td>
+              <td>Park, skwer, szeroki trawnik, teren zieleni, dobra przestrzeń dla korzeni i korony.</td>
+              <td>Sadzenie priorytetowe; preferowane drzewa duże i średnie.</td>
+            </tr>
+            <tr>
+              <td>B - miejsce miejskie typowe</td>
+              <td>Ulica, plac, pobocze, parking, ograniczona przestrzeń, możliwe przesuszenie lub zasolenie.</td>
+              <td>Sadzenie po sprawdzeniu skrajni, sieci i warunków utrzymania.</td>
+            </tr>
+            <tr>
+              <td>C - miejsce trudne technicznie</td>
+              <td>Sieci, mała przestrzeń, bliskość budynków, widoczność, skrajnia, intensywny ruch.</td>
+              <td>Sadzenie ostrożne; drzewa małe, kolumnowe albo zieleń alternatywna.</td>
+            </tr>
+            <tr>
+              <td>D - miejsce klimatyczno-retencyjne</td>
+              <td>Szkoły, przedszkola, przystanki, parkingi, place przegrzewające się, miejsca możliwe do rozszczelnienia.</td>
+              <td>Priorytet dla zieleni, cienia i wody opadowej.</td>
+            </tr>
+            <tr>
+              <td>E - miejsce niewłaściwe dla drzewa</td>
+              <td>Lokalizacja, w której drzewo byłoby zagrożeniem, szybko obumarłoby albo powodowałoby stały konflikt.</td>
+              <td>Nie sadzić drzewa; wskazać zieleń alternatywną albo inną lokalizację.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="karty-operacyjne" class="section band">
+      <div class="section-heading">
+        <p class="eyebrow">Karty operacyjne</p>
+        <h2>Dwie karty spinają decyzje z wdrożeniem</h2>
+        <p>Pakiet v1.4 wprowadza prostą Kartę Miejsca Nasadzenia oraz Kartę Terenu Inwestycji. To one mają zasilać Rejestr Wolnych Miejsc do Nasadzeń i dokumentację projektową.</p>
+      </div>
+      <div class="species-grid">
+        <article class="species-group">
+          <h3>Karta Miejsca Nasadzenia</h3>
+          <p>Tworzy ją zarządca terenu, a akceptuje Wydział Ochrony Środowiska. W miejscach trudnych technicznie potrzebne są uzgodnienia branżowe.</p>
+          <ul class="species-list">
+            <li>lokalizacja, działka i opis miejsca,</li>
+            <li>zarządca terenu lub jednostka zgłaszająca,</li>
+            <li>kategoria miejsca A/B/C/D/E,</li>
+            <li>proponowany typ zieleni,</li>
+            <li>miejsce dla korzeni i korony,</li>
+            <li>warunki wodne i możliwość użycia wód opadowych,</li>
+            <li>zasolenie, presja drogowa, kolizje i uzbrojenie,</li>
+            <li>utrzymanie po posadzeniu, decyzja i uzasadnienie.</li>
+          </ul>
+        </article>
+        <article class="species-group">
+          <h3>Karta Terenu Inwestycji</h3>
+          <p>Jest materiałem wejściowym dla projektanta oraz, w odpowiednim zakresie, elementem OPZ, SWZ i umowy z wykonawcą.</p>
+          <ul class="species-list">
+            <li>nazwa inwestycji, lokalizacja i zakres robót,</li>
+            <li>drzewa istniejące, taksony i orientacyjny stan,</li>
+            <li>średnica pnia, rzut korony i SOD,</li>
+            <li>kolizje z koroną, pniem, korzeniami, SOD i odwodnieniem,</li>
+            <li>możliwość zachowania drzew i wariantowania,</li>
+            <li>zabezpieczenia: wygrodzenie SOD, osłona pnia, ekran korzeniowy,</li>
+            <li>nowe nasadzenia i kategoria miejsca,</li>
+            <li>retencja, infiltracja, rozszczelnienie lub ogród deszczowy.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="standard-quote">SOD, czyli strefa ochrony drzewa, obejmuje co do zasady rzut korony powiększony o pas co najmniej 1,5 m. W miejscach trudnych technicznie może być wyznaczona indywidualnie.</p>
+    </section>
+
     <section id="ocena-siedliska" class="section habitat-section">
       <div class="section-heading">
-        <p class="eyebrow">Ocena siedliska</p>
-        <h2>Najpierw miejsce, potem gatunek</h2>
-        <p>Ocena siedliska jest bramką jakości. Bez niej łatwo posadzić dobre drzewo w złym miejscu albo zniszczyć cenne siedlisko, które nie potrzebuje zadrzewienia.</p>
+        <p class="eyebrow">Ocena miejsca</p>
+        <h2>Najpierw warunki, potem typ zieleni</h2>
+        <p>Ocena w pakiecie v1.4 jest praktyczna: ma ustalić kategorię A-E, możliwość utrzymania i ograniczenia techniczne, a dopiero potem typ zieleni i takson.</p>
       </div>
       <div class="habitat-layout">
         <article class="habitat-note">
-          <h3>Kiedy nie sadzić</h3>
-          <p>Nasadzenie nie powinno zastępować ochrony siedlisk otwartych, mokradeł, terenów podmokłych, muraw, cennych łąk ani miejsc, w których drzewo będzie kolidowało z infrastrukturą lub nie będzie miało opiekuna.</p>
+          <h3>Minimum decyzji</h3>
+          <p>Karta nie nakazuje sadzenia w każdym miejscu i nie nakazuje zachowania każdego drzewa. Nakazuje przeprowadzenie prostej oceny i zapisanie uzasadnienia decyzji.</p>
           <ul class="check-list">
-            <li>czy teren nie jest cennym siedliskiem otwartym,</li>
-            <li>czy jest realny opiekun pielęgnacji na 2-3 lata,</li>
-            <li>czy wybrany gatunek pasuje do gleby, wody i światła,</li>
-            <li>czy jest zgoda właściciela lub zarządcy terenu.</li>
+            <li>czy jest miejsce dla korzeni i docelowej korony,</li>
+            <li>czy sprawdzono uzbrojenie podziemne i skrajnie,</li>
+            <li>czy woda opadowa może zasilać zieleń,</li>
+            <li>czy utrzymanie po posadzeniu jest zapewnione,</li>
+            <li>czy drzewo istniejące można zachować lub zabezpieczyć.</li>
           </ul>
         </article>
-        <div class="standard-table-wrap" tabindex="0" aria-label="Tabela oceny siedliska">
+        <div class="standard-table-wrap" tabindex="0" aria-label="Tabela oceny miejsca nasadzenia">
           <table class="standard-table">
             <thead>
               <tr>
-                <th>Kryterium</th>
-                <th>Co sprawdzamy</th>
-                <th>Znaczenie dla decyzji</th>
+                <th>Pole oceny</th>
+                <th>Warianty z karty</th>
+                <th>Jak wpływa na decyzję</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Gleba</td>
-                <td>żyzność, zwięzłość, przepuszczalność, zasolenie, zanieczyszczenie</td>
-                <td>dobór gatunków tolerujących dane podłoże lub decyzja o poprawie gleby</td>
+                <td>Miejsce dla korzeni</td>
+                <td>dobre / ograniczone / bardzo ograniczone</td>
+                <td>określa, czy możliwe jest drzewo duże, mniejsze, kolumnowe albo zieleń alternatywna</td>
               </tr>
               <tr>
-                <td>Woda</td>
-                <td>wilgotność, retencja, spływ powierzchniowy, dostęp do podlewania</td>
-                <td>wybór gatunków sucholubnych, wilgociolubnych albo plan podlewania</td>
+                <td>Miejsce dla korony</td>
+                <td>dobre / ograniczone / bardzo ograniczone</td>
+                <td>wymusza sprawdzenie odległości od budynków, dróg, granic działki i sieci</td>
               </tr>
               <tr>
-                <td>Światło</td>
-                <td>nasłonecznienie, półcień, cień, ekspozycja na wiatr</td>
-                <td>dobór gatunków światłolubnych lub znoszących ocienienie</td>
+                <td>Warunki wodne</td>
+                <td>suche / przeciętne / okresowo wilgotne / możliwość wykorzystania wód opadowych</td>
+                <td>łączy dobór roślin z retencją, infiltracją i planem podlewania</td>
               </tr>
               <tr>
-                <td>Przestrzeń</td>
-                <td>miejsce dla korzeni i korony, odległości od budynków, dróg i granic działek</td>
-                <td>dopasowanie docelowej wielkości drzewa do skali miejsca</td>
+                <td>Zasolenie i presja drogowa</td>
+                <td>brak / możliwe / wysokie</td>
+                <td>ogranicza wybór taksonów i może przenieść miejsce do kategorii B lub C</td>
               </tr>
               <tr>
-                <td>Infrastruktura</td>
-                <td>sieci podziemne, napowietrzne, odwodnienie, widoczność i bezpieczeństwo</td>
-                <td>wykluczenie kolizji albo wybór mniejszych form i innych lokalizacji</td>
+                <td>Kolizje</td>
+                <td>sieci / skrajnia / widoczność / budynki / granica działki / brak</td>
+                <td>wskazuje potrzebę uzgodnień, przesunięcia miejsca albo zieleni alternatywnej</td>
               </tr>
               <tr>
-                <td>Użytkowanie</td>
-                <td>ruch pieszy, parkowanie, koszenie, place zabaw, dostęp serwisowy</td>
-                <td>dobór zabezpieczeń, misy, palikowania i sposobu pielęgnacji</td>
+                <td>Uzbrojenie podziemne</td>
+                <td>TAK / NIE / NIE DOTYCZY</td>
+                <td>bez sprawdzenia uzbrojenia miejsce nie powinno przechodzić do realizacji</td>
               </tr>
               <tr>
-                <td>Wartość przyrodnicza</td>
-                <td>istniejące drzewa, krzewy, łąki, murawy, mokradła, sukcesja</td>
-                <td>decyzja, czy sadzenie pomaga, czy lepsza jest ochrona obecnego siedliska</td>
+                <td>Utrzymanie po posadzeniu</td>
+                <td>zapewnione / ograniczone / wymaga decyzji</td>
+                <td>brak utrzymania jest powodem uzupełnienia lub odrzucenia miejsca</td>
               </tr>
               <tr>
-                <td>Opieka</td>
-                <td>podlewanie, mulczowanie, kontrola uszkodzeń, odpowiedzialny podmiot</td>
-                <td>bez opiekuna nasadzenie nie przechodzi standardu MKD</td>
+                <td>Decyzja</td>
+                <td>akceptacja / do uzupełnienia / odrzucenie / zieleń alternatywna</td>
+                <td>każda decyzja wymaga krótkiego uzasadnienia</td>
               </tr>
             </tbody>
           </table>
@@ -211,78 +300,107 @@
 
     <section id="dobor-gatunkow" class="section band species-section">
       <div class="section-heading">
-        <p class="eyebrow">Dobór gatunków</p>
-        <h2>Lista pomocnicza MKD</h2>
-        <p>Lista nie zastępuje oceny konkretnego miejsca. Pomaga uporządkować gatunki rekomendowane, warunkowe, wymagające ostrożności i niewprowadzane w standardzie MKD.</p>
+        <p class="eyebrow">Dobór taksonów</p>
+        <h2>Tabela pomocnicza do kategorii miejsca</h2>
+        <p>Załącznik informacyjny v1.4 nie jest zamkniętą listą normatywną. Ma pomagać w doborze typu zieleni do kategorii miejsca i być aktualizowany wraz z doświadczeniami utrzymaniowymi.</p>
       </div>
-      <div class="species-grid">
+      <div class="standard-table-wrap" tabindex="0" aria-label="Tabela doboru taksonów do kategorii miejsca">
+        <table class="standard-table">
+          <thead>
+            <tr>
+              <th>Kategoria</th>
+              <th>Preferowany typ zieleni</th>
+              <th>Przykładowe taksony</th>
+              <th>Status / uwagi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A</td>
+              <td>drzewa duże i średnie</td>
+              <td>dąb szypułkowy, dąb bezszypułkowy, lipa drobnolistna, lipa szerokolistna, grab pospolity, klon zwyczajny, klon jawor, buk pospolity, platan klonolistny, wiązy odporne</td>
+              <td>podstawowe lub warunkowe; platan i buk tylko przy dobrych warunkach</td>
+            </tr>
+            <tr>
+              <td>B</td>
+              <td>drzewa średnie odporne miejsko</td>
+              <td>klon polny, lipa srebrzysta "Brabant", grusza "Chanticleer", leszczyna turecka, miłorząb męski, jarząb mączny, chmielograb europejski, glediczja "Skyline", wiązy odporne</td>
+              <td>wymaga sprawdzenia skrajni, sieci, gleby, zasolenia i podlewania</td>
+            </tr>
+            <tr>
+              <td>C</td>
+              <td>drzewa małe, kolumnowe, formy zwarte</td>
+              <td>grab "Frans Fontaine" i "Fastigiata", klon polny "Fastigiatum", grusza "Chanticleer" i "Redspire", jarząb "Fastigiata", jabłoń ozdobna "Evereste", świdośliwa "Robin Hill", wiśnia Sargenta "Rancho"</td>
+              <td>warunkowe; nie sadzić na siłę, przy braku warunków wybrać zieleń alternatywną</td>
+            </tr>
+            <tr>
+              <td>D</td>
+              <td>drzewa cieniodajne lub odporne, zależnie od dostępności wody</td>
+              <td>lipa drobnolistna, lipa srebrzysta "Brabant", klon zwyczajny, klon polny, dęby, platan, grab, glediczja "Skyline", wiązowiec zachodni</td>
+              <td>priorytet dla cienia i retencji; wiązowiec jako takson warunkowy lub pilotażowy</td>
+            </tr>
+            <tr>
+              <td>E</td>
+              <td>zieleń alternatywna</td>
+              <td>głogi, śnieguliczka Chenaulta, wiciokrzew zaostrzony, derenie, kalina koralowa, bluszcz pospolity, winobluszcz pięciolistkowy, tawuły</td>
+              <td>gdy drzewo nie ma warunków trwałego rozwoju</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="species-grid species-grid--after">
         <article class="species-group">
-          <h3>Drzewa rekomendowane</h3>
-          <p>Gatunki rodzime lub dobrze dostosowane, wybierane zgodnie z siedliskiem i zasadą różnorodności 10-20-30.</p>
+          <h3>Taksony wymagające ostrożności</h3>
+          <p>Pakiet v1.4 oznacza je jako warunkowe, testowe albo pilotażowe. Nie powinny stać się standardem bez obserwacji utrzymaniowej.</p>
           <ul class="species-list">
-            <li>Dąb szypułkowy <em>Quercus robur</em></li>
-            <li>Dąb bezszypułkowy <em>Quercus petraea</em></li>
-            <li>Lipa drobnolistna <em>Tilia cordata</em></li>
-            <li>Grab pospolity <em>Carpinus betulus</em></li>
-            <li>Klon polny <em>Acer campestre</em></li>
-            <li>Klon jawor <em>Acer pseudoplatanus</em></li>
-            <li>Jarząb pospolity <em>Sorbus aucuparia</em></li>
-            <li>Czereśnia ptasia <em>Prunus avium</em></li>
-            <li>Olsza czarna <em>Alnus glutinosa</em></li>
-            <li>Brzoza brodawkowata <em>Betula pendula</em></li>
-            <li>Sosna zwyczajna <em>Pinus sylvestris</em></li>
-            <li>Wiąz szypułkowy <em>Ulmus laevis</em></li>
-            <li>Grusza polna <em>Pyrus pyraster</em></li>
-          </ul>
-        </article>
-        <article class="species-group">
-          <h3>Krzewy rekomendowane</h3>
-          <p>Wartościowe dla zapylaczy, ptaków, biogrup, żywopłotów swobodnych i enklaw bioróżnorodności.</p>
-          <ul class="species-list">
-            <li>Leszczyna pospolita <em>Corylus avellana</em></li>
-            <li>Głóg jednoszyjkowy <em>Crataegus monogyna</em></li>
-            <li>Dereń świdwa <em>Cornus sanguinea</em></li>
-            <li>Kalina koralowa <em>Viburnum opulus</em></li>
-            <li>Trzmielina pospolita <em>Euonymus europaeus</em></li>
-            <li>Kruszyna pospolita <em>Frangula alnus</em></li>
-            <li>Bez czarny <em>Sambucus nigra</em></li>
-            <li>Tarnina <em>Prunus spinosa</em></li>
-            <li>Róża dzika <em>Rosa canina</em></li>
-            <li>Wierzba iwa <em>Salix caprea</em></li>
-            <li>Szakłak pospolity <em>Rhamnus cathartica</em></li>
-            <li>Ligustr pospolity <em>Ligustrum vulgare</em></li>
-          </ul>
-        </article>
-        <article class="species-group">
-          <h3>Warunkowo i ostrożnie</h3>
-          <p>Do trudnych warunków miejskich lub wyłącznie na właściwych siedliskach, po ocenie eksperckiej i bez masowego stosowania.</p>
-          <ul class="species-list">
-            <li>Lipa srebrzysta <em>Tilia tomentosa</em> - warunkowo przy ulicach i suszy</li>
-            <li>Glediczja trójcierniowa <em>Gleditsia triacanthos</em> - tylko odmiany bezcierniowe</li>
-            <li>Platan klonolistny <em>Platanus x hispanica</em> - tylko tam, gdzie jest dużo przestrzeni</li>
-            <li>Miłorząb dwuklapowy <em>Ginkgo biloba</em> - preferowane egzemplarze męskie</li>
-            <li>Jesion wyniosły <em>Fraxinus excelsior</em> - ostrożnie ze względu na zamieranie jesionu</li>
-            <li>Wiąz górski i polny <em>Ulmus glabra, Ulmus minor</em> - ostrożnie ze względu na grafiozę</li>
-            <li>Kasztanowiec biały <em>Aesculus hippocastanum</em> - nie do nasadzeń masowych</li>
-            <li>Świerk pospolity <em>Picea abies</em> - tylko na właściwych, wilgotniejszych siedliskach</li>
-            <li>Buk pospolity <em>Fagus sylvatica</em> - wrażliwy na suszę i warunki miejskie</li>
+            <li>Perełkowiec japoński <em>Styphnolobium japonicum</em> - tylko w cieplejszych, osłoniętych miejscach.</li>
+            <li>Wiązowiec zachodni <em>Celtis occidentalis</em> - obiecujący dla zmian klimatu, ale monitorowany.</li>
+            <li>Wiązowiec południowy <em>Celtis australis</em> - nie jako standard; ewentualnie pilotaż.</li>
+            <li>Róża pomarszczona <em>Rosa rugosa</em> - odporna, lecz ostrożnie ze względu na ekspansywność.</li>
+            <li>Miskant chiński <em>Miscanthus sinensis</em> - do rabat miejskich po ocenie odmiany i utrzymania.</li>
           </ul>
         </article>
         <article class="species-group warning-group">
-          <h3>Nie wprowadzać w MKD</h3>
-          <p>Gatunki zakazane, inwazyjne lub stanowczo odradzane. Status prawny gatunków regulowanych trzeba każdorazowo sprawdzić przed decyzją terenową.</p>
+          <h3>Kontrola ryzyka gatunków</h3>
+          <p>Bez regresji zachowujemy zasadę niewprowadzania gatunków inwazyjnych i prawnie regulowanych. Pełna lista wymaga aktualizacji w dokumencie technicznym przed decyzją terenową.</p>
           <ul class="species-list">
-            <li>Bożodrzew gruczołowaty <em>Ailanthus altissima</em></li>
-            <li>Dławisz okrągłolistny <em>Celastrus orbiculatus</em></li>
-            <li>Barszcz Sosnowskiego i barszcz Mantegazziego <em>Heracleum spp.</em></li>
-            <li>Niecierpek gruczołowaty <em>Impatiens glandulifera</em></li>
-            <li>Robinia akacjowa <em>Robinia pseudoacacia</em></li>
-            <li>Klon jesionolistny <em>Acer negundo</em></li>
-            <li>Dąb czerwony <em>Quercus rubra</em></li>
-            <li>Czeremcha amerykańska <em>Prunus serotina</em></li>
-            <li>Nawłoć kanadyjska i późna <em>Solidago canadensis, Solidago gigantea</em></li>
+            <li>sprawdzić aktualny status gatunków regulowanych prawnie,</li>
+            <li>nie wprowadzać gatunków ekspansywnych w sąsiedztwie cennych siedlisk,</li>
+            <li>przy każdej wątpliwości stosować ocenę specjalistyczną,</li>
+            <li>odnotować odstępstwo i uzasadnienie w karcie miejsca lub karcie inwestycji.</li>
           </ul>
         </article>
+      </div>
+    </section>
+
+    <section id="dokumenty-techniczne" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Dokumenty T-01-T-09</p>
+        <h2>Standard może startować etapowo</h2>
+        <p>Pakiet v1.4 jest minimalistyczny: dokumenty techniczne nie muszą być gotowe przed przyjęciem Karty, ale powinny powstawać stopniowo, aby wzmacniać wykonanie standardu.</p>
+      </div>
+      <div class="standard-table-wrap" tabindex="0" aria-label="Rejestr dokumentów technicznych do opracowania">
+        <table class="standard-table">
+          <thead>
+            <tr>
+              <th>Kod</th>
+              <th>Dokument techniczny</th>
+              <th>Zakres</th>
+              <th>Priorytet / właściciel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>T-01</td><td>Standard projektowania zieleni przy inwestycjach</td><td>Karta Terenu Inwestycji, SOD, drzewa w projekcie, uzbrojenie, wariantowanie.</td><td>wysoki - inwestycje i WOŚ</td></tr>
+            <tr><td>T-02</td><td>Standard zagospodarowania wód opadowych dla zieleni</td><td>Retencja, infiltracja, rozszczelnienia, ogrody deszczowe, kanalizacja jako rozwiązanie ostatnie.</td><td>wysoki - WOŚ, inwestycje, infrastruktura</td></tr>
+            <tr><td>T-03</td><td>Standard ochrony drzew na placu budowy</td><td>Wygrodzenia, zakazy w SOD, korzenie, gleba, sprzęt, nadzór, dokumentacja fotograficzna.</td><td>wysoki - WOŚ i zamówienia</td></tr>
+            <tr><td>T-04</td><td>Standard nasadzeń i pielęgnacji po posadzeniu</td><td>Materiał szkółkarski, sadzenie, podlewanie, ściółka, stabilizacja, gwarancja, odbiory po 12 i 36 miesiącach.</td><td>wysoki - WOŚ i ZUK</td></tr>
+            <tr><td>T-05</td><td>Standard cięć i utrzymania drzew</td><td>Cięcia sanitarne, techniczne i formujące, zakaz ogławiania, skrajnia, kwalifikacje.</td><td>średni - WOŚ i ZUK</td></tr>
+            <tr><td>T-06</td><td>Standard danych i Rejestru Wolnych Miejsc do Nasadzeń</td><td>Pola danych, format GIS/GPKG, statusy, odpowiedzialność za aktualizację, raporty.</td><td>średni - WOŚ, geodezja, IT</td></tr>
+            <tr><td>T-07</td><td>Wzory klauzul i kar umownych</td><td>Warianty dla projektowania, robót budowlanych, pielęgnacji i nasadzeń; widełki kar po akceptacji prawnej.</td><td>wysoki - zamówienia, radca prawny, WOŚ</td></tr>
+            <tr><td>T-08</td><td>Procedura współpracy z zarządcami zewnętrznymi</td><td>Drogi powiatowe, gestorzy sieci, organy zewnętrzne, nasadzenia kompensacyjne spoza decyzji gminy.</td><td>średni - Sekretarz, WOŚ, inwestycje</td></tr>
+            <tr><td>T-09</td><td>Instrukcja dla szkół, przedszkoli i jednostek miejskich</td><td>Jak zgłaszać miejsca, jak pielęgnować, jak raportować i współpracować z programem "Zasadź drzewo".</td><td>średni - WOŚ, oświata, ZUK</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -294,15 +412,15 @@
       <div class="relation-grid">
         <article>
           <h3>Gminna Mikołowska Karta Drzew</h3>
-          <p>To lokalny pakiet zasad ochrony drzew, planowania nasadzeń i pracy z danymi przestrzennymi. Jego celem jest lepsza jakość decyzji o zieleni oraz spójna dokumentacja działań w mieście.</p>
+          <p>To kompaktowy standard aktywnego zadrzewiania miasta, ochrony drzew istniejących oraz uwzględniania zieleni, gleby i wód opadowych w zadaniach miejskich.</p>
         </article>
         <article>
           <h3>Ten serwis</h3>
-          <p>To społeczny rejestr identyfikowalnych nasadzeń przygotowywany jako narzędzie publicznej informacji i kontroli jakości. Pomaga pokazać, które drzewa mają kartę, monitoring i odpowiedzialną opiekę.</p>
+          <p>To informacyjna warstwa WWW, która porządkuje zasady, kategorie miejsc, karty operacyjne, tabelę taksonów oraz przyszłe rejestry bez publikowania niepotwierdzonych danych.</p>
         </article>
         <article>
           <h3>Przekazanie danych</h3>
-          <p>Rejestr jest projektowany w formacie zgodnym z miejską pracą na danych przestrzennych. Przekazywanie danych do warstwy gminnej będzie możliwe po zawarciu formalnego porozumienia.</p>
+          <p>Model danych zachowuje miejsce na Rejestr Wolnych Miejsc do Nasadzeń, karty drzew i formaty GIS/GPKG wskazane do dopracowania w dokumencie technicznym T-06.</p>
         </article>
       </div>
     </section>
@@ -311,7 +429,7 @@
       <div class="section-heading">
         <p class="eyebrow">Rejestr drzew</p>
         <h2>Karty w rejestrze</h2>
-        <p>Licznik jest liczony z danych w pliku rejestru. Do czasu pierwszych udokumentowanych nasadzeń rejestr pozostaje pusty.</p>
+        <p>Licznik jest liczony z danych w pliku rejestru. Do czasu pierwszych udokumentowanych nasadzeń rejestr kart drzew pozostaje pusty; Rejestr Wolnych Miejsc do Nasadzeń jest przewidziany jako osobna warstwa danych.</p>
       </div>
       <div class="registry-summary" aria-live="polite">
         <span class="registry-number" data-registry-count>0</span>
@@ -344,13 +462,13 @@
       <div class="section-heading">
         <p class="eyebrow">Partnerzy i status</p>
         <h2>Placeholdery tekstowe do czasu zatwierdzenia materiałów</h2>
-        <p>Nie osadzamy herbu, logotypów ani znaków partnerów w tym sprincie. Oficjalne materiały wymagają odrębnej akceptacji.</p>
+        <p>Nie osadzamy herbu, logotypów ani znaków partnerów w tym sprincie. Pakiet v1.4 pozostaje materiałem do uzgodnień wewnętrznych i podpisania zarządzenia.</p>
       </div>
       <div class="partner-grid">
         <article class="partner-card">
           <span class="partner-label">Status</span>
           <h3>Gmina Mikołów</h3>
-          <p>Porozumienie w przygotowaniu. Do czasu jego zawarcia serwis nie jest oficjalnym serwisem Gminy.</p>
+          <p>Pakiet Mikołowskiej Karty Drzew v1.4 po korekcie jest materiałem do uzgodnień wewnętrznych i wymaga formalnego przyjęcia.</p>
         </article>
         <article class="partner-card">
           <span class="partner-label">Inicjatywa społeczna</span>

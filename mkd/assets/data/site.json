@@ -4,10 +4,10 @@
   "projekt": {
     "nazwa": "Mikołowska Karta Drzew",
     "program": "Mikołowska Karta Drzew",
-    "rola": "inicjatywa społeczna Mikołowianie dla klimatu przy gminnej Mikołowskiej Karcie Drzew",
+    "rola": "informacyjny serwis WWW pakietu Mikołowska Karta Drzew",
     "dataAktualizacji": "2026-07-03",
-    "status": "serwis roboczy przed formalnym porozumieniem",
-    "funkcjaDocelowa": "identyfikowalny rejestr nasadzeń i przyszłe wskazywanie potencjalnych miejsc nasadzeń przez mieszkańców"
+    "status": "pakiet v1.4 po korekcie jest materiałem do uzgodnień wewnętrznych i podpisania zarządzenia",
+    "funkcjaDocelowa": "informacyjna warstwa standardu MKD, Rejestr Wolnych Miejsc do Nasadzeń, karty drzew i przyszłe wskazywanie potencjalnych miejsc nasadzeń przez mieszkańców"
   },
   "kontakt": {
     "nazwa": "Mikołowska Karta Drzew",
@@ -18,7 +18,7 @@
   "partnerzy": [
     {
       "nazwa": "Gmina Mikołów",
-      "rola": "porozumienie w przygotowaniu",
+      "rola": "pakiet MKD v1.4 do uzgodnień wewnętrznych",
       "url": ""
     },
     {

@@ -1,5 +1,13 @@
 # Changelog
 
+## MKD-WWW-0.2.8-merge-mkd-v1-4 - 2026-07-03
+
+- Sprawdzono zgodność strony z pakietem `Mikolowska_Karta_Drzew_pakiet_final_v1_4_po_korekcie`.
+- Zmergowano treści pakietu v1.4: zasady MKD, kategorie miejsc A-E, karty operacyjne, SOD, tabelę doboru taksonów i dokumenty techniczne T-01-T-09.
+- Zaktualizowano status formalny na materiał do uzgodnień wewnętrznych i podpisania zarządzenia.
+- Zachowano wcześniejsze elementy strony: sezonowe drzewo, rejestr kart drzew, moduły jakości, brak niepotwierdzonych liczb i brak śladów zewnętrznych inicjatyw.
+- Podbito cache-bust CSS do `0.2.8`.
+
 ## MKD-WWW-0.2.7-standard-habitat-species - 2026-07-03
 
 - Wydzielono na stronie MKD moduły: `Standard nasadzeń`, `Ocena siedliska` i `Dobór gatunków`.
@@ -42,7 +50,7 @@
 ## MKD-WWW-0-bootstrap - 2026-07-03
 
 - Utworzono samodzielny statyczny projekt `mkd-www`.
-- Wydzielono i zaadaptowano układ informacyjny ze strony `RC-Silesia/WEBSITE` jako roboczy serwis Mikołowska Karta Drzew.
+- Wydzielono i zaadaptowano neutralny układ informacyjny jako roboczy serwis Mikołowska Karta Drzew.
 - Dodano status formalny inicjatywy oraz sekcję relacji obywatelskiego komponentu do gminnej Mikołowskiej Karty Drzew.
 - Dodano rejestr danych `assets/data/rejestr.json` w wersji schematu `0.2.0`, pusty na start.
 - Dodano placeholder polityki prywatności i wizerunku.

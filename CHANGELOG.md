@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.101-mkd-merge-v1-4
+- sprawdzono zgodność `mkd/` z pakietem `Mikolowska_Karta_Drzew_pakiet_final_v1_4_po_korekcie`;
+- zmergowano treści MKD v1.4: zasady standardu, kategorie miejsc A-E, karty operacyjne, SOD, tabelę doboru taksonów oraz dokumenty techniczne T-01-T-09;
+- zaktualizowano status formalny na materiał do uzgodnień wewnętrznych i podpisania zarządzenia;
+- zachowano bez regresji sezonowe drzewo, rejestr kart drzew, cache-bust CSS i czystość podstrony MKD bez śladów zewnętrznych inicjatyw.
+
 ## v1.5.100-mkd-standard-habitat-species
 - dodano w `mkd/` moduły `Standard nasadzeń`, `Ocena siedliska` i `Dobór gatunków`;
 - wydzielono materiał merytoryczny do języka MKD, bez śladów zewnętrznych inicjatyw w publicznej podstronie;

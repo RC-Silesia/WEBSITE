@@ -1,8 +1,8 @@
 # Mikołowska Karta Drzew
 
-`mkd-www` to samodzielny statyczny projekt roboczego serwisu Mikołowska Karta Drzew. Serwis rozwija inicjatywę Mikołowianie dla klimatu przy gminnej Mikołowskiej Karcie Drzew i jest przygotowywany jako narzędzie publicznej informacji o standardzie odpowiedzialnych nasadzeń.
+`mkd-www` to samodzielny statyczny projekt roboczego serwisu Mikołowska Karta Drzew. Serwis prezentuje informacyjną warstwę pakietu MKD v1.4 po korekcie: aktywne zadrzewianie miasta, kategorie miejsc, karty operacyjne, tabelę doboru taksonów, rejestry i etapowe dokumenty techniczne.
 
-Status formalny: porozumienie z Gminą Mikołów jest w przygotowaniu. Do czasu jego zawarcia serwis ma charakter roboczy i nie jest oficjalnym serwisem Gminy.
+Status formalny: pakiet MKD v1.4 po korekcie jest materiałem do uzgodnień wewnętrznych i podpisania zarządzenia. Do czasu formalnego przyjęcia dokumentu serwis ma charakter informacyjny i roboczy.
 
 ## Zasada rejestru
 
@@ -21,13 +21,16 @@ Każda karta drzewa dokumentuje:
 
 ## Moduły merytoryczne
 
-Wersja `0.2.7` wydziela na stronie trzy moduły informacyjne MKD:
+Wersja `0.2.8` scala treść strony z pakietem `Mikolowska_Karta_Drzew_pakiet_final_v1_4_po_korekcie` i zachowuje wcześniejsze moduły informacyjne MKD:
 
-- `Standard nasadzeń` - kolejność decyzji od pytania, czy sadzić, do monitoringu przeżywalności,
-- `Ocena siedliska` - kryteria sprawdzania gleby, wody, światła, przestrzeni, infrastruktury, użytkowania, wartości przyrodniczej i opieki,
-- `Dobór gatunków` - lista pomocnicza gatunków rekomendowanych, warunkowych, wymagających ostrożności oraz niewprowadzanych w standardzie MKD.
+- `Standard MKD v1.4` - podstawowe zasady aktywnego zadrzewiania miasta,
+- `Kategorie miejsc A-E` - decyzja, czy sadzić drzewo duże, mniejsze, formę kolumnową czy zieleń alternatywną,
+- `Karty operacyjne` - Karta Miejsca Nasadzenia i Karta Terenu Inwestycji,
+- `Ocena miejsca` - pola decyzyjne: korzenie, korona, woda, zasolenie, kolizje, uzbrojenie i utrzymanie,
+- `Dobór taksonów` - tabela pomocnicza do kategorii miejsca oraz lista taksonów wymagających ostrożności,
+- `Dokumenty T-01-T-09` - rejestr dokumentów technicznych do etapowego opracowania.
 
-Listy gatunków nie zastępują oceny konkretnego miejsca. Gatunki regulowane prawnie wymagają aktualnej weryfikacji przed decyzją terenową.
+Tabela doboru taksonów nie zastępuje oceny konkretnego miejsca. Gatunki regulowane prawnie i gatunki ryzyka wymagają aktualnej weryfikacji przed decyzją terenową.
 
 ## Schemat karty drzewa
 
@@ -99,7 +102,7 @@ Przy `file://` przeglądarka może zablokować `fetch` do plików JSON. To oczek
 
 ## Pochodzenie architektury
 
-Projekt korzysta z architektury wypracowanej w repo `RC-Silesia/WEBSITE`, ale nie zależy od jego plików. Zaadaptowano:
+Projekt korzysta z wcześniej wypracowanego wzorca statycznej strony informacyjnej, ale nie zależy od zewnętrznych plików ani nazewnictwa. Zaadaptowano:
 
 - układ informacyjny sekcji projektowych, aktualnościowych i galeryjnych,
 - wzorzec akordeonu klikalnego i obsługiwanego klawiaturą,
@@ -107,7 +110,7 @@ Projekt korzysta z architektury wypracowanej w repo `RC-Silesia/WEBSITE`, ale ni
 - ostrożny model komunikacji: brak liczb i efektów bez potwierdzonego rejestru.
 - własny system kolorystyki sezonowej MKD oparty o ciemną zieleń i barwy liści.
 
-Repo `RC-Silesia/WEBSITE` jest w tym sprincie tylko źródłem odczytu i nie jest modyfikowane.
+Źródła zewnętrzne nie są częścią publicznego serwisu MKD.
 
 ## Odstępstwa względem źródła
 

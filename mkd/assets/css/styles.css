@@ -583,6 +583,10 @@ button:focus-visible,
   margin: 0 auto;
 }
 
+.species-grid--after {
+  margin-top: 18px;
+}
+
 .species-group {
   display: grid;
   align-content: start;
