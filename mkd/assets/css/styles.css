@@ -346,6 +346,7 @@ button:focus-visible,
 
 .principle-grid,
 .partner-grid,
+.submission-grid,
 .legal-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -356,6 +357,7 @@ button:focus-visible,
 
 .principle-card-static,
 .partner-card,
+.submission-grid article,
 .legal-grid article {
   padding: 22px;
   border: 1px solid var(--line);
@@ -374,8 +376,29 @@ button:focus-visible,
   border-top-color: var(--gold);
 }
 
+.submission-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.submission-grid article {
+  border-top-color: var(--green);
+}
+
+.submission-grid article:nth-child(2) {
+  border-top-color: var(--blue);
+}
+
+.submission-grid article:nth-child(3) {
+  border-top-color: var(--gold);
+}
+
+.submission-grid article:nth-child(4) {
+  border-top-color: var(--cardinal);
+}
+
 .principle-card-static h3,
 .partner-card h3,
+.submission-grid h3,
 .legal-grid h2 {
   margin: 10px 0 8px;
   color: var(--blue-dark);
@@ -384,9 +407,31 @@ button:focus-visible,
 
 .principle-card-static p,
 .partner-card p,
+.submission-grid p,
 .legal-grid p {
   margin: 0;
   color: var(--muted);
+}
+
+.submission-status {
+  max-width: 940px;
+  margin: 28px auto 0;
+  padding: 20px 22px;
+  color: var(--blue-dark);
+  background: #fff7e6;
+  border-left: 6px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+}
+
+.submission-status strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+.submission-status p {
+  margin: 0;
+  color: var(--blue-dark);
 }
 
 .badge,
@@ -740,6 +785,7 @@ button:focus-visible,
 
   .principle-grid,
   .partner-grid,
+  .submission-grid,
   .legal-grid,
   .registry-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -767,6 +813,7 @@ button:focus-visible,
 
   .principle-grid,
   .partner-grid,
+  .submission-grid,
   .legal-grid,
   .registry-list {
     grid-template-columns: 1fr;

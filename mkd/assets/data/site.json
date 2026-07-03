@@ -4,7 +4,9 @@
   "projekt": {
     "nazwa": "Mikołowska Karta Drzew 1:1",
     "program": "ROTARY for PLANET",
-    "dataAktualizacji": "2026-07-03"
+    "dataAktualizacji": "2026-07-03",
+    "status": "serwis informacyjny",
+    "funkcjaDocelowa": "zgłaszanie potencjalnych miejsc nasadzeń przez mieszkańców"
   },
   "kontakt": {
     "nazwa": "Mikołowska Karta Drzew 1:1",

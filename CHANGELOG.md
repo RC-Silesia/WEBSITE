@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.91-mkd-independent-info-service
+- doprecyzowano MKD jako niezależny serwis informacyjny Mikołowskiej Karty Drzew;
+- dodano w `mkd/` sekcję przyszłego wskazywania potencjalnych miejsc nasadzeń przez mieszkańców;
+- opisano status formularza zgłoszeń jako funkcję w przygotowaniu, zależną od RODO, moderacji i procesu weryfikacji lokalizacji.
+
 ## v1.5.90-mkd-main-entry
 - przeniesiono pełny pakiet MKD - Mikołowskiej Karty Drzew 1:1 do publicznego katalogu `mkd/`;
 - dodano wejście `MKD` w głównej nawigacji oraz kartę MKD w sekcji `#kierunki`;

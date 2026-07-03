@@ -1,6 +1,8 @@
 # Mikołowska Karta Drzew 1:1
 
-Samodzielny statyczny projekt programu identyfikowalnych nasadzeń drzew w Mikołowie i na Górnym Śląsku. Projekt wydziela kierunek ROTARY for PLANET z architektury strony `RC-Silesia/WEBSITE`, ale nie zależy od żadnych plików tamtego repozytorium.
+Samodzielny statyczny projekt informacyjnego serwisu programu identyfikowalnych nasadzeń drzew w Mikołowie i na Górnym Śląsku. Projekt wydziela kierunek ROTARY for PLANET z architektury strony `RC-Silesia/WEBSITE`, ale nie zależy od żadnych plików tamtego repozytorium.
+
+Na tym etapie MKD pełni funkcję informacyjną: opisuje zasadę 1:1, standard antygreenwashingowy, pusty rejestr startowy i planowany proces zgłaszania lokalizacji. Docelowo serwis ma pozwolić mieszkańcom łatwo wskazywać potencjalne miejsca nasadzeń.
 
 ## Zasada 1:1
 
@@ -43,6 +45,19 @@ Zasady danych:
 - `opiekun` jest opcjonalny i nie powinien zawierać danych osobowych osób fizycznych do czasu przyjęcia polityki RODO,
 - `kartaNasadzeniaD2` jest referencją do dokumentu Karty Nasadzenia D2 i w tym sprincie pozostaje pustym stringiem,
 - status monitoringu przyjmuje jedną z wartości: `zyje`, `oslabione`, `usuniete`, `wymienione`, `brak-danych`.
+
+## Zgłaszanie miejsc przez mieszkańców
+
+Docelowa funkcja zgłoszeń ma umożliwić mieszkańcom wskazywanie potencjalnych miejsc nasadzeń. Na etapie informacyjnym formularz nie jest uruchomiony.
+
+Planowany proces:
+
+- wskazanie lokalizacji na mapie albo przez opis miejsca,
+- krótki kontekst potrzeby nasadzenia,
+- weryfikacja własności, uzbrojenia terenu, warunków siedliskowych i możliwości pielęgnacji,
+- wpis do rejestru dopiero po wykonaniu i udokumentowaniu nasadzenia.
+
+Uruchomienie formularza wymaga przyjęcia zakresu danych, zasad RODO, moderacji zgłoszeń oraz procesu weryfikacji lokalizacji.
 
 ## Lokalny podglad
 
