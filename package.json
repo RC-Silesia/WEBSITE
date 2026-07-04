@@ -5,9 +5,10 @@
   "description": "Statyczny prototyp strony RC Silesia",
   "scripts": {
     "check:js": "node --check assets/js/script.js",
+    "check:staging-preview": "node scripts/staging-preview-check.mjs",
     "check:runtime:v1.5.34": "node scripts/check-website-v1-5-34-runtime.mjs",
     "check:wcag:static": "node scripts/wcag-static-check.mjs",
-    "check:governance": "npm run check:js && npm run check:wcag:static",
+    "check:governance": "npm run check:js && npm run check:staging-preview && npm run check:wcag:static",
     "ci:gates": "npm run check:governance",
     "newsletter": "node scripts/generate-newsletter.js",
     "optimize": "node scripts/optimize.js",

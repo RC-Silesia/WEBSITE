@@ -1,0 +1,132 @@
+/*
+  RC Silesia frontend redesign staging layer.
+  Status: STAGING_PREVIEW only. This file must not be treated as production CSS.
+*/
+
+.staging-banner {
+  background: #7a1f1f;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+  text-align: center;
+}
+
+.staging-banner p {
+  margin: 0;
+}
+
+.staging-preview-status {
+  display: grid;
+  gap: 16px;
+  padding-block: clamp(28px, 4vw, 48px);
+  background: #f4f7fb;
+  border-bottom: 1px solid var(--line);
+}
+
+.staging-preview-status__inner {
+  display: grid;
+  gap: 18px;
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.staging-preview-status__label {
+  width: fit-content;
+  padding: 5px 9px;
+  border: 1px solid rgba(23, 69, 143, .2);
+  border-radius: 6px;
+  color: var(--blue-dark);
+  background: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.staging-preview-status h2 {
+  margin: 0;
+  max-width: 860px;
+  color: var(--blue-dark);
+  font-size: clamp(26px, 4vw, 42px);
+  line-height: 1.1;
+}
+
+.staging-preview-status p {
+  margin: 0;
+  max-width: 860px;
+  color: var(--graphite);
+}
+
+.staging-preview-status__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.staging-preview-status__item {
+  min-height: 100%;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.staging-preview-status__item strong,
+.staging-preview-status__item span {
+  display: block;
+}
+
+.staging-preview-status__item strong {
+  color: var(--blue-dark);
+}
+
+.staging-preview-status__item span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.demo-value-badge,
+[data-demo-value="true"]::after {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  padding: 2px 6px;
+  border: 1px solid rgba(122, 31, 31, .24);
+  border-radius: 6px;
+  color: #7a1f1f;
+  background: #fff5f2;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+[data-demo-value="true"]::after {
+  content: "demo";
+}
+
+.staging-preview-note {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(23, 69, 143, .18);
+  border-radius: 8px;
+  color: var(--blue-dark);
+  background: #fff;
+}
+
+@media (max-width: 860px) {
+  .staging-preview-status__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .staging-preview-status__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .staging-preview-status__inner {
+    width: min(100% - 24px, 1120px);
+  }
+}

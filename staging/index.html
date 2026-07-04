@@ -23,19 +23,7 @@
   <meta name="twitter:image:alt" content="RC Silesia - Rotary Klub Silesia na Górnym Śląsku">
   <link rel="icon" href="../assets/img/rotary-moe-r-rev.png" type="image/png">
   <link rel="stylesheet" href="../assets/css/styles.css?v=1.5.126">
-  <style>
-    .staging-banner {
-      background: #7a1f1f;
-      color: #fff;
-      font-weight: 700;
-      padding: 0.85rem 1rem;
-      text-align: center;
-    }
-
-    .staging-banner p {
-      margin: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/staging-preview.css?v=0.1.0">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -78,7 +66,7 @@
 <body>
   <a class="skip-link" href="#start">Przejdź do treści</a>
   <div class="staging-banner" role="note">
-    <p>Wersja robocza / staging. Materiał podglądowy do pracy nad stroną RC Silesia. Nie jest oficjalną publiczną wersją serwisu.</p>
+    <p>STAGING_PREVIEW. Materiał podglądowy do pracy nad stroną RC Silesia. Nie jest oficjalną publiczną wersją serwisu ani wdrożeniem produkcyjnym.</p>
   </div>
   <div class="top-bar" aria-label="Informacje kontaktowe i media społecznościowe">
     <div class="top-bar__inner">
@@ -144,6 +132,20 @@
   </header>
 
   <main id="start">
+    <section class="staging-preview-status" aria-labelledby="staging-preview-title">
+      <div class="staging-preview-status__inner">
+        <p class="staging-preview-status__label">STAGING_PREVIEW / NOT_PRODUCTION_READY</p>
+        <h2 id="staging-preview-title">Warstwa prototypowa publicznej strony RC Silesia</h2>
+        <p>Ten podgląd służy do oceny kierunku UX/UI, treści i ścieżek kontaktu. Dane formalne pozostają widoczne bez zmian, a elementy robocze, placeholdery i wartości demonstracyjne są oznaczone przed ewentualnym przeniesieniem do publicznego root.</p>
+        <div class="staging-preview-status__grid" aria-label="Status prototypu">
+          <div class="staging-preview-status__item"><strong>Zakres</strong><span>CSS/HTML staging, bez backendu i bez płatności online.</span></div>
+          <div class="staging-preview-status__item"><strong>Demo values</strong><span>Kwoty, social placeholders i newsletter są robocze.</span></div>
+          <div class="staging-preview-status__item"><strong>Assety i zgody</strong><span>Wymagają checklisty oraz potwierdzeń publikacji.</span></div>
+          <div class="staging-preview-status__item"><strong>Testy</strong><span>Mobile/WCAG/Lighthouse raportowane oddzielnie.</span></div>
+        </div>
+      </div>
+    </section>
+
     <section class="hero" aria-label="Rotary Klub Silesia">
       <canvas id="hero-canvas" aria-hidden="true"></canvas>
       <div class="hero-content">
@@ -1666,10 +1668,10 @@
             <fieldset class="amount-fieldset">
               <legend>Kwota darowizny</legend>
               <div class="amount-grid" role="group" aria-label="Sugerowana kwota">
-                <button type="button" class="amount-tile" data-amount="50" aria-pressed="false">50 zł</button>
-                <button type="button" class="amount-tile" data-amount="100" aria-pressed="false">100 zł</button>
-                <button type="button" class="amount-tile" data-amount="250" aria-pressed="false">250 zł</button>
-                <button type="button" class="amount-tile" data-amount="500" aria-pressed="false">500 zł</button>
+                <button type="button" class="amount-tile" data-amount="50" data-demo-value="true" aria-pressed="false">50 zł</button>
+                <button type="button" class="amount-tile" data-amount="100" data-demo-value="true" aria-pressed="false">100 zł</button>
+                <button type="button" class="amount-tile" data-amount="250" data-demo-value="true" aria-pressed="false">250 zł</button>
+                <button type="button" class="amount-tile" data-amount="500" data-demo-value="true" aria-pressed="false">500 zł</button>
                 <button type="button" class="amount-tile" data-amount="inna" aria-pressed="false">Inna kwota</button>
               </div>
               <label class="amount-other" hidden>Inna kwota (zł)<input type="number" min="1" step="1" inputmode="numeric" id="darowizna-inna" placeholder="np. 150"></label>
@@ -1690,6 +1692,7 @@
             <label class="checkbox"><input type="checkbox"> Akceptuję regulamin płatności (zostanie opublikowany przed uruchomieniem płatności online).</label>
             <button class="button primary support-pay" type="button" data-support-status="status-darowizna">Pokaż instrukcję wpłaty</button>
             <p class="support-status" id="status-darowizna" role="status" aria-live="polite"></p>
+            <p class="staging-preview-note">Kwoty szybkiego wyboru są wartościami demonstracyjnymi. Finalne progi wymagają decyzji Skarbnika/Zarządu i komunikacji księgowej.</p>
             <p class="field-note">Przelicznik „kwota = liczba drzew” podamy dopiero po ustaleniu rzeczywistego kosztu nasadzenia i pielęgnacji – zgodnie ze standardem antygreenwashingowym nie publikujemy szacunków bez pokrycia.</p>
           </div>
         </div>
@@ -1717,7 +1720,7 @@
             <label>Kwota (zł)<input type="number" min="1" step="1" inputmode="numeric"></label>
             <div class="title-preview">
               <span class="title-preview__label">Sugerowany tytuł przelewu</span>
-              <span class="title-preview__value" id="skladka-tytul" aria-live="polite">Składka członkowska – imię i nazwisko – miesiąc</span>
+              <span class="title-preview__value" id="skladka-tytul" data-demo-value="true" aria-live="polite">Składka członkowska – imię i nazwisko – miesiąc</span>
               <button type="button" class="copy-account-button copy-generic" data-copy-target="skladka-tytul" data-support-status="status-skladka-copy">Kopiuj tytuł</button>
               <p class="copy-status" id="status-skladka-copy" role="status" aria-live="polite"></p>
             </div>
@@ -1785,7 +1788,7 @@
       <div class="newsletter-hub-entry" aria-label="Newsletter tygodniowy RC Silesia">
         <div>
           <strong>Newsletter tygodniowy RC Silesia</strong>
-          <p>Demonstracyjny szkic raportu z wydarzeń i materiałów tygodnia, bez automatycznej wysyłki e-mail.</p>
+          <p>Demonstracyjny szkic raportu z wydarzeń i materiałów tygodnia, bez automatycznej wysyłki e-mail. <span class="demo-value-badge">demo value</span></p>
         </div>
         <a class="button secondary" href="../newsletter-preview.html">Otwórz podgląd newslettera</a>
       </div>
@@ -1872,7 +1875,7 @@
           <article class="media-card newsletter-media-card newsletter-media-card--featured" id="newsletter-media">
             <span>Newsletter</span>
             <h4>Newsletter tygodniowy RC Silesia</h4>
-            <p>Automatyczny szkic raportu z najciekawszymi wydarzeniami tygodnia. Wersja demonstracyjna – bez wysyłki e-mail.</p>
+            <p>Automatyczny szkic raportu z najciekawszymi wydarzeniami tygodnia. Wersja demonstracyjna – bez wysyłki e-mail. <span class="demo-value-badge">demo value</span></p>
             <p class="newsletter-status">Status: draft / wymaga zatwierdzenia</p>
             <a class="button secondary" href="../newsletter-preview.html">Otwórz podgląd newslettera</a>
           </article>

@@ -27,6 +27,8 @@ Publikacja stagingowa służy do technicznego i organizacyjnego sprawdzenia stro
 
 ## D. Lista kontrolna przed deploymentem
 
+- [ ] Sprawdzić `docs/RC_SILESIA_FRONTEND_ASSETS_CONSENTS_CHECKLIST.md`.
+- [ ] Potwierdzić, że wszystkie demo values są oznaczone widocznie albo atrybutem `data-demo-value="true"`.
 - [ ] Potwierdzić, że dokumenty w `assets/docs/` mogą być dostępne w stagingu.
 - [ ] Potwierdzić, że numer konta może być widoczny w wersji demonstracyjnej.
 - [ ] Potwierdzić, że stopka zawiera informację o wersji demonstracyjnej.
@@ -37,6 +39,7 @@ Publikacja stagingowa służy do technicznego i organizacyjnego sprawdzenia stro
 - [ ] Sprawdzić brak starych ścieżek `documents/`.
 - [ ] Sprawdzić brak Windowsowych backslashy w ścieżkach HTML/CSS/JS.
 - [ ] Sprawdzić `node --check assets/js/script.js`.
+- [ ] Sprawdzić `npm run check:staging-preview`.
 - [ ] Sprawdzić `node --check scripts/optimize.js`.
 
 ## E. Lista kontrolna po deploymencie
@@ -50,6 +53,7 @@ Publikacja stagingowa służy do technicznego i organizacyjnego sprawdzenia stro
 - [ ] Sprawdzić zakładki social hubu i lazy-load YouTube.
 - [ ] Sprawdzić, czy martwe linki social są oznaczone jako `Kanał wkrótce`.
 - [ ] Sprawdzić widok mobile, tablet i desktop.
+- [ ] Uruchomić Lighthouse, gdy narzędzie będzie dostępne lokalnie albo w CI; brak narzędzia raportować jako `LIGHTHOUSE_NOT_RUN_TOOL_MISSING`, nie jako PASS.
 
 ## F. Decyzje wymagane przed wersją produkcyjną
 
